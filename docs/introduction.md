@@ -17,7 +17,7 @@ and do more with a fully flexible open source platform
 
 <p>Set up Rowy on your Google Cloud Platform project with this one-click deploy button.
 <a href="https://deploy.cloud.run/?git_repo=https://github.com/rowyio/rowyRun.git" target="_blank">
-<img src="../docs/assets/button.svg" alt="One Click Deploy"
+<img src="./docs/assets/button.svg" alt="One Click Deploy"
 title="One Click Deploy" width="250" height="100" /></a>
 </p>
 

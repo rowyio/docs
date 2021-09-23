@@ -8,7 +8,7 @@ sidebar_label: Install
 
 <p>You can easily setup Rowy on your Google Cloud/Firebase project using this one-click deploy. This will install Rowy using a Cloud Run instance and guide you with a step by step process to getting started effortlessly.  
 <a href="https://deploy.cloud.run/?git_repo=https://github.com/rowyio/rowyRun.git" target="_blank">
-<img src="../docs/assets/button.svg" alt="One Click Deploy" title="One Click Deploy" width="250" height="100" /></a></p> 
+<img src="./docs/assets/button.svg" alt="One Click Deploy" title="One Click Deploy" width="250" height="100" /></a></p> 
 Once installed you will be guided in the Rowy UI to 
 
 ### Using Yarn - Manual
