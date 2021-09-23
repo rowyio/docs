@@ -11,7 +11,7 @@ In Column Settings, write a function body that returns the value to be displayed
 
 To use Derivative fields, you must:
 - be comfortable writing simple JavaScript code and
-- have Rowy Cloud Functions set up via the [one click deploy](rowy.app/deploy) of Rowy Run.
+- have Rowy Cloud Functions set up via the [one click deploy](https://rowy.app/deploy) of Rowy Run.
 
 # API
 
