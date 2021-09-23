@@ -15,5 +15,6 @@ You'll need to index your table data on algolia, use can use the [algoliaIndex e
 
 ## Setup
 
+![Environment Variables](envVars.png)
 
 
