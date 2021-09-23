@@ -1,0 +1,173 @@
+---
+id: derivative
+title: Derivative
+sidebar_label: Derivative
+slug: /field-types/derivative
+---
+
+Derivative fields derive their value from other fields in the row. They are automatically evaluated whenever the dependent fields are updated.
+
+In Column Settings, write a function body that returns the value to be displayed in the field. This code is run in a Node.js cloud function.
+
+To use Derivative fields, you must:
+- be comfortable writing simple JavaScript code and
+- have Rowy Cloud Functions set up via the [one click deploy](rowy.app/deploy) of Rowy Run.
+
+# API
+
+Your code has access to the following parameters and can use the [`await` keyword](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await).
+
+You can also use npm packages using [CommonJS `require` imports](https://nodejs.org/en/knowledge/getting-started/what-is-require/).
+
+| Name      | Type                                                                                                                           | Description                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
+| `row`     | [`Record<string, any>`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeystype)                        | All data in the current row.                                                      |
+| `ref`     | [`firebase.firestore.DocumentReference`](https://firebase.google.com/docs/reference/node/firebase.firestore.DocumentReference) | Reference to the corresponding Firestore document of the current row.             |
+| `db`      | [`firebase.firestore.Firestore`](https://firebase.google.com/docs/reference/node/firebase.firestore.Firestore)                 | Access to the full Cloud Firestore instance to access any collection or document. |
+| `auth`    | [`admin.auth.Auth`](https://firebase.google.com/docs/reference/admin/node/admin.auth.Auth-1)                                   | Access to Firebase Auth via Admin SDK                                             |
+| `storage` | [`admin.storage.Storage`](https://firebase.google.com/docs/reference/admin/node/admin.storage.Storage-1)                       | Access to Firebase Storage via Admin SDK                                          |
+
+
+# Examples
+
+## Basic use case
+
+Add an additional field to simplify client-side queries.
+
+Problem: On the client side, we want to see which requests are ready for approval. We need to know which rows have the `amount` and `claim` field set. We don’t want to create a [composite index](https://firebase.google.com/docs/firestore/query-data/index-overview#composite_indexes), which would be costly.
+
+Solution: Create a new field that contains a boolean value based on the values of those fields. The client-side can filter by this new field.
+
+```js
+// Mark document as ready for approval
+if (row.amount && row.claim) return true;
+else return false;
+```
+
+
+## Intermediate use case
+
+Use data from other parts of the database in this row.
+
+Problem: We want to attach the user’s email to a request. We want to automate this and not have to expose all the user’s sensitive data on the client side.
+
+Solution: Create a new field that gets the email. It is run on a secure backend environment and does not expose sensitive data.
+
+```js
+// Get user doc
+const userDoc = db.collection("users").doc(row.uid);
+return userDoc.get("email");
+```
+
+## Advanced use cases
+
+Use 3rd-party npm packages for more advanced functionality.
+
+### REST API request 
+
+To connect with any REST API, first install a package like [got](https://www.npmjs.com/package/got).
+
+Problem: We want to get a list of all airport codes from natural language text.
+
+Solution: Use [OpenAI’s GPT-3 API](https://openai.com/blog/openai-api/) to extract the airport codes as an array.
+
+```js
+const got = require("got");
+const prompt = `Airport code extractor:
+
+Text: \"I want to fly form Los Angeles to Miami.\"
+Airport codes: LAX, MIA
+
+Text: \"${row.text}\"
+Airport codes:`;
+
+const url = "https://api.openai.com/v1/engines/davinci/completions";
+const params = {
+    prompt,
+    max_tokens: 60,
+    temperature: 0.3,
+    frequency_penalty: 0,
+    top_p: 1,
+    stop: ["\n"]
+};
+const headers = {
+    "Authorization": `Bearer ${"YOUR_SECRET_KEY_HERE"}`,
+};
+const response = await got.post(url, { json: params, headers: headers }).json();
+
+return response.choices[0].text.split(",'").map(x => x.trim());
+```
+
+### Google Cloud API
+
+To use any Google Cloud API, first enable it in the Google Cloud Console. [Enable Cloud Translation API ↗](https://console.cloud.google.com/flows/enableapi?apiid=translate.googleapis.com)  
+We automatically set the API credentials as the project’s [default service account](https://cloud.google.com/iam/docs/service-accounts#default).
+
+Problem: We want to translate some text into another language.
+
+Solution: Use the [Google Cloud Translation API](https://console.cloud.google.com/flows/enableapi?apiid=translate.googleapis.com).
+
+```js
+const { Translate } = require("@google-cloud/translate").v2;
+
+// Instantiates a client 
+const translate = new Translate();
+
+// Translates text field into Spanish
+const [translation] = await translate.translate(row.text, "es');
+return translation;
+```
+
+### Firebase Storage
+
+You can use the provided `storage` parameter to access Firebase Storage SDK
+
+Problem: Users provide images using external URLs, but the images could get removed from the host provider, leading to broken images.
+
+Solution: Store a copy of the image in Firebase Storage.
+1. Use [node-fetch](https://www.npmjs.com/package/node-fetch) to download an image from an external URL.
+2. Use [file-Type](https://www.npmjs.com/package/file-type) to get the image type.
+3. Use [uuid](https://www.npmjs.com/package/uuid) to generate a unique token used to secure the download URL and make it downloadable.
+4. Use the [storage](https://firebase.google.com/docs/reference/admin/node/admin.storage.Storage-1) parameter to upload the image to Firebase Storage.
+
+```js
+const fetch = require("node-fetch");
+const FileType = require("file-type");
+const uuid = require("uuid");
+
+const url = row.externalImage;
+const response = await fetch(url);
+
+if (response.ok) {
+  // Once the response is successful, get buffer data
+  const dataBuffer = await response.buffer();
+  // Get the Firebase project’s default bucket
+  const bucket = storage.bucket();
+  const fileName = url.split("/").pop();
+  // Use file-type to extract the type from the buffer
+  const fileType = await FileType.fromBuffer(dataBuffer);
+  // Set the file path in the same structure as the Firestore document
+  const file = bucket.file(`${ref.path}/${fileName}${fileName.includes(".") ? "": `.${fileType.ext}`}`);
+  // Generate a unique download token
+  const token = uuid.v4();
+  // Upload the image
+  await file.save(dataBuffer, {
+    metadata: {
+      contentType: fileType.mime,
+      metadata: { firebaseStorageDownloadTokens: token }
+    }
+  });
+  // Return data that will stored as the field value
+  // Return an array of image objects that will be displayed by the Rowy UI
+  return [{
+    downloadURL: `https://firebasestorage.googleapis.com/v0/b/${
+      bucket.name
+    }/o/${encodeURIComponent(file.name)}?alt=media&token=${token}`,
+    name: fileName,
+    type: fileType.mime,
+    lastModifiedTS: new Date()
+  }];
+}
+
+return [];
+```

@@ -39,15 +39,13 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Community",
-      collapsed: false,
-      items: ["community/contributing", "community/faqs"],
-    },
-    {
-      type: "category",
       label: "Field Types",
       collapsed: true,
-      items: ["field-types/connect-table"],
+      items: [
+        "field-types/supported-fields",
+        "field-types/derivative",
+        "field-types/connect-table",
+      ],
     },
     {
       type: "category",
@@ -55,5 +53,7 @@ module.exports = {
       collapsed: true,
       items: ["extensions/algolia-index"],
     },
+    "community/contributing",
+    "community/faqs",
   ],
 };
