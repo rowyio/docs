@@ -39,11 +39,6 @@ git clone https://github.com/rowyio/rowy.git
     REACT_APP_FIREBASE_PROJECT_ID = 
     REACT_APP_FIREBASE_PROJECT_WEB_API_KEY = 
     ```
-- (Optional) Get the generated **Application ID** and **Search-Only API Key** from the Algolia **API Keys** page.
-    ```
-    REACT_APP_ALGOLIA_APP_ID = 
-    REACT_APP_ALGOLIA_SEARCH_API_KEY = 
-    ```
 
 #### 3. Install front-end dependencies using Yarn.
 ```
