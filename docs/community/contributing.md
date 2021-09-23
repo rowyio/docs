@@ -10,7 +10,7 @@ We ❤️ and welcome all contributions including features, issues, answering di
 ## How to contribute?
 - Try Rowy and give [feedback](mailto:feedback@rowy.io)
 - Raise any [issue](https://github.com/rowyio/rowy/issues)
-- Create a pull request (good first issues [list]((https://github.com/rowyio/rowy/projects/3)))
+- Create a pull request (good first issues [list](https://github.com/rowyio/rowy/projects/3)
 - Help us improve our [docs](https://github.com/rowyio/rowy/docs)
 - Spread the word if you like Rowy by [tweeting](https://ctt.ac/M00va) about it
   
