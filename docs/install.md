@@ -47,3 +47,8 @@ git clone https://github.com/rowyio/rowy.git
 ```
 yarn
 ```
+
+#### 4. Run the app locally.
+```
+yarn start
+```
