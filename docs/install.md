@@ -7,11 +7,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### Using one click deploy - ✅ Recommended
 
-<p>You can easily setup Rowy on your Google Cloud/Firebase project using this one-click deploy. This will install Rowy using a Cloud Run instance and guide you with a step by step process to getting started effortlessly.  
+<p>You can easily setup Rowy on your Google Cloud/Firebase project using the following one-click deploy button. This will install Rowy using a Cloud Run instance and guide you with a step by step process.<br/>
 <a href="https://deploy.cloud.run/?git_repo=https://github.com/rowyio/rowyRun.git" target="_blank">
-<img alt="One Click Deploy" src={useBaseUrl('/docs/assets/button.png')} title="One Click Deploy" width="250" /></a><br/>
+<img alt="One Click Deploy" src="/img//button.png" title="One Click Deploy" width="250" /></a><br/>
 Once installed, you will be given an URL to the Rowy App and follow it to get started as highlighted below.</p> 
-<img src={useBaseUrl('/docs/assets/cloudrun.png')} alt="Cloud Run Output"
+<img src="/img/cloudrun.png" alt="Cloud Run Output"
 title="Cloud Run Output" width="600" />
 
 ### Using Yarn - Manual
