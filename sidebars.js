@@ -20,12 +20,11 @@ module.exports = {
   // },
 
   someSidebar: [
-    "home",
     {
       type: "category",
-      label: "Get Started",
+      label: "Overview",
       collapsed: false,
-      items: ["install", "faq"],
+      items: ["introduction", "install", "faq"],
     },
     {
       type: "category",
