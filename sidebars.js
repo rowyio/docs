@@ -32,5 +32,17 @@ module.exports = {
       collapsed: true,
       items: ["how-to/create-table"],
     },
+    {
+      type: "category",
+      label: "Field Types",
+      collapsed: true,
+      items: ["field-types/connect-table"],
+    },
+    {
+      type: "category",
+      label: "Extensions",
+      collapsed: true,
+      items: ["extensions/algolia-index"],
+    },
   ],
 };
