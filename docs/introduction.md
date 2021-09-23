@@ -13,7 +13,7 @@ With Rowy you can
 ✅ Connect to your favorite third party platforms  
 and do more with a fully flexible open source platform 
 
-<img src="https://firebasestorage.googleapis.com/v0/b/rowyio.appspot.com/o/publicDemo%2FRowy%20Website%20Video.gif?alt=media&token=184ed868-e9dd-4082-b881-436845076d8b"/>
+<img src="https://firebasestorage.googleapis.com/v0/b/rowyio.appspot.com/o/publicDemo%2FRowy%20Website%20Video.gif?alt=media&token=184ed868-e9dd-4082-b881-436845076d8b" />
 
 ### Quick Try
 

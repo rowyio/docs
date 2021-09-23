@@ -24,13 +24,24 @@ module.exports = {
       type: "category",
       label: "Overview",
       collapsed: false,
-      items: ["introduction", "install", "faq"],
+      items: ["introduction", "install"],
     },
     {
       type: "category",
-      label: "How To",
+      label: "How To - Guides",
       collapsed: true,
-      items: ["how-to/create-table"],
+      items: [
+        "how-to/create-table",
+        "how-to/create-column",
+        "how-to/add-row",
+        "how-to/filter-and-sort",
+      ],
+    },
+    {
+      type: "category",
+      label: "Community",
+      collapsed: false,
+      items: ["community/contributing", "community/faqs"],
     },
     {
       type: "category",

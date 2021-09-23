@@ -1,7 +1,8 @@
 ---
-id: faq
+id: faqs
 title: FAQs
 sidebar_label: FAQs
+slug: /community/faqs
 ---
 
 ### Do you support `[some other database]`?

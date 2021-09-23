@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
   module.exports = {
     title: "Rowy Docs",
     tagline: "Open source and extendable spreadsheet for your database",
-    url: "https://docs.rowy.io/",
+    url: "https://rowy.io/",
     baseUrl: "/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
