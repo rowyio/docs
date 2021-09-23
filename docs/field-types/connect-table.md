@@ -15,6 +15,19 @@ You'll need to index your table data on algolia, use can use the [algoliaIndex e
 
 ## Setup
 
-![Environment Variables](envVars.png)
+Go to the Rowy Run cloud run Configuration
+
+Variables & Secrets
+
+add the following variables, you should be able to find them on your Algolia dashboard
+```
+ALGOLIA_APPLICATION_ID
+ALGOLIA_ADMIN_KEY
+ALGOLIA_SEARCH_KEY
+```
+
+![Environment Variables](envVars.jpg)
 
 
+
+## Configurations

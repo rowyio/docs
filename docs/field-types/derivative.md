@@ -131,7 +131,7 @@ Solution: Store a copy of the image in Firebase Storage.
 4. Use the [storage](https://firebase.google.com/docs/reference/admin/node/admin.storage.Storage-1) parameter to upload the image to Firebase Storage.
 
 ```js
-const fetch = require("node-fetch");
+const fetch = require("node-fetch@2.6.1");
 const FileType = require("file-type");
 const uuid = require("uuid");
 
