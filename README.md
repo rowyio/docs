@@ -1,6 +1,7 @@
-# Website
+<img with="300" src="https://user-images.githubusercontent.com/307298/134683363-0f13f9a0-b9f7-44cf-897a-db3594f8c814.png"/>
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+Documentation website of Rowy built using [Docusaurus](https://docusaurus.io/).
+
 
 ### Installation
 
