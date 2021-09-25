@@ -52,8 +52,10 @@ module.exports = {
       type: "category",
       label: "Extensions",
       collapsed: true,
-      items: ["extensions/algolia-index",
+      items: [
+        "extensions/algolia-index",
         "extensions/sendgrid-email",
+        "extensions/twilio-message"
     ],
     },
     "community/contributing",
