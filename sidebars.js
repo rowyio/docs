@@ -53,6 +53,7 @@ module.exports = {
       collapsed: true,
       items: ["extensions/algolia-index"],
     },
+    "default-values",
     "community/contributing",
     "community/faqs",
   ],
