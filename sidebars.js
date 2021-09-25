@@ -35,6 +35,7 @@ module.exports = {
         "how-to/create-column",
         "how-to/add-row",
         "how-to/filter-and-sort",
+        "how-to/default-values"
       ],
     },
     {
@@ -53,7 +54,6 @@ module.exports = {
       collapsed: true,
       items: ["extensions/algolia-index"],
     },
-    "default-values",
     "community/contributing",
     "community/faqs",
   ],

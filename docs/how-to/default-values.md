@@ -2,12 +2,12 @@
 id: default-values
 title: Default Values
 sidebar_label: Default Values
-slig: /default-values
+slig: how-to/default-values
 ---
 
 Default values can be set for any column and will be set whenever a new row is created. Set default values in Column Settings.
 
-
+![default-values](./default-values.png)
 
 <table><tbody><tr><td>
 
