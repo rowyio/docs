@@ -57,7 +57,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             },
             // { to: "/blog", label: "Blog", position: "right" },
             {
-              href: "https://github.com/rowyio/docs",
+              href: "https://github.com/rowyio/rowy",
               label: "GitHub",
               position: "right",
             },
