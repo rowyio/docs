@@ -5,9 +5,7 @@ sidebar_label: SendGrid Email
 slug: /extensions/sendgrid-email
 ---
 
-## sendGridEmail [(Source Code)](https://github.com/AntlerVC/firetable/blob/rc/ft_build/sparksLib/sendgridEmail.ts)
-
-Integrates with Sendgrid to simplify sending emails
+Integrates with SendGrid to simplify sending emails
 
 ### Secret Manager setup:
 
