@@ -7,7 +7,7 @@ slig: how-to/default-values
 
 Default values can be set for any column and will be set whenever a new row is created. Set default values in Column Settings.
 
-![default-values](./default-values.png)
+![default-values](./assets/default-values.png)
 
 <table><tbody><tr><td>
 
@@ -17,8 +17,8 @@ Default values can be set for any column and will be set whenever a new row is c
 - [Null](#null)
 - [Static](#static)
 - [Dynamic](#dynamic)
-  * [API](#api)
-  * [Examples](#examples)
+  - [API](#api)
+- [Examples](#examples)
 
 </td></tr></tbody></table>
 

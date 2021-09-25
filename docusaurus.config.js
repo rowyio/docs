@@ -46,6 +46,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
           logo: {
             alt: "Rowy Docs",
             src: "img/rowyicon.png",
+            href: "https://rowy.io",
           },
           items: [
             {
