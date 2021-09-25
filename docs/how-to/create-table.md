@@ -7,7 +7,7 @@ slug: /how-to/create-table
 
 Click the plus icon on the bottom-right corner of the Rowy app home page and follow the instructions to add your table details.
 
-![create-table](./create-table.gif)
+![create-table](./assets/create-table.gif)
 
 ### Note
 - You can create multiple views of the same collection using different TableIDs
