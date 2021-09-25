@@ -18,8 +18,9 @@ SENDGRID_API_KEY
 
 ## Usage
 
-below is an example of we send invite emails
-the return object needs to be compliant with [SendGrid V3 request body](https://sendgrid.api-docs.io/v3.0/mail-send/v3-mail-send) 
+Below is an example of how we send invite emails.
+
+The return object needs to be compliant with [SendGrid V3 request body](https://sendgrid.api-docs.io/v3.0/mail-send/v3-mail-send) 
 
 ```typescript
 const extensionBody: SendgridEmailBody = async({row, db, change, ref}) => {
