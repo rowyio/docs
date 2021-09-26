@@ -149,10 +149,21 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
           theme: lightCodeTheme,
           darkTheme: darkCodeTheme,
         },
-        // algolia: {
-        //   apiKey: '',
-        //   indexName: '',
-        // },
+        algolia: {
+          apiKey: '9a717651a09512cf248f991bb8c252f2',
+          indexName: 'ROWY_DOCS',
+    
+          // Optional: see doc section below
+          contextualSearch: true,
+    
+          // Optional: see doc section below
+          appId: 'MQCDVB14NY',
+    
+          // Optional: Algolia search parameters
+          searchParameters: {},
+    
+          //... other Algolia params
+        },
         colorMode: {
           defaultMode: "light",
           disableSwitch: false,
