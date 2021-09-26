@@ -11,6 +11,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 <p>You can easily setup Rowy on your Google Cloud/Firebase project using the following one-click deploy button. This will install Rowy using a Cloud Run instance and guide you with a step by step process.<br/>
 <a href="https://deploy.cloud.run/?git_repo=https://github.com/rowyio/rowyRun.git" target="_blank">
 <img alt="One Click Deploy" src="/img//button.png" title="One Click Deploy" width="250" /></a><br/>
+Note this runs RowyRun (an open source, cloud run instance) that operates exclusively on your GCP project and we will never have access to your service account or any of your data.
+
 Once installed, you will be given an URL to the Rowy App and follow it to get started as highlighted below.</p> 
 <img src="/img/cloudrun.png" alt="Cloud Run Output"
 title="Cloud Run Output" width="600" />
