@@ -36,7 +36,6 @@ html {
   --ifm-font-family-monospace: IBM Plex Mono, ui-monospace, monospace;
   --ifm-font-weight-bold: 600;
   --ifm-leading-desktop: 1;
-  --ifm-link-decoration: underline rgba(68, 0, 255, 0.4);
 
   --ifm-navbar-height: 56px;
   --ifm-navbar-background-color: var(--ifm-background-color);
@@ -71,8 +70,6 @@ html[data-theme="dark"] {
   --ifm-global-shadow-md: rgba(0, 0, 5, 0.24) 0px 0px 0px 1px, rgba(0, 0, 5, 0.4) 0px 10px 15px -3px, rgba(0, 0, 5, 0.2) 0px 4px 6px, rgba(0, 0, 5, 0.2) 0px 30px 40px;
   --ifm-global-shadow-tl: rgba(0, 0, 5, 0.32) 0px 0px 0px 1px, rgb(0, 0, 5) 0px 25px 50px -12px, rgba(0, 0, 5, 0.24) 0px 50px 80px
  
-  --ifm-link-decoration: underline rgba(175, 182, 253, 0.4);
-
   --ifm-menu-color-background-active: rgba(255, 255, 255, 0.16);
 
   --ifm-table-border-color: rgba(255, 255, 255, 0.12);
@@ -219,7 +216,15 @@ h6 {
   margin-bottom: calc(var(--ifm-leading) * 2);
 }
 a {
+  text-decoration: underline;
+  text-decoration-color: rgba(68, 0, 255, 0.4);
   text-underline-offset: 0.0625em;
+}
+html[data-theme="dark"] a {
+  text-decoration-color: rgba(175, 182, 253, 0.4);
+}
+a:hover {
+  text-decoration-color: var(--ifm-link-hover-color);
 }
 code {
   vertical-align: baseline;
@@ -306,6 +311,13 @@ div[class^="tocCollapsibleContent"] ul li {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+}
+
+/* Back to top button */
+button[class*="backToTopButton"] {
+  --docusaurus-btt-background: var(--ifm-background-surface-color);
+  --docusaurus-btt-color: var(--ifm-color-content);
+  box-shadow: var(--ifm-global-shadow-md);
 }
 
 /* Footer */
