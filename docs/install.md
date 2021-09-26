@@ -2,9 +2,8 @@
 id: install
 title: Installing Rowy
 sidebar_label: Install
-slig: /install
+slug: /install
 ---
-import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ### Using one click deploy - ✅ Recommended
 
@@ -27,29 +26,34 @@ If you don’t want to [setup Rowy](install#using-one-click-deploy----recommende
 - [Firebase CLI](https://firebase.google.com/docs/cli) 8+
 
 Before proceeding, make sure you are logged in to your Firebase account in the Firebase CLI:
+
 ```
 firebase login
 ```
 
 #### 1. Clone this repo.
+
 ```
 git clone https://github.com/rowyio/rowy.git
-```    
+```
 
 #### 2. Set React app environment variables.
+
 - Create a .env file
 - Get the Firebase **Project ID** and **Web API Key** from your Firebase project’s **Settings** page. Click the cog icon on the left sidebar (under the Firebase logo) and click **Project settings.**
-    ``` 
-    REACT_APP_FIREBASE_PROJECT_ID = 
-    REACT_APP_FIREBASE_PROJECT_WEB_API_KEY = 
-    ```
+  ```
+  REACT_APP_FIREBASE_PROJECT_ID =
+  REACT_APP_FIREBASE_PROJECT_WEB_API_KEY =
+  ```
 
 #### 3. Install front-end dependencies using Yarn.
+
 ```
 yarn
 ```
 
 #### 4. Run the app locally.
+
 ```
 yarn start
 ```

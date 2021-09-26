@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       type: "category",
-      label: "How To - Guides",
+      label: "How-To Guides",
       collapsed: true,
       items: [
         "how-to/create-table",
