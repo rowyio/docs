@@ -22,6 +22,6 @@ Any column can be marked as required, in the column configuration.
 Rowy will not create record on the database until all required fields have been provided.
 ## Default values 
 
-When a row is created it can be initialized by having some default values.
+When a row is created, cells can be initialized using default values of the columns.
 
 Read more on default values [here](./default-values)
