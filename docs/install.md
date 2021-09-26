@@ -12,13 +12,16 @@ slug: /install
 <img alt="One Click Deploy" src="/img//button.png" title="One Click Deploy" width="250" /></a><br/>
 Note this runs RowyRun (an open source, cloud run instance) that operates exclusively on your GCP project and we will never have access to your service account or any of your data.
 
-Once installed, you will be given an URL to the Rowy App and follow it to get started as highlighted below.</p> 
+Once installed, you will be given an URL to the Rowy App and follow it to get
+started as highlighted below.</p>
 <img src="/img/cloudrun.png" alt="Cloud Run Output"
 title="Cloud Run Output" width="600" />
 
 ### Using Yarn - Manual
 
-If you don’t want to [setup Rowy](install#using-one-click-deploy----recommended) as described above, then follow these steps to install it manually. Note these steps involve familiarity with roles based access controls.
+If you don’t want to [setup Rowy](install#using-one-click-deploy----recommended)
+as described above, then follow these steps to install it manually. Note these
+steps involve familiarity with roles based access controls.
 
 #### Installation requirements
 
@@ -27,7 +30,8 @@ If you don’t want to [setup Rowy](install#using-one-click-deploy----recommende
 - [Yarn](https://classic.yarnpkg.com/en/docs/install/) 1
 - [Firebase CLI](https://firebase.google.com/docs/cli) 8+
 
-Before proceeding, make sure you are logged in to your Firebase account in the Firebase CLI:
+Before proceeding, make sure you are logged in to your Firebase account in the
+Firebase CLI:
 
 ```
 firebase login
@@ -42,7 +46,9 @@ git clone https://github.com/rowyio/rowy.git
 #### 2. Set React app environment variables.
 
 - Create a .env file
-- Get the Firebase **Project ID** and **Web API Key** from your Firebase project’s **Settings** page. Click the cog icon on the left sidebar (under the Firebase logo) and click **Project settings.**
+- Get the Firebase **Project ID** and **Web API Key** from your Firebase
+  project’s **Settings** page. Click the cog icon on the left sidebar (under the
+  Firebase logo) and click **Project settings.**
   ```
   REACT_APP_FIREBASE_PROJECT_ID =
   REACT_APP_FIREBASE_PROJECT_WEB_API_KEY =
