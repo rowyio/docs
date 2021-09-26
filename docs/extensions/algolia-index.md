@@ -1,7 +1,7 @@
 ---
 id: algolia-index
-title: AlgoliaIndex
-sidebar_label: AlgoliaIndex
+title: Algolia Index
+sidebar_label: Algolia Index
 slug: /extensions/algolia-index
 ---
 

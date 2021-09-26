@@ -81,7 +81,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
               position: "right",
             },
             {
-              href: "https://github.com/rowyio/docs",
+              href: "https://github.com/rowyio/rowy",
               className: "navbar__icon-link navbar__icon-link--github",
               "aria-label": "GitHub repository",
               position: "right",

@@ -34,7 +34,8 @@ module.exports = {
         "how-to/create-table",
         "how-to/create-column",
         "how-to/add-row",
-        "how-to/filter-and-sort",
+        "how-to/default-values",
+        "how-to/custom-views",
       ],
     },
     {
@@ -51,7 +52,11 @@ module.exports = {
       type: "category",
       label: "Extensions",
       collapsed: true,
-      items: ["extensions/algolia-index"],
+      items: [
+        "extensions/algolia-index",
+        "extensions/sendgrid-email",
+        "extensions/twilio-message",
+      ],
     },
     "community/contributing",
     "community/faqs",
