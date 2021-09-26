@@ -49,7 +49,7 @@ html {
   --collapse-button-bg-color: transparent;
   --collapse-button-bg-color-dark: transparent;
 
-  --ifm-container-width: 64rem;
+  --ifm-container-width: 67rem;
   --ifm-table-border-color: rgba(7, 0, 19, 0.12);
   --ifm-table-stripe-background: var(--ifm-background-color);
 
@@ -233,6 +233,9 @@ code {
 }
 div[class^="codeBlockContainer"] {
   box-shadow: none;
+}
+th {
+  text-align: left;
 }
 
 .docusaurus-highlight-code-line {
