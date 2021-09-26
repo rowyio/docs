@@ -11,3 +11,17 @@ for larger fields view the side drawer on the right for better UX (note only on
 desktop).
 
 ![add-crow](./assets/add-row.gif)
+
+
+
+
+## Required Fields
+
+Any column can be marked as required, in the column configuration.
+
+Rowy will not create record on the database until all required fields have been provided.
+## Default values 
+
+When a row is created it can be initialized by having some default values.
+
+Read more on default values [here](./default-values)
