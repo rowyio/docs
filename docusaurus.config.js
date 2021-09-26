@@ -1,5 +1,5 @@
 const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
 
 // With JSDoc @type annotations, IDEs can provide config autocompletion
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
@@ -7,13 +7,14 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
   module.exports = {
     title: "Rowy Docs",
     tagline: "Open source and extendable spreadsheet for your database",
-    url: "https://rowy.io/",
+    url: "https://docs.rowy.io",
     baseUrl: "/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
-    favicon: "img/rowyfavicon.png",
+    favicon: "img/favicon.svg",
     organizationName: "rowyio", // Usually your GitHub org/user name.
     projectName: "rowydocs", // Usually your repo name.
+    titleDelimiter: "•",
 
     presets: [
       [
@@ -38,26 +39,51 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
       ],
     ],
 
+    stylesheets: [
+      "https://rsms.me/inter/inter.css",
+      "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400;1,600&display=swap",
+    ],
+
     themeConfig:
       /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
       ({
         navbar: {
+          hideOnScroll: true,
           // title: "Rowy Docs",
           logo: {
             alt: "Rowy Docs",
-            src: "img/rowyicon.png",
+            src: "img/logo.svg",
+            srcDark: "img/logo-dark.svg",
           },
           items: [
-            {
-              type: "doc",
-              docId: "introduction",
-              position: "left",
-              label: "Docs",
-            },
+            // {
+            //   type: "doc",
+            //   docId: "introduction",
+            //   position: "left",
+            //   label: "Docs",
+            // },
             // { to: "/blog", label: "Blog", position: "right" },
             {
-              href: "https://github.com/rowyio/docs",
-              label: "GitHub",
+              href: "https://rowy.io",
+              label: "rowy.io",
+              position: "right",
+            },
+            {
+              href: "https://discord.gg/B8yAD5PDX4",
+              className: "navbar__icon-link navbar__icon-link--discord",
+              "aria-label": "Discord community",
+              position: "right",
+            },
+            {
+              href: "https://twitter.com/rowyio",
+              className: "navbar__icon-link navbar__icon-link--twitter",
+              "aria-label": "Twitter",
+              position: "right",
+            },
+            {
+              href: "https://github.com/rowyio/rowy",
+              className: "navbar__icon-link navbar__icon-link--github",
+              "aria-label": "GitHub repository",
               position: "right",
             },
           ],
@@ -111,16 +137,17 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
             // },
           ],
           logo: {
-            alt: "Rowy Logo",
-            src: "img/rowyicon.png",
+            alt: "Rowy",
+            src: "img/rowy-logo.svg",
+            srcDark: "img/rowy-logo-dark.svg",
             href: "https://rowy.io",
           },
-          copyright: `Copyright © ${new Date().getFullYear()} Rowy, Inc.`,
+          copyright: `Copyright © ${new Date().getFullYear()} Rowy Inc.`,
         },
+
         prism: {
-          // theme: lightCodeTheme,
-          theme: darkCodeTheme,
-          // darkTheme: darkCodeTheme,
+          theme: lightCodeTheme,
+          darkTheme: darkCodeTheme,
         },
         // algolia: {
         //   apiKey: '',
@@ -128,16 +155,19 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
         // },
         colorMode: {
           defaultMode: "light",
-          disableSwitch: true,
-          respectPrefersColorScheme: false,
+          disableSwitch: false,
+          respectPrefersColorScheme: true,
         },
         announcementBar: {
           id: "announcementBar", // Increment on change
-          content: `⭐️ If you like Rowy, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/rowyio/rowy">GitHub</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/rowyio" >Twitter</a> `,
+          content: `⭐️ If you like Rowy, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/rowyio/rowy">GitHub</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/rowyio">Twitter</a> `,
+          backgroundColor: "var(--ifm-background-surface-color)",
+          textColor: "var(--ifm-font-color-base)",
         },
         gtag: {
           trackingID: "G-G41D01C293",
         },
+        hideableSidebar: true,
       }),
   }
 );

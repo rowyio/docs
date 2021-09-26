@@ -9,34 +9,42 @@ Integrates with SendGrid to simplify sending emails
 
 ### Secret Manager setup:
 
-Secret Name: ```sendgrid```
+Secret Name: `sendgrid`
 
-Secret Value: 
+Secret Value:
+
 ```
 SENDGRID_API_KEY
 ```
 
 ## Usage
 
-below is an example of we send invite emails
-the return object needs to be compliant with [SendGrid V3 request body](https://sendgrid.api-docs.io/v3.0/mail-send/v3-mail-send) 
+Below is an example of how we send invite emails.
+
+The return object needs to be compliant with
+[SendGrid V3 request body](https://sendgrid.api-docs.io/v3.0/mail-send/v3-mail-send)
 
 ```typescript
-const extensionBody: SendgridEmailBody = async({row, db, change, ref}) => {
-  return ({
-    from: "Rowy<welcome@rowy.app>",   // send from field
+const extensionBody: SendgridEmailBody = async ({ row, db, change, ref }) => {
+  return {
+    // send from field
+    from: "Rowy<welcome@rowy.app>",
     personalizations: [
-        {
-            to: [{ email: row.email }],  // recipient
-            dynamic_template_data: {
-              inviterName:row.inviter.displayName,
-              inviteLink:`https://${row.projectId}.rowy.app/signup?email=${row.email}`,
-              projectId:row.projectId,
-            },  // template parameters
+      {
+        // recipient
+        to: [{ email: row.email }],
+        // template parameters
+        dynamic_template_data: {
+          inviterName: row.inviter.displayName,
+          inviteLink: `https://${row.projectId}.rowy.app/signup?email=${row.email}`,
+          projectId: row.projectId,
         },
+      },
     ],
-    template_id: "d-72072f3se34841e67daa0484fbb377d5",    // sendgrid template ID
-    categories: ["invites"], // helper info to categorise sendgrid emails
-  })
-}
+    // sendgrid template ID
+    template_id: "d-72072f3se34841e67daa0484fbb377d5",
+    // helper info to categorise sendgrid emails
+    categories: ["invites"],
+  };
+};
 ```

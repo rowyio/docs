@@ -28,14 +28,14 @@ module.exports = {
     },
     {
       type: "category",
-      label: "How To - Guides",
+      label: "How-To Guides",
       collapsed: true,
       items: [
         "how-to/create-table",
         "how-to/create-column",
         "how-to/add-row",
-        "how-to/filter-and-sort",
-        "how-to/default-values"
+        "how-to/default-values",
+        "how-to/custom-views",
       ],
     },
     {
@@ -55,8 +55,8 @@ module.exports = {
       items: [
         "extensions/algolia-index",
         "extensions/sendgrid-email",
-        "extensions/twilio-message"
-    ],
+        "extensions/twilio-message",
+      ],
     },
     "community/contributing",
     "community/faqs",
