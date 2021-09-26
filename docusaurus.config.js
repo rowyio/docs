@@ -11,7 +11,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
     baseUrl: "/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
-    favicon: "img/rowyfavicon.png",
+    favicon: "img/favicon.svg",
     organizationName: "rowyio", // Usually your GitHub org/user name.
     projectName: "rowydocs", // Usually your repo name.
     titleDelimiter: "•",
