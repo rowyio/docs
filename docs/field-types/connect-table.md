@@ -29,6 +29,6 @@ ALGOLIA_ADMIN_KEY
 ALGOLIA_SEARCH_KEY
 ```
 
-![Environment Variables](envVars.jpg)
+![Environment Variables](./assets/env-vars.jpg)
 
 ## Configurations
