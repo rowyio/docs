@@ -100,7 +100,7 @@ body {
 
 /* Announcement bar */
 .close {
-  color: var(--ifm-font-color-base);
+  color: var(--ifm-font-color-base) !important;
 }
 
 /* Navbar */
