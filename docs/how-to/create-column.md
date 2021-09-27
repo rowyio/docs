@@ -7,8 +7,8 @@ slug: /how-to/create-column
 
 Click on the "Add Column" button on the right most side of your table. Add your
 column information, pick column type from one of the
-[30+ supported fields](../field-types/supported-fields.md) and configure them to
-your needs.
+[30+ supported fields](../field-types/supported-fields.mdx) and configure them
+to your needs.
 
 ![add-column](./assets/add-column.gif)
 
