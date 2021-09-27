@@ -4,7 +4,8 @@ title: Derivative
 sidebar_label: Derivative
 slug: /field-types/derivative
 ---
-import ReactPlayer from 'react-player';
+
+import Video from "../../src/components/Video.js";
 
 Derivative fields derive their value from other fields in the row. They are
 automatically evaluated whenever the dependent fields are updated.
@@ -20,8 +21,7 @@ To use Derivative fields, you must:
 
 ## Video Demo
 
-<ReactPlayer controls url='https://www.youtube.com/watch?v=0IQbFyFvjDg' />
-
+<Video controls url="https://www.youtube.com/watch?v=0IQbFyFvjDg" />
 
 ## API
 
@@ -38,7 +38,6 @@ You can also use npm packages using
 | `db`      | [`firebase.firestore.Firestore`](https://firebase.google.com/docs/reference/node/firebase.firestore.Firestore)                 | Access to the full Cloud Firestore instance to access any collection or document. |
 | `auth`    | [`admin.auth.Auth`](https://firebase.google.com/docs/reference/admin/node/admin.auth.Auth-1)                                   | Access to Firebase Auth via Admin SDK                                             |
 | `storage` | [`admin.storage.Storage`](https://firebase.google.com/docs/reference/admin/node/admin.storage.Storage-1)                       | Access to Firebase Storage via Admin SDK                                          |
-
 
 # Examples
 
@@ -60,7 +59,6 @@ of those fields. The client-side can filter by this new field.
 if (row.amount && row.claim) return true;
 else return false;
 ```
-
 
 ## Intermediate use case
 
