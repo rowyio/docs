@@ -1,14 +1,13 @@
 ---
 id: contributing
 title: Contributing
-sidebar_label: Contributing
 slug: /community/contributing
 ---
 
 We ❤️ and welcome all contributions including features, issues, answering
 discussions, documentation, translation, feedback and how-to guides.
 
-## How to contribute?
+## How to contribute
 
 - Try Rowy and give [feedback](mailto:feedback@rowy.io)
 - Raise any [issue](https://github.com/rowyio/rowy/issues)

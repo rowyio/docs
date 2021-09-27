@@ -1,27 +1,13 @@
 ---
 id: default-values
-title: Default Values
-sidebar_label: Default Values
-slig: how-to/default-values
+title: Default values
+slug: /how-to/default-values
 ---
 
 Default values can be set for any column and will be set whenever a new row is
 created. Set default values in Column Settings.
 
 ![default-values](./assets/default-values.png)
-
-<table><tbody><tr><td>
-
-### Contents
-
-- [Undefined](#undefined)
-- [Null](#null)
-- [Static](#static)
-- [Dynamic](#dynamic)
-  - [API](#api)
-- [Examples](#examples)
-
-</td></tr></tbody></table>
 
 ## Undefined
 
@@ -51,14 +37,14 @@ Your code has access to the following parameters and can use the
 You can also use npm packages using
 [CommonJS `require` imports](https://nodejs.org/en/knowledge/getting-started/what-is-require/).
 
-| Name      | Type                                                                                                                           | Description                                                                       |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
-| `row`     | [`Record<string, any>`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeystype)                        | All data in the current row.                                                      |
-| `ref`     | [`firebase.firestore.DocumentReference`](https://firebase.google.com/docs/reference/node/firebase.firestore.DocumentReference) | Reference to the corresponding Firestore document of the current row.             |
-| `db`      | [`firebase.firestore.Firestore`](https://firebase.google.com/docs/reference/node/firebase.firestore.Firestore)                 | Access to the full Cloud Firestore instance to access any collection or document. |
-| `auth`    | [`admin.auth.Auth`](https://firebase.google.com/docs/reference/admin/node/admin.auth.Auth-1)                                   | Access to Firebase Auth via Admin SDK                                             |
-| `storage` | [`admin.storage.Storage`](https://firebase.google.com/docs/reference/admin/node/admin.storage.Storage-1)                       | Access to Firebase Storage via Admin SDK                                          |
-| `utilFns` |                                                                                                                                | TBD                                                                               |
+| Name      | Type                                                                                                                    | Description                                                                       |
+| --------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `row`     | [<code>Record<string,&nbsp;any></code>](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeystype) | All data in the current row.                                                      |
+| `ref`     | [`DocumentReference`](https://firebase.google.com/docs/reference/node/firebase.firestore.DocumentReference)             | Reference to the corresponding Firestore document of the current row.             |
+| `db`      | [`Firestore`](https://firebase.google.com/docs/reference/node/firebase.firestore.Firestore)                             | Access to the full Cloud Firestore instance to access any collection or document. |
+| `auth`    | [`Auth`](https://firebase.google.com/docs/reference/admin/node/admin.auth.Auth-1)                                       | Access to Firebase Auth via Admin SDK                                             |
+| `storage` | [`Storage`](https://firebase.google.com/docs/reference/admin/node/admin.storage.Storage-1)                              | Access to Firebase Storage via Admin SDK                                          |
+| `utilFns` |                                                                                                                         | TBD                                                                               |
 
 ## Examples
 

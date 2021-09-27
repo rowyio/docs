@@ -1,0 +1,143 @@
+---
+id: update
+title: Update Rowy
+slug: /setup/update
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+If you deployed Rowy on [rowy.app](https://rowy.app/deploy), you’ll receive the
+latest updates to Rowy as we release them.
+[View releases&nbsp;↗️](https://github.com/rowyio/rowy/releases)
+
+Otherwise, if you’re self-hosting Rowy, you can get release updates through the
+`main` branch on GitHub.
+
+The update procedure depends on whether you cloned the Rowy repo directly or
+forked it on GitHub first.
+
+<Tabs>
+<TabItem value="clone" label="Cloned directly" default>
+
+## You cloned the repo directly
+
+If you cloned the repo and did not change the Git remotes, you can pull directly
+from `origin`.
+
+1. Get the latest commits:
+
+   ```bash
+   git pull origin main
+   ```
+
+2. Update frontend dependencies:
+
+   ```bash
+   yarn
+   ```
+
+3. Run the app locally to test:
+
+   ```bash
+   yarn start
+   ```
+
+### You committed changes
+
+If you committed any changes to the code, excluding adding config files, you can
+follow the same procedure above.
+
+However, you may see the following in your terminal:
+
+```bash
+Merge branch 'main' of https://github.com/rowyio/rowy
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+```
+
+If the terminal says `nano` above that, press <kbd>Ctrl</kbd><kbd>X</kbd> to
+merge the changes.  
+If it does not, you may be using vim. Press <kbd>Esc</kbd>, then type `:wq`,
+then hit <kbd>Enter</kbd> to merge the changes.
+
+If a merge conflict, you must resolve them before continuing.
+[Read GitHub’s guide on addressing merge conflicts&nbsp;↗️](https://docs.github.com/en/github/collaborating-with-pull-requests/addressing-merge-conflicts)
+
+If you have any other issues,
+[read GitHub’s guide to Git&nbsp;↗️](https://docs.github.com/en/get-started/using-git)
+
+</TabItem>
+<TabItem value="fork" label="Forked on GitHub">
+
+## You forked Rowy on Github
+
+If you forked Rowy using GitHub and cloned your fork repository, your `origin`
+remote will be set to your fork.
+
+1. Set the Rowy repo as the `upstream` repository:
+
+   ```bash
+   git remote add upstream https://github.com/rowyio/rowy.git
+   ```
+
+2. Fetch the latest commits from `upstream`:
+
+   ```bash
+   git fetch upstream
+   ```
+
+3. Check out your fork’s local `main` branch:
+
+   ```bash
+   git checkout main
+   ```
+
+4. Merge the changes from `upstream/main` into your local `main` branch:
+
+   ```bash
+   git merge upstream/main
+   ```
+
+   If you have made any changes to the code, excluding adding config files, you
+   will likely face a merge conflict. You must resolve them before continuing.  
+   [Read GitHub’s guide on addressing merge conflicts&nbsp;↗️](https://docs.github.com/en/github/collaborating-with-pull-requests/addressing-merge-conflicts)
+
+5. Update frontend dependencies:
+
+   ```bash
+   yarn
+   ```
+
+6. Run the app locally to test:
+
+   ```bash
+   yarn start
+   ```
+
+7. Push your changes to your fork:
+   ```bash
+   git push
+   ```
+
+</TabItem>
+</Tabs>
+
+## Rebuild and redeploy Rowy
+
+Once you have received the latest updates to Rowy on your local repository, you
+should rebuild and redeploy Rowy to your hosting service.
+
+1. Build the app:
+
+   ```bash
+   yarn build
+   ```
+
+2. If you’re using Firebase Hosting, you can run:
+
+   ```bash
+   yarn deploy
+   ```
+
+   This will deploy Rowy to Firebase Hosting with the target set to `rowy`.

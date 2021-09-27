@@ -1,7 +1,6 @@
 ---
 id: custom-views
 title: Customize your table view
-sidebar_label: Custom view
 slug: /how-to/custom-views
 ---
 

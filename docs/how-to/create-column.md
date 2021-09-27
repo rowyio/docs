@@ -1,7 +1,6 @@
 ---
 id: create-column
-title: Creating a new column
-sidebar_label: Creating a new column
+title: Create a column
 slug: /how-to/create-column
 ---
 

@@ -1,3 +1,4 @@
+const React = require("react");
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
 
@@ -150,24 +151,36 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
           darkTheme: darkCodeTheme,
         },
         algolia: {
-          apiKey: '9a717651a09512cf248f991bb8c252f2',
-          indexName: 'ROWY_DOCS',
-    
+          apiKey: "9a717651a09512cf248f991bb8c252f2",
+          indexName: "ROWY_DOCS",
+
           // Optional: see doc section below
           contextualSearch: true,
-    
+
           // Optional: see doc section below
-          appId: 'MQCDVB14NY',
-    
+          appId: "MQCDVB14NY",
+
           // Optional: Algolia search parameters
           searchParameters: {},
-    
+
           //... other Algolia params
         },
         colorMode: {
           defaultMode: "light",
           disableSwitch: false,
           respectPrefersColorScheme: true,
+          switchConfig: {
+            darkIcon: " ",
+            lightIcon: "\u2600",
+            darkIconStyle: {
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z' /%3E%3C/svg%3E")`,
+              width: 18,
+              height: 18,
+              margin: -4,
+              transform: "scaleX(-1)",
+            },
+            lightIconStyle: { color: "#fff" },
+          },
         },
         announcementBar: {
           id: "announcementBar", // Increment on change

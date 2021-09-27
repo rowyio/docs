@@ -1,11 +1,8 @@
 ---
 id: algolia-index
-title: Algolia Index
-sidebar_label: Algolia Index
+title: Algolia index
 slug: /extensions/algolia-index
 ---
-
-# AlgoliaIndex
 
 An extension for syncing data for Algolia
 

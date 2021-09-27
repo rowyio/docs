@@ -1,0 +1,216 @@
+---
+id: roles
+title: Role-based access controls
+slug: /setup/roles
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Rowy uses role-based access controls through Firestore Security Rules and custom
+claims in Firebase Authentication.
+
+[Read more about custom claims&nbsp;↗️](https://firebase.google.com/docs/auth/admin/custom-claims)  
+[Read more about Firestore Security Rules&nbsp;↗️](https://firebase.google.com/docs/firestore/security/rules-structure)
+
+## Set user roles
+
+To allow users to access any of your data in Rowy, they must have user roles
+set. If you are an `ADMIN`, you can set them in User Management or using the
+Firebase Admin SDK.
+
+<Tabs>
+<TabItem value="user-management" label="User Management" default>
+
+### Set user roles in User Management
+
+In User Management, you can set the roles of users who have already signed in to
+your Rowy project. You can write any custom role and set your table roles
+accordingly.
+
+<img
+  src={require("./assets/set-roles.png").default}
+  alt="Screenshot of invite
+user modal"
+  width="652"
+/>
+<br />
+<br />
+
+### Invite users in User Management
+
+You can also invite a user who hasn’t signed in to your Rowy project in User
+Management.
+
+Click Invite User and enter the user’s email address and set their roles. Rowy
+Run will create a new Firebase Authentication user with those details. We’ll
+send them an email inviting them to sign up to your Rowy project.
+
+:::info Invite URL
+
+By default, the invite URL sent in the email assumes you’ve deployed Rowy on
+[rowy.app](https://rowy.app/deploy). If you’re self-hosting Rowy, this link will
+not work for your users.
+
+:::
+
+<img
+  src={require("./assets/invite-user.png").default}
+  alt="Screenshot of invite
+user modal"
+  width="362"
+  align="center"
+/>
+
+</TabItem>
+<TabItem value="admin-sdk" label="Firebase Admin SDK">
+
+### Set user roles using the Firebase Admin SDK (Node.js)
+
+Alternatively, you can run this Node.js script to set roles on a Firebase
+Authentication user. You can run it in your command line or as part of a Cloud
+Function.
+
+:::caution Requirements
+
+Make sure you have your project’s service account private key JSON file from the
+Firebase Console in
+[Project Settings > Service Accounts](https://console.firebase.google.com/u/0/project/_/settings/serviceaccounts/adminsdk).
+
+You should also have your Firebase Project ID handy. You can find it in the
+[Firebase Console](https://console.firebase.google.com/project/_/settings/general).
+
+:::
+
+```js
+import * as admin from "firebase-admin";
+
+// 👉 Set your project ID. Find it in:
+// https://console.firebase.google.com/project/_/settings/general
+const projectId = "YOUR_FIREBASE_PROJECT_ID_HERE";
+console.log(`Running on ${projectId}`);
+
+// 👉 Import your service account key file.
+// Make sure to change this path if necessary.
+const serviceAccount = require(`./firebase-service-account.json`);
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: `https://${projectId}.firebaseio.com`,
+});
+export const auth = admin.auth();
+
+const setClaims = async (email, claims) => {
+  const user = await auth.getUserByEmail(email);
+  auth.setCustomUserClaims(user.uid, claims);
+};
+
+// 👉 Call the setClaims function. Set the email and roles here.
+setClaims("EMAIL", {
+  roles: ["ADMIN"],
+});
+```
+
+</TabItem>
+</Tabs>
+
+## Write Firestore Security Rules with user roles
+
+You can set Firestore Security Rules in the
+[Firebase Console&nbsp;↗️](https://console.firebase.google.com/u/0/project/_/firestore/rules)
+
+If you’re not familiar with writing Firestore Security Rules, read the
+[Firebase guide&nbsp;↗️](https://firebase.google.com/docs/firestore/security/rules-structure)
+
+### Required rules
+
+:::caution Required
+
+Rowy configuration is stored in the `_rowy_` collection on Firestore. Your users
+will need read access to this collection and admins will need write access. The
+following rules add those permissions.
+
+:::
+
+```js
+rules_version = '2'
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Allow admins to read and write all documents
+    match /{document=**} {
+      allow read, write: if hasAnyRole(["ADMIN", "OWNER"]);
+    }
+
+    // Rowy: Allow signed in users to read Rowy configuration and admins to write
+    match /_rowy_/{docId} {
+      allow read: if request.auth != null;
+      allow write: if hasAnyRole(["ADMIN", "OWNER"]);
+    	match /{document=**} {
+        allow read: if request.auth != null;
+        allow write: if hasAnyRole(["ADMIN", "OWNER"]);
+      }
+    }
+    // Rowy: Allow users to edit their settings
+    match /_rowy_/userManagement/users/{userId} {
+      allow get, update, delete: if isDocOwner(userId);
+      allow create: if request.auth != null;
+    }
+    // Rowy: Allow public to read public Rowy configuration
+    match /_rowy_/publicSettings {
+    	allow get: if true;
+    }
+
+    // Rowy: Utility functions
+    function isDocOwner(docId) {
+      return request.auth != null && (request.auth.uid == resource.id || request.auth.uid == docId);
+    }
+    function hasAnyRole(roles) {
+      return request.auth != null && request.auth.token.roles.hasAny(roles);
+    }
+
+  }
+}
+```
+
+### Table rules
+
+Write table rules that match the roles you set in Table Settings. The following
+are examples of different table rules, using the helper functions in the
+required rules above.  
+[Read more about how to write rules&nbsp;↗️](https://firebase.google.com/docs/firestore/security/rules-structure)
+
+#### Example: Collection open to public
+
+```js
+match /openToPublic/{docId} {
+  allow read: if request.auth != null;
+  allow write: if hasAnyRole(["ADMIN", "EDITOR"]);
+}
+```
+
+#### Example: Collection and subcollections open to public
+
+```js
+match /openToPublicWithSubcollections/{document=**} {
+  allow read: if request.auth != null;
+  allow write: if hasAnyRole(["ADMIN", "EDITOR"]);
+}
+```
+
+#### Example: User data
+
+```js
+match /users/{docId} {
+  allow create: if request.auth != null;
+  allow get, update, delete: if isDocOwner(userId);
+}
+```
+
+#### Example: Admin-only
+
+```js
+match /adminOnly/{docId} {
+  allow read, write: if hasAnyRole(["ADMIN", "EDITOR"]);
+}
+```

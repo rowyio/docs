@@ -1,7 +1,6 @@
 ---
 id: twilio-message
-title: Twilio Message
-sidebar_label: Twilio Message
+title: Twilio message
 slug: /extensions/twilio-message
 ---
 

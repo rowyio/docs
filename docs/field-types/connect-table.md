@@ -1,11 +1,8 @@
 ---
 id: connect-table
 title: Connect Table
-sidebar_label: Connect Table
 slug: /field-types/connect-table
 ---
-
-# Connect Table Field
 
 Connect table uses algolia indices to create a connection between tables
 

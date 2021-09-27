@@ -21,10 +21,20 @@ module.exports = {
 
   someSidebar: [
     "introduction",
-    "install",
     {
       type: "category",
-      label: "How-To Guides",
+      label: "Set up Rowy",
+      collapsed: true,
+      items: [
+        "setup/install",
+        "setup/firebase-project",
+        "setup/roles",
+        "setup/update",
+      ],
+    },
+    {
+      type: "category",
+      label: "How-to guides",
       collapsed: true,
       items: [
         "how-to/create-table",
@@ -36,12 +46,13 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Field Types",
+      label: "Field types",
       collapsed: true,
       items: [
         "field-types/supported-fields",
         "field-types/derivative",
         "field-types/connect-table",
+        "field-types/add",
       ],
     },
     {
@@ -49,9 +60,11 @@ module.exports = {
       label: "Extensions",
       collapsed: true,
       items: [
+        "extensions/overview",
         "extensions/algolia-index",
         "extensions/sendgrid-email",
         "extensions/twilio-message",
+        "extensions/slack-message",
       ],
     },
     "community/contributing",

@@ -1,7 +1,6 @@
 ---
 id: sendgrid-email
-title: SendGrid Email
-sidebar_label: SendGrid Email
+title: SendGrid email
 slug: /extensions/sendgrid-email
 ---
 
