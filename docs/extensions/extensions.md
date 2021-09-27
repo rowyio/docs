@@ -16,7 +16,7 @@ and the required secret added before using the extension in Rowy.
 ## Extension anatomy
 
 - type - name of the extension
-- triggers - create/update/delete
-- shouldRun - enable the extension
+- triggers - create/update/delete events
+- Condition - a function that returns a true or false, to determine if an extension should be executed
 - requiredFields - required columns fields for this extension
-- sparkBody - data for your extension to run
+- extensionBody - function that structures the data for your extension
