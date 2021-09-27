@@ -51,8 +51,8 @@ html {
 
   --ifm-container-width: 67rem;
   --ifm-table-border-color: rgba(7, 0, 19, 0.12);
-  --ifm-table-cell-padding: 0.375rem 0.75rem;
-  --ifm-table-stripe-background: var(--ifm-background-color);
+  --ifm-table-cell-padding: 0.25rem 0.5rem;
+  --ifm-table-stripe-background: transparent;
 
   --ifm-footer-background-color: var(--ifm-background-color);
 }
@@ -278,8 +278,25 @@ div[class^="codeBlockContainer"] {
 table {
   font-size: 0.875rem;
 }
+table tr,
+table thead tr:first-child th {
+  border-top: 0;
+}
 th {
   text-align: left;
+}
+th:first-child,
+td:first-child {
+  padding-left: 0;
+}
+th:last-child,
+td:last-child {
+  padding-right: 0;
+}
+table th,
+table td {
+  border-left: 0;
+  border-right: 0;
 }
 
 .docusaurus-highlight-code-line {

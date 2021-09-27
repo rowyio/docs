@@ -1,0 +1,135 @@
+---
+id: supported-fields
+title: Supported Field Types
+sidebar_label: Supported Field Types
+slug: /field-types/supported-field-types
+---
+
+import Helmet from "react-helmet";
+
+import ShortTextIcon from "@mui/icons-material/ShortText";
+import LongTextIcon from "@mui/icons-material/Notes";
+import RichTextIcon from "@mui/icons-material/TextFormat";
+import EmailIcon from "@mui/icons-material/MailOutlined";
+import PhoneIcon from "@mui/icons-material/PhoneOutlined";
+import UrlIcon from "@mui/icons-material/Link";
+
+import SingleSelectIcon from "./assets/SingleSelect";
+import MultiSelectIcon from "./assets/MultiSelect";
+
+import NumberIcon from "./assets/Number";
+import CheckboxIcon from "@mui/icons-material/ToggleOnOutlined";
+import PercentageIcon from "./assets/Percentage";
+import RatingIcon from "@mui/icons-material/StarBorder";
+import SliderIcon from "./assets/Slider";
+import ColorIcon from "@mui/icons-material/Colorize";
+
+import DateIcon from "@mui/icons-material/TodayOutlined";
+import DateTimeIcon from "@mui/icons-material/AccessTime";
+import DurationIcon from "@mui/icons-material/Timer";
+
+import FileIcon from "@mui/icons-material/AttachFile";
+import ImageIcon from "./assets/Image";
+
+import SubTableIcon from "./assets/SubTable";
+import ConnectTableIcon from "./assets/ConnectTable";
+import ConnectServiceIcon from "@mui/icons-material/Http";
+
+import JsonIcon from "./assets/Json";
+import CodeIcon from "@mui/icons-material/Code";
+
+import ActionIcon from "@mui/icons-material/TouchAppOutlined";
+import DerivativeIcon from "./assets/Derivative";
+import AggregateIcon from "@mui/icons-material/LayersOutlined";
+import StatusIcon from "./assets/Status";
+
+import UserIcon from "@mui/icons-material/PersonOutlined";
+import IdIcon from "./assets/Id";
+
+<Helmet>
+  <style>
+    {`
+    body {
+      background: red;
+    }
+    `}
+  </style>
+</Helmet>
+
+Rowy supports over 30 field types. The data types match the
+[types supported by Firestore](https://firebase.google.com/docs/firestore/manage-data/data-types).
+
+### Text
+
+|                                                | <div style={{ width: 115 }}>Name</div> | <div style={{ width: 310 }}>Description</div>                           | <div style={{ width: 210 }}>Data&nbsp;Type</div> |
+| ---------------------------------------------- | -------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------ |
+| <ShortTextIcon style={{ display: "block" }} /> | **Short Text**                         | Text displayed on a single line.                                        | `string`                                         |
+| <LongTextIcon style={{ display: "block" }} />  | **Long Text**                          | Text displayed on multiple lines.                                       | `string`                                         |
+| <RichTextIcon style={{ display: "block" }} />  | **Rich Text**                          | HTML edited with a [rich text editor](https://www.tiny.cloud/tinymce/). | `string`                                         |
+| <EmailIcon style={{ display: "block" }} />     | **Email**                              | Email address. Not validated.                                           | `string`                                         |
+| <PhoneIcon style={{ display: "block" }} />     | **Phone**                              | Phone number stored as text. Not validated.                             | `string`                                         |
+| <UrlIcon style={{ display: "block" }} />       | **URL**                                | Web address. Not validated.                                             | `string`                                         |
+
+### Select
+
+|                                                   | <div style={{ width: 115 }}>Name</div> | <div style={{ width: 310 }}>Description</div>                                                                 | <div style={{ width: 210 }}>Data&nbsp;Type</div> |
+| ------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| <SingleSelectIcon style={{ display: "block" }} /> | **Single Select**                      | Single value from predefined options. Options are searchable and users can optionally input custom values.    | <code>string&nbsp;\|&nbsp;null</code>            |
+| <MultiSelectIcon style={{ display: "block" }} />  | **Multi Select**                       | Multiple values from predefined options. Options are searchable and users can optionally input custom values. | `string[]`                                       |
+
+### Numeric
+
+|                                                 | <div style={{ width: 115 }}>Name</div> | <div style={{ width: 310 }}>Description</div>                                                                        | <div style={{ width: 210 }}>Data&nbsp;Type</div>                                |
+| ----------------------------------------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| <NumberIcon style={{ display: "block" }} />     | **Number**                             | Numeric value.                                                                                                       | `number`                                                                        |
+| <CheckboxIcon style={{ display: "block" }} />   | **Toggle**                             | True/false value. Default: false.                                                                                    | `boolean`                                                                       |
+| <PercentageIcon style={{ display: "block" }} /> | **Percentage**                         | Percentage stored as a number between 0 and 1.                                                                       | `number`                                                                        |
+| <RatingIcon style={{ display: "block" }} />     | **Rating**                             | Rating displayed as stars. Max stars is configurable, default: 5 stars.                                              | `number`                                                                        |
+| <SliderIcon style={{ display: "block" }} />     | **Slider**                             | Numeric value edited with a Slider. Range is configurable.                                                           | `number`                                                                        |
+| <ColorIcon style={{ display: "block" }} />      | **Color**                              | Color stored as Hex, RGB, and HSV. Edited with a [visual picker](https://www.npmjs.com/package/react-color-palette). | [`Color`](https://github.com/Wondermarin/react-color-palette/tree/v6.1.0#color) |
+
+### Date & Time
+
+|                                               | <div style={{ width: 115 }}>Name</div> | <div style={{ width: 310 }}>Description</div>                                                                                                   | <div style={{ width: 210 }}>Data&nbsp;Type</div>                                                                                                                                                                                                            |
+| --------------------------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <DateIcon style={{ display: "block" }} />     | **Date**                               | Formatted date. Format is configurable, default: `yyyy-MM-dd`. Edited with a [visual picker](https://mui.com/components/pickers/).              | [`Timestamp`](https://firebase.google.com/docs/reference/js/firebase.firestore.Timestamp)                                                                                                                                                                   |
+| <DateTimeIcon style={{ display: "block" }} /> | **Date & Time**                        | Formatted date & time. Format is configurable, default: `yyyy-MM-dd HH:mm`. Edited with a [visual picker](https://mui.com/components/pickers/). | [`Timestamp`](https://firebase.google.com/docs/reference/js/firebase.firestore.Timestamp)                                                                                                                                                                   |
+| <DurationIcon style={{ display: "block" }} /> | **Duration** <br/> (Alpha)             | Duration calculated from two timestamps.                                                                                                        | <code>{<br/>&nbsp;&nbsp;start:&nbsp;[Timestamp](https://firebase.google.com/docs/reference/js/firebase.firestore.Timestamp),<br/>&nbsp;&nbsp;end:&nbsp;[Timestamp](https://firebase.google.com/docs/reference/js/firebase.firestore.Timestamp)<br/>}</code> |
+
+### File
+
+|                                            | <div style={{ width: 115 }}>Name</div> | <div style={{ width: 310 }}>Description</div>                                | <div style={{ width: 210 }}>Data&nbsp;Type</div>                                                                                                                                                                      |
+| ------------------------------------------ | -------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <ImageIcon style={{ display: "block" }} /> | **Image**                              | Image file uploaded to Firebase Storage. Supports JPEG, PNG, SVG, GIF, WebP. | <code>{<br/>&nbsp;&nbsp;downloadURL:&nbsp;string;<br/>&nbsp;&nbsp;lastModifiedTS:&nbsp;number;<br/>&nbsp;&nbsp;name:&nbsp;string;<br/>&nbsp;&nbsp;ref:&nbsp;string;<br/>&nbsp;&nbsp;type:&nbsp;string;<br/>}[]</code> |
+| <FileIcon style={{ display: "block" }} />  | **File**                               | File uploaded to Firebase Storage. Supports any file type.                   | <code>{<br/>&nbsp;&nbsp;downloadURL:&nbsp;string;<br/>&nbsp;&nbsp;lastModifiedTS:&nbsp;number;<br/>&nbsp;&nbsp;name:&nbsp;string;<br/>&nbsp;&nbsp;ref:&nbsp;string;<br/>&nbsp;&nbsp;type:&nbsp;string;<br/>}[]</code> |
+
+### Connection
+
+|                                                     | <div style={{ width: 115 }}>Name</div> | <div style={{ width: 310 }}>Description</div>                                                                                                                                                                  | <div style={{ width: 210 }}>Data&nbsp;Type</div>                                                                                                                                                                               |
+| --------------------------------------------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <SubTableIcon style={{ display: "block" }} />       | **Sub-Table**                          | Connects to a sub-table in the current row. Also displays number of rows inside the sub-table. [Max sub-table depth: 100.](https://firebase.google.com/docs/firestore/quotas#collections_documents_and_fields) | N/A. No data is stored in the document field.                                                                                                                                                                                  |
+| <ConnectTableIcon style={{ display: "block" }} />   | **Connect Table** <br/> (Alpha)        | Connects to an existing table to fetch a snapshot of values from a row. Requires Algolia integration. [See guide](./connect-table.md)                                                                          | <code>{<br/>&nbsp;&nbsp;docPath:&nbsp;string;<br/>&nbsp;&nbsp;snapshot:<br/>&nbsp;&nbsp;&nbsp;&nbsp;[Record<string,&nbsp;any>](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeystype);<br/>}[]</code> |
+| <ConnectServiceIcon style={{ display: "block" }} /> | **Connect Service** <br/> (Alpha)      | Connects to an external web service to fetch a list of results.                                                                                                                                                | <code>{<br/>&nbsp;&nbsp;docPath:&nbsp;string;<br/>&nbsp;&nbsp;snapshot:<br/>&nbsp;&nbsp;&nbsp;&nbsp;[Record<string,&nbsp;any>](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeystype);<br/>}[]</code> |
+
+### Code
+
+|                                           | <div style={{ width: 115 }}>Name</div> | <div style={{ width: 310 }}>Description</div>                                             | <div style={{ width: 210 }}>Data&nbsp;Type</div> |
+| ----------------------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| <JsonIcon style={{ display: "block" }} /> | **JSON**                               | Object edited with a [visual JSON editor](https://www.npmjs.com/package/react-json-view). | `object`                                         |
+| <CodeIcon style={{ display: "block" }} /> | **Code**                               | Raw code edited with the [Monaco Editor](https://microsoft.github.io/monaco-editor/).     | `string`                                         |
+
+### Cloud Function
+
+|                                                 | <div style={{ width: 115 }}>Name</div> | <div style={{ width: 310 }}>Description</div>                                                                                 | <div style={{ width: 210 }}>Data&nbsp;Type</div> |
+| ----------------------------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| <ActionIcon style={{ display: "block" }} />     | **Action**                             | Button with pre-defined action script or triggers a Cloud Function. Optionally supports Undo and Redo.                        | `any`                                            |
+| <DerivativeIcon style={{ display: "block" }} /> | **Derivative**                         | Value derived from the rest of the row’s values. Displayed using any other field type. Requires Cloud Function set up.        | `any`                                            |
+| <AggregateIcon style={{ display: "block" }} />  | **Aggregate**                          | Value aggregated from a specified sub-table of the row. Displayed using any other field type. Requires Cloud Function set up. | `any`                                            |
+| <StatusIcon style={{ display: "block" }} />     | **Status**                             | Displays field value as custom status text. Read-only.                                                                        | `any`                                            |
+
+### Metadata
+
+|                                           | <div style={{ width: 115 }}>Name</div> | <div style={{ width: 310 }}>Description</div>                                                                                                          | <div style={{ width: 210 }}>Data&nbsp;Type</div>                                                                                                                                                                                                                                                                                                                                             |
+| ----------------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <UserIcon style={{ display: "block" }} /> | **User**                               | Displays user & timestamp. Supports the `_createdBy` and `_updatedBy` fields, which are automatically set when a row is created or updated. Read-only. | <code>{<br/>&nbsp;&nbsp;displayName:&nbsp;string;<br/>&nbsp;&nbsp;email:&nbsp;string;<br/>&nbsp;&nbsp;emailVerified:&nbsp;boolean;<br/>&nbsp;&nbsp;isAnonymous:&nbsp;boolean;<br/>&nbsp;&nbsp;photoURL:&nbsp;string;<br/>&nbsp;&nbsp;timestamp:&nbsp;[Timestamp](https://firebase.google.com/docs/reference/js/firebase.firestore.Timestamp);<br/>&nbsp;&nbsp;uid:&nbsp;string;<br/>}</code> |
+| <IdIcon style={{ display: "block" }} />   | **ID**                                 | Displays the row’s ID. Read-only. Cannot be sorted.                                                                                                    | `string`                                                                                                                                                                                                                                                                                                                                                                                     |
