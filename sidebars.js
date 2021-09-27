@@ -20,12 +20,8 @@ module.exports = {
   // },
 
   someSidebar: [
-    {
-      type: "category",
-      label: "Overview",
-      collapsed: false,
-      items: ["introduction", "install"],
-    },
+    "introduction",
+    "install",
     {
       type: "category",
       label: "How-To Guides",
