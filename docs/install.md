@@ -11,6 +11,14 @@ You can easily setup Rowy on your Google Cloud/Firebase project using the
 following one-click deploy button. This will install Rowy using a Cloud Run
 instance and guide you with a step by step process.
 
+####  Prerequisites ⚠️
+
+Before starting make sure you have a firebase project setup with **Firestore** and **Firebase Auth** enabled.
+
+#### Deploy!
+
+Click the button👇
+
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run/?git_repo=https://github.com/rowyio/rowyRun.git)
 
 Note this runs Rowy Run (an open source, cloud run instance) that operates
