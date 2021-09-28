@@ -236,7 +236,7 @@ button[class*="collapseSidebarButton"] {
 }
 article {
   margin: 0 calc(var(--ifm-spacing-horizontal) * -0.5);
-  padding: 1.5rem;
+  padding: 1rem;
   background-color: var(--ifm-background-surface-color);
   border-radius: var(--ifm-card-border-radius);
   box-shadow: var(--ifm-global-shadow-lw);
@@ -358,7 +358,7 @@ table td {
   position: sticky;
   top: var(--ifm-navbar-height);
   transition: top var(--ifm-transition-fast) ease;
-  z-index: var(--ifm-z-index-fixed);
+  z-index: 100;
   background: var(--ifm-background-surface-color);
 }
 nav[class*="navbarHidden"] ~ .main-wrapper .tabs {
@@ -367,6 +367,7 @@ nav[class*="navbarHidden"] ~ .main-wrapper .tabs {
 .tabs__item {
   border-bottom: none;
   position: relative;
+  text-align: center;
 }
 .tabs__item--active {
   border-radius: var(--ifm-global-radius);
