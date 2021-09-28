@@ -292,6 +292,10 @@ html[data-theme="dark"] a:hover {
 a.theme-edit-this-page {
   text-decoration: none;
 }
+article img,
+article video {
+  border-radius: var(--ifm-global-radius);
+}
 code {
   vertical-align: baseline;
   border: none;
