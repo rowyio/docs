@@ -405,6 +405,9 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   font-weight: var(--ifm-font-weight-bold);
   margin-left: var(--ifm-toc-padding-horizontal);
 }
+div[class^="tocCollapsible"] .table-of-contents::before {
+  content: none;
+}
 .table-of-contents__left-border {
   border: none;
 }
@@ -434,7 +437,7 @@ html[data-theme="dark"] div[class^="tocCollapsible"] {
 div[class^="tocCollapsibleContent"] {
   margin: 0 0.8rem;
 }
-div[class^="tocCollapsibleContent"] ul {
+div[class^="tocCollapsibleContent"] > ul {
   padding: 0.25rem 0;
 }
 div[class^="tocCollapsibleContent"] ul li {
