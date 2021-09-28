@@ -1,4 +1,4 @@
-![Rowy Docs](static/logo-sticker.svg)
+![Rowy Docs](static/img/logo-sticker.svg)
 
 Documentation website of Rowy built using [Docusaurus](https://docusaurus.io/).
 
