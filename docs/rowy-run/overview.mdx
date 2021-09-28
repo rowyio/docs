@@ -1,0 +1,30 @@
+---
+id: overview
+title: Rowy Run
+sidebar_label: Overview
+slug: /rowy-run
+---
+
+import RowyRunSvg from "../../static/img/rowy-run-logo.svg";
+
+# <RowyRunSvg height={52} /> <span className="visually-hidden">Rowy Run</span>
+
+Rowy Run is a Cloud Run instance that provides backend functionality, such as
+table action scripts, user management, and easy Cloud Function deployment.
+
+It operates exclusively on your GCP project, so we never have access to any of
+your data. Like Rowy, it’s completely open source and free to use.
+[Rowy Run on GitHub ↗️](https://github.com/rowyio/rowyrun)
+
+## How it works
+
+Rowy Run uses the
+[Firebase Admin SDK](https://firebase.google.com/docs/admin/setup) and
+[Google Cloud SDKs](https://github.com/googleapis/google-cloud-node) to make
+changes to your project. To use these SDKs, it requires a
+[service account](https://firebase.google.com/support/guides/service-accounts)
+with these [IAM roles](https://cloud.google.com/iam/docs/understanding-roles):
+
+- Service Account User – required to deploy Cloud Functions
+- Firebase Authentication Admin
+- Firestore Service Agent

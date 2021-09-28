@@ -57,6 +57,12 @@ module.exports = {
     },
     {
       type: "category",
+      label: "Rowy Run",
+      collapsed: true,
+      items: ["rowy-run/overview"],
+    },
+    {
+      type: "category",
       label: "Extensions",
       collapsed: true,
       items: [
