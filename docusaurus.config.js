@@ -192,6 +192,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
           trackingID: "G-G41D01C293",
         },
         hideableSidebar: true,
+        image: "img/meta.png",
       }),
   }
 );
