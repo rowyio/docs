@@ -23,7 +23,7 @@ module.exports = {
     "introduction",
     {
       type: "category",
-      label: "Set up Rowy",
+      label: "Setup guides",
       collapsed: true,
       items: [
         "setup/install",
