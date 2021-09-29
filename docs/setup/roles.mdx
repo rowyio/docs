@@ -180,6 +180,9 @@ are examples of different table rules, using the helper functions in the
 required rules above.  
 [Read more about how to write rules&nbsp;&UpperRightArrow;](https://firebase.google.com/docs/firestore/security/rules-structure)
 
+Set Firestore Security Rules in the
+[Firebase Console&nbsp;&UpperRightArrow;](https://console.firebase.google.com/u/0/project/_/firestore/rules)
+
 #### Example: Collection open to public
 
 ```js
@@ -203,7 +206,7 @@ match /openToPublicWithSubcollections/{document=**} {
 ```js
 match /users/{docId} {
   allow create: if request.auth != null;
-  allow get, update, delete: if isDocOwner(userId);
+  allow get, update, delete: if isDocOwner();
 }
 ```
 
