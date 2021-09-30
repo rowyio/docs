@@ -256,6 +256,9 @@ h6 {
   font-feature-settings: "ss02", "ss03";
   letter-spacing: -0.01em;
 }
+:is(h1, h2, h3, h4, h5, h6) code {
+  font-size: 0.9em;
+}
 .markdown h1:first-child {
   --ifm-h1-font-size: 2rem;
 }

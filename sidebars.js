@@ -73,6 +73,7 @@ module.exports = {
         "extensions/slack-message",
       ],
     },
+    "changelog/changelog",
     "community/contributing",
     "community/faqs",
   ],

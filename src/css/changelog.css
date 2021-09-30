@@ -1,0 +1,121 @@
+.markdown > h2 {
+  display: flex;
+  align-items: baseline;
+  font-size: 1.5rem;
+  margin-top: 4rem;
+}
+
+.changelog-version {
+  display: block;
+  flex-shrink: 0;
+  width: 5rem;
+  margin-right: 0.5rem;
+
+  border-radius: var(--ifm-global-radius);
+  background-color: rgba(66, 0, 255, 0.12);
+  color: var(--ifm-color-primary);
+
+  font-family: var(--ifm-font-family-base);
+  font-feature-settings: "cv09", "tnum";
+  font-weight: var(--ifm-font-weight-bold);
+  font-size: 0.875em;
+  text-align: center;
+}
+html[data-theme="dark"] .changelog-version {
+  background-color: rgba(66, 0, 255, 0.67);
+  color: #fff;
+}
+
+.changelog-version-separator {
+  display: none;
+}
+
+.changelog-date {
+  font-size: 0.875rem;
+  color: var(--ifm-font-color-secondary);
+
+  margin-top: -0.5rem;
+}
+.changelog-date a {
+  color: inherit;
+  text-decoration: none;
+
+  min-width: 5rem;
+  text-align: center;
+  display: inline-block;
+}
+.changelog-date a:hover {
+  text-decoration: underline;
+}
+
+.changelog-date + ul {
+  margin-top: -0.5rem;
+}
+
+.markdown ul {
+  list-style: none;
+  padding: 0;
+}
+.markdown ul li {
+  display: flex;
+  align-items: baseline;
+  font-size: 0.875rem;
+}
+.markdown ul li p {
+  margin: 0;
+}
+
+.changelog-tag {
+  display: block;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 5rem;
+  margin-right: 0.5rem;
+
+  border-radius: var(--ifm-global-radius);
+  background-color: var(--ifm-border-color);
+
+  font-weight: var(--ifm-font-weight-semibold);
+  font-size: 0.875em;
+  text-align: center;
+}
+
+.changelog-tag[data-tag="New"] {
+  background-color: #d3eacf;
+  color: #005911;
+}
+html[data-theme="dark"] .changelog-tag[data-tag="New"] {
+  background-color: #005911;
+  color: #d3eacf;
+}
+
+.changelog-tag[data-tag="Improved"] {
+  background-color: #c9e9fe;
+  color: #015371;
+}
+html[data-theme="dark"] .changelog-tag[data-tag="Improved"] {
+  background-color: #015371;
+  color: #c9e9fe;
+}
+
+.changelog-tag[data-tag="Deprecated"] {
+  background-color: #f8dfc9;
+  color: #723f00;
+}
+html[data-theme="dark"] .changelog-tag[data-tag="Deprecated"] {
+  background-color: #723f00;
+  color: #f8dfc9;
+}
+
+.changelog-tag[data-tag="Removed"] {
+  background-color: #ffdcd4;
+  color: #9b010c;
+}
+html[data-theme="dark"] .changelog-tag[data-tag="Removed"] {
+  background-color: #9b010c;
+  color: #ffdcd4;
+}
+
+.table-of-contents {
+  font-variant-numeric: tabular-nums;
+}
