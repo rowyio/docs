@@ -25,7 +25,6 @@ Click the button 👇
 This runs Rowy Run, an open source Cloud Run instance that operates exclusively
 on your GCP project, so we never have access to any of your data. Like Rowy,
 it’s completely open source and free to use.
-[Learn more about Rowy Run](../rowy-run/overview)
 
 Once installed, you’ll be given an URL to the Rowy app to continue installation:
 
