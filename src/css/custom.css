@@ -330,6 +330,7 @@ table th,
 table td {
   border-left: 0;
   border-right: 0;
+  border-top: 0;
 }
 .visually-hidden {
   position: absolute;
