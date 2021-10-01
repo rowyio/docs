@@ -1,0 +1,8 @@
+*@type* tag is the correct way to go while referencing. This tag helps in referencing names, arrays and functions. 
+More information on the same can be found at: https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
+
+Additional links for a better understanding: 
+https://www.c-sharpcorner.com/UploadFile/5089e0/how-to-connect-database-in-typescript/
+https://support.microsoft.com/en-us/office/create-a-query-based-on-multiple-tables-4a14e73a-3ecd-481c-a416-09571c7064a9
+https://stackoverflow.com/questions/5866169/how-to-get-all-selected-values-of-a-multiple-select-box
+https://ej2.syncfusion.com/documentation/multi-select/getting-started/
