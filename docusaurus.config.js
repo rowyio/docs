@@ -42,7 +42,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
 
     stylesheets: [
       "https://rsms.me/inter/inter.css",
-      "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400;1,600&display=swap",
+      "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap",
     ],
 
     themeConfig:
@@ -152,11 +152,10 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
         },
         algolia: {
           apiKey: "ee1d849ee8899924e4d1b88c013f045b",
-         indexName: "rowy",
+          indexName: "rowy",
 
           // Optional: see doc section below
           contextualSearch: true,
-
         },
         colorMode: {
           defaultMode: "light",
