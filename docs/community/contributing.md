@@ -11,8 +11,7 @@ discussions, documentation, translation, feedback and how-to guides.
 
 - Try Rowy and give [feedback](mailto:feedback@rowy.io)
 - Raise any [issue](https://github.com/rowyio/rowy/issues)
-- Create a pull request (good first issues
-  [list](https://github.com/rowyio/rowy/projects/3))
+- Take a look at [good first issues](https://github.com/rowyio/rowy/projects/3), our [contribution guide](https://github.com/rowyio/rowy/blob/main/CONTRIBUTING.md), and submit a pull request
 - Help us improve our [docs](https://github.com/rowyio/rowy/docs) and
   [how-to guides](https://docs.rowy.io/how-to/create-table)
 - Spread the word if you like Rowy by [tweeting](https://ctt.ac/M00va) about it
