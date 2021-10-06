@@ -71,6 +71,7 @@ module.exports = {
         "extensions/sendgrid-email",
         "extensions/twilio-message",
         "extensions/slack-message",
+        "extensions/doc-sync"
       ],
     },
     "community/contributing",
