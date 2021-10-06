@@ -35,7 +35,7 @@ html {
 
   --ifm-font-family-base: Inter, system-ui, sans-serif;
   --ifm-heading-font-family: Space Grotesk, Inter, system-ui, sans-serif;
-  --ifm-font-family-monospace: IBM Plex Mono, ui-monospace, monospace;
+  --ifm-font-family-monospace: JetBrains Mono, ui-monospace, monospace;
   --ifm-font-weight-bold: 600;
   --ifm-leading-desktop: 1;
 
@@ -256,6 +256,9 @@ h6 {
   font-feature-settings: "ss02", "ss03";
   letter-spacing: -0.01em;
 }
+:is(h1, h2, h3, h4, h5, h6) code {
+  font-size: 0.9em;
+}
 .markdown h1:first-child {
   --ifm-h1-font-size: 2rem;
 }
@@ -327,6 +330,7 @@ table th,
 table td {
   border-left: 0;
   border-right: 0;
+  border-top: 0;
 }
 .visually-hidden {
   position: absolute;

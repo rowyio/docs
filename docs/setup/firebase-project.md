@@ -14,7 +14,7 @@ Firestore and Authentication enabled.
 
 2. Create a Firestore database in the
    [Firebase Console](https://console.firebase.google.com/project/_/firestore).  
-   [Firebase instructions&nbsp;↗️](https://firebase.google.com/docs/firestore/quickstart#create)
+   [Firebase instructions&nbsp;&UpperRightArrow;](https://firebase.google.com/docs/firestore/quickstart#create)
 
    ![Screenshot of Firestore UI](./assets/enable-firestore.png)
 
@@ -45,7 +45,7 @@ Firestore and Authentication enabled.
 
 5. Enable the Google sign-in method in the
    [Sign-in method tab](https://console.firebase.google.com/project/_/authentication/providers).  
-   [Firebase instructions&nbsp;↗️](https://firebase.google.com/docs/auth/web/google-signin)
+   [Firebase instructions&nbsp;&UpperRightArrow;](https://firebase.google.com/docs/auth/web/google-signin)
 
    ![Screenshot of Firebase Auth UI](./assets/enable-google-sign-in.png)
 

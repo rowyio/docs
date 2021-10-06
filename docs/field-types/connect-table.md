@@ -4,21 +4,16 @@ title: Connect Table
 slug: /field-types/connect-table
 ---
 
-Connect table uses algolia indices to create a connection between tables
+Connects table field creates a connection between tables to fetch a snapshot of data values from another existing table's row. This is done via algolia index and needs integration.
 
 ## Prerequisite
 
-You'll need to index your table data on algolia, use can use the
-[algoliaIndex extension](../extensions/algolia-index) to do so
+You'll need to index the table data you want to connect to on algolia. To do this you can use [algoliaIndex extension](../extensions/algolia-index).
 
 ## Setup
 
-Go to the Rowy Run cloud run Configuration
-
-Variables & Secrets
-
-add the following variables, you should be able to find them on your Algolia
-dashboard
+- Go to the [Rowy Run cloud run](https://console.cloud.google.com/run/deploy/us-central1/rowy-run?project=) Configuration
+- Under the "Variables & Secrets" tab, add the following variables (you should be able to find them on your Algolia dashboard)
 
 ```
 ALGOLIA_APPLICATION_ID
@@ -28,4 +23,6 @@ ALGOLIA_SEARCH_KEY
 
 ![Environment Variables](./assets/env-vars.jpg)
 
-## Configurations
+## Create the connection
+
+

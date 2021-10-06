@@ -1,0 +1,49 @@
+.markdown table svg {
+  display: block;
+  opacity: 0.6;
+}
+
+.markdown table > * {
+  display: block;
+}
+.markdown tr {
+  display: flex;
+}
+.markdown tr > * {
+  display: block;
+  flex-shrink: 0;
+}
+
+.markdown tr > :nth-child(1) {
+  width: 2rem;
+}
+.markdown tr > :nth-child(2) {
+  width: 115px;
+}
+.markdown tr > :nth-child(3) {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.markdown tr > :nth-child(4) {
+  width: 220px;
+}
+
+@media (max-width: 599px) {
+  .markdown thead {
+    display: none;
+  }
+  .markdown tr {
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--ifm-table-border-color);
+    padding: 0.5rem 0;
+  }
+  .markdown tr td {
+    border: none;
+    padding: 0.125rem 0;
+  }
+  .markdown tr > :nth-child(3),
+  .markdown tr > :nth-child(4) {
+    width: 100%;
+    padding-left: 2rem;
+  }
+}

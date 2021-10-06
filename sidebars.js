@@ -74,6 +74,7 @@ module.exports = {
         "extensions/doc-sync"
       ],
     },
+    "changelog/changelog",
     "community/contributing",
     "community/faqs",
   ],

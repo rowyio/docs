@@ -7,8 +7,6 @@ slug: /how-to/default-values
 Default values can be set for any column and will be set whenever a new row is
 created. Set default values in Column Settings.
 
-![default-values](./assets/default-values.png)
-
 ## Undefined
 
 By default, the field’s value is `undefined`. This value is ignored by
@@ -28,6 +26,8 @@ by default.
 
 Setting a dynamic value lets you use JavaScript code to generate a default field
 value.
+
+![default-values](./assets/default-values.png)
 
 ### API
 

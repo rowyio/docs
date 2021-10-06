@@ -4,77 +4,76 @@ title: Install Rowy
 slug: /setup/install
 ---
 
-### Using one click deploy - ✅ Recommended
+## Option 1: Quick deploy – ✅ Recommended
 
-You can easily setup Rowy on your Google Cloud/Firebase project using the
-following one-click deploy button. This will install Rowy using a Cloud Run
-instance and guide you with a step by step process.
+You can easily set up Rowy on your Google Cloud or Firebase project using the
+following one-click deploy button, which will guide you with a step-by-step
+process.
 
-#### Prerequisites ⚠️
+:::caution Required
 
-Before starting make sure you have a firebase project setup with **Firestore**
-and **Firebase Auth** enabled.
+Before starting, make sure you have a Google Cloud or Firebase project with
+**Firestore** and **Firebase Authentication** enabled.  
+Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md)
 
-#### Deploy!
+:::
 
-Click the button👇
+Click the button 👇
 
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run/?git_repo=https://github.com/rowyio/rowyRun.git)
 
-Note this runs Rowy Run (an open source, cloud run instance) that operates
-exclusively on your GCP project and we will never have access to your service
-account or any of your data.
+This runs Rowy Run, an open source Cloud Run instance that operates exclusively
+on your GCP project, so we never have access to any of your data. Like Rowy,
+it’s completely open source and free to use.
+[Learn more about Rowy Run](../rowy-run/overview.mdx)
 
-Once installed, you will be given an URL to the Rowy App and follow it to get
-started as highlighted below.
+Once installed, you’ll be given an URL to the Rowy app to continue installation:
 
 ![Cloud Run Output](./assets/cloud-run.png)
 
-### Using Yarn - Manual
+## Option 2: Manual install
 
-If you don’t want to [setup Rowy](install#using-one-click-deploy----recommended)
-as described above, then follow these steps to install it manually. Note these
-steps involve familiarity with roles based access controls.
+If you don’t want to set up Rowy as described above, you can follow these steps
+to install it manually for development. You should be familiar with
 
-#### Installation requirements
+### Requirements
 
 - [Git](https://git-scm.com/downloads)
 - [Node](https://nodejs.org/en/download/) 10+
 - [Yarn](https://classic.yarnpkg.com/en/docs/install/) 1
 - [Firebase CLI](https://firebase.google.com/docs/cli) 8+
 
-Before proceeding, make sure you are logged in to your Firebase account in the
-Firebase CLI:
+1. Make sure you’e logged in to your Firebase account in the Firebase CLI:
 
-```
-firebase login
-```
+   ```bash
+   firebase login
+   ```
 
-#### 1. Clone this repo.
+2. Clone this repo.
 
-```
-git clone https://github.com/rowyio/rowy.git
-```
+   ```bash
+   git clone https://github.com/rowyio/rowy.git
+   ```
 
-#### 2. Set React app environment variables.
+3. Set environment variables.
 
-- Create a .env file
-- Get the Firebase **Project ID** and **Web API Key** from your Firebase
-  project’s **Settings** page. Click the cog icon on the left sidebar (under the
-  Firebase logo) and click **Project settings.**
-  ```
-  REACT_APP_FIREBASE_PROJECT_ID =
-  REACT_APP_FIREBASE_PROJECT_WEB_API_KEY =
-  ```
+   - Create a `.env` file.
+   - Get the **Project ID** and **Web API key** in the
+     [Firebase Console&nbsp;&UpperRightArrow;](https://console.firebase.google.com/project/_/settings/general)
+   - Paste them in the `.env` file:
+     ```bash
+     REACT_APP_FIREBASE_PROJECT_ID =
+     REACT_APP_FIREBASE_PROJECT_WEB_API_KEY =
+     ```
 
-#### 3. Install front-end dependencies using Yarn.
+4. Install frontend dependencies using Yarn.
 
-```
-yarn
-```
+   ```bash
+   yarn
+   ```
 
-#### 4. Run the app locally.
+5. Run the app locally.
 
-```
-yarn start
-```
+   ```bash
+   yarn start
+   ```
