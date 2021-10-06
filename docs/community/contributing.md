@@ -1,7 +1,7 @@
 ---
 id: contributing
 title: Contributing
-slug: /community/contributing
+slug: /contributing
 ---
 
 We ❤️ and welcome all contributions including features, issues, answering
