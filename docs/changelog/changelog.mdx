@@ -12,9 +12,175 @@ import css from "!!raw-loader!../../src/css/changelog.css";
 
 [View releases on GitHub&nbsp;&UpperRightArrow;](https://github.com/rowyio/rowy/releases)
 
+## <span className="changelog-version">v2.1.0</span><span className="changelog-version-separator"> – </span><span>New Extensions UI, table auditing</span>
+
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.1.0" target="_blank" rel="noopener noreferrer"><time datetime="2021-10-15T07:07:54Z">15 Oct 2021&nbsp;·&nbsp;5 hours ago</time></a></p>
+
+Thanks to our community contributors [@fabricio-godoi](https://github.com/fabricio-godoi), [@nandinikaregowdra](https://github.com/nandinikaregowdra), [@doilie](https://github.com/doilie), [@DariaNico](https://github.com/DariaNico), [@jmutt78](https://github.com/jmutt78), [@coder-mina](https://github.com/coder-mina), and [@yashodha03](https://github.com/yashodha03)!
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Step-based Extensions UI with updated copy and links to docs
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Table auditing: track when a user creates or updates a row. View this data with the new Created By, Updated By, Created At, and Updated At field types in your table or disable auditing if you don’t want these fields written to your documents.
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Connect Table field supports single selection without arrays ([#504](https://github.com/rowyio/rowy/issues/504))
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Allow users to add custom options in Single and Multi Select fields
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Add initial columns in Create table modal
+
+</li>
+
+</ul>
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Side Drawer scrolls to the selected cell and focus if available
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Filters UI now shows Side Drawer fields and supports more field types
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Long Text field supports multiline in-cell text editing
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Import CSV will suggest matching table column if CSV field name matches by [@DariaNico](https://github.com/DariaNico) in [#558](https://github.com/rowyio/rowy/issues/558) ([#536](https://github.com/rowyio/rowy/issues/536))
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Add not equal to filter by [@nandinikaregowdra](https://github.com/nandinikaregowdra) in [#547](https://github.com/rowyio/rowy/issues/547) ([#528](https://github.com/rowyio/rowy/issues/528))
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Rating field shows configuration modal after creation by [@coder-mina](https://github.com/coder-mina) in [#556](https://github.com/rowyio/rowy/issues/556) ([#540](https://github.com/rowyio/rowy/issues/540))
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Slider field shows configuration modal after creation by [@yashodha03](https://github.com/yashodha03) in [#557](https://github.com/rowyio/rowy/issues/557) ([#541](https://github.com/rowyio/rowy/issues/541))
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Show cap on number of rows loaded in table header
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Switch monospace font from IBM Plex Mono to JetBrains Mono for improved clarity
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Set text field caret color to theme primary color for improved clarity
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Table settings: Show collection name in Copy columns from existing table instead of ID
+
+</li>
+
+</ul>
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Table settings: fix Table ID being automatically edited when changing table name, causing creation of new table
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Side Drawer crashing when document contains a Firestore `DocumentReference`
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Add row will not add to top of table after deleting any row
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Missing in-cell editing of Date Time fields to match Date fields
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Position of tooltip for column header name
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Collections list in Table Settings empty on first load
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Import previews in Import Wizards have misaligned column headers by [@jmutt78](https://github.com/jmutt78) in [#553](https://github.com/rowyio/rowy/issues/553) ([#531](https://github.com/rowyio/rowy/issues/531))
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Export not working for subcollections by fabricio-godoi in [#499](https://github.com/rowyio/rowy/issues/499)
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Status field resetting operator on edit
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+PopoverCell: fix double causing cell to appear blank
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Side Drawer not loading the correct row’s values for some fields after clicking the navigation buttons
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Array and object fields not updating correctly if an element or property is removed
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Last frozen row not showing selection outline
+
+</li>
+
+</ul>
+
 ## <span className="changelog-version">v2.0.0</span><span className="changelog-version-separator"> – </span><span>Introducing Rowy</span>
 
-<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer"><time datetime="2021-09-30T02:41:30Z">30 Sep 2021&nbsp;·&nbsp;14 days ago</time></a></p>
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer"><time datetime="2021-09-30T02:41:30Z">30 Sep 2021&nbsp;·&nbsp;15 days ago</time></a></p>
 
 Thanks for your continued support in us. We’re now working on Rowy full time and we plan to have more frequent updates than ever before!
 
