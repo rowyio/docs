@@ -198,6 +198,7 @@ nav[class^="menu"] {
 .menu__link {
   font-size: 0.875rem;
   line-height: 1.42857;
+  min-height: 2rem;
   position: relative;
   text-decoration: none;
 }
