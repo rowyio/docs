@@ -12,9 +12,175 @@ import css from "!!raw-loader!../../src/css/changelog.css";
 
 [View releases on GitHub&nbsp;&UpperRightArrow;](https://github.com/rowyio/rowy/releases)
 
+## <span className="changelog-version">v2.1.0</span><span className="changelog-version-separator"> – </span><span>New Extensions UI, table auditing</span>
+
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.1.0" target="_blank" rel="noopener noreferrer"><time datetime="2021-10-15T07:07:54Z">15 Oct 2021&nbsp;·&nbsp;5 hours ago</time></a></p>
+
+Thanks to our community contributors [@fabricio-godoi](https://github.com/fabricio-godoi), [@nandinikaregowdra](https://github.com/nandinikaregowdra), [@doilie](https://github.com/doilie), [@DariaNico](https://github.com/DariaNico), [@jmutt78](https://github.com/jmutt78), [@coder-mina](https://github.com/coder-mina), and [@yashodha03](https://github.com/yashodha03)!
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Step-based Extensions UI with updated copy and links to docs
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Table auditing: track when a user creates or updates a row. View this data with the new Created By, Updated By, Created At, and Updated At field types in your table or disable auditing if you don’t want these fields written to your documents.
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Connect Table field supports single selection without arrays ([#504](https://github.com/rowyio/rowy/issues/504))
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Allow users to add custom options in Single and Multi Select fields
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Add initial columns in Create table modal
+
+</li>
+
+</ul>
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Side Drawer scrolls to the selected cell and focus if available
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Filters UI now shows Side Drawer fields and supports more field types
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Long Text field supports multiline in-cell text editing
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Import CSV will suggest matching table column if CSV field name matches by [@DariaNico](https://github.com/DariaNico) in [#558](https://github.com/rowyio/rowy/issues/558) ([#536](https://github.com/rowyio/rowy/issues/536))
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Add not equal to filter by [@nandinikaregowdra](https://github.com/nandinikaregowdra) in [#547](https://github.com/rowyio/rowy/issues/547) ([#528](https://github.com/rowyio/rowy/issues/528))
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Rating field shows configuration modal after creation by [@coder-mina](https://github.com/coder-mina) in [#556](https://github.com/rowyio/rowy/issues/556) ([#540](https://github.com/rowyio/rowy/issues/540))
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Slider field shows configuration modal after creation by [@yashodha03](https://github.com/yashodha03) in [#557](https://github.com/rowyio/rowy/issues/557) ([#541](https://github.com/rowyio/rowy/issues/541))
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Show cap on number of rows loaded in table header
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Switch monospace font from IBM Plex Mono to JetBrains Mono for improved clarity
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Set text field caret color to theme primary color for improved clarity
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Table settings: Show collection name in Copy columns from existing table instead of ID
+
+</li>
+
+</ul>
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Table settings: fix Table ID being automatically edited when changing table name, causing creation of new table
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Side Drawer crashing when document contains a Firestore `DocumentReference`
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Add row will not add to top of table after deleting any row
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Missing in-cell editing of Date Time fields to match Date fields
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Position of tooltip for column header name
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Collections list in Table Settings empty on first load
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Import previews in Import Wizards have misaligned column headers by [@jmutt78](https://github.com/jmutt78) in [#553](https://github.com/rowyio/rowy/issues/553) ([#531](https://github.com/rowyio/rowy/issues/531))
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Export not working for subcollections by fabricio-godoi in [#499](https://github.com/rowyio/rowy/issues/499)
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Status field resetting operator on edit
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+PopoverCell: fix double causing cell to appear blank
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Side Drawer not loading the correct row’s values for some fields after clicking the navigation buttons
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Array and object fields not updating correctly if an element or property is removed
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Last frozen row not showing selection outline
+
+</li>
+
+</ul>
+
 ## <span className="changelog-version">v2.0.0</span><span className="changelog-version-separator"> – </span><span>Introducing Rowy</span>
 
-<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer"><time datetime="2021-09-30T02:41:30Z">30 Sep 2021</time></a></p>
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer"><time datetime="2021-09-30T02:41:30Z">30 Sep 2021&nbsp;·&nbsp;15 days ago</time></a></p>
 
 Thanks for your continued support in us. We’re now working on Rowy full time and we plan to have more frequent updates than ever before!
 
@@ -233,13 +399,13 @@ JSON field setting to default to array ([#414](https://github.com/rowyio/rowy/is
 
 ## <span className="changelog-version">v1.4.0</span><span className="changelog-version-separator"> – </span><span>Build logs, FirebaseUI auth, required fields</span>
 
-<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.4.0" target="_blank" rel="noopener noreferrer"><time datetime="2021-07-27T06:01:01Z">27 Jul 2021</time></a></p>
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.4.0" target="_blank" rel="noopener noreferrer"><time datetime="2021-07-27T06:01:01Z">27 Jul 2021&nbsp;·&nbsp;3 months ago</time></a></p>
 
 <ul>
 
 <li><span className="changelog-tag" data-tag="New">New</span>
 
-Build logs of Firetable Cloud Functions used to run Derivative fields, default values, and other backend functionality
+Build logs of Cloud Functions used to run Derivative fields, default values, and other backend functionality
 
 </li>
 <li><span className="changelog-tag" data-tag="New">New</span>
@@ -254,7 +420,7 @@ Required fields, which can prevent rows from being written to the database
 </li>
 <li><span className="changelog-tag" data-tag="New">New</span>
 
-One-click deploy for Firetable Cloud Functions using Google Cloud Run
+One-click deploy for Cloud Functions using Google Cloud Run
 
 </li>
 <li><span className="changelog-tag" data-tag="New">New</span>
@@ -269,27 +435,7 @@ Derivative fields can re-evaluate cells based on changes from other columns
 </li>
 <li><span className="changelog-tag" data-tag="New">New</span>
 
-Filters for Derivative and Number fields
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-ConnectTable: snapshotFields config and support filters
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
 Status field
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-`_ft_createdBy` and `_ft_updatedBy` to Firestore documents written by Firetable
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-Prompt to re-deploy table’s cloud functions when column default value is edited
 
 </li>
 <li><span className="changelog-tag" data-tag="New">New</span>
@@ -302,36 +448,6 @@ Force Refresh to re-execute derivatives and spark functions
 Check for updates in User Menu
 
 </li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-Tooltip with file upload timestamp in File cells
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-Connect Table field user-specific Algolia search keys
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-Short Text field support for regex validation
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-Subcollection parent label settings
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-Date format setting in Date and Time & Date fields
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-Slider field setting for step size
-
-</li>
 
 </ul>
 
@@ -340,6 +456,21 @@ Slider field setting for step size
 <li><span className="changelog-tag" data-tag="Improved">Improved</span>
 
 Settings open automatically when adding a new field that requires configuration to work ([#483](https://github.com/rowyio/rowy/issues/483))
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Prompt to re-deploy table’s Cloud Functions when column default value is edited
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Filters support Derivative and Number fields
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+ConnectTable: snapshotFields config and support filters
 
 </li>
 <li><span className="changelog-tag" data-tag="Improved">Improved</span>
@@ -355,6 +486,36 @@ Consistent styling for auth pages
 <li><span className="changelog-tag" data-tag="Improved">Improved</span>
 
 Updated Material-UI global theme
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+File cells show tooltip with upload timestamp
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Connect Table field supports user-specific Algolia search keys
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Added date format setting in Date and Time & Date fields
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Added Slider field setting for step size
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Short Text field supports regex validation
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Subcollection parent label settings
 
 </li>
 
@@ -398,7 +559,7 @@ node.js maximum version requirement
 
 ## <span className="changelog-version">v1.3.2</span>
 
-<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.3.2" target="_blank" rel="noopener noreferrer"><time datetime="2021-03-12T02:03:52Z">12 Mar 2021</time></a></p>
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.3.2" target="_blank" rel="noopener noreferrer"><time datetime="2021-03-12T02:03:52Z">12 Mar 2021&nbsp;·&nbsp;7 months ago</time></a></p>
 
 <ul>
 
@@ -412,12 +573,12 @@ Added ErrorBoundary to all table cells to prevent full table crash
 
 ## <span className="changelog-version">v1.3.1</span>
 
-<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.3.1" target="_blank" rel="noopener noreferrer"><time datetime="2021-03-10T01:55:14Z">10 Mar 2021</time></a></p>
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.3.1" target="_blank" rel="noopener noreferrer"><time datetime="2021-03-10T01:55:14Z">10 Mar 2021&nbsp;·&nbsp;7 months ago</time></a></p>
 
 <ul>
 <li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
 
-ValidationError on all @antlerengineering/form-builder forms ([#317](https://github.com/rowyio/rowy/issues/317)) caused by incorrect yup version ([#318](https://github.com/rowyio/rowy/issues/318))
+ValidationError on all Form Builder forms ([#317](https://github.com/rowyio/rowy/issues/317)) caused by incorrect yup version ([#318](https://github.com/rowyio/rowy/issues/318))
 
 </li>
 
@@ -425,28 +586,13 @@ ValidationError on all @antlerengineering/form-builder forms ([#317](https://git
 
 ## <span className="changelog-version">v1.3.0</span><span className="changelog-version-separator"> – </span><span>Fields refactor</span>
 
-<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.3.0" target="_blank" rel="noopener noreferrer"><time datetime="2021-03-08T10:35:34Z">8 Mar 2021</time></a></p>
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.3.0" target="_blank" rel="noopener noreferrer"><time datetime="2021-03-08T10:35:34Z">8 Mar 2021&nbsp;·&nbsp;7 months ago</time></a></p>
 
 <ul>
 
 <li><span className="changelog-tag" data-tag="New">New</span>
 
-Refactored code implementing all field types. This improves maintainability and makes it easier to add new features related to fields and add new fields entirely. [See guide on how to add a new field type](https://github.com/AntlerVC/firetable/wiki/Extending-Firetable:-Adding-a-Field-Type)
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-`PopoverCell` components to render heavier editor cells (such as Multi Select and Color) only when the user has clicked the lighter InlineCell, improving performance
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-Configuration option to set default values for columns: undefined, null, static, and dynamic (evaluated by Cloud Function)
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-Column settings to more field types
+Set default values for columns: undefined, null, static, and dynamic (evaluated by Cloud Function)
 
 </li>
 <li><span className="changelog-tag" data-tag="New">New</span>
@@ -456,42 +602,12 @@ Option to set default value for JSON fields to empty array ([#293](https://githu
 </li>
 <li><span className="changelog-tag" data-tag="New">New</span>
 
-Support for cell “Lock”/disabled mode for all field types
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-Dark theme code editor
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-“Locked” icon to Side Drawer
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-Color scale to Slider table cell component
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-`Modal` component to standardize modal design
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-Version number to User Menu
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
 JSON export for tables
 
 </li>
 <li><span className="changelog-tag" data-tag="New">New</span>
 
-“Download Attachments” feature to Export modal
+Download attachments in Export modal
 
 </li>
 <li><span className="changelog-tag" data-tag="New">New</span>
@@ -506,7 +622,42 @@ Sparks as alpha preview
 
 <li><span className="changelog-tag" data-tag="Improved">Improved</span>
 
-`@antlerengineering/form-builder` to match `Modal` design
+Refactored code implementing all field types. This improves maintainability and makes it easier to add new features related to fields and add new fields entirely. [See guide on how to add a new field type](https://docs.rowy.io/field-types/add)
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+`PopoverCell` components to render heavier editor cells (such as Multi Select and Color) only when the user has clicked the lighter InlineCell, improving performance
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Added column settings to more field types
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Support for cell “Lock”/disabled mode for all field types
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Locked fields show lock icon in Side Drawer
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Show red/green color scale to Slider table cell component
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+`Modal` component to standardize modal design
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Form Builder matches `Modal` design
 
 </li>
 <li><span className="changelog-tag" data-tag="Improved">Improved</span>
@@ -516,7 +667,17 @@ Switched code editor from Ace editor to [Monaco editor](https://microsoft.github
 </li>
 <li><span className="changelog-tag" data-tag="Improved">Improved</span>
 
-Renamed `updatedAt` and `updatedBy` fields being written to the database in favour of `_ft_updatedAt` and `_ft_updatedBy`
+Code editor support dark theme
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Renamed `updatedAt` and `updatedBy` fields being written to the database in favor of `_ft_updatedAt` and `_ft_updatedBy`
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Show version number to User Menu
 
 </li>
 
@@ -536,7 +697,7 @@ Field types using `SideDrawerEditor` having cell contents disappear when double-
 </li>
 <li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
 
-Side Drawer not getting Firestore ref of first row
+Side Drawer not getting Firestore document ref of first row
 
 </li>
 <li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
@@ -565,7 +726,7 @@ Side Drawer not showing permissions errors when attempting to write to the datab
 
 ## <span className="changelog-version">v1.2.1</span>
 
-<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.2.1" target="_blank" rel="noopener noreferrer"><time datetime="2021-01-24T23:17:21Z">25 Jan 2021</time></a></p>
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.2.1" target="_blank" rel="noopener noreferrer"><time datetime="2021-01-24T23:17:21Z">25 Jan 2021&nbsp;·&nbsp;9 months ago</time></a></p>
 
 <ul>
 
@@ -629,7 +790,7 @@ Bump ini from 1.3.5 to 1.3.8 in /cloud_functions/functions ([#281](https://githu
 
 ## <span className="changelog-version">v1.2.0</span><span className="changelog-version-separator"> – </span><span>Copy column config from existing table</span>
 
-<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.2.0" target="_blank" rel="noopener noreferrer"><time datetime="2020-11-23T23:45:53Z">24 Nov 2020</time></a></p>
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.2.0" target="_blank" rel="noopener noreferrer"><time datetime="2020-11-23T23:45:53Z">24 Nov 2020&nbsp;·&nbsp;11 months ago</time></a></p>
 
 <ul>
 
@@ -641,11 +802,6 @@ Initialize table from an existing table’s column configuration
 <li><span className="changelog-tag" data-tag="New">New</span>
 
 Support Derivative functions for collection groups
-
-</li>
-<li><span className="changelog-tag" data-tag="New">New</span>
-
-icon.png for SourceTree
 
 </li>
 
@@ -678,7 +834,7 @@ Number Side Drawer field forcing empty values to `0` ([#268](https://github.com/
 
 ## <span className="changelog-version">v1.1.0</span><span className="changelog-version-separator"> – </span><span>Performance improvements, Import CSV Wizard, Dark theme</span>
 
-<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.1.0" target="_blank" rel="noopener noreferrer"><time datetime="2020-11-09T00:56:04Z">9 Nov 2020</time></a></p>
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.1.0" target="_blank" rel="noopener noreferrer"><time datetime="2020-11-09T00:56:04Z">9 Nov 2020&nbsp;·&nbsp;11 months ago</time></a></p>
 
 <ul>
 
@@ -699,12 +855,12 @@ Dark theme
 
 <li><span className="changelog-tag" data-tag="Improved">Improved</span>
 
-Improved performance massively by updating the [`react-data-grid`](https://github.com/adazzle/react-data-grid) dependency from `7.0.0-alpha.29` to `7.0.0-canary.27`
+Improved performance massively by updating the [react-data-grid](https://github.com/adazzle/react-data-grid) dependency from `7.0.0-alpha.29` to `7.0.0-canary.27`
 
 </li>
 <li><span className="changelog-tag" data-tag="Improved">Improved</span>
 
-Performance by adding adding Basic Cells to improve scroll performance
+Added Basic Cells to improve scroll performance
 
 </li>
 
@@ -719,12 +875,12 @@ Dates not being parsed when importing from CSV ([#219](https://github.com/rowyio
 </li>
 <li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
 
-[`@antlerengineering/multiselect`](https://github.com/AntlerVC/multiselect) keyboard navigation issue ([#260](https://github.com/rowyio/rowy/issues/260))
+MultiSelect keyboard navigation issue ([#260](https://github.com/rowyio/rowy/issues/260))
 
 </li>
 <li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
 
-Tabbing not scrolling table horizontally ([#257](https://github.com/rowyio/rowy/issues/257))
+Pressing tab key not scrolling table horizontally ([#257](https://github.com/rowyio/rowy/issues/257))
 
 </li>
 
@@ -732,5 +888,5 @@ Tabbing not scrolling table horizontally ([#257](https://github.com/rowyio/rowy/
 
 ## <span className="changelog-version">v1.0.0</span><span className="changelog-version-separator"> – </span><span>Initial public release</span>
 
-<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer"><time datetime="2020-11-03T08:34:15Z">3 Nov 2020</time></a></p>
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer"><time datetime="2020-11-03T08:34:15Z">3 Nov 2020&nbsp;·&nbsp;1 year ago</time></a></p>
 
