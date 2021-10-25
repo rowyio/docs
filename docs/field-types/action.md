@@ -5,11 +5,14 @@ slug: /field-types/action
 ---
 
 Action columns allow you to run scripts in nodejs environment There two modes
-for action columns,
+for action columns.
+
+  - Action Script
+  - Callable
 
 ### Action Script Mode
 
-Action script are executed on [RowyRun](../rowy-run/overview) and don't require
+Action script are executed on [RowyRun](../rowy-run) and don't require
 build step, However can not use external npm packages.
 
 #### Usage example
@@ -43,7 +46,7 @@ Callable mode require you to build cloud functions that are compatible with
 Rowy action columns, using the
 [Rowy Actions](https://www.npmjs.com/package/rowy-actions) npm package, It is used as an
 alternative to directly using `functions.https.onCall function` it can be
-installed and used in an existing firebase cloud functions projects
+installed and used in an existing firebase cloud functions project.
 
 #### Usage
 
