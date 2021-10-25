@@ -52,6 +52,7 @@ module.exports = {
         "field-types/supported-fields",
         "field-types/derivative",
         "field-types/connect-table",
+        "field-types/action",
         "field-types/add",
       ],
     },
