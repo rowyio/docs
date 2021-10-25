@@ -4,7 +4,7 @@ title: Action
 slug: /field-types/action
 ---
 
-Action columns allow you to run scripts in nodejs environment There two modes
+Action columns allow you to run scripts in nodejs environment. There two modes
 for action columns.
 
   - Action Script
@@ -12,11 +12,11 @@ for action columns.
 
 ### Action Script Mode
 
-Action script are executed on [RowyRun](../rowy-run) and don't require
-build step, However can not use external npm packages.
+Action scripts are executed on [RowyRun](../rowy-run) and don't require any
+build process, However they can not use external npm packages.
 
 #### Usage example
-setting user roles in firebase auth custom claims
+Setting a user roles in firebase auth custom claims
 ```javascript
 const { roles } = row;
 const user = await auth.getUser(ref.id);
@@ -42,15 +42,13 @@ return {
 
 ### Callable Mode
 
-Callable mode require you to build cloud functions that are compatible with
-Rowy action columns, using the
-[Rowy Actions](https://www.npmjs.com/package/rowy-actions) npm package, It is used as an
-alternative to directly using `functions.https.onCall function` it can be
-installed and used in an existing firebase cloud functions project.
+Callable mode requires you to build cloud functions that are compatible with Rowy action columns, using the [Rowy Actions](https://www.npmjs.com/package/rowy-actions) npm package, It's used as an
+alternative to directly using `functions.https.onCall function`, it can be
+installed and used in an existing firebase cloud functions project, and be used for more complex functionality that can not be achieved using actionScripts.
 
 #### Usage
 
-The structure of simple function for disabling a user's firebase account
+Example structure of how callable using rowy-actions package, the example illustrates how to disable a Firebase Auth user account with a callable.
 
 ```javascript
 import * as admin from "firebase-admin";
