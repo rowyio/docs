@@ -39,6 +39,10 @@ html[data-theme="dark"] .changelog-version {
 .changelog-date a {
   color: inherit;
   text-decoration: none;
+
+  min-width: 5rem;
+  text-align: center;
+  display: inline-block;
 }
 .changelog-date a:hover {
   text-decoration: underline;

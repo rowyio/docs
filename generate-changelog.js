@@ -1,7 +1,6 @@
 const fs = require("fs");
 const fetch = require("node-fetch");
 const format = require("date-fns/format");
-const formatDistanceToNowStrict = require("date-fns/formatDistanceToNowStrict");
 
 const HEADER_PATH = "./docs/changelog/_header.mdx";
 const CHANGELOG_PATH = "./docs/changelog/changelog.mdx";
@@ -25,12 +24,7 @@ fetch("https://api.github.com/repos/rowyio/rowy/releases")
         release.html_url
       }" target="_blank" rel="noopener noreferrer"><time datetime="${
         release.published_at
-      }">${format(
-        new Date(release.published_at),
-        "d MMM yyyy"
-      )}&nbsp;·&nbsp;${formatDistanceToNowStrict(
-        new Date(release.published_at)
-      )} ago</time></a></p>
+      }">${format(new Date(release.published_at), "d MMM yyyy")}</time></a></p>
 `;
 
       const body =
