@@ -1,0 +1,59 @@
+---
+id: connect-service
+title: Connect Service
+slug: /field-types/connect-service
+---
+
+Connect service columns allow you to link to an API endpoint, that can be
+presented as a list of options on Rowy.
+
+## API
+
+Rowy calls the provided endpoint with a `POST` request, passing the row data in the request body, and an optional query search query `q`, when the users types any text in the search box
+
+#### example endpoint
+
+```javascript
+import express from "express";
+import cors from "cors";
+
+const app = express();
+// json is the default content-type for POST requests
+app.use(express.json());
+app.use(cors());
+
+const users = [
+  {
+    name: "John Smith",
+    email: "john.smith@fake.com",
+  },
+  {
+    name: "Matthew Jones",
+    email: "matthew.jones@fake.com",
+  },
+  {
+    name: "Jane Doe",
+    email: "jane.doe@fake.com",
+  },
+];
+
+// simple use case of connect service
+app.post("/", (req, res) => {
+  let filteredUsers = users;
+  const searchQuery: any = req.query.q;
+  if (req.query.q) {
+    filteredUsers = users.filter(
+      (u) => u.name.includes(searchQuery) || u.email.includes(searchQuery)
+    );
+  }
+  res.send({
+    results: filteredUsers,
+  });
+});
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log(`connect-service: listening on port ${port}!`);
+});
+```
+
+A full example of a cloud run instance can be found [here](https://github.com/rowyio/connect-service-example)

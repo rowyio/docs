@@ -5,7 +5,7 @@ slug: /how-to/default-values
 ---
 
 Default values can be set for any column and will be set whenever a new row is
-created. Set default values in Column Settings.
+added. You can set default values in Column Settings.
 
 ## Undefined
 

@@ -42,8 +42,8 @@ You can also use npm packages using
 
 Add an additional field to simplify client-side queries.
 
-Problem: On the client side, we want to see which requests are ready for
-approval. We need to know which rows have the `amount` and `claim` field set. We
+Problem: On the client-side we want to see which requests are ready for
+approval. We need to know which rows have the `amount` and `claim` fieldset. We
 don’t want to create a
 [composite index](https://firebase.google.com/docs/firestore/query-data/index-overview#composite_indexes),
 which would be costly.
@@ -62,9 +62,9 @@ else return false;
 Use data from other parts of the database in this row.
 
 Problem: We want to attach the user’s email to a request. We want to automate
-this and not have to expose all the user’s sensitive data on the client side.
+this and not have to expose all the user’s sensitive data on the client-side.
 
-Solution: Create a new field that gets the email. It is run on a secure backend
+Solution: Create a new field that gets the email. It will run on a secure backend
 environment and does not expose sensitive data.
 
 ```js
