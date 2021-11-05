@@ -7,18 +7,18 @@ slug: /setup/firebase-project
 Rowy connects to your existing Firebase projects. Your projects need to have
 Firestore and Authentication enabled.
 
-1. Create a new project in the
+1. Create a **new project** in the
    [Firebase Console](https://console.firebase.google.com/).
 
    ![Screenshot of Firebase project creation UI](./assets/create-firebase-project.png)
 
-2. Create a Firestore database in the
+2. Create a **Firestore** database in the
    [Firebase Console](https://console.firebase.google.com/project/_/firestore).  
    [Firebase instructions&nbsp;&UpperRightArrow;](https://firebase.google.com/docs/firestore/quickstart#create)
 
    ![Screenshot of Firestore UI](./assets/enable-firestore.png)
 
-3. Set up Firestore Security Rules. You can use test mode for now.
+3. Set up Firestore **Security Rules**. You can use test mode for now.
 
    ![Screenshot of Firestore database creation UI](./assets/create-database.png)
 
@@ -38,17 +38,21 @@ Firestore and Authentication enabled.
      }
      ```
 
-4. Enable Firebase Authentication in the
+4. Enable **Firebase Authentication** in the
    [Firebase Console](https://console.firebase.google.com/project/_/authentication).
 
    ![Screenshot of Firebase Auth UI](./assets/enable-auth.png)
 
-5. Enable the Google sign-in method in the
+5. Enable the **Google sign-in method** in the
    [Sign-in method tab](https://console.firebase.google.com/project/_/authentication/providers).  
    [Firebase instructions&nbsp;&UpperRightArrow;](https://firebase.google.com/docs/auth/web/google-signin)
 
    ![Screenshot of Firebase Auth UI](./assets/enable-google-sign-in.png)
 
-6. Optionally, upgrade your project to the Blaze Plan. This is required to
-   deploy any Cloud Functions. You can stay on the Spark Plan (free) until you
-   upload a Cloud Function.
+6. In the bottom-left corner, upgrade your project to the **Blaze Plan**.
+
+   This is required to deploy Rowy Run and any Cloud Functions. The
+   [free Spark Plan limits](https://firebase.google.com/pricing) are generous
+   and you likely won’t pay anything.
+
+   ![Screenshot of Firebase billing button](./assets/firebase-billing.png)

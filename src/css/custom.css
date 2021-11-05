@@ -360,6 +360,9 @@ table td {
 .admonition-content {
   margin-left: 1.875rem;
 }
+html[data-theme="light"] .alert--secondary {
+  --ifm-alert-background-color: var(--ifm-pre-background);
+}
 .tabs-container {
   border-bottom: 1px solid var(--ifm-border-color);
 }

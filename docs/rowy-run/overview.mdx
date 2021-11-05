@@ -16,6 +16,65 @@ It operates exclusively on your GCP project, so we never have access to any of
 your data. Like Rowy, it’s completely open source and free to use.
 [Rowy Run on GitHub &UpperRightArrow;](https://github.com/rowyio/rowyRun)
 
+## Install Rowy Run
+
+:::warning Required
+
+Before starting, make sure you have a Google Cloud or Firebase project with
+**Firestore** and **Firebase Authentication** enabled, and upgraded to the
+**Blaze Plan**.
+
+Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md)
+
+:::
+
+If you installed Rowy using the [quick deploy method](../setup/install.md), Rowy
+Run is already set up on your project.
+
+Otherwise, you can install Rowy Run manually.
+
+:::note Required software
+
+- [Git](https://git-scm.com/downloads)
+- [Node](https://nodejs.org/en/download/) 14 (it’s easiest to install using
+  [nvm](https://github.com/nvm-sh/nvm#intro))
+- [Yarn](https://classic.yarnpkg.com/en/docs/install/) 1
+- [gcloud CLI](https://cloud.google.com/sdk/docs/install) 363+
+
+:::
+
+1. Enable the Cloud Run Admin API in the
+   [Google Cloud console &UpperRightArrow;](http://console.cloud.google.com/apis/library/run.googleapis.com)  
+   Make sure you have
+   [billing enabled](https://cloud.google.com/billing/docs/how-to/modify-project#confirm_billing_is_enabled_on_a_project)
+   first.
+
+2. Make sure you’ve initialized the gcloud CLI and signed in to the correct
+   account.
+
+   ```bash
+   gcloud init
+   ```
+
+3. Clone the Rowy Run repo and open the created directory.
+
+   ```bash
+   git clone https://github.com/rowyio/rowyRun.git
+   cd rowyRun
+   ```
+
+4. Install dependencies using Yarn.
+
+   ```bash
+   yarn
+   ```
+
+5. Run the deploy script with the correct project ID.
+
+   ```bash
+   ./deploy.sh --project [ID]
+   ```
+
 ## How it works
 
 Rowy Run uses the
@@ -25,6 +84,5 @@ changes to your project. To use these SDKs, it requires a
 [service account](https://firebase.google.com/support/guides/service-accounts)
 with these [IAM roles](https://cloud.google.com/iam/docs/understanding-roles):
 
-- Service Account User – required to deploy Cloud Functions
-- Firebase Authentication Admin
-- Firestore Service Agent
+- Service Account User
+- Firebase Admin
