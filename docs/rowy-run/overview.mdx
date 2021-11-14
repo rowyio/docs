@@ -6,6 +6,8 @@ slug: /rowy-run
 ---
 
 import RowyRunSvg from "../../static/img/rowy-run-logo.svg";
+import Video from "../../src/components/Video";
+import videoUrl from "./assets/service-account.mp4";
 
 # <RowyRunSvg height={52} /> <span className="visually-hidden">Rowy Run</span>
 
@@ -75,6 +77,15 @@ Otherwise, you can install Rowy Run manually.
    ```bash
    ./deploy.sh --project [ID]
    ```
+
+6. Set up a service account for your Rowy Run instance with the **Service
+   Account User** and **Firebase Admin** roles in the Google Cloud console by
+   following the video below:
+
+   <Video url={videoUrl} muted playsinline controls />
+
+   You can verify the service account has the required permissions in the Rowy
+   Run setup flow, `/setup`.
 
 ## How it works
 
