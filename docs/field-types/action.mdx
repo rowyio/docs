@@ -6,18 +6,19 @@ slug: /field-types/action
 
 Action columns allow you to run scripts in nodejs environment.
 
-Scripts expect to end by returning an [ActionStatus](/reference/action-status) object
+Actions expect to end by returning an [ActionStatus](/reference/action-status) object
 There two modes for action columns;
 
-- Action Script
+
+- Script
 - Callable
 
-### Action Script Mode
+## Script
 
-Action scripts are executed on [RowyRun](../rowy-run) and don't require any
+Action scripts are executed on [Rowy Run](../rowy-run) and don't require any
 build process, However they can not use external npm packages.
 
-## API
+### API
 
 Your code has access to the following parameters and can use the
 [`await` keyword](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await).
@@ -30,8 +31,8 @@ Your code has access to the following parameters and can use the
 | `db`   | [`Firestore`](https://firebase.google.com/docs/reference/node/firebase.firestore.Firestore)                 | Access to the full Cloud Firestore instance to access any collection or document. |
 | `auth` | [`Auth`](https://firebase.google.com/docs/reference/admin/node/admin.auth.Auth-1)                           | Access to Firebase Auth via Admin SDK                                             |
 
-#### Usage example
 
+### Example
 Setting a user roles in firebase auth custom claims
 
 ```javascript
@@ -57,7 +58,7 @@ return {
 };
 ```
 
-### Callable Mode
+## Callable
 
 Callable mode requires you to build cloud functions that are compatible with
 Rowy action columns, using the
@@ -67,7 +68,7 @@ can be installed and used in an existing firebase cloud functions project, and
 be used for more complex functionality that can not be achieved using
 actionScripts.
 
-#### Usage
+### Example
 
 Example structure of how callable using rowy-actions package, the example
 illustrates how to disable a Firebase Auth user account with a callable.

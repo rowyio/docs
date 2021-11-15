@@ -10,10 +10,11 @@ You can easily set up Rowy on your Google Cloud or Firebase project using the
 following one-click deploy button, which will guide you with a step-by-step
 process.
 
-:::caution Required
+:::warning Required
 
 Before starting, make sure you have a Google Cloud or Firebase project with
-**Firestore** and **Firebase Authentication** enabled.  
+**Firestore** and **Firebase Authentication** enabled.
+
 Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md)
 
 :::
@@ -36,23 +37,27 @@ Once installed, you’ll be given an URL to the Rowy app to continue installatio
 If you don’t want to set up Rowy as described above, you can follow these steps
 to install it manually for development. You should be familiar with
 
-### Requirements
+:::note Required software
 
 - [Git](https://git-scm.com/downloads)
-- [Node](https://nodejs.org/en/download/) 10+
+- [Node](https://nodejs.org/en/download/) 10+ (it’s easiest to install using
+  [nvm](https://github.com/nvm-sh/nvm#intro))
 - [Yarn](https://classic.yarnpkg.com/en/docs/install/) 1
 - [Firebase CLI](https://firebase.google.com/docs/cli) 8+
 
-1. Make sure you’e logged in to your Firebase account in the Firebase CLI:
+:::
+
+1. Make sure you’re logged in to your Firebase account in the Firebase CLI:
 
    ```bash
    firebase login
    ```
 
-2. Clone this repo.
+2. Clone the Rowy repo and open the created directory.
 
    ```bash
    git clone https://github.com/rowyio/rowy.git
+   cd rowy
    ```
 
 3. Set environment variables.
@@ -77,3 +82,7 @@ to install it manually for development. You should be familiar with
    ```bash
    yarn start
    ```
+
+Some backend features require Rowy Run to be installed on your project. You’ll
+need to install Rowy Run manually.
+[Install Rowy Run&nbsp;→](../rowy-run/overview.mdx)
