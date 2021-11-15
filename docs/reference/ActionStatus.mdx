@@ -1,0 +1,14 @@
+---
+id: action-status
+title: Action Status
+slug: /refernce/action-status
+---
+
+Used in [Action Columns](/field-types/action) as the return type
+
+| Name       | Type                     | Required | Description                                                                 |
+| ---------- | ------------------------ | -------- | --------------------------------------------------------------------------- |
+| `success`  | boolean                  | required | Boolean indecating if the action was successful                             |
+| `status`   | string                   | optional | Displayed as the cell value after the action is complete                    |
+| `message`  | string                   | required | User friendly message pop-up in the bottom left corner                      |
+| `newState` | `undo` `redo` `disabled` | required | Sets if the action is able to be redone, undone or disabled for further use |

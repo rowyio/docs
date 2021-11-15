@@ -79,5 +79,13 @@ module.exports = {
     "changelog/changelog",
     "community/contributing",
     "community/faqs",
+    {
+      type: "category",
+      label: "Reference",
+      collapsed: true,
+      items: ["reference/rowy-user",
+    "reference/action-status"
+    ],
+    },
   ],
 };
