@@ -83,9 +83,10 @@ module.exports = {
       type: "category",
       label: "Reference",
       collapsed: true,
-      items: ["reference/rowy-user",
-    "reference/action-status"
-    ],
+      items: [
+        "reference/rowy-user",
+        "reference/action-status"
+      ],
     },
   ],
 };
