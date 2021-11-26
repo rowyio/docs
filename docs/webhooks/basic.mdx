@@ -1,0 +1,30 @@
+---
+id: basic
+title: Basic
+slug: /webhooks/basic
+---
+
+Basic webhook allows you integrate, with any 
+
+## Verification
+
+Supports basic Auth token
+
+## Parser
+
+The basic parser will haveily depend on the source of the request,
+We have added a simple example of adding the body as new row, but you can modify it to your needs 
+
+
+```typescript
+const basicParser: Parser = async({req, db,ref}) => {
+      // request is the request object from the webhook
+      // db is the database object
+      // ref is the reference to collection of the table
+      // the returned object will be added as a new row to the table
+      // eg: adding the webhook body as row
+      const {body } = req;
+      return body;
+  }
+
+```

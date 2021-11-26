@@ -1,0 +1,61 @@
+---
+id: typeform
+title: Typeform
+slug: /webhooks/typeform
+---
+
+The typeform webook allows 
+
+# Auth
+
+Typeform validates the authenticity of its request by signing the request body with secret,
+
+Rowy automatically handles the complixity of the verification process, 
+you just need to set the secret value on both typeform and rowy, after adding the webhook endpoint
+
+
+## Parser
+
+The sample parser provided converts the request body in 
+
+
+```typescript
+
+const typeformParser: Parser = async({req, db,ref}) =>{
+      // this reduces the form submission into a single object of key value pairs
+      // eg: {name: "John", age: 20}
+      // ⚠️ ensure that you have assigned ref values of the fields
+      // set the ref value to field key you would like to sync to
+      // docs: https://help.typeform.com/hc/en-us/articles/360050447552-Block-reference-format-restrictions
+      const {submitted_at,hidden,answers} = req.body.form_response
+      return ({
+      _createdAt: submitted_at,
+      ...hidden,
+      ...answers.reduce((accRow, currAnswer) => {
+        switch (currAnswer.type) {
+          case "date":
+            return {
+              ...accRow,
+              [currAnswer.field.ref]: new Date(currAnswer[currAnswer.type]),
+            };
+          case "choice":
+            return {
+              ...accRow,
+              [currAnswer.field.ref]: currAnswer[currAnswer.type].label,
+            };
+          case "choices":
+            return {
+              ...accRow,
+              [currAnswer.field.ref]: currAnswer[currAnswer.type].labels,
+            };
+          case "file_url":
+          default:
+            return {
+              ...accRow,
+              [currAnswer.field.ref]: currAnswer[currAnswer.type],
+            };
+        }
+      }, {}),
+    })};
+
+```

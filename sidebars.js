@@ -76,6 +76,18 @@ module.exports = {
         "extensions/doc-sync"
       ],
     },
+    {
+      type: "category",
+      label: "Webhooks",
+      collapsed: true,
+      items: [
+        "webhooks/overview",
+        "webhooks/basic",
+        "webhooks/typeform",
+        
+       
+      ],
+    },
     "changelog/changelog",
     "community/contributing",
     "community/faqs",
