@@ -12,6 +12,152 @@ import css from "!!raw-loader!../../src/css/changelog.css";
 
 [View releases on GitHub&nbsp;&UpperRightArrow;](https://github.com/rowyio/rowy/releases)
 
+## <span className="changelog-version">v2.2.0</span><span className="changelog-version-separator"> – </span><span>Webhooks, cloud logs</span>
+
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.2.0" target="_blank" rel="noopener noreferrer"><time datetime="2021-11-30T03:31:32Z">30 Nov 2021</time></a></p>
+
+Thanks to our community contributor [@lafronzt](https://github.com/lafronzt)!
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Add webhooks using a UI to add new rows from third-party services ([#566](https://github.com/rowyio/rowy/issues/566))
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+View cloud logs for webhooks, auditing, and builds/deploys in the table view
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Add rows with custom ID
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Revamped Action field settings with step-based UI, support for form inputs (alpha), and emoji as button icon
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+JSON fields can now be edited with the Monaco code editor in the Side Drawer ([#509](https://github.com/rowyio/rowy/issues/509))
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Firestore Rules are now edited with the Monaco diff editor in setup
+
+</li>
+
+</ul>
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Monaco code editors can be resized and appear full screen, use [GitHub themes](https://github.com/primer/github-vscode-theme), and tooltips no longer get cut off
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Import CSV will import in the same order as the CSV file
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Import CSV wizard will not suggest to import to ID field as it cannot write custom document IDs
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Column settings will not close on backdrop click or escape key press to prevent unsaved changes
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Derivatives field settings do not list field being edited in the listener field dropdown
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Derivatives Field listener and render fields are required in column settings ([#564](https://github.com/rowyio/rowy/issues/564))
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Copy for “Loading chunk failed error” caused by a new update being ready is more user-friendly and suggests the user reloads the page ([#530](https://github.com/rowyio/rowy/issues/530))
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Added Side Drawer toggle to show fields hidden in table (off by default)
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Setup rules step removes an insecure Firestore rule that allows anyone to access any part of your database
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Display project ID in user menu
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Home page welcome text to emphasize you can create tables from existing Firestore collections
+
+</li>
+
+</ul>
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Document ID generation algorithm eventually breaks and can’t create new rows after `000...undefined` ([#567](https://github.com/rowyio/rowy/issues/567))
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Import CSV writes all CSV rows into one row ([#583](https://github.com/rowyio/rowy/issues/583))
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Connect Service (Alpha) field shows item field name instead of value by [@lafronzt](https://github.com/lafronzt) in [#570](https://github.com/rowyio/rowy/issues/570) ([#569](https://github.com/rowyio/rowy/issues/569))
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Connect Service (Alpha) dropdown shows white gradient in dark theme
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Side Drawer crashing when document contains a Firestore `DocumentReference` as an array value or in a nested field ([#565](https://github.com/rowyio/rowy/issues/565))
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Hidden fields & filters not working with multiple table views
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Import CSV wizard preview error when importing dates that are strings
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Cloud build log snackbar not appearing for Derivative function deploy
+
+</li>
+
+</ul>
+
 ## <span className="changelog-version">v2.1.0</span><span className="changelog-version-separator"> – </span><span>New Extensions UI, table auditing</span>
 
 <p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.1.0" target="_blank" rel="noopener noreferrer"><time datetime="2021-10-15T07:07:54Z">15 Oct 2021</time></a></p>
