@@ -22,8 +22,8 @@ html {
   --ifm-color-content-secondary: rgba(7, 0, 20, 0.6);
   --ifm-border-color: rgba(7, 0, 19, 0.12);
   --ifm-background-color: var(--ifm-color-secondary);
-  --ifm-global-shadow-lw: rgba(7, 0, 20, 0.04) 0px 0px 0px 1px,
-    rgba(7, 0, 20, 0.1) 0px 1px 3px 0px, rgba(7, 0, 20, 0.06) 0px 1px 2px 0px;
+  --ifm-global-shadow-lw: rgba(7, 0, 20, 0.03) 0px 0px 0px 1px,
+    rgba(7, 0, 20, 0.1) 0px 1px 2px 0px;
   --ifm-global-shadow-md: rgba(7, 0, 20, 0.06) 0px 0px 0px 1px,
     rgba(7, 0, 20, 0.1) 0px 10px 15px -3px, rgba(7, 0, 20, 0.05) 0px 4px 6px,
     rgba(7, 0, 20, 0.05) 0px 30px 40px;
@@ -202,22 +202,29 @@ nav[class^="menu"] {
   min-height: 2rem;
   position: relative;
   text-decoration: none;
+  transition: none;
 }
 .menu__list-item:not(:first-child) {
   margin-top: 0;
 }
-.menu__list-item--collapsed .menu__link--sublist:after {
+.menu__list-item--collapsed .menu__link--sublist:after,
+.menu__list-item--collapsed .menu__caret::before {
   transform: rotate(-180deg);
 }
-.menu__link--sublist::after {
+.menu__link--sublist::after,
+.menu__caret::before {
   background-size: 1.5rem;
   transform: rotate(0deg);
+}
+.menu__list-item--collapsed .menu__link--active {
+  background: var(--ifm-menu-color-background-active) !important;
 }
 .menu__link--active,
 .menu__link--active:hover {
   color: var(--ifm-menu-color);
 }
-.menu__link--active:not(.menu__link--sublist)::before {
+:not(.menu__list-item-collapsible) > .menu__link--active::before,
+.menu__list-item--collapsed .menu__link--active::before {
   content: "";
   display: block;
   position: absolute;
@@ -472,7 +479,8 @@ div[class^="tocCollapsibleContent"] ul li {
   border-radius: var(--ifm-card-border-radius);
   transition: background-color var(--ifm-transition-fast)
       var(--ifm-transition-timing-default),
-    box-shadow var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+    box-shadow var(--ifm-transition-fast) var(--ifm-transition-timing-default),
+    transform var(--ifm-transition-fast) var(--ifm-transition-timing-default);
   text-decoration: none;
 }
 .pagination-nav__link:hover,
@@ -480,6 +488,10 @@ div[class^="tocCollapsibleContent"] ul li {
 .pagination-nav__link:focus {
   background-color: var(--ifm-background-surface-color);
   box-shadow: var(--ifm-global-shadow-lw);
+}
+.pagination-nav__link:active {
+  box-shadow: var(--ifm-global-shadow-md);
+  transform: translateY(-2px);
 }
 @media (min-width: 600px) {
   .pagination-nav__link {
@@ -525,4 +537,34 @@ footer {
   font-size: 0.75rem;
   margin-top: -0.5rem;
   color: var(--ifm-font-color-secondary);
+}
+
+/* Generated index page */
+div[class^="generatedIndexPage"] article {
+  background: none;
+  box-shadow: none;
+}
+div[class^="generatedIndexPage"] .card {
+  box-shadow: var(--ifm-global-shadow-lw);
+  border: none;
+  text-decoration: none;
+  transition: box-shadow var(--ifm-transition-fast) ease,
+    background-color var(--ifm-transition-fast) ease,
+    transform var(--ifm-transition-fast) ease;
+  height: 7.5rem;
+}
+div[class^="generatedIndexPage"] .card:hover {
+  box-shadow: var(--ifm-global-shadow-md);
+  transform: translateY(-2px);
+}
+div[class^="generatedIndexPage"] .card:active {
+  box-shadow: var(--ifm-global-shadow-tl);
+  transform: translateY(-4px);
+}
+div[class^="generatedIndexPage"] .card h2 {
+  margin-bottom: 0.5rem;
+}
+div[class^="generatedIndexPage"] .card div {
+  font-size: 0.875rem;
+  min-height: 0.875rem;
 }

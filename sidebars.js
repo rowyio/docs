@@ -35,6 +35,7 @@ module.exports = {
     {
       type: "category",
       label: "How-to guides",
+      link: { type: "generated-index" },
       collapsed: true,
       items: [
         "how-to/create-table",
@@ -47,6 +48,7 @@ module.exports = {
     {
       type: "category",
       label: "Field types",
+      link: { type: "generated-index" },
       collapsed: true,
       items: [
         "field-types/supported-fields",
@@ -57,15 +59,17 @@ module.exports = {
         "field-types/add",
       ],
     },
-    {
-      type: "category",
-      label: "Rowy Run",
-      collapsed: true,
-      items: ["rowy-run/overview"],
-    },
+    "rowy-run/overview",
+    // {
+    //   type: "category",
+    //   label: "Rowy Run",
+    //   collapsed: true,
+    //   items: ["rowy-run/overview"],
+    // },
     {
       type: "category",
       label: "Extensions",
+      link: { type: "generated-index" },
       collapsed: true,
       items: [
         "extensions/overview",
@@ -73,20 +77,15 @@ module.exports = {
         "extensions/sendgrid-email",
         "extensions/twilio-message",
         "extensions/slack-message",
-        "extensions/doc-sync"
+        "extensions/doc-sync",
       ],
     },
     {
       type: "category",
       label: "Webhooks",
+      link: { type: "generated-index" },
       collapsed: true,
-      items: [
-        "webhooks/overview",
-        "webhooks/basic",
-        "webhooks/typeform",
-        
-       
-      ],
+      items: ["webhooks/overview", "webhooks/basic", "webhooks/typeform"],
     },
     "changelog/changelog",
     "community/contributing",
@@ -95,10 +94,7 @@ module.exports = {
       type: "category",
       label: "Reference",
       collapsed: true,
-      items: [
-        "reference/rowy-user",
-        "reference/action-status"
-      ],
+      items: ["reference/rowy-user", "reference/action-status"],
     },
   ],
 };
