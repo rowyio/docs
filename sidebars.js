@@ -47,6 +47,21 @@ module.exports = {
     },
     {
       type: "category",
+      label: "Templates",
+      link: { type: "generated-index" },
+      collapsed: true,
+      items: [
+        "templates/webflow-form",
+        // "templates/typeform-webhook",
+        // "templates/bannerbear",
+        // "templates/magic-link",
+        // "templates/translate-api",
+        // "templates/github-webhook",
+        // "templates/cal-scheduling",
+      ],
+    },
+    {
+      type: "category",
       label: "Field types",
       link: { type: "generated-index" },
       collapsed: true,

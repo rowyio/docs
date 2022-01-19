@@ -32,6 +32,7 @@
     "raw-loader": "^4.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-gist": "^1.2.4",
     "react-player": "^2.9.0",
     "url-loader": "^4.1.1"
   },
