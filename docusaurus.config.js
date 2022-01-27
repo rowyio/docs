@@ -36,6 +36,9 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
           theme: {
             customCss: require.resolve("./src/css/custom.css"),
           },
+          gtag: {
+            trackingID: "G-G41D01C293",
+          },
         }),
       ],
     ],
@@ -180,9 +183,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
           backgroundColor: "var(--ifm-background-surface-color)",
           textColor: "var(--ifm-font-color-base)",
         },
-        gtag: {
-          trackingID: "G-G41D01C293",
-        },
+        autoCollapseSidebarCategories: true,
         hideableSidebar: true,
         image: "img/meta.png",
       }),

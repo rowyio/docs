@@ -184,7 +184,7 @@ html[data-theme="dark"] .DocSearch {
 }
 
 /* Sidebar */
-aside[class^="docSidebarContainer"] {
+aside.theme-doc-sidebar-container {
   border-right: none;
 }
 .menu {
