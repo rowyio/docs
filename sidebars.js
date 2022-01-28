@@ -34,7 +34,7 @@ module.exports = {
     },
     {
       type: "category",
-      label: "How-to guides",
+      label: "Getting started guides",
       link: { type: "generated-index" },
       collapsed: true,
       items: [
@@ -52,6 +52,7 @@ module.exports = {
       collapsed: true,
       items: [
         "templates/webflow-form",
+        "templates/spotify-wrapped",
         // "templates/typeform-webhook",
         // "templates/bannerbear",
         // "templates/magic-link",
