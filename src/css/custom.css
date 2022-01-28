@@ -311,6 +311,7 @@ a.theme-edit-this-page {
 article img {
   max-height: 500px;
   object-fit: contain;
+  object-position: left;
 }
 article img,
 article video {
