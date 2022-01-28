@@ -21,7 +21,7 @@ Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md
 
 Click the button 👇
 
-[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run/?git_repo=https://github.com/rowyio/rowyRun.git)
+[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://rowy.app/deploy)
 
 This runs Rowy Run, an open source Cloud Run instance that operates exclusively
 on your GCP project, so we never have access to any of your data. Like Rowy,
