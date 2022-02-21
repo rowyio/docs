@@ -49,7 +49,8 @@ Firestore and Authentication enabled.
 
    ![Screenshot of Firebase Auth UI](./assets/enable-google-sign-in.png)
 
-6. In the bottom-left corner, upgrade your project to the **Blaze Plan**.
+6. **Optional:** In the bottom-left corner, upgrade your project to the **Blaze
+   Plan**.
 
    This is required to deploy Rowy Run and any Cloud Functions. The
    [free Spark Plan limits](https://firebase.google.com/pricing) are generous
