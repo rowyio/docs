@@ -425,9 +425,10 @@ nav[class*="navbarHidden"] ~ .main-wrapper .tabs {
   border-bottom: none;
   position: relative;
   text-align: center;
-}
-.tabs__item--active {
-  border-radius: var(--ifm-global-radius);
+  border-top-left-radius: var(--ifm-global-radius);
+  border-top-right-radius: var(--ifm-global-radius);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .tabs__item--active::after {
   content: "";
@@ -565,6 +566,12 @@ footer {
 }
 .footer__link-item {
   text-decoration: none;
+}
+.footer__link-item svg[class^="iconExternalLink"] {
+  display: none;
+}
+.footer__link-item span::after {
+  content: "\a0↗";
 }
 .footer__logo {
   display: block;
