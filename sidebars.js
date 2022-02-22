@@ -129,7 +129,11 @@ module.exports = {
       collapsible: false,
       items: [
         "changelog/changelog",
-        "community/contributing",
+        {
+          type: "category",
+          label: "Contributing",
+          items: ["community/contributing", "community/add-a-field-type"],
+        },
         "community/faqs",
       ],
     },
