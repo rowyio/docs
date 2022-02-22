@@ -4,11 +4,12 @@ title: Install Rowy
 slug: /setup/install
 ---
 
-## Option 1: Quick deploy – ✅ Recommended
+Set up Rowy on your Google Cloud or Firebase project in minutes.
 
-You can easily set up Rowy on your Google Cloud or Firebase project using the
-following one-click deploy button, which will guide you with a step-by-step
-process.
+## Option 1: Quick deploy — ✅ Recommended
+
+You can set up Rowy using the following one-click deploy button, which will
+guide you with a step-by-step process.
 
 :::warning Required
 
@@ -19,14 +20,14 @@ Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md
 
 :::
 
-Click the button 👇
+When you’re ready, click the button:
 
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://rowy.app/deploy)
 
-This runs Rowy Run, an open source Cloud Run instance that operates exclusively
-on your GCP project, so we never have access to any of your data. Like Rowy,
-it’s completely open source and free to use.
-[Learn more about Rowy Run](../rowy-run/overview.mdx)
+This runs [Rowy Run](../rowy-run/overview.mdx), an open source Cloud Run
+instance that operates exclusively on your Google Cloud project, so we never
+have access to any of your data. Like Rowy, it’s completely open source and free
+to use.
 
 Once installed, you’ll be given an URL to the Rowy app to continue installation:
 

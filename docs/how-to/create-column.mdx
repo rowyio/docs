@@ -1,26 +1,33 @@
 ---
 id: create-column
-title: Create a column
+title: Add a column
 slug: /how-to/create-column
 ---
 
 import Video from "../../src/components/Video.js";
 import videoUrl from "./assets/add-column.mp4";
 
-Click on the "Add Column" button on the right most side of your table. Add your
-column information, pick column type from one of the
-[30+ supported fields](../field-types/supported-fields.mdx) and configure them
-to your needs.
+Columns display individual fields in your Firestore documents.
+
+## Steps
+
+1. Click the **Add column** button on the right edge of the table header.
+2. Set the user-facing **Column name**.
+3. Set the **Field key**, which is the name of the field in your Firestore
+   document.
+4. Set the **Field type**. See the
+   [list of supported field types](../field-types/supported-fields.mdx).
+5. If additional configuration is required for the field type, the Column
+   settings modal will appear when you click **Continue**.
 
 <Video url={videoUrl} playing loop muted playsinline controls />
 
+## Notes
 
-### Note
+- You can set [default values](./default-values.mdx) for fields.
+- You can set fields to be **required**, which will prevent the row from being
+  written to Firestore if the value is not set.
+- You can validate the user’s input with a character limit and regex on Short
+  Text fields.
 
-- You can create default values for fields, read about it in detail
-  [here](./default-values.md)
-- You also have flexibility to make some column fields required, i.e. only if
-  this column value is added then the row will be saved
-- You can validate data operations with regex on certain column types
-
-![column-features](./assets/defaultvalues.gif)
+![A screen recording showing how to set default values, and advanced validation with a character limit and regex on Short Text fields.](./assets/defaultvalues.gif)

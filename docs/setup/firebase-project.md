@@ -4,7 +4,7 @@ title: Set up a Firebase project
 slug: /setup/firebase-project
 ---
 
-Rowy connects to your existing Firebase projects. Your projects need to have
+Rowy connects to your existing Firebase projects. Your projects must have
 Firestore and Authentication enabled.
 
 1. Create a **new project** in the
