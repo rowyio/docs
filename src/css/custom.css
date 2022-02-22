@@ -59,6 +59,7 @@ html {
   --ifm-pre-border-radius: var(--ifm-global-radius);
   --ifm-code-border-radius: var(--ifm-global-radius);
   --ifm-alert-border-radius: var(--ifm-global-radius);
+  --ifm-code-background: rgba(0, 0, 0, 0.04);
   --ifm-alert-border-width: 0;
   --ifm-alert-border-left-width: 0;
   --ifm-alert-shadow: none;
@@ -92,6 +93,7 @@ html[data-theme="dark"] {
   --ifm-menu-color-background-active: rgba(255, 255, 255, 0.16);
 
   --ifm-toc-link-color: var(--ifm-font-color-secondary);
+  --ifm-code-background: rgba(255, 255, 255, 0.08);
 }
 body {
   background-color: var(--ifm-background-color);
@@ -305,10 +307,13 @@ h6 {
   font-size: 0.9em;
 }
 .markdown h1:first-child {
-  --ifm-h1-font-size: 2rem;
+  --ifm-h1-font-size: 2.618rem;
 }
-.markdown header:first-child h1 {
-  font-size: 2.5rem;
+.markdown h2 {
+  --ifm-h2-font-size: 1.618rem;
+}
+.markdown h3 {
+  --ifm-h3-font-size: 1.25rem;
 }
 @media (min-width: 997px) {
   .markdown header:first-child h1 {
@@ -566,12 +571,6 @@ footer {
 }
 .footer__link-item {
   text-decoration: none;
-}
-.footer__link-item svg[class^="iconExternalLink"] {
-  display: none;
-}
-.footer__link-item span::after {
-  content: "\a0↗";
 }
 .footer__logo {
   display: block;
