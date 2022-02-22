@@ -29,6 +29,7 @@ module.exports = {
         {
           type: "category",
           label: "Setup",
+          link: { type: "doc", id: "setup/install" },
           collapsed: true,
           items: [
             "setup/install",
@@ -118,6 +119,7 @@ module.exports = {
         {
           type: "category",
           label: "API Reference",
+          link: { type: "generated-index" },
           items: ["reference/rowy-user", "reference/action-status"],
         },
       ],
@@ -132,6 +134,7 @@ module.exports = {
         {
           type: "category",
           label: "Contributing",
+          link: { type: "doc", id: "community/contributing" },
           items: ["community/contributing", "community/add-a-field-type"],
         },
         "community/faqs",
