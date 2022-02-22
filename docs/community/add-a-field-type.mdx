@@ -8,7 +8,7 @@ If one of the [30+ field types](../field-types/supported-fields.mdx) don’t
 support your data type or you want to provide an alternate UI to edit your data,
 you can add a field type by writing your own code.
 
-## 1. Declare a new field type and set up config
+## Step 1: Declare a new field type and set up config
 
 1. Add a new entry to the `FieldType` enum in
    [`src/constants/fields.ts`](https://github.com/rowyio/rowy/blob/main/src/constants/fields.ts).
@@ -26,7 +26,7 @@ you can add a field type by writing your own code.
      that default exports the constant `config` and implements the interface
      [`IFieldConfig`](https://github.com/rowyio/rowy/blob/main/src/components/fields/types.ts#L10).
 
-## 2. Add `TableCell`
+## Step 2: Add `TableCell`
 
 This component is displayed in each cell for this field type.
 
@@ -67,7 +67,7 @@ This component is displayed in each cell for this field type.
      [`IPopoverInlineCellProps`](https://github.com/rowyio/rowy/blob/main/src/components/fields/types.ts#L53),
      [`IPopoverCellProps`](https://github.com/rowyio/rowy/blob/main/src/components/fields/types.ts#L56)
 
-## 3. Add `TableEditor`
+## Step 3: Add `TableEditor`
 
 This component is displayed when the user double-clicks the table cell for this
 field type.
@@ -82,7 +82,7 @@ them from
 - `NullEditor`: No editor. Best for cells that can be edited inline with a
   click, such as Popover cells.
 
-## 4. Add `SideDrawerField`
+## Step 4: Add `SideDrawerField`
 
 This component is displayed in the `SideDrawer` for this field type. Visually,
 it is a form field.
@@ -90,7 +90,7 @@ it is a form field.
 It must implement
 [`ISideDrawerFieldProps`](https://github.com/rowyio/rowy/blob/main/src/components/fields/types.ts#L60).
 
-## 5. Export the field config
+## Step 5: Export the field config
 
 When you’re ready to test your new field type, export the code and field config.
 

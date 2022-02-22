@@ -47,8 +47,9 @@ module.exports = {
             "how-to/create-table",
             "how-to/create-column",
             "how-to/add-row",
-            "how-to/default-values",
             "how-to/custom-views",
+            "how-to/default-values",
+            "how-to/multiple-tables",
           ],
         },
         {
@@ -85,7 +86,6 @@ module.exports = {
             "field-types/connect-table",
             "field-types/connect-service",
             "field-types/action",
-            "field-types/add",
           ],
         },
         {
