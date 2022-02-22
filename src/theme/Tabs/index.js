@@ -66,8 +66,7 @@ function TabsComponent(props) {
     );
   } // When defaultValueProp is null, don't show a default tab
 
-  const paramsValue = id !== null ? parsedParams[id] || null : null;
-  console.log(paramsValue);
+  const paramsValue = id != null ? parsedParams[id] || null : null;
 
   const defaultValue =
     defaultValueProp === null
@@ -119,7 +118,7 @@ function TabsComponent(props) {
         setTabGroupChoices(groupId, newTabValue);
       }
 
-      if (id !== null) {
+      if (id != null) {
         const newParams = { ...parsedParams, [id]: newTabValue };
         history.push(`?${queryString.stringify(newParams)}#${id}`);
       }
