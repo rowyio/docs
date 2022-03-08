@@ -6,7 +6,9 @@ slug: /extensions
 ---
 
 Extensions are Cloud Functions that simplify integrations with Firestore.
-Extensions require [Rowy Run](https://github.com/rowyio/rowyrun) to be set up.
+Extensions require [Rowy Run](https://docs.rowy.io/rowy-run) to be set up.
+
+Extensions are triggered on data CRUD operations to run a cloud function - either from a ready-made set of extensions (Twilio, Sendgrid, Slack, ALgolia and others) that are fully customizable via code or from ground up using generic task template (use any API with fetch() or NPM).
 
 Extensions that integrate third-party services use
 [Google Secret Manager](https://cloud.google.com/secret-manager) to store and

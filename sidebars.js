@@ -100,6 +100,7 @@ module.exports = {
             "extensions/twilio-message",
             "extensions/slack-message",
             "extensions/doc-sync",
+            "extensions/discord-message",
           ],
         },
         {
