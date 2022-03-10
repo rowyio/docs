@@ -27,7 +27,39 @@ by default.
 Setting a dynamic value lets you use JavaScript code to generate a default field
 value.
 
-![default-values](./assets/default-values.png)
+example:
+
+When user creates an account user document would be created. the document would
+need a default currency based on the user's country . if you have countries
+collection with all the settings available you can do the following:
+
+```typescript
+const defaultValueFn: DefaultValue => string = ({row,db}) => {
+  // set default currency of user's account
+  const countryDoc = await db.collection('countries').doc(row.country).get()
+  const currency = countryDoc.get("currency")
+  return currency
+}
+```
+
+Alternatively you can get the information form an external api to set the
+default value
+
+```typescript
+const defaultValueFn: DefaultValue => string = ({row,db}) => {
+  // set default currency of user's account
+  const resp = await fetch(`https://restcountries.com/v3.1/name/${row.country}`)
+  const respData = await resp.json()
+  // get the currency code from the response
+  const currencyCode = Object.keys(respData[0].currencies)[0]
+  const currency = respData[0].currencies[currencyCode]
+  return {
+    code: currencyCode,
+    name: currency.name,
+    symbol: currency.symbol
+  }
+}
+```
 
 ### API
 
@@ -44,7 +76,7 @@ You can also use npm packages using
 | `db`      | [`Firestore`](https://firebase.google.com/docs/reference/node/firebase.firestore.Firestore)                             | Access to the full Cloud Firestore instance to access any collection or document. |
 | `auth`    | [`Auth`](https://firebase.google.com/docs/reference/admin/node/admin.auth.Auth-1)                                       | Access to Firebase Auth via Admin SDK                                             |
 | `storage` | [`Storage`](https://firebase.google.com/docs/reference/admin/node/admin.storage.Storage-1)                              | Access to Firebase Storage via Admin SDK                                          |
-| `utilFns` |                                                                                                                         | TBD                                                                               |
+| `rowy`    | [`Rowy`](/reference/rowy)                                                                                                                        | Access to cloud function metadata secret Manager and storage utilities                                                                              |
 
 ## Examples
 
