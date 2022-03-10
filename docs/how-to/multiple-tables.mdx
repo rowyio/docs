@@ -1,0 +1,29 @@
+---
+id: multiple-tables
+title: Create multiple tables for the same collection
+slug: /how-to/multiple-tables
+---
+
+import Video from "../../src/components/Video.js";
+import videoUrl from "./assets/create-table.mp4";
+
+Multiple tables on the same collection can display different subsets of data for
+different users.
+
+## Steps
+
+1. Click the **+** button in the bottom-right corner of the Home page.
+2. Choose which **Collection** to display.
+3. Set the **Table name** and other display options.
+4. Set a unique **Table ID**.
+5. Set who can view and edit the table in **Access controls**. Make sure you
+   [set the corresponding roles for your users](../setup/roles.mdx).
+6. Optionally enable **Auditing** for the table.
+7. Optionally, initialize your table with columns.
+
+<Video url={videoUrl} playing loop muted playsinline controls />
+
+## Notes
+
+- If you delete a table, only the Rowy table config will be removed. No
+  collection data will not be deleted.

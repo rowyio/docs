@@ -10,7 +10,221 @@ import css from "!!raw-loader!../../src/css/changelog.css";
   <style>{css}</style>
 </head>
 
+
+If you deployed Rowy on [rowy.app](https://rowy.app/deploy), you’ll receive the
+latest updates to Rowy as we release them.
 [View releases on GitHub&nbsp;&UpperRightArrow;](https://github.com/rowyio/rowy/releases)
+
+## <span className="changelog-version">v2.3.2</span>
+
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.3.2" target="_blank" rel="noopener noreferrer"><time datetime="2022-02-11T06:44:33Z">11 Feb 2022</time></a></p>
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Deleting columns causes rows to re-order
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Filters not displaying no results
+
+</li>
+
+</ul>
+
+## <span className="changelog-version">v2.3.1</span>
+
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.3.1" target="_blank" rel="noopener noreferrer"><time datetime="2022-02-09T07:15:07Z">9 Feb 2022</time></a></p>
+
+<ul>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Show error snackbar on failed cell deletion
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Prevent strings from being pasted into Number fields
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Support filtering Derivative columns with supported output types
+
+</li>
+
+</ul>
+
+<ul>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Deleting columns would only cause them to be reordered
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Status field options
+
+</li>
+
+</ul>
+
+## <span className="changelog-version">v2.3.0</span><span className="changelog-version-separator"> – </span><span>Read-only tables, table-level filters, right-click menu</span>
+
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.3.0" target="_blank" rel="noopener noreferrer"><time datetime="2022-02-04T11:14:03Z">4 Feb 2022</time></a></p>
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Read-only tables: for non-ADMIN users, locks all columns and disables adding and deleting rows and columns ([#577](https://github.com/rowyio/rowy/issues/577))
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Table-level filters that can optionally be overridden by users ([#587](https://github.com/rowyio/rowy/issues/587))
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Right-click context menu to cut, copy, and paste cell values ([#600](https://github.com/rowyio/rowy/issues/600), [#544](https://github.com/rowyio/rowy/issues/544))
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Import and export Table settings as JSON
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Table descriptions: support Markdown and display in the table page as a dismissable tooltip ([#594](https://github.com/rowyio/rowy/issues/594))
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Status field: allow edits using dropdown and support filtering ([#546](https://github.com/rowyio/rowy/issues/546), [#527](https://github.com/rowyio/rowy/issues/527))
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+View table Cloud Function logs
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Support TSV import and export
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+rowy.app: Show templates in home page
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Webhooks: Sendgrid events parser
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Trigger extension based on specific field key
+
+</li>
+
+</ul>
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Reorganized table settings modal with a step-based UI
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Filter cloud logs by severity
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Deep linking for extensions and webhooks modals
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Display webhooks error messages in cloud logs
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Add Load more button to Cloud logs
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Basic search algorithm for Home and User Management pages using [match-sorter](https://github.com/kentcdodds/match-sorter)
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Display 404 when incorrect table ID is entered in URL
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+rowy.app: Hide unnecessary Check for updates button
+
+</li>
+
+</ul>
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Unreliable Add column to left/right behavior ([#558](https://github.com/rowyio/rowy/issues/558))
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Unpredictable behavior of reordering columns ([#559](https://github.com/rowyio/rowy/issues/559))
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Collection group tables not loading more than one page of data if two rows have the same ID but are in collections ([#595](https://github.com/rowyio/rowy/issues/595))
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Add row options dropdown not disabled in collection group tables
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Webhooks not writing audit fields
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Auth redirect ignoring hash in URL
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Case sensitive owner email validation during onboarding
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Type completion for `auth` in code editor
+
+</li>
+
+
+</ul>
 
 ## <span className="changelog-version">v2.2.0</span><span className="changelog-version-separator"> – </span><span>Webhooks, cloud logs</span>
 

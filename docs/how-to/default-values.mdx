@@ -1,11 +1,11 @@
 ---
 id: default-values
-title: Default values
+title: Set a default value
 slug: /how-to/default-values
 ---
 
 Default values can be set for any column and will be set whenever a new row is
-added. You can set default values in Column Settings.
+added. You can set default values in Column settings.
 
 ## Undefined
 
@@ -78,7 +78,9 @@ You can also use npm packages using
 | `storage` | [`Storage`](https://firebase.google.com/docs/reference/admin/node/admin.storage.Storage-1)                              | Access to Firebase Storage via Admin SDK                                          |
 | `rowy`    | [`Rowy`](/reference/rowy)                                                                                                                        | Access to cloud function metadata secret Manager and storage utilities                                                                              |
 
-## Examples
+### Examples
+
+#### Example: Parent document
 
 Use the row `ref` to get a value from the parent document.
 
@@ -86,6 +88,8 @@ Use the row `ref` to get a value from the parent document.
 const parentDoc = await ref.parent.parent.get();
 return parentDoc.get("email");
 ```
+
+#### Example: Any document
 
 Use `db` to get any document in your database.
 
@@ -96,6 +100,8 @@ const query = await db
   .get();
 return query.docs[0].get("keyName");
 ```
+
+#### Example: npm package
 
 Use an npm package to generate a UUID.
 

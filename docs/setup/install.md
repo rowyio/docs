@@ -4,11 +4,12 @@ title: Install Rowy
 slug: /setup/install
 ---
 
-## Option 1: Quick deploy – ✅ Recommended
+Set up Rowy on your Google Cloud or Firebase project in minutes.
 
-You can easily set up Rowy on your Google Cloud or Firebase project using the
-following one-click deploy button, which will guide you with a step-by-step
-process.
+## Option 1: Quick deploy — ✅ Recommended
+
+You can set up Rowy using the following one-click deploy button, which will
+guide you with a step-by-step process.
 
 :::warning Required
 
@@ -19,14 +20,14 @@ Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md
 
 :::
 
-Click the button 👇
+When you’re ready, click the button:
 
-[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run/?git_repo=https://github.com/rowyio/rowyRun.git)
+[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://rowy.app/deploy)
 
-This runs Rowy Run, an open source Cloud Run instance that operates exclusively
-on your GCP project, so we never have access to any of your data. Like Rowy,
-it’s completely open source and free to use.
-[Learn more about Rowy Run](../rowy-run/overview.mdx)
+This runs [Rowy Run](../rowy-run/overview.mdx), an open source Cloud Run
+instance that operates exclusively on your Google Cloud project, so we never
+have access to any of your data. Like Rowy, it’s completely open source and free
+to use.
 
 Once installed, you’ll be given an URL to the Rowy app to continue installation:
 
@@ -35,7 +36,16 @@ Once installed, you’ll be given an URL to the Rowy app to continue installatio
 ## Option 2: Manual install
 
 If you don’t want to set up Rowy as described above, you can follow these steps
-to install it manually for development. You should be familiar with
+to install it manually for development before hosting it yourself.
+
+:::warning Required
+
+Before starting, make sure you have a Google Cloud or Firebase project with
+**Firestore** and **Firebase Authentication** enabled.
+
+Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md)
+
+:::
 
 :::note Required software
 
@@ -64,7 +74,10 @@ to install it manually for development. You should be familiar with
 
    - Create a `.env` file.
    - Get the **Project ID** and **Web API key** in the
-     [Firebase Console&nbsp;&UpperRightArrow;](https://console.firebase.google.com/project/_/settings/general)
+     [Firebase Console&nbsp;&UpperRightArrow;](https://console.firebase.google.com/project/_/settings/general)  
+     Can’t see it?
+     [Enable Firebase Authentication&nbsp;&UpperRightArrow;](https://console.firebase.google.com/project/_/authentication)
+     first.
    - Paste them in the `.env` file:
      ```bash
      REACT_APP_FIREBASE_PROJECT_ID =
@@ -82,6 +95,13 @@ to install it manually for development. You should be familiar with
    ```bash
    yarn start
    ```
+
+6. Sign in with your Google account. You’ll see an Access denied screen.
+
+7. Set the `ADMIN` role for your account using
+   [these instructions&nbsp;&RightArrow;](/setup/roles?set-user-roles-tabs=admin-sdk#set-user-roles)
+
+8. Sign out and sign in again to access your Rowy project.
 
 Some backend features require Rowy Run to be installed on your project. You’ll
 need to install Rowy Run manually.

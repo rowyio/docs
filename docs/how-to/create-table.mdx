@@ -7,16 +7,23 @@ slug: /how-to/create-table
 import Video from "../../src/components/Video.js";
 import videoUrl from "./assets/create-table.mp4";
 
-Click the plus icon on the bottom-right corner of the Rowy app home page and
-follow the instructions to add your table details.
+Tables display your Firestore collections in a spreadsheet UI.
+
+## Steps
+
+1. Click the **+** button in the bottom-right corner of the Home page.
+2. Choose which **Collection** to display.
+3. Set the **Table name** and other display options.
+4. Set who can view and edit the table. It’s set to `ADMIN` only by default.
+5. Optionally enable **Auditing** for the table.
+6. Optionally, initialize your table with columns.
 
 <Video url={videoUrl} playing loop muted playsinline controls />
 
-### Note
+## Notes
 
-- You can create multiple views of the same collection using different TableIDs
-- The first time you create a table, you need to add a section (suggested:
-  "DEFAULT") and permission role of who can see it (as "ADMIN")
-- If you delete a table, only the config of the table on Rowy will be removed
-  and the actual contents of the collection on your Firestore will not be
-  deleted
+- You can
+  [create multiple tables pointing to the same collection](./multiple-tables.mdx)
+  to show different views for different users.
+- If you delete a table, only the Rowy table config will be removed. No
+  collection data will not be deleted.

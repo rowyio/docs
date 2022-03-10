@@ -16,11 +16,19 @@ claims in Firebase Authentication.
 ## Set user roles
 
 To allow users to access any of your data in Rowy, they must have user roles
-set. If you are an `ADMIN`, you can set them in User Management or using the
-Firebase Admin SDK.
+set. If you are have the `ADMIN` role, you can set them in User Management or
+using the Firebase Admin SDK.
 
-<Tabs>
+<Tabs id="set-user-roles-tabs">
 <TabItem value="user-management" label="User Management" default>
+
+:::note Rowy Run required
+
+To use User Management, you must have
+[Rowy Run set up](../rowy-run/overview.mdx). Otherwise, follow the instructions
+in the Firebase Admin SDK tab above.
+
+:::
 
 ### Set user roles in User Management
 
@@ -71,16 +79,21 @@ Alternatively, you can run this Node.js script to set roles on a Firebase
 Authentication user. You can run it in your command line or as part of a Cloud
 Function.
 
-:::caution Requirements
+:::caution Required
 
-Make sure you have your project’s service account private key JSON file from the
-Firebase Console in
-[Project Settings > Service Accounts](https://console.firebase.google.com/u/0/project/_/settings/serviceaccounts/adminsdk).
-
-You should also have your Firebase Project ID handy. You can find it in the
-[Firebase Console](https://console.firebase.google.com/project/_/settings/general).
+- Your project’s service account private key JSON file from the Firebase Console
+  in
+  [Project Settings > Service Accounts](https://console.firebase.google.com/u/0/project/_/settings/serviceaccounts/adminsdk).
+- Your Firebase project ID. You can find it in the
+  [Firebase Console](https://console.firebase.google.com/project/_/settings/general).
 
 :::
+
+1. Create a new folder and save the following script to a file called
+   `set-user-roles.js`.
+2. Follow the instructions marked by the `👉` in the comments.
+3. Install the Firebase Admin SDK using `npm install` or `yarn`.
+4. Run the script using `node ./set-user-roles.js`.
 
 ```js
 import * as admin from "firebase-admin";
@@ -175,9 +188,9 @@ service cloud.firestore {
 
 ### Table rules
 
-Write table rules that match the roles you set in Table Settings. The following
-are examples of different table rules, using the helper functions in the
-required rules above.  
+Write table rules that match the roles you set in your table settings. The
+following are examples of different table rules, using the helper functions in
+the required rules above.  
 [Read more about how to write rules&nbsp;&UpperRightArrow;](https://firebase.google.com/docs/firestore/security/rules-structure)
 
 Set Firestore Security Rules in the
