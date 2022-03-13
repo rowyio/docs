@@ -4,10 +4,29 @@ title: Rowy
 slug: /reference/rowy
 ---
 
+## Rowy
+
+you can use the `rowy` utitlity package, directly in any function you create on Rowy.
+
+### storage
+The storage utility allows you to easily store files to firebase storage and generate Rowy compatible object references
+```javascript
+    // ensure the that folder file names are unique to prevent overwriting existing files
+const file = await rowy.storage.upload.data("https://flagcdn.com/w320/au.png",{
+    fileName:"AustralianFlag.png"
+    folderPath:"flagImages"
+})
 
 
-| Name            | Type           | Description                                                    |
-| --------------- | -------------- | -------------------------------------------------------------- |
-| `storage`     | Date Timestamp | timestamp of the event                                         |
-| `secrets`   | string         | Full name of the user provided by the federated auth           |
-| `metadata`      | string         | Url of the user's profile photo provided by the federated auth |
+```
+
+### secrets
+The secrets utility gives quick and easy access to [Secret Manager](https://cloud.google.com/secretManager)
+
+before using a secret on rowy ensure that you have already created it on [GCP Console](https://console.cloud.google.com/security/secret-manager)
+```javascript
+const unplashSecret = await rowy.secrets.get("unsplash")
+```
+
+### metadata
+metadata gives you access to runtime information such as the project id and service account running in the excution of your code.

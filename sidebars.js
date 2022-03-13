@@ -121,7 +121,7 @@ module.exports = {
           type: "category",
           label: "API Reference",
           link: { type: "generated-index" },
-          items: ["reference/rowy-user", "reference/action-status"],
+          items: ["reference/rowy-user", "reference/action-status","reference/rowy"],
         },
       ],
     },
@@ -140,11 +140,6 @@ module.exports = {
         },
         "community/faqs",
       ],
-    },{
-      type: "category",
-      label: "Reference",
-      collapsed: true,
-      items: ["reference/rowy-user", "reference/action-status","reference/rowy"],
     },
   ],
 };
