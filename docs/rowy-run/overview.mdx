@@ -6,19 +6,23 @@ slug: /rowy-run
 ---
 
 import RowyRunSvg from "../../static/img/rowy-run-logo.svg";
-import Video from "../../src/components/Video";
-import videoUrl from "./assets/service-account.mp4";
+
 
 # <RowyRunSvg height={52} /> <span className="visually-hidden">Rowy Run</span>
 
-Rowy Run is a Cloud Run instance that provides backend functionality, such as
-table action scripts, user management, and easy Cloud Function deployment.
+Rowy Run is group of Cloud Run services that provides backend functionality, such as action scripts, webhooks, user management, and easy Cloud Function deployment.
 
 It operates exclusively on your GCP project, so we never have access to any of
-your data. Like Rowy, it’s completely open source and free to use.
-[Rowy Run on GitHub &UpperRightArrow;](https://github.com/rowyio/rowyRun)
+your data. Like the Rowy App, it’s completely open source and free to use.
+[Rowy Run on GitHub &UpperRightArrow;](https://github.com/rowyio/backend)
 
-## Install Rowy Run
+## Auto Deployment/updates (recomended✅)
+
+If you haven't deployed rowy already setup rowy already, you'll need get started [here](/setup/install)
+
+To deploy or setup auto updates you can simply go through guided process [here].(https://deploy.rowy.app)
+
+## Install Rowy Run (manually)
 
 :::warning Required
 
@@ -31,17 +35,9 @@ Don’t have a project?
 
 :::
 
-If you installed Rowy using the [quick deploy method](../setup/install.md), Rowy
-Run is already set up on your project.
-
 Otherwise, you can install Rowy Run manually.
 
 :::note Required software
-
-- [Git](https://git-scm.com/downloads)
-- [Node](https://nodejs.org/en/download/) 14 (it’s easiest to install using
-  [nvm](https://github.com/nvm-sh/nvm#intro))
-- [Yarn](https://classic.yarnpkg.com/en/docs/install/) 1
 - [gcloud CLI](https://cloud.google.com/sdk/docs/install) 363+
 
 :::
@@ -59,44 +55,52 @@ Otherwise, you can install Rowy Run manually.
    gcloud init
    ```
 
-3. Clone the Rowy Run repo and open the created directory.
 
-   ```bash
-   git clone https://github.com/rowyio/rowyRun.git
-   cd rowyRun
-   ```
+3.  go To [GCP Cloud Console IAM](https://console.cloud.google.com/iam-admin/iam)
 
-4. Install dependencies using Yarn.
+   - Add service account `rowy-backend@YOUR_PROJECT_ID.iam.gserviceaccount.com` assign it the following roles: 
 
-   ```bash
-   yarn
-   ```
+```
+logging.viewer // provide access to logs for the frontend
+logging.logWriter // log events such as auditing
+iam.serviceAccountUser //used for cloud function deployment
+artifactregistry.admin //used for cloud function deployment
+cloudbuild.builds.builder //used for cloud function deployment
+actions.Admin //used for cloud function deployment
+cloudfunctions.admin //used for cloud function deployment
+secretmanager.viewer // view secretmanager metadata, such as secret Names for IDE validation
+firebaseauth.admin //used for managing user roles
+datastore.user // access to firestore
+storage.objectAdmin // access to storage
+secretmanager.secretAccessor // access to secrets for actionScripts
+```
 
-5. Run the deploy script with the correct project ID.
+   - Add service account `rowy-hooks@YOUR_PROJECT_ID.iam.gserviceaccount.com` assign it the following roles: 
 
-   ```bash
-   ./deploy.sh --project [ID]
-   ```
+```
+datastore.user // access to firestore
+storage.objectAdmin // access to storage
+secretmanager.secretAccessor // access to secrets for actionScripts
+logging.logWriter // access to cloud logs
+```
 
-6. Set up a service account for your Rowy Run instance with the **Service
-   Account User** and **Firebase Admin** roles in the Google Cloud console by
-   following the video below:
+4. 
+Deploy cloud run services using your terminal
+```
+gcloud run deploy rowy-backend --image gcr.io/rowy-run/rowy-backend --platform managed --memory 1Gi --allow-unauthenticated --serviceAccountUser rowy-backend@YOUR_PROJECT_ID.iam.gserviceaccount.com
+gcloud run deploy rowy-hooks --image gcr.io/rowy-run/rowy-hooks --platform managed --memory 256Mi --allow-unauthenticated --serviceAccountUser rowy-hooks@YOUR_PROJECT_ID.iam.gserviceaccount.com
+```
 
-   <Video url={videoUrl} muted playsinline controls />
+5.
+Once deployment is completed you should be able to find the service urls printed in the console.logs
 
-   You can verify the service account has the required permissions in the Rowy
-   Run setup flow, `/setup`.
+Go to firestore console and navigate to `_rowy_/settings` document
+add the following 
+keys 
+```
+rowyRunUrl: YOUR_ROWY_BACKEND SERVICE URL
+rowyRunServices:{
+   backend:YOUR_ROWY_BACKEND SERVICE URL
+   hooks:YOUR_ROWY_HOOKS SERVICE URL
+}
 
-## How it works
-
-Rowy Run uses the
-[Firebase Admin SDK](https://firebase.google.com/docs/admin/setup) and
-[Google Cloud SDKs](https://github.com/googleapis/google-cloud-node) to make
-changes to your project. To use these SDKs, it requires a
-[service account](https://firebase.google.com/support/guides/service-accounts)
-with these [IAM roles](https://cloud.google.com/iam/docs/understanding-roles):
-
-- Service Account User
-- Firebase Admin
-
-You can set up the service account in the Rowy setup flow, `/setup`.
