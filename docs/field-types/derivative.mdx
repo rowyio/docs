@@ -52,9 +52,11 @@ Solution: Create a new field that contains a boolean value based on the values
 of those fields. The client-side can filter by this new field.
 
 ```js
+const derivative:Derivative = async ({row})=>{
 // Mark document as ready for approval
 if (row.amount && row.claim) return true;
 else return false;
+}
 ```
 
 ## Intermediate example
@@ -68,9 +70,11 @@ Solution: Create a new field that gets the email. It will run on a secure backen
 environment and does not expose sensitive data.
 
 ```js
+const derivative:Derivative = async ({row,db})=>{
 // Get user doc
 const userDoc = db.collection("users").doc(row.uid);
 return userDoc.get("email");
+}
 ```
 
 ## Advanced examples
@@ -79,8 +83,7 @@ Use 3rd-party npm packages for more advanced functionality.
 
 ### REST API request
 
-To connect with any REST API, first install a package like
-[got](https://www.npmjs.com/package/got).
+To connect with any REST API using fetch 
 
 Problem: We want to get a list of all airport codes from natural language text.
 
@@ -88,7 +91,9 @@ Solution: Use [OpenAI’s GPT-3 API](https://openai.com/blog/openai-api/) to
 extract the airport codes as an array.
 
 ```js
-const got = require("got");
+
+const derivative:Derivative = async ({row})=>{
+const openaiSecret = await rowy.secrets.get("openai")
 const prompt = `Airport code extractor:
 
 Text: \"I want to fly form Los Angeles to Miami.\"
@@ -97,21 +102,22 @@ Airport codes: LAX, MIA
 Text: \"${row.text}\"
 Airport codes:`;
 
-const url = "https://api.openai.com/v1/engines/davinci/completions";
-const params = {
+const response = await fetch("https://api.openai.com/v1/engines/davinci/completions",{
+  headers:{
+      Authorization: `Bearer ${openaiSecret}`,
+      contentType:"application/json"
+  },
+  body:JSON.stringify({
   prompt,
   max_tokens: 60,
   temperature: 0.3,
   frequency_penalty: 0,
   top_p: 1,
   stop: ["\n"],
-};
-const headers = {
-  Authorization: `Bearer ${"YOUR_SECRET_KEY_HERE"}`,
-};
-const response = await got.post(url, { json: params, headers: headers }).json();
-
+})
+})
 return response.choices[0].text.split(",'").map((x) => x.trim());
+}
 ```
 
 ### Google Cloud API
@@ -127,77 +133,31 @@ Solution: Use the
 [Google Cloud Translation API](https://console.cloud.google.com/flows/enableapi?apiid=translate.googleapis.com).
 
 ```js
+const derivative:Derivative = async ({row})=>{
 const { Translate } = require("@google-cloud/translate").v2;
-
 // Instantiates a client
 const translate = new Translate();
-
 // Translates text field into Spanish
-const [translation] = await translate.translate(row.text, "es');
+const [translation] = await translate.translate(row.text, "es");
 return translation;
+}
 ```
 
-### Firebase Storage
-
-You can use the provided `storage` parameter to access Firebase Storage SDK
+### Cloud Storage
 
 Problem: Users provide images using external URLs, but the images could get
 removed from the host provider, leading to broken images.
 
-Solution: Store a copy of the image in Firebase Storage.
+Solution: using rowy storage utility, store a copy of the image in Firebase Storage.
 
-1. Use [node-fetch](https://www.npmjs.com/package/node-fetch) to download an
-   image from an external URL.
-2. Use [file-Type](https://www.npmjs.com/package/file-type) to get the image
-   type.
-3. Use [uuid](https://www.npmjs.com/package/uuid) to generate a unique token
-   used to secure the download URL and make it downloadable.
-4. Use the
-   [storage](https://firebase.google.com/docs/reference/admin/node/admin.storage.Storage-1)
-   parameter to upload the image to Firebase Storage.
 
 ```js
-const fetch = require("node-fetch@2.6.1");
-const FileType = require("file-type");
-const uuid = require("uuid");
 
-const url = row.externalImage;
-const response = await fetch(url);
-
-if (response.ok) {
-  // Once the response is successful, get buffer data
-  const dataBuffer = await response.buffer();
-  // Get the Firebase project’s default bucket
-  const bucket = storage.bucket();
-  const fileName = url.split("/").pop();
-  // Use file-type to extract the type from the buffer
-  const fileType = await FileType.fromBuffer(dataBuffer);
-  // Set the file path in the same structure as the Firestore document
-  const file = bucket.file(
-    `${ref.path}/${fileName}${fileName.includes(".") ? "" : `.${fileType.ext}`}`
-  );
-  // Generate a unique download token
-  const token = uuid.v4();
-  // Upload the image
-  await file.save(dataBuffer, {
-    metadata: {
-      contentType: fileType.mime,
-      metadata: { firebaseStorageDownloadTokens: token },
-    },
-  });
-  // Return data that will stored as the field value
+const derivative:Derivative = async ({row,ref})=>{
+  const url = row.externalImage;
+  const file = await rowy.storage.upload.url(url,{
+    folderPath: ref.path // Optional: stores the file in the storage same folder structure as the document on firestore
+  })
   // Return an array of image objects that will be displayed by the Rowy UI
-  return [
-    {
-      downloadURL: `https://firebasestorage.googleapis.com/v0/b/${
-        bucket.name
-      }/o/${encodeURIComponent(file.name)}?alt=media&token=${token}`,
-      name: fileName,
-      type: fileType.mime,
-      lastModifiedTS: new Date(),
-    },
-  ];
-}
-
-return [];
+  return [file];
 ```
