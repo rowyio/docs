@@ -10,10 +10,49 @@ import css from "!!raw-loader!../../src/css/changelog.css";
   <style>{css}</style>
 </head>
 
-
 If you deployed Rowy on [rowy.app](https://rowy.app/deploy), you’ll receive the
 latest updates to Rowy as we release them.
 [View releases on GitHub&nbsp;&UpperRightArrow;](https://github.com/rowyio/rowy/releases)
+
+## <span className="changelog-version">v2.4.0</span><span className="changelog-version-separator"> – </span><span>Simplified onboarding, DX improvements</span>
+
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.4.0" target="_blank" rel="noopener noreferrer"><time datetime="2022-03-14T23:21:57Z">15 Mar 2022</time></a></p>
+
+Thanks to our community contributor [@n-sviridenko](https://github.com/n-sviridenko)!
+
+<ul>
+
+-   [New] Simpler onboarding flow on [deploy.rowy.app](https://deploy.rowy.app) to get started even faster
+-   [New] Syntax validation for Derivative, Action, and dynamic default value functions
+-   [New] Evaluate individual Derivative cells from the context menu on demand, without waiting for builds
+-   [New] Code completion for JSON fields in code editors based on table data
+-   [New] Shortcuts to Secret Manager and Cloud Functions on Google Cloud Console from code editor
+-   [New] `rowy` utility class for fetching secrets, simplified storage uploads, and access to environment metadata
+-   [New] Duplicate and delete row from the context menu
+
+</ul>
+
+
+<ul>
+
+-   [Improved] Fixed errors and bugs when using Rowy without Rowy Run deployed
+-   [Improved] Display error snackbar when Firebase Storage permissions denied
+
+</ul>
+
+<ul>
+
+-   [Removed] Aggregate field type, which was unusable and undocumented
+
+</ul>
+
+<ul>
+
+-   [Fixed] Single select fields pointing to a nested field key will not write the value to the database, but updates the value in the UI by [@n-sviridenko](https://github.com/n-sviridenko) in [#659](https://github.com/rowyio/rowy/issues/659)
+-   [Fixed] Duplicate and Delete row buttons not appearing in read-only tables for ADMINs
+-   [Fixed] Filters not displaying zero results
+
+</ul>
 
 ## <span className="changelog-version">v2.3.2</span>
 
