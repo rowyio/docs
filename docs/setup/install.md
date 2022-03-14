@@ -8,8 +8,10 @@ Set up Rowy on your Google Cloud or Firebase project in minutes.
 
 ## Option 1: Quick deploy — ✅ Recommended
 
-You can set up Rowy using the guided setup process [here](https://deploy.rowy.app).
-It will take less than 2 minutes to complete if you already have an existing firebase project setup.
+You can set up Rowy using our guided setup process. It will take less than 2
+minutes to complete if you already have an existing Firebase project set up.
+
+<a href="https://deploy.rowy.app" class="button button--lg">Deploy now</a>
 
 ## Option 2: Manual install
 
