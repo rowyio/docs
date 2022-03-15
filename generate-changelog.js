@@ -30,10 +30,10 @@ fetch("https://api.github.com/repos/rowyio/rowy/releases")
       const body =
         release.body
           .replace(/##.*/gm, "<ul>")
-          .replace(/(- .*$)\r\n\r\n/gm, "$1\n\n</ul>\n\n")
+          .replace(/(-\s+.*$)\r\n\r\n/gm, "$1\n\n</ul>\n\n")
           .replace("## ")
           .replace(
-            /- \[([\w]+)\] (.*)$/gm,
+            /-\s+\[([\w]+)\] (.*)$/gm,
             `<li><span className="changelog-tag" data-tag="$1">$1</span>\n\n$2\n\n</li>`
           )
           .replace(/#(\d+)/g, "[#$1](https://github.com/rowyio/rowy/issues/$1)")
