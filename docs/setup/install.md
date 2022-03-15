@@ -92,5 +92,5 @@ Some backend features require Rowy Run to be installed on your project. You’ll
 need to install Rowy Run manually:
 
 <p>
-<a href="../rowy-run/overview.mdx" class="button">Install Rowy Run</a>
+<a href="/rowy-run" class="button">Install Rowy Run</a>
 </p>
