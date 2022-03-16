@@ -78,6 +78,9 @@ html:root {
   --ifm-alert-shadow: none;
   --ifm-alert-padding-vertical: 0.75rem;
   --ifm-tabs-padding-vertical: 0.75rem;
+  --ifm-breadcrumb-border-radiius: 0;
+  --ifm-breadcrumb-padding-vertical: 0;
+  --ifm-breadcrumb-padding-horizontal: 0;
   --ifm-button-background-color: var(--ifm-color-primary);
   --ifm-button-padding-horizontal: 1rem;
   --ifm-button-padding-vertical: 0.25rem;
@@ -540,6 +543,17 @@ nav[class*="navbarHidden"] ~ .main-wrapper .tabs {
 }
 html[data-theme="dark"] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.breadcrumbs {
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+.breadcrumbs__item .breadcrumbs__link {
+  font-size: 0.8125rem;
+  color: inherit;
+  text-decoration: none;
+  background: none;
 }
 
 .button {

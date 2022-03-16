@@ -27,6 +27,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
             routeBasePath: "/",
             // Please change this to your repo.
             editUrl: "https://github.com/rowyio/docs/tree/main/",
+            breadcrumbs: false,
           },
           // blog: {
           //   showReadingTime: true,
