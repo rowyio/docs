@@ -25,6 +25,7 @@
     "@mui/icons-material": "^5.2.1",
     "@mui/material": "^5.2.3",
     "@svgr/webpack": "^5.5.0",
+    "algoliasearch-helper": "^3.7.0",
     "clsx": "^1.1.1",
     "date-fns": "^2.27.0",
     "file-loader": "^6.2.0",
