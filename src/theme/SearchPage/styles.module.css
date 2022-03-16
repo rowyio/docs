@@ -88,7 +88,7 @@ html[data-theme="dark"] .searchVersionInput:focus {
 }
 
 .searchResultItemContainer {
-  padding: 0;
+  padding: 0 !important;
   overflow: hidden;
 }
 
@@ -155,6 +155,7 @@ html[data-theme="dark"] .searchResultItem:active {
   font-size: 0.8rem;
   color: var(--ifm-color-content-secondary);
   --ifm-breadcrumb-separator-size-multiplier: 1;
+  margin: 0;
 }
 
 .searchResultItemSummary {
