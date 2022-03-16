@@ -154,7 +154,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
           darkTheme: darkCodeTheme,
         },
         algolia: {
-          apiKey: "ee1d849ee8899924e4d1b88c013f045b",
+          appId: "IY9HJR36YD",
+          apiKey: "d156e914da917ac8e4f129af98bbc732",
           indexName: "rowy",
 
           // Optional: see doc section below
@@ -162,20 +163,20 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
         },
         colorMode: {
           defaultMode: "light",
-          disableSwitch: false,
+          // disableSwitch: false,
           respectPrefersColorScheme: true,
-          switchConfig: {
-            darkIcon: " ",
-            lightIcon: "\u2600",
-            darkIconStyle: {
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z' /%3E%3C/svg%3E")`,
-              width: 18,
-              height: 18,
-              margin: -4,
-              transform: "scaleX(-1)",
-            },
-            lightIconStyle: { color: "#fff" },
-          },
+          // switchConfig: {
+          //   darkIcon: " ",
+          //   lightIcon: "\u2600",
+          //   darkIconStyle: {
+          //     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z' /%3E%3C/svg%3E")`,
+          //     width: 18,
+          //     height: 18,
+          //     margin: -4,
+          //     transform: "scaleX(-1)",
+          //   },
+          //   lightIconStyle: { color: "#fff" },
+          // },
         },
         announcementBar: {
           id: "announcementBar", // Increment on change
