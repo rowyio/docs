@@ -9,7 +9,8 @@
 
 /* Global variables */
 :root,
-html {
+html,
+html:root {
   --ifm-color-primary: #4200ff;
   --ifm-color-primary-dark: #3b00e6;
   --ifm-color-primary-darker: #3800d9;
@@ -43,6 +44,18 @@ html {
   --ifm-navbar-background-color: var(--ifm-background-color);
   --ifm-navbar-shadow: none;
 
+  --docsearch-searchbox-shadow: var(--docsearch-primary-color) 0px -2px 0px 0px inset,
+    var(--ifm-border-color) 0px 0px 0px 1px inset;
+  --docsearch-key-gradient: var(--ifm-background-surface-color);
+  --docsearch-key-shadow: 0 0 0 1px var(--ifm-border-color) inset,
+    0 -1px 0 0 var(--ifm-border-color) inset;
+  --docsearch-modal-background: var(--docsearch-hit-background);
+  --docsearch-modal-shadow: var(--ifm-global-shadow-tl);
+  --docsearch-hit-shadow: none;
+  --docsearch-hit-active-color: var(--ifm-color-content);
+  --docsearch-footer-background: var(--docsearch-modal-background);
+  --docsearch-footer-shadow: 0 -1px 0 0 var(--ifm-border-color);
+
   --doc-sidebar-width: 256px;
   --ifm-menu-link-padding-vertical: 0.375rem;
   --ifm-menu-link-padding-horizontal: 0.75rem;
@@ -71,7 +84,8 @@ html {
 
   --ifm-footer-background-color: var(--ifm-background-color);
 }
-html[data-theme="dark"] {
+html[data-theme="dark"],
+html:root[data-theme="dark"] {
   --ifm-color-primary: #b0b6fd;
   --ifm-color-primary-dark: #868ffc;
   --ifm-color-primary-darker: #717cfb;
@@ -92,6 +106,21 @@ html[data-theme="dark"] {
     rgba(0, 0, 5, 0.2) 0px 30px 40px;
   --ifm-global-shadow-tl: rgba(0, 0, 5, 0.32) 0px 0px 0px 1px,
     rgb(0, 0, 5) 0px 25px 50px -12px, rgba(0, 0, 5, 0.24) 0px 50px 80px;
+
+  --docsearch-searchbox-background: var(--ifm-border-color);
+  --docsearch-searchbox-focus-background: var(--ifm-border-color);
+  --docsearch-searchbox-shadow: var(--docsearch-primary-color) 0px -2px 0px 0px inset,
+    var(--ifm-border-color) 0px 0px 0px 1px inset;
+  --docsearch-key-gradient: var(--ifm-background-surface-color);
+  --docsearch-key-shadow: 0 0 0 1px var(--ifm-border-color) inset,
+    0 -1px 0 0 var(--ifm-border-color) inset;
+  --docsearch-modal-background: var(--docsearch-hit-background);
+  --docsearch-modal-shadow: var(--ifm-global-shadow-tl);
+  --docsearch-hit-background: #363639;
+  --docsearch-hit-shadow: none;
+  --docsearch-hit-active-color: var(--ifm-color-content);
+  --docsearch-footer-background: var(--docsearch-modal-background);
+  --docsearch-footer-shadow: 0 -1px 0 0 var(--ifm-border-color);
 
   --ifm-menu-color-background-active: rgba(255, 255, 255, 0.16);
 
@@ -124,9 +153,9 @@ a[class^="sidebarLogo"] img {
 .navbar__link {
   text-decoration: none;
 }
-:not(.navbar__icon-link) + .navbar__icon-link {
+/* :not(.navbar__icon-link) + .navbar__icon-link {
   margin-left: calc(var(--ifm-navbar-item-padding-horizontal) * 0.5);
-}
+} */
 .navbar__icon-link {
   position: relative;
 }
@@ -175,17 +204,67 @@ html[data-theme="dark"] .navbar__icon-link::after {
 .navbar__icon-link--github::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1 -1 26 26'%3E%3Cpath d='M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27'%3E%3C/path%3E%3C/svg%3E");
 }
-.navbar .react-toggle {
-  margin-left: var(--ifm-navbar-item-padding-horizontal);
-}
 div[class^="searchBox"] {
-  padding-left: 1.5rem;
+  padding-left: 0.75rem;
 }
-.DocSearch {
+
+.DocSearch.DocSearch {
   font-family: inherit;
 }
-html[data-theme="dark"] .DocSearch {
+.DocSearch-Button.DocSearch-Button {
+  border-radius: var(--ifm-global-radius);
+  height: 32px;
+}
+.DocSearch-Button.DocSearch-Button:active,
+.DocSearch-Button.DocSearch-Button:focus,
+.DocSearch-Button.DocSearch-Button:hover {
+  box-shadow: var(--ifm-color-content) 0px -1px 0px 0px inset,
+    var(--ifm-border-color) 0px 0px 0px 1px inset;
+}
+/* html[data-theme="dark"] .DocSearch-Button {
   --docsearch-searchbox-background: rgba(255, 255, 255, 0.12);
+} */
+.DocSearch-Button-Placeholder.DocSearch-Button-Placeholder {
+  padding: 0 1.5rem 0 0.5rem;
+}
+.DocSearch-Button-Keys.DocSearch-Button-Keys {
+  min-width: 0;
+}
+.DocSearch-Button-Key.DocSearch-Button-Key {
+  padding-bottom: 1px;
+  top: 0;
+  margin-right: 0.125rem;
+}
+.DocSearch-Modal.DocSearch-Modal {
+  border-radius: calc(var(--ifm-global-radius) * 2);
+}
+.DocSearch-Input {
+  caret-color: var(--docsearch-primary-color);
+}
+.DocSearch-Hit-source.DocSearch-Hit-source {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: var(--ifm-heading-font-weight);
+  font-size: 0.9375rem;
+  letter-spacing: 0.01786em;
+  font-feature-settings: "ss02", "ss03";
+  color: var(--ifm-font-color-base);
+
+  padding: 0.5rem 1.25rem 0;
+}
+.DocSearch-Hit.DocSearch-Hit {
+  padding-bottom: 0;
+}
+.DocSearch-Hit.DocSearch-Hit[aria-selected="true"] a {
+  background-color: rgba(7, 0, 20, 0.04);
+}
+html[data-theme="dark"] .DocSearch-Hit.DocSearch-Hit[aria-selected="true"] a {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.DocSearch-Hit-icon {
+  padding-left: 0.125rem;
+}
+.DocSearch-Hit-content-wrapper.DocSearch-Hit-content-wrapper {
+  margin-left: 0.75rem;
 }
 
 /* Sidebar */
@@ -284,7 +363,8 @@ button[class*="collapseSidebarButton"] {
     max-width: var(--ifm-container-width);
   }
 }
-article {
+article,
+.paper {
   margin: 0 calc(var(--ifm-spacing-horizontal) * -0.5);
   padding: 1rem;
   background-color: var(--ifm-background-surface-color);
@@ -292,7 +372,8 @@ article {
   box-shadow: var(--ifm-global-shadow-lw);
 }
 @media (min-width: 600px) {
-  article {
+  article,
+  .paper {
     margin: 0;
     padding: 2rem;
   }
