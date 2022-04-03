@@ -22,7 +22,7 @@ collection, or a list of documents from a query to third party API.
 
 #### basic example
 
-Connector Function
+- Connector function
 ```javascript
 const fruitPicker: Connector = async ({ query, row, user }) => {
   const items = [
@@ -41,22 +41,14 @@ const fruitPicker: Connector = async ({ query, row, user }) => {
 - label: `{{emoji}} {{word}}`
 
 #### connect to a firestore collection
-
+- Connector function
 ```javascript
-const firestoreCollectionConnector: Connector = async ({
-  db,
-  query,
-  row,
-  user,
-}) => {
+const firestoreCollectionConnector: Connector = async ({db,query}) => {
   const collectionRef = db.collection("users").limit(5); // specify collection to connected & max results
   const queryField = "fullName"; // firestore field to be filtered by the input text
   const resultsFormatter = (doc) => ({ id: doc.id, snapshot: doc.data() }); // the shape of the returned data
-  if (query === "")
-    return (await collectionRef.get()).docs.map(resultsFormatter);
-  const end = query.replace(/.$/, (c) =>
-    String.fromCharCode(c.charCodeAt(0) + 1)
-  );
+  if (query === "") return (await collectionRef.get()).docs.map(resultsFormatter);
+  const end = query.replace(/.$/, (c) => String.fromCharCode(c.charCodeAt(0) + 1));
   const queryResults = await collectionRef
     .where(queryField, ">=", query)
     .where(queryField, "<", end)
@@ -69,7 +61,7 @@ const firestoreCollectionConnector: Connector = async ({
 - label:`fullName`
 
 #### connect to an external api 
-
+- Connector function
 ```javascript
 const apiConnector: Connector = async ({ query, row, user }) => {
   const response = await fetch(
@@ -79,12 +71,11 @@ const apiConnector: Connector = async ({ query, row, user }) => {
   return games;
 };
 ```
-
 - id:`handle`
 - label:`name`
 
 #### Connecting to your [meiliSearch](https://meilisearch.com/) instance
-
+- Connector function
 ```javascript
 const connectorFn: Connector = async ({ query, row, user }) => {
   const index = "users";
