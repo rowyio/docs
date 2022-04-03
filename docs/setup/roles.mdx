@@ -1,31 +1,32 @@
 ---
 id: roles
-title: Role-based access controls
+title: Inviting your team
 slug: /setup/roles
 ---
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
+On Rowy, you can collaborate with your team members using fine granular permission controls. 
 Rowy uses role-based access controls through Firestore Security Rules and custom
 claims in Firebase Authentication.
 
-[Read more about custom claims&nbsp;&UpperRightArrow;](https://firebase.google.com/docs/auth/admin/custom-claims)  
-[Read more about Firestore Security Rules&nbsp;&UpperRightArrow;](https://firebase.google.com/docs/firestore/security/rules-structure)
+If interested, you can read more about:
+[Custom claims&nbsp;&UpperRightArrow;](https://firebase.google.com/docs/auth/admin/custom-claims)  
+[Firestore Security Rules&nbsp;&UpperRightArrow;](https://firebase.google.com/docs/firestore/security/rules-structure)
 
-## Set user roles
+## Inviting users and assigning roles
 
-To allow users to access any of your data in Rowy, they must have user roles
-set. If you are have the `ADMIN` role, you can set them in User Management or
-using the Firebase Admin SDK.
+'ADMIN' users can invite their team members/other users to gain access to data on Rowy. Access can be give at table level or field level
+using "User Management" section or Firebase Admin SDK.
 
 <Tabs id="set-user-roles-tabs">
 <TabItem value="user-management" label="User Management" default>
 
 :::note Rowy Run required
 
-To use User Management, you must have
-[Rowy Run set up](../rowy-run/overview.mdx). Otherwise, follow the instructions
+To use User Management, make sure you have setup Rowy via [Option 1](https://docs.rowy.io/setup/install) guided process. If prompted, setup Rowy Run in the Rowy UI.
+If you are using the manual installation process, follow the instructions
 in the Firebase Admin SDK tab above.
 
 :::

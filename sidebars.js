@@ -23,7 +23,7 @@ module.exports = {
     "introduction",
     {
       type: "category",
-      label: "Guides",
+      label: "Getting started",
       collapsible: false,
       items: [
         {
@@ -33,14 +33,14 @@ module.exports = {
           collapsed: true,
           items: [
             "setup/install",
-            "setup/firebase-project",
+            // "setup/access",
             "setup/roles",
             "setup/update",
           ],
         },
         {
           type: "category",
-          label: "Getting started",
+          label: "Quickstart guide",
           link: { type: "generated-index" },
           collapsed: true,
           items: [
@@ -54,12 +54,12 @@ module.exports = {
         },
         {
           type: "category",
-          label: "Templates",
+          label: "Tutorials",
           link: { type: "generated-index" },
           collapsed: true,
           items: [
-            "templates/webflow-form",
-            "templates/spotify-wrapped",
+            "tutorials/webflow-form",
+            "tutorials/spotify-wrapped",
             // "templates/typeform-webhook",
             // "templates/bannerbear",
             // "templates/magic-link",
