@@ -4,114 +4,103 @@ title: Connector
 slug: /field-types/connector
 ---
 
-Connector columns allow you to excute any backend code and return a list of options to your user.
-The options could be static list, list of documents from a collection, or a list of documents from a query to third party API.
-
+Connector columns allow you to excute any backend code and return a list of
+options to your user.
+The options could be static list, list of documents from a
+collection, or a list of documents from a query to third party API.
 
 ## API
 
-- Connector Function: the function that will be executed to get the list of options.
-- id: unique identifier field key name to be used to track the user's selection of the listed items
-- label: can be field key name or handlebar template to be used to render the label of the listed items
+- Connector Function: the function that will be executed to get the list of
+  options.
+- id: unique identifier field key name to be used to track the user's selection
+  of the listed items
+- label: can be field key name or handlebar template to be used to render the
+  label of the listed items
 
-## Examples 
+## Examples
 
-
-#### static example
+#### basic example
 
 Connector Function
 ```javascript
-const connectorFunction: Connector = async ({query, row, user}) => {
+const fruitPicker: Connector = async ({ query, row, user }) => {
   const items = [
-    {
-  id:"a",
-  word:"apple",
-  emoji:"🍎"
-},
-{
-  id:"b",
-  word:"banana",
-  emoji:"🍌"
-},
-{
-  id:"c",
-  word:"cherry",
-  emoji:"🍒"
-},
-{
-  id:"d",
-  word:"duck",
-  emoji:"🦆"
-},
-{
-  id:"e",
-  word:"eggplant",
-  emoji:"🍆"
-},
-{
-  id:"f",
-  word:"flower",
-  emoji:"🌸"
-},
-{
-  id:"g",
-  word:"grape",
-  emoji:"🍇"
-}];
-  return items.filter(i=> i.word.toLowerCase().startsWith(query.toLowerCase()))
+    { id: "a", word: "apple", emoji: "🍎" },
+    { id: "b", word: "banana", emoji: "🍌"},
+    { id: "c", word: "cherry", emoji: "🍒"},
+    // ... etc
+  ];
+  return items.filter((i) =>
+    i.word.toLowerCase().startsWith(query.toLowerCase())
+  );
 };
-
 ```
-id: `id`
-label: `{{emoji}} {{word}}`
 
-#### collection example
+- id: `id`
+- label: `{{emoji}} {{word}}`
+
+#### connect to a firestore collection
 
 ```javascript
-const firestoreCollectionConnector: Connector = async ({ db, query, row, user }) => {
-  const collectionRef = db.collection("users").limit(5) // specify collection to connected & max results
-  const queryField = "fullName" // firestore field to be filtered by the input text
-  const resultsFormatter = (doc) => ({ id: doc.id, snapshot: doc.data() }) // the shape of the returned data
-  if (query === "") return (await collectionRef.get()).docs.map(resultsFormatter)
+const firestoreCollectionConnector: Connector = async ({
+  db,
+  query,
+  row,
+  user,
+}) => {
+  const collectionRef = db.collection("users").limit(5); // specify collection to connected & max results
+  const queryField = "fullName"; // firestore field to be filtered by the input text
+  const resultsFormatter = (doc) => ({ id: doc.id, snapshot: doc.data() }); // the shape of the returned data
+  if (query === "")
+    return (await collectionRef.get()).docs.map(resultsFormatter);
   const end = query.replace(/.$/, (c) =>
     String.fromCharCode(c.charCodeAt(0) + 1)
   );
-  return (await collectionRef.where(queryField, ">=", query).where(queryField, "<", end).get())
-    .docs.map(resultsFormatter)
-};
-```
-id:`id`
-label:`fullName`
-#### api example
-
-```javascript
-const apiConnector: Connector = async ({query, row, user}) => {
-  const response = await fetch(`https://api.boardgameatlas.com/api/search?name=${query}&client_id=JLBr5npPhV`)
-  const {games} = await response.json()
-  return games
+  const queryResults = await collectionRef
+    .where(queryField, ">=", query)
+    .where(queryField, "<", end)
+    .get();
+  return queryResults.docs.map(resultsFormatter);
 };
 ```
 
-id:`handle`
-label:`name`
-#### connecting to meiliSearch
+- id:`id`
+- label:`fullName`
+
+#### connect to an external api 
 
 ```javascript
-const connectorFn: Connector = async ({query, row, user}) => {
-  const index = "users"
-  const meilisearch = await rowy.secrets.get("meilisearch")
-  const {host,apiKey} = meilisearch
+const apiConnector: Connector = async ({ query, row, user }) => {
+  const response = await fetch(
+    `https://api.boardgameatlas.com/api/search?name=${query}&client_id=JLBr5npPhV`
+  );
+  const { games } = await response.json();
+  return games;
+};
+```
+
+- id:`handle`
+- label:`name`
+
+#### Connecting to your [meiliSearch](https://meilisearch.com/) instance
+
+```javascript
+const connectorFn: Connector = async ({ query, row, user }) => {
+  const index = "users";
+  const meilisearch = await rowy.secrets.get("meilisearch");
+  const { host, apiKey } = meilisearch;
   const resp = await fetch(`${host}/indexes/${index}/search`, {
-  body: JSON.stringify({ q: query}),
-  headers: {
-    "Content-Type": "application/json",
-     Authorization: `Bearer ${apiKey}`
-  },
-  method: "POST"
-})
-  const data = await resp.json()
-  return data.hits
+    body: JSON.stringify({ q: query }),
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    method: "POST",
+  });
+  const data = await resp.json();
+  return data.hits;
 };
 ```
-id:`id`
-label:`{{firstName}} {{lastName}}`
+- id:`id`
+- label:`{{firstName}} {{lastName}}`
