@@ -90,8 +90,8 @@ You can also use npm packages using
 
 Use the row `ref` to get a value from the parent document.
  ```typescript
-const defaultValueFn: DefaultValue = ({ref}) => {
-  const parentDoc = ref.parent.parent.get()
+const defaultValueFn: DefaultValue = async ({ref}) => {
+  const parentDoc = await ref.parent.parent.get()
   return parentDoc.get("FIELD_KEY_HERE")
 }
 ```
@@ -101,7 +101,7 @@ const defaultValueFn: DefaultValue = ({ref}) => {
 Use `db` to get any document in your database.
 
 ```typescript
-const defaultValueFn: DefaultValue = ({row,db}) => {
+const defaultValueFn: DefaultValue = async ({row,db}) => {
   const query = await db
     .collection("someCollection")
     .where("aField", "==", row.someKey)
