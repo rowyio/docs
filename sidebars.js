@@ -83,6 +83,7 @@ module.exports = {
           items: [
             "field-types/supported-fields",
             "field-types/derivative",
+            "field-types/connector",
             "field-types/connect-table",
             "field-types/connect-service",
             "field-types/action",
