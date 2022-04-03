@@ -116,7 +116,6 @@ Use an npm package to generate a UUID.
 
 ```js
 const defaultValueFn: DefaultValue = ({row,db}) => {
-  const defaultValueFn: DefaultValue => string = () => {
   const { v4: uuidv4 } = require("uuid");
   return uuidv4();
 }
