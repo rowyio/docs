@@ -33,9 +33,8 @@ module.exports = {
           collapsed: true,
           items: [
             "setup/install",
-            // "setup/access",
             "setup/roles",
-            "setup/update",
+            "setup/update"
           ],
         },
         {
@@ -68,6 +67,18 @@ module.exports = {
             // "templates/cal-scheduling",
           ],
         },
+        {
+          type: "category",
+          label: "FAQs",
+          link: { type: "generated-index" },
+          collapsed: true,
+          items: [
+                    "faqs/overview",
+                    "faqs/database",
+                    "faqs/access",
+                    "faqs/cost"
+                  ],
+        }
       ],
     },
     {
@@ -138,8 +149,7 @@ module.exports = {
           label: "Contributing",
           link: { type: "doc", id: "community/contributing" },
           items: ["community/contributing", "community/add-a-field-type"],
-        },
-        "community/faqs",
+        }
       ],
     },
   ],

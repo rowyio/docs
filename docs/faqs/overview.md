@@ -1,7 +1,8 @@
 ---
-id: faqs
-title: FAQs
-slug: /community/faqs
+id: overview
+title: Overview
+sidebar_label: Overview
+slug: /faqs
 ---
 
 ### Can I see my existing collections in Rowy?
