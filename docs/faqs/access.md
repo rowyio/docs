@@ -5,9 +5,9 @@ sidebar_label: Access
 slug: /faqs/access
 ---
 
-### What does granting access to cloud platform with Google Authentication during setup mean for you?
+## What does granting access to cloud platform with Google Authentication during setup mean for you?
 
-Rowy is an Google approved app for cloud platform scope to automate the setup with a guided process end-to-end. With this access, you can avoid going back and forth to the cloud console for granting various permissions at config level during setup process. Your data and code stay on your own GCP/Firebase project, Rowy does not store them.
+Rowy is a Google approved app to automate the setup of Firebase project with a guided experience. By giving Rowy this access, you can avoid going back and forth to the cloud console for granting various permissions at config level during setup process. Your data and code stay on your own GCP/Firebase project, Rowy does not store them.
 
 Rowy is [open-source](https://github.com/rowyio/rowy) and can alternatively be self hosted if you do not want to use the guided setup process.
 
