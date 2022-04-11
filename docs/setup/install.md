@@ -14,7 +14,7 @@ You can set up Rowy using our guided setup process. It will take less than 2 min
 <a href="https://deploy.rowy.app" class="button button--lg">Deploy now</a>
 </p>
 
-You can use Rowy with exisitng Firebase project or by creating a new one by simply following the guided setup process with the deploy button above.
+You can use Rowy with existing Firebase project or by creating a new one by simply following the guided setup process with the deploy button above.
 
 ## Option 2: Manual install
 
