@@ -1,0 +1,97 @@
+---
+id: install-faq
+title: FAQs
+slug: /setup/install-faq
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Learn more doc
+
+## Granting access to Cloud Platform scope via Google Auth and what does it mean for you?
+
+Using this scope, Rowy is will automate the setup of Rowy app end-to-end. 
+
+> **TL;DR:** This saves you the headache of going back and forth to the cloud console for granting various permissions at config level during setup. Rowy is open-source. Your data and code continue to be on your own GCP/Firebase project and will not stored on Rowy end.
+> 
+
+The exact services used with this scope during the setup steps include:
+
+- Creation of a new Firebase project with a single click or getting the list of your existing Firebase projects to select from.
+- Enable Firebase and Firestore Storage, if it is not already turned on. This is for storing any images or files that you will add to you collections.
+- Enable Firebase Authentication, if it is not already turned on. Firebase Auth here will be used for authenticating into the Rowy App.
+- Setup the Firebase rules automatically in the case of a new Firebase project.
+- For existing Firebase project, Rowy will show you the exact rule snippet that needs to be added. You can do this manually or apply using a single click during onboarding after looking at the rules diff on screen.
+
+Once Rowy setup is complete, you will get a hosted Rowy App URL that you can use to start managing your data tables and invite your team members. With Firebase Auth, only users with specific roles as per the Firestore rules will be able to access the data. Therefore you have full ability to control access permissions at table as well as field level. To learn more about how to Firestore rules and access control work, see this short video.
+
+## What would this cost me?
+
+You can use Rowy in two modes. Rowy Base and Rowy Pro.
+
+### Rowy Base
+
+- A fully free and open-source hosted version of the Rowy App.
+- Get access to the core features:
+    - CMS for Firestore
+    - One Firebase project
+    - Import, Export data in bulk - csv, tsv, json support
+    - Automations, tasks, cloud functions. → This can be unlocked by deployment of Rowy Run as an added service optionally.
+
+**Cost**
+
+- Under Rowy Base, you will not incur any charge from Rowy.
+- Based on your usage you will incur
+
+### Rowy Pro
+
+This is currently under works and launching soon. You can join our beta program to access pro features early and free for 6 months. Help us shape Rowy with your inputs and feedback. [**Sign up now.**](https://rowyio.typeform.com/to/GbCw5B9E?typeform-source=docs.rowy.io)
+
+## To expand on the following topics
+
+Add the following documentation to explain various permission and access during the onboarding process
+
+- Docs page for explaining perms we need in oAuth screen/IAM
+- Full onboarding step by step with screenshots
+- Docs page for explaining costs on GCP
+
+See reference examples:
+
+[https://docs.appsmith.com/datasource-reference/querying-firestore](https://docs.appsmith.com/datasource-reference/querying-firestore)
+
+[https://www.metabase.com/docs/v0.41/administration-guide/databases/bigquery.html](https://www.metabase.com/docs/v0.41/administration-guide/databases/bigquery.html)
+
+## Cloud cost estimate
+
+**TL;DR**
+
+Cost on GCP is tiny for most use-cases. You can get started for free. Every user gets a $300 credit to play around and if you are a startup, you can apply to get further credits of up to USD $100K.
+
+Rowy is 100% serverless, so theres no ongoing server cost, you only pay for what you use on GCP, when you're using Rowy you're mainly using firestore, cloud functions and cloud run, the free tier is quite generous, but you can use the pricing calculator to see the long term cost depending on how heavy your usage is
+
+**Details**
+
+Listed below are the features of Rowy and the corresponding Google Cloud services that will be enabled.
+
+You can use Rowy in two mode. The completely free tier 
+
+- Data storage - Firestore, Cloud Storage (if you have files, images columns)
+- Automation tasks (optionally enabled) - Cloud Functions, Cloud Run
+
+### Firestore
+
+|  | Free | Price after free tier |
+| --- | --- | --- |
+| Stored data | 1GB | $0.18/GB |
+| Reads | 50K | $0.06/100K docs |
+| Writes | 20K | $0.18/100K docs |
+| Deletes | 20K | $0.02/100K docs |
+
+### Cloud functions
+
+| Invocations | Free upto 2M/month. Then $0.04/million |
+| --- | --- |
+| Building | Free upto 120 build minutes per day. Then $0.003/min |
+
+To estimate accurate costs, you can explore the [GCP price calculator](https://cloud.google.com/products/calculator).
