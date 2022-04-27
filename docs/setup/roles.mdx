@@ -7,9 +7,9 @@ slug: /setup/roles
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-On Rowy, you can collaborate with your team members using fine granular permission controls. 
-Rowy uses role-based access controls through Firestore Security Rules and custom
-claims in Firebase Authentication.
+On Rowy, you can collaborate with your team members using fine granular
+permission controls. Rowy uses role-based access controls through Firestore
+Security Rules and custom claims in Firebase Authentication.
 
 If interested, you can read more about:
 [Custom claims&nbsp;&UpperRightArrow;](https://firebase.google.com/docs/auth/admin/custom-claims)  
@@ -17,17 +17,19 @@ If interested, you can read more about:
 
 ## Inviting users and assigning roles
 
-'ADMIN' users can invite their team members/other users to gain access to data on Rowy. Access can be give at table level or field level
-using "User Management" section or Firebase Admin SDK.
+'ADMIN' users can invite their team members/other users to gain access to data
+on Rowy. Access can be give at table level or field level using "User
+Management" section or Firebase Admin SDK.
 
 <Tabs id="set-user-roles-tabs">
 <TabItem value="user-management" label="User Management" default>
 
 :::note Rowy Run required
 
-To use User Management, make sure you have setup Rowy via [Option 1](https://docs.rowy.io/setup/install) guided process. If prompted, setup Rowy Run in the Rowy UI.
-If you are using the manual installation process, follow the instructions
-in the Firebase Admin SDK tab above.
+To use User Management, make sure you have setup Rowy via
+[Option 1](https://docs.rowy.io/setup/install) guided process. If prompted,
+setup Rowy Run in the Rowy UI. If you are using the manual installation process,
+follow the instructions in the Firebase Admin SDK tab above.
 
 :::
 
@@ -96,7 +98,7 @@ Function.
 3. Install the Firebase Admin SDK using `npm install` or `yarn`.
 4. Run the script using `node ./set-user-roles.js`.
 
-```js
+```ts
 import * as admin from "firebase-admin";
 
 // 👉 Set your project ID. Find it in:
@@ -146,7 +148,7 @@ following rules add those permissions.
 
 :::
 
-```js
+```ts
 rules_version = '2'
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -199,7 +201,7 @@ Set Firestore Security Rules in the
 
 #### Example: Collection open to public
 
-```js
+```ts
 match /openToPublic/{docId} {
   allow read: if request.auth != null;
   allow write: if hasAnyRole(["ADMIN", "EDITOR"]);
@@ -208,7 +210,7 @@ match /openToPublic/{docId} {
 
 #### Example: Collection and subcollections open to public
 
-```js
+```ts
 match /openToPublicWithSubcollections/{document=**} {
   allow read: if request.auth != null;
   allow write: if hasAnyRole(["ADMIN", "EDITOR"]);
@@ -217,7 +219,7 @@ match /openToPublicWithSubcollections/{document=**} {
 
 #### Example: User data
 
-```js
+```ts
 match /users/{docId} {
   allow create: if request.auth != null;
   allow get, update, delete: if isDocOwner();
@@ -226,7 +228,7 @@ match /users/{docId} {
 
 #### Example: Admin-only
 
-```js
+```ts
 match /adminOnly/{docId} {
   allow read, write: if hasAnyRole(["ADMIN", "EDITOR"]);
 }

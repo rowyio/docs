@@ -27,7 +27,7 @@ Firestore and Authentication enabled.
      the
      [Rules tab](https://console.firebase.google.com/project/_/firestore/rules):
 
-     ```js
+     ```ts
      rules_version = '2';
      service cloud.firestore {
        match /databases/{database}/documents {

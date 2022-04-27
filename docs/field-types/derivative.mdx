@@ -6,8 +6,10 @@ slug: /field-types/derivative
 
 import Video from "../../src/components/Video.js";
 
-Use derivatives field type to build your product automations on data CRUD. Use any NPM or APIs to code in JS. Derivative fields derive their value from other fields in the row. They are
-automatically evaluated whenever the dependent fields are updated.
+Use derivatives field type to build your product automations on data CRUD. Use
+any NPM or APIs to code in JS. Derivative fields derive their value from other
+fields in the row. They are automatically evaluated whenever the dependent
+fields are updated.
 
 In Column Settings, write a function body that returns the value to be displayed
 in the field. This code is run in a Node.js cloud function.
@@ -51,12 +53,12 @@ which would be costly.
 Solution: Create a new field that contains a boolean value based on the values
 of those fields. The client-side can filter by this new field.
 
-```js
-const derivative:Derivative = async ({row})=>{
-// Mark document as ready for approval
-if (row.amount && row.claim) return true;
-else return false;
-}
+```ts
+const derivative: Derivative = async ({ row }) => {
+  // Mark document as ready for approval
+  if (row.amount && row.claim) return true;
+  else return false;
+};
 ```
 
 ## Intermediate example
@@ -66,15 +68,15 @@ Use data from other parts of the database in this row.
 Problem: We want to attach the user’s email to a request. We want to automate
 this and not have to expose all the user’s sensitive data on the client-side.
 
-Solution: Create a new field that gets the email. It will run on a secure backend
-environment and does not expose sensitive data.
+Solution: Create a new field that gets the email. It will run on a secure
+backend environment and does not expose sensitive data.
 
-```js
-const derivative:Derivative = async ({row,db})=>{
-// Get user doc
-const userDoc = db.collection("users").doc(row.uid);
-return userDoc.get("email");
-}
+```ts
+const derivative: Derivative = async ({ row, db }) => {
+  // Get user doc
+  const userDoc = db.collection("users").doc(row.uid);
+  return userDoc.get("email");
+};
 ```
 
 ## Advanced examples
@@ -83,18 +85,17 @@ Use 3rd-party npm packages for more advanced functionality.
 
 ### REST API request
 
-To connect with any REST API using fetch 
+To connect with any REST API using fetch
 
 Problem: We want to get a list of all airport codes from natural language text.
 
 Solution: Use [OpenAI’s GPT-3 API](https://openai.com/blog/openai-api/) to
 extract the airport codes as an array.
 
-```js
-
-const derivative:Derivative = async ({row})=>{
-const openaiSecret = await rowy.secrets.get("openai")
-const prompt = `Airport code extractor:
+```ts
+const derivative: Derivative = async ({ row }) => {
+  const openaiSecret = await rowy.secrets.get("openai");
+  const prompt = `Airport code extractor:
 
 Text: \"I want to fly form Los Angeles to Miami.\"
 Airport codes: LAX, MIA
@@ -102,22 +103,25 @@ Airport codes: LAX, MIA
 Text: \"${row.text}\"
 Airport codes:`;
 
-const response = await fetch("https://api.openai.com/v1/engines/davinci/completions",{
-  headers:{
-      Authorization: `Bearer ${openaiSecret}`,
-      contentType:"application/json"
-  },
-  body:JSON.stringify({
-  prompt,
-  max_tokens: 60,
-  temperature: 0.3,
-  frequency_penalty: 0,
-  top_p: 1,
-  stop: ["\n"],
-})
-})
-return response.choices[0].text.split(",'").map((x) => x.trim());
-}
+  const response = await fetch(
+    "https://api.openai.com/v1/engines/davinci/completions",
+    {
+      headers: {
+        Authorization: `Bearer ${openaiSecret}`,
+        contentType: "application/json",
+      },
+      body: JSON.stringify({
+        prompt,
+        max_tokens: 60,
+        temperature: 0.3,
+        frequency_penalty: 0,
+        top_p: 1,
+        stop: ["\n"],
+      }),
+    }
+  );
+  return response.choices[0].text.split(",'").map((x) => x.trim());
+};
 ```
 
 ### Google Cloud API
@@ -132,15 +136,15 @@ Problem: We want to translate some text into another language.
 Solution: Use the
 [Google Cloud Translation API](https://console.cloud.google.com/flows/enableapi?apiid=translate.googleapis.com).
 
-```js
-const derivative:Derivative = async ({row})=>{
-const { Translate } = require("@google-cloud/translate").v2;
-// Instantiates a client
-const translate = new Translate();
-// Translates text field into Spanish
-const [translation] = await translate.translate(row.text, "es");
-return translation;
-}
+```ts
+const derivative: Derivative = async ({ row }) => {
+  const { Translate } = require("@google-cloud/translate").v2;
+  // Instantiates a client
+  const translate = new Translate();
+  // Translates text field into Spanish
+  const [translation] = await translate.translate(row.text, "es");
+  return translation;
+};
 ```
 
 ### Cloud Storage
@@ -148,10 +152,10 @@ return translation;
 Problem: Users provide images using external URLs, but the images could get
 removed from the host provider, leading to broken images.
 
-Solution: using rowy storage utility, store a copy of the image in Firebase Storage.
+Solution: using rowy storage utility, store a copy of the image in Firebase
+Storage.
 
-
-```js
+```ts
 
 const derivative:Derivative = async ({row,ref})=>{
   const url = row.externalImage;

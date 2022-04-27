@@ -40,31 +40,33 @@ need a default currency based on the user's country . if you have countries
 collection with all the settings available you can do the following:
 
 ```typescript
-const defaultValueFn: DefaultValue = ({row,db}) => {
+const defaultValueFn: DefaultValue = ({ row, db }) => {
   // set default currency of user's account
-  const countryDoc = await db.collection('countries').doc(row.country).get()
-  const currency = countryDoc.get("currency")
-  return currency
-}
+  const countryDoc = await db.collection("countries").doc(row.country).get();
+  const currency = countryDoc.get("currency");
+  return currency;
+};
 ```
 
 Alternatively you can get the information form an external api to set the
 default value
 
 ```typescript
-const defaultValueFn: DefaultValue = ({row,db}) => {
+const defaultValueFn: DefaultValue = ({ row, db }) => {
   // set default currency of user's account
-  const resp = await fetch(`https://restcountries.com/v3.1/name/${row.country}`)
-  const respData = await resp.json()
+  const resp = await fetch(
+    `https://restcountries.com/v3.1/name/${row.country}`
+  );
+  const respData = await resp.json();
   // get the currency code from the response
-  const currencyCode = Object.keys(respData[0].currencies)[0]
-  const currency = respData[0].currencies[currencyCode]
+  const currencyCode = Object.keys(respData[0].currencies)[0];
+  const currency = respData[0].currencies[currencyCode];
   return {
     code: currencyCode,
     name: currency.name,
-    symbol: currency.symbol
-  }
-}
+    symbol: currency.symbol,
+  };
+};
 ```
 
 ### API
@@ -82,52 +84,52 @@ You can also use npm packages using
 | `db`      | [`Firestore`](https://firebase.google.com/docs/reference/node/firebase.firestore.Firestore)                             | Access to the full Cloud Firestore instance to access any collection or document. |
 | `auth`    | [`Auth`](https://firebase.google.com/docs/reference/admin/node/admin.auth.Auth-1)                                       | Access to Firebase Auth via Admin SDK                                             |
 | `storage` | [`Storage`](https://firebase.google.com/docs/reference/admin/node/admin.storage.Storage-1)                              | Access to Firebase Storage via Admin SDK                                          |
-| `rowy`    | [`Rowy`](/reference/rowy)                                                                                                                        | Access to cloud function metadata secret Manager and storage utilities                                                                              |
+| `rowy`    | [`Rowy`](/reference/rowy)                                                                                               | Access to cloud function metadata secret Manager and storage utilities            |
 
 ### Examples
 
 #### Example: Parent document
 
 Use the row `ref` to get a value from the parent document.
- ```typescript
-const defaultValueFn: DefaultValue = async ({ref}) => {
-  const parentDoc = await ref.parent.parent.get()
-  return parentDoc.get("FIELD_KEY_HERE")
-}
+
+```typescript
+const defaultValueFn: DefaultValue = async ({ ref }) => {
+  const parentDoc = await ref.parent.parent.get();
+  return parentDoc.get("FIELD_KEY_HERE");
+};
 ```
-  
+
 #### Example: Any document
 
 Use `db` to get any document in your database.
 
 ```typescript
-const defaultValueFn: DefaultValue = async ({row,db}) => {
+const defaultValueFn: DefaultValue = async ({ row, db }) => {
   const query = await db
     .collection("someCollection")
     .where("aField", "==", row.someKey)
     .get();
   return query.docs[0].get("keyName");
-}
+};
 ```
 
 #### Example: npm package
 
 Use an npm package to generate a UUID.
 
-```js
-const defaultValueFn: DefaultValue = ({row,db}) => {
+```ts
+const defaultValueFn: DefaultValue = ({ row, db }) => {
   const { v4: uuidv4 } = require("uuid");
   return uuidv4();
-}
+};
 ```
 
 #### Example: reference Data
- 
- Store document id in the document, for easy queries
- ```typescript
-const defaultValueFn: DefaultValue = ({ref}) => {
-  return ref.id
-}
-```
 
-  
+Store document id in the document, for easy queries
+
+```typescript
+const defaultValueFn: DefaultValue = ({ ref }) => {
+  return ref.id;
+};
+```

@@ -7,8 +7,11 @@ slug: /tutorials/spotify-wrapped
 import Video from "../../src/components/Video.js";
 import Gist from "react-gist";
 
-Build your own Spotify Wrapped for your app. Go from a Figma design exported as SVG to auto generated images injected with your user's data. This can be great tool for creating engagement for your app on social media, image sharable user images such as Spotify wrapped, wordle scorecard, strava stats etc. 
-With Rowy, you can build this in just 10 minutes.
+Build your own Spotify Wrapped for your app. Go from a Figma design exported as
+SVG to auto generated images injected with your user's data. This can be great
+tool for creating engagement for your app on social media, image sharable user
+images such as Spotify wrapped, wordle scorecard, strava stats etc. With Rowy,
+you can build this in just 10 minutes.
 
 <Video url="https://www.youtube.com/watch?v=nA4tj1NT3ZM" />
 
@@ -125,7 +128,7 @@ In the Derivative script, we’ll write some JavaScript code. This will be run i
 an `async` function using Node.js when it’s deployed. Let’s store the SVG code
 in a string variable:
 
-```jsx
+```tsx
 const source = `<svg
 ...
 </svg>
@@ -136,7 +139,7 @@ Then, we can create a new string, replacing the placeholders we added in the
 previous step with the row’s data. This is available in the `row` object, with
 each field key being a property of that object.
 
-```jsx
+```tsx
 const replaced = source
   .replace("{{percentile}}", `${row.percentile.toFixed(2)}%`)
   .replace("{{streak}}", row.streak.toString());
@@ -149,7 +152,7 @@ We can then perform the calculations for the bar widths. These will be
 proportional to the largest number in the data set of guess distributions. Here
 are the calculations:
 
-```jsx
+```tsx
 const maxGuess = Math.max(
   row.guessDistribution1,
   row.guessDistribution2,
@@ -171,7 +174,7 @@ Next, let’s convert this to an image. We’re using the
 `[convert-svg-to-png](https://www.npmjs.com/package/convert-svg-to-png)` NPM
 package, which uses Puppeteer.
 
-```jsx
+```tsx
 const { convert } = require("convert-svg-to-png");
 
 ...
@@ -182,7 +185,7 @@ const image = await convert(Buffer.from(replaced));
 It returns a PNG as a buffer, stored in the `image` constant. We can then upload
 this to Firebase Storage using this code:
 
-```jsx
+```tsx
 const bucket = storage.bucket();
 const fileName = `${ref.id}.png`;
 const file = bucket.file(`dynamicImages/${ref.id}/generated/${fileName}`);
@@ -199,7 +202,7 @@ await file.save(image, {
 Then, let’s store the URL to that image as the value of the derivative field in
 the row. This allows Rowy to display a thumbnail.
 
-```jsx
+```tsx
 return [
   {
     downloadURL: `https://firebasestorage.googleapis.com/v0/b/${
