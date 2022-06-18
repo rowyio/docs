@@ -14,6 +14,199 @@ If you deployed Rowy on [rowy.app](https://rowy.app/deploy), you’ll receive th
 latest updates to Rowy as we release them.
 [View releases on GitHub&nbsp;&UpperRightArrow;](https://github.com/rowyio/rowy/releases)
 
+## <span className="changelog-version">v2.6.0</span><span className="changelog-version-separator"> – </span><span>New field types, architecture rewrite, quality of life improvements</span>
+
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.6.0" target="_blank" rel="noopener noreferrer"><time datetime="2022-06-18T04:56:20Z">18 Jun 2022</time></a></p>
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Reference field type for Firestore document references ([#534](https://github.com/rowyio/rowy/issues/534))
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+GeoPoint field type ([#535](https://github.com/rowyio/rowy/issues/535))
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Markdown field type ([#683](https://github.com/rowyio/rowy/issues/683))
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Duration field type: added side drawer editor ([#545](https://github.com/rowyio/rowy/issues/545))
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Filter by ID ([#668](https://github.com/rowyio/rowy/issues/668))
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Hide and filter columns from the column menu
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Clear cell value and delete field from context menu
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Display sub-tables in modal, so you don’t lose position in the main table ([#634](https://github.com/rowyio/rowy/issues/634))
+
+</li>
+
+</ul>
+
+<ul>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Import CSV now writes to the database in batches of 500, improving reliability and performance ([#607](https://github.com/rowyio/rowy/issues/607))
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Create a table from any page
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Show loading indicators when loading another page of the table
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Empty table screen now prompts you to add a row
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Column sort button now shows current sort state and next sort state on hover
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Image field: open images in a new tab even when column is unlocked
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Date & Time fields let you filter by same date ([#522](https://github.com/rowyio/rowy/issues/522))
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Display browser alert when leaving the page while a table or column modal is open, to prevent losing unsaved changes
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Allow table to scroll right far enough such that an open side drawer doesn’t hide columns
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Added shareable links for column and table modals, and current table page
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Display limited column menu for non-ADMIN and non-OPS users ([#580](https://github.com/rowyio/rowy/issues/580))
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Skip confirm dialogs when Alt/Option key is pressed
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Show column index and field name when Alt/Option key is pressed
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Navigation drawer hierarchy
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Standard design when selecting columns for hiding, filtering, and exporting
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Toggle design to improve clarity and to match Material 3 guidelines
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Add warning when changing field type to one with an incompatible data type, which can result in data loss
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Show icon for hidden fields displayed in side drawer
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Color pickers match current theme
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Display field name in full screen code editor
+
+</li>
+
+</ul>
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Date filters no longer require time values to match
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Resizing fixed columns would resize other columns with the same index
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Unreliable reorder and insert column actions
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Date field: Side drawer field would never disable
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Rating field: Cannot set full star rating when half-star precision is enabled (https://github.com/mui/material-ui/issues/32557)
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Time not selectable in Date & Time side drawer field
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Rowy Run modal crashes when user has no roles
+
+</li>
+
+</ul>
+
 ## <span className="changelog-version">v2.5.0</span><span className="changelog-version-separator"> – </span><span>Templates, automated onboarding, Connector field</span>
 
 <p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.5.0" target="_blank" rel="noopener noreferrer"><time datetime="2022-04-08T01:28:07Z">8 Apr 2022</time></a></p>
