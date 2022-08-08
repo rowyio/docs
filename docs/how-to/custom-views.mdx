@@ -4,6 +4,8 @@ title: Customize your table view
 slug: /how-to/custom-views
 ---
 
+import Video from "../../src/components/Video.js";
+
 You can customize your table view to see exactly the data you want.
 
 - Filter and sort columns for yourself or all users.
@@ -15,3 +17,52 @@ You can also
 to show different views for different users.
 
 ![Screen recording going through table features](./assets/FilterSortFreezeLock.gif)
+
+## Customizing Table View Options
+
+### Freeze Columns
+The **Freeze Column** option of the table view enables the user to fix a specific column on the screen. 
+This feature is useful while accessing the other columns with the frozen column locked in place and 
+unaffected by the scroll.
+
+The user can **unfreeze** the columns by simply toggling the freeze button.
+<img
+  src={require("./assets/freezing-cols.png").default}
+  alt="Freezing and unfreezing columns"
+/>
+
+### Resize Columns
+The **Resize Column** option of the table view is used to manipulate the width of a given column 
+by means of simple dragging. 
+This feature is useful while setting the column width to fit the data in the respective rows.
+<img
+  src={require("./assets/resizing-cols.png").default}
+  alt="Freezing and unfreezing columns"
+/>
+
+### Reorder Columns
+The **Reorder Column** option allows the user to rearrange the columns according to their preference.
+
+### Hide Columns
+The **Hide Column** feature cuts out a column along with its data from the display. 
+This option can be utilized while working on a given set of filtered data.
+
+To **unhide** a column, simply remove it from the hidden columns list.
+
+<img 
+  src={require("./assets/hiding-cols.png").default}
+  alt="Hiding and unhiding columns"
+/>
+
+### Lock Columns
+The **Lock Column** option of the table view restricts any sort of data manipulation for the specified column.
+
+The Lock Column feature can be best utilized for hindering unauthorized access to valuable data while sharing.
+
+![Screen recording displaying lock table feature](./assets/locking-cols.gif)
+
+### Multiple table views for the same collection
+**Multiple table views for the same collection** can be implemented to create separate views for the same data collection. These Table views are distinguished with the use of unique Table IDs.
+
+Users can customize the table and column views to meet the requirements of different team members.
+<Video controls url="https://youtu.be/4Y60tNBdLv4" />
