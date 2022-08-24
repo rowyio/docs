@@ -22,6 +22,7 @@ import PercentageIcon from "./assets/Percentage";
 import RatingIcon from "@mui/icons-material/StarBorder";
 import SliderIcon from "./assets/Slider";
 import ColorIcon from "@mui/icons-material/Colorize";
+import PublicIcon from '@mui/icons-material/Public';
 
 import DateIcon from "@mui/icons-material/TodayOutlined";
 import DateTimeIcon from "@mui/icons-material/AccessTime";
@@ -33,9 +34,12 @@ import ImageIcon from "./assets/Image";
 import SubTableIcon from "./assets/SubTable";
 import ConnectTableIcon from "./assets/ConnectTable";
 import ConnectServiceIcon from "@mui/icons-material/Http";
+import CableIcon from '@mui/icons-material/Cable';
+import AttachmentIcon from '@mui/icons-material/Attachment';
 
 import JsonIcon from "./assets/Json";
 import CodeIcon from "@mui/icons-material/Code";
+import TaskIcon from '@mui/icons-material/Task';
 
 import ActionIcon from "@mui/icons-material/TouchAppOutlined";
 import DerivativeIcon from "./assets/Derivative";
@@ -76,14 +80,15 @@ Rowy supports over 30 field types. The data types match the
 
 ### Numeric
 
-|                    | Name           | Description                                                                                                          | Data&nbsp;Type                                                                  |
-| ------------------ | -------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| <NumberIcon />     | **Number**     | Numeric value.                                                                                                       | `number`                                                                        |
-| <CheckboxIcon />   | **Toggle**     | True/false value. Default: false.                                                                                    | `boolean`                                                                       |
-| <PercentageIcon /> | **Percentage** | Percentage stored as a number between 0 and 1.                                                                       | `number`                                                                        |
-| <RatingIcon />     | **Rating**     | Rating displayed as stars. Max stars is configurable, default: 5 stars.                                              | `number`                                                                        |
-| <SliderIcon />     | **Slider**     | Numeric value edited with a Slider. Range is configurable.                                                           | `number`                                                                        |
-| <ColorIcon />      | **Color**      | Color stored as Hex, RGB, and HSV. Edited with a [visual picker](https://www.npmjs.com/package/react-color-palette). | [`Color`](https://github.com/Wondermarin/react-color-palette/tree/v6.1.0#color) |
+|                    | Name                        | Description                                                                                                          | Data&nbsp;Type                                                                  |
+| ------------------ | --------------              | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| <NumberIcon />     | **Number**                  | Numeric value.                                                                                                       | `number`                                                                        |
+| <CheckboxIcon />   | **Toggle**                  | True/false value. Default: false.                                                                                    | `boolean`                                                                       |
+| <PercentageIcon /> | **Percentage**              | Percentage stored as a number between 0 and 1.                                                                       | `number`                                                                        |
+| <RatingIcon />     | **Rating**                  | Rating displayed as stars. Max stars is configurable, default: 5 stars.                                              | `number`                                                                        |
+| <SliderIcon />     | **Slider**                  | Numeric value edited with a Slider. Range is configurable.                                                           | `number`                                                                        |
+| <ColorIcon />      | **Color**                   | Color stored as Hex, RGB, and HSV. Edited with a [visual picker](https://www.npmjs.com/package/react-color-palette). | [`Color`](https://github.com/Wondermarin/react-color-palette/tree/v6.1.0#color) |
+| <PublicIcon />      | **Geo Point** <br/> (Alpha) | Geo Point stored as latitude and longitude.                                                                         | [`GeoPoint`](https://firebase.google.com/docs/reference/js/firebase.firestore.GeoPoint) |
 
 ### Date & Time
 
@@ -107,13 +112,16 @@ Rowy supports over 30 field types. The data types match the
 | <SubTableIcon />       | **Sub-Table**                     | Connects to a sub-table in the current row. Also displays number of rows inside the sub-table. [Max sub-table depth: 100.](https://firebase.google.com/docs/firestore/quotas#collections_documents_and_fields) | N/A. No data is stored in the document field.                                                                                                                                                                                  |
 | <ConnectTableIcon />   | **Connect Table** <br/> (Alpha)   | Connects to an existing table to fetch a snapshot of values from a row. Requires Algolia setup. [See guide](./connect-table.mdx)                                                                               | <code>{<br/>&nbsp;&nbsp;docPath:&nbsp;string;<br/>&nbsp;&nbsp;snapshot:<br/>&nbsp;&nbsp;&nbsp;&nbsp;[Record<string,&nbsp;any>](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeystype);<br/>}[]</code> |
 | <ConnectServiceIcon /> | **Connect Service** <br/> (Alpha) | Connects to an external web service to fetch a list of results.                                                                                                                                                | <code>{<br/>&nbsp;&nbsp;docPath:&nbsp;string;<br/>&nbsp;&nbsp;snapshot:<br/>&nbsp;&nbsp;&nbsp;&nbsp;[Record<string,&nbsp;any>](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeystype);<br/>}[]</code> |
+| <CableIcon />          | **Connector**                     | Connector columns allow you to excute any backend code and return a list of options to your user. See further information in Field Types menu.                                                                 | [`Connector`](https://docs.rowy.io/field-types/connector)
+| <AttachmentIcon />     | **Reference**                     | References a Firebase document.                                                                                                                                                                                | [`Firestore`](https://firebase.google.com/docs/firestore)
 
 ### Code
 
-|              | Name     | Description                                                                               | Data&nbsp;Type |
-| ------------ | -------- | ----------------------------------------------------------------------------------------- | -------------- |
-| <JsonIcon /> | **JSON** | Object edited with a [visual JSON editor](https://www.npmjs.com/package/react-json-view). | `object`       |
-| <CodeIcon /> | **Code** | Raw code edited with the [Monaco Editor](https://microsoft.github.io/monaco-editor/).     | `string`       |
+|              | Name         | Description                                                                               | Data&nbsp;Type |
+| ------------ | --------     | ----------------------------------------------------------------------------------------- | -------------- |
+| <JsonIcon /> | **JSON**     | Object edited with a [visual JSON editor](https://www.npmjs.com/package/react-json-view). | `object`       |
+| <CodeIcon /> | **Code**     | Raw code edited with the [Monaco Editor](https://microsoft.github.io/monaco-editor/).     | `string`       |
+| <TaskIcon /> | **Markdown** | Markdown text with an integrated Markdown text preview.                                   | `string`       |
 
 ### Cloud Function
 
