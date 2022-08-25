@@ -29,3 +29,14 @@ uploaded to the Firestore, and the returned URL populates the table's columns.
    src = {populatedField}
    alt = "Adding an image column"
 />
+
+## Working
+
+Once the image or file is uploaded, it is synced to the connected Firestore database.
+A URL is then generated which gets returned to the user, and gets populated in the Rowy table.
+
+By navigating to the side menu, the user can check out all the details of the current row including the 
+Firestore path where the upload has been stored.
+
+Using this link, the user can access the Firebase Firestore datapoint for a specific file. This is useful for
+utilizing the Firebase Storage API.
