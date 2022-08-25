@@ -4,14 +4,28 @@ title: Image / File
 slug: /field-types/image-file-field
 ---
 
+import imageField from "./assets/image-field.png";
+import populatedField from "./assets/populated-field.png";
+
 The Image or File fields enable users to upload images or files. These photos or documents are subsequently 
 uploaded to the Firestore, and the returned URL populates the table's columns.
 
 ## Steps
 
 1. Click the **Add column** button on the right edge of the table header.
+
+<img 
+   src = {imageField}
+   alt = "Adding an image column"
+/>
+
 2. Set the user-facing **Column name**.
 3. Set the **Field key**, which is the name of the field in your Firestore
    document.
 4. Set the **Field type** to either **Image** or **File** depending upon the requirement.
 5. Upload the image or text using the **Upload Icon** or simply drag and drop it into the desired cell.
+
+<img 
+   src = {populatedField}
+   alt = "Adding an image column"
+/>
