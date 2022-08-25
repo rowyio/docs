@@ -6,6 +6,8 @@ slug: /field-types/image-file-field
 
 import imageField from "./assets/image-field.png";
 import populatedField from "./assets/populated-field.png";
+import firestorePath from "./assets/firestore-path.png";
+import firestoreJSON from "./assets/firestore-json.png";
 
 The Image or File fields enable users to upload images or files. These photos or documents are subsequently 
 uploaded to the Firestore, and the returned URL populates the table's columns.
@@ -35,8 +37,18 @@ uploaded to the Firestore, and the returned URL populates the table's columns.
 Once the image or file is uploaded, it is synced to the connected Firestore database.
 A URL is then generated which gets returned to the user, and gets populated in the Rowy table.
 
-By navigating to the side menu, the user can check out all the details of the current row including the 
-Firestore path where the upload has been stored.
+By navigating to the side menu, the user can check out all the details of the current row, including
+the **Reference Path**, which is the Firestore path where the upload is stored.
 
-Using this link, the user can access the Firebase Firestore datapoint for a specific file. This is useful for
-utilizing the Firebase Storage API.
+<img 
+   src = {firestorePath}
+   alt = "Firestore path"
+/>
+
+Using this link, the user can access the **Firebase Firestore datapoint** for a specific file. 
+This is useful for utilizing the **Firebase Storage API**.
+
+<img 
+   src = {firestoreJSON}
+   alt = "Firestore JSON"
+/>
