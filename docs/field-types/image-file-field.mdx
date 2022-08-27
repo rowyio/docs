@@ -1,0 +1,108 @@
+---
+id: image-file-field
+title: Image / File
+slug: /field-types/image-file-field
+---
+
+import imageField from "./assets/image-field.png";
+import populatedField from "./assets/populated-field.png";
+import firestorePath from "./assets/firestore-path.png";
+import firestoreJSON from "./assets/firestore-json.png";
+import imageURL from "./assets/image-url.png";
+import sampleURL from "./assets/sample-url.png";
+
+The Image or File fields enable users to upload images or files. These photos or documents are subsequently 
+uploaded to the Firestore, and the returned URL populates the table's columns.
+
+## Steps
+
+1. Click the **Add column** button on the right edge of the table header.
+
+<img 
+   src = {imageField}
+   alt = "Adding an image column"
+/>
+
+2. Set the user-facing **Column name**.
+3. Set the **Field key**, which is the name of the field in your Firestore
+   document.
+4. Set the **Field type** to either **Image** or **File** depending upon the requirement.
+5. Upload the image or the file using the **Upload Icon** or simply drag and drop it into the desired cell.
+
+<img 
+   src = {populatedField}
+   alt = "Adding an image column"
+/>
+
+## Working
+
+Once the image or the file is uploaded, it is synced to the connected Firestore database.
+A URL is then generated which gets returned to the user, and gets populated in the Rowy table.
+
+By navigating to the side menu, the user can check out all the details of the current row, including
+the **Reference Path**, which is the Firestore path where the upload is stored.
+
+<img 
+   src = {firestorePath}
+   alt = "Firestore path"
+/>
+
+Using this link, the user can access the **Firebase Firestore datapoint** for a specific file. 
+This is useful for utilizing the **Firebase Storage API**.
+
+<img 
+   src = {firestoreJSON}
+   alt = "Firestore JSON"
+/>
+
+## Using Image Field with URL
+
+Using the Image Field with an existing URL instead of uploading an image is possible with the help of the
+**Derivative Column**. The Derivative Columns display values derived from another column's values.
+
+<p align="center">
+   <img 
+   src = {sampleURL}
+   alt = "Sample URL Column"
+   width="70%"
+   />
+</p>
+
+To use this approach, it is required that the project has **Rowy Run enabled**.
+
+### Steps
+
+1. Click the **Add column** button on the right edge of the table header.
+2. Set the user-facing **Column name**.
+3. Set the **Field key**, which is the name of the field in your Firestore
+   document.
+4. Set the **Field type** to **Derivative** and set up **Rowy Run** as prompted (if not already).
+5. Set the **Column Config** as follows:
+
+   <img
+   src = {imageURL}
+   alt = "Using Derivative Column to utilize image URL"
+   />
+
+   - Set the **Listener fields** to be the column containing the URL of the images.
+
+   - Change the **Output field** type to Image.
+   
+   - Set the **Derivative script** to:
+
+   ```javascript
+   const derivative: Derivative = async ({ row, ref, db, storage, auth }) => {
+   return [{ downloadURL: row.URL_FIELD_KEY }]
+   }
+   ```
+
+   - Change the `URL_FIELD_KEY` to the field key of the URL column.
+
+   - **Lock** the Derivative column to prevent people uploading to this column directly.
+
+   - Continue to add images by providing the URL in the URL column.
+
+## Notes
+
+- The image or the file field might appear very minute. To increase the visiblity if the images, one can simply
+increase the row height by navigating to the **Row Height** option on the top right corner.
