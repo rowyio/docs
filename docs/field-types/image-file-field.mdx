@@ -1,7 +1,7 @@
 ---
-id: image-file-field
+id: image-file
 title: Image / File
-slug: /field-types/image-file-field
+slug: /field-types/image-file
 ---
 
 import imageField from "./assets/image-field.png";
@@ -11,8 +11,10 @@ import firestoreJSON from "./assets/firestore-json.png";
 import imageURL from "./assets/image-URL.png";
 import sampleURL from "./assets/sample-url.png";
 
-The Image or File fields enable users to upload images or files. These photos or documents are subsequently 
-uploaded to the Firestore, and the returned URL populates the table's columns.
+The Image or File fields enable users to upload images or files with ease from Rowy's Table UI. These photos or documents are subsequently 
+uploaded to the Firebase Storage. The URL of the file/image uploaded to Firebase Storage is then made available in Firestore. 
+
+Users can also see a thumbnail of the uploaded image/file in the Table UI..
 
 ## Steps
 
@@ -34,10 +36,18 @@ uploaded to the Firestore, and the returned URL populates the table's columns.
    alt = "Adding an image column"
 />
 
-## Working
+## Technical Details
 
-Once the image or the file is uploaded, it is synced to the connected Firestore database.
-A URL is then generated which gets returned to the user, and gets populated in the Rowy table.
+Once the image or the file is uploaded, it is synced to the connected Firebase Storage.
+The generated Firebase Storage URL is then stored in the Firestore field as an array with the downloadURL pointing to the Firebase Storage URL.
+
+Using this link, the user can access the **Firebase Firestore datapoint** for a specific file. 
+This is useful for utilizing the **Firebase Storage API**.
+
+<img 
+   src = {firestoreJSON}
+   alt = "Firestore JSON"
+/>
 
 By navigating to the side menu, the user can check out all the details of the current row, including
 the **Reference Path**, which is the Firestore path where the upload is stored.
@@ -47,13 +57,6 @@ the **Reference Path**, which is the Firestore path where the upload is stored.
    alt = "Firestore path"
 />
 
-Using this link, the user can access the **Firebase Firestore datapoint** for a specific file. 
-This is useful for utilizing the **Firebase Storage API**.
-
-<img 
-   src = {firestoreJSON}
-   alt = "Firestore JSON"
-/>
 
 ## Using Image Field with URL
 
