@@ -4,6 +4,8 @@ title: Add a row
 slug: /how-to/add-row
 ---
 
+import addRowModes from './assets/add-row-modes.png';
+
 Rows display individual documents in your Firestore collection.
 
 ## Steps
@@ -16,6 +18,11 @@ Rows display individual documents in your Firestore collection.
 ![Screen recording of a row being added, a Short Text field edited in the row, and a Long Text field edited in the Side Drawer.](./assets/add-row.gif)
 
 ## Modes for adding a row
+
+<img
+  src={addRowModes}
+  alt="Screenshot of the three modes for adding a row"
+/>
 
 Every row has a **distinct Row ID** which helps to differentiate it from the other rows. Data stored in the
 Firebase Firestore is **sorted in ascending order** in the Rowy Table, according to the Row ID.
