@@ -20,6 +20,26 @@ Rows display individual documents in your Firestore collection.
 Every row has a **distinct Row ID** which helps to differentiate it from the other rows. Data stored in the
 Firebase Firestore is **sorted in ascending order** in the Rowy Table, according to the Row ID.
 
+Rowy supports three modes for adding a row:
+
+### To top
+Generates a **Row ID that is smaller** than the Row ID of the row at the top of the table, so that the 
+newly added row is added to the top.
+
+### With random ID
+This mode assigns a **random Row ID** to the new row. By default, the row will be displayed on the top 
+while it is being edited. Later, it **will appear at a different position** in the table, according to the 
+generated Row ID.
+
+### With custom ID
+Generating a row with a **custom Row ID** is **very similar to generating a row With random ID**. Just 
+like the random ID mode, the row will be displayed on the top while it is being edited. Later, it **will 
+appear at a different position** in the table.
+
+The difference is that the **user is given the liberty to choose the Row ID** and the position of that row 
+is set accordingly.
+
+
 ## Notes
 
 - If a column is set to **required**, the row will not be written to Firestore
