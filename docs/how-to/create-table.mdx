@@ -6,6 +6,7 @@ slug: /how-to/create-table
 
 import Video from "../../src/components/Video.js";
 import videoUrl from "./assets/create-table.mp4";
+import auditOptions from "./assets/audit-options.png";
 
 Tables display your Firestore collections in a spreadsheet UI.
 
@@ -25,10 +26,13 @@ to the table.
 
 ## Audit Fields
 
-The optional **Auditing options** for a table can be enabled while creating the table.
+The optional **Auditing options** for a table can be enabled while creating the table. The **Auditing** 
+tab allows you to set which fields will be audited when a user updates a table.
 Rowy provides an audit trail for each table. The audit trail is a log of all changes to the table.
 
 This can be useful when the **ADMIN** wishes to keep a track whenever a user creates or updates a row.
+
+<img src={auditOptions} alt="Audit Options" />
 
 ## Notes
 
