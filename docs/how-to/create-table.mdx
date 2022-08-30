@@ -19,7 +19,7 @@ Tables display your Firestore collections in a spreadsheet UI.
 4. Set who can view and edit the table using the **Access Control** tab. By default, only users with the 
 `ADMIN` role can read, write, and modify the table content.
 5. Users can **optionally** opt to enable **Auditing** for the table. Auditing will record all changes 
-to the table.
+to the table. By default, auditing is enabled.
 6. Users can also **choose to initialize their table** with columns from an already existing table.
 
 <Video url={videoUrl} playing loop muted playsinline controls />
@@ -27,19 +27,17 @@ to the table.
 
 ## Auditing Fields
 
-The optional **Auditing options** for a table can be enabled while creating the table. The **Auditing** 
+The **Auditing options** for a table can be enabled while creating the table. The **Auditing** 
 tab allows you to set which fields will be audited when a user updates a table.
-Rowy provides an audit trail for each table. The audit trail is a log of all changes to the table.
+Rowy provides an audit trail for each table. The audit trail is a log of all changes made to the table.
 
 This can be useful when the **ADMIN** wishes to keep a track whenever a user creates or updates a row.
 
 <img src={auditOptions} alt="Audit Options" />
 
-If enabled in the beginning, the **Audit Options** can also be disabled, by accessing the 
-**Table Settings** on the top right corner of the table.
-
-Otherwise, if unabled while creating the table, the **Auditing Options** can also be enabled later, the
-same way as above.
+If enabled earlier, the **Audit Options** can be disabled later by accessing the **Table Settings** on 
+the top right corner of the table. Likewise, they can be enabled in the same manner if they were 
+disabled earlier.
 
 
 ## Notes
