@@ -4,14 +4,48 @@ title: Add a row
 slug: /how-to/add-row
 ---
 
+import addRowModes from './assets/add-row-modes.png';
+
 Rows display individual documents in your Firestore collection.
 
 ## Steps
 
 1. Click the **Add row** button above the table.
-2. You can edit fields directly in the row or the Side Drawer.
+2. Choose from any of the three modes for adding a new row, i.e. **To top**, **With random ID**, and 
+**With custom ID**.
+3. You can edit fields directly in the row or the Side Drawer.
 
 ![Screen recording of a row being added, a Short Text field edited in the row, and a Long Text field edited in the Side Drawer.](./assets/add-row.gif)
+
+## Modes for adding a row
+
+<img
+  src={addRowModes}
+  alt="Screenshot of the three modes for adding a row"
+/>
+
+Every row has a **distinct Row ID** which helps to differentiate it from the other rows. Data stored in the
+Firebase Firestore is **sorted in ascending order** in the Rowy Table, according to the Row ID.
+
+Rowy supports three modes for adding a row:
+
+### To top
+Generates a **Row ID that is smaller** than the Row ID of the row at the top of the table, so that the 
+newly added row is added to the top.
+
+### With random ID
+This mode assigns a **random Row ID** to the new row. By default, the row will be displayed on the top 
+while it is being edited. Later, it **will appear at a different position** in the table, according to the 
+generated Row ID.
+
+### With custom ID
+Generating a row with a **custom Row ID** is **very similar to generating a row With random ID**. Just 
+like the random ID mode, the row will be displayed on the top while it is being edited. Later, it **will 
+appear at a different position** in the table.
+
+The difference is that the **user is given the liberty to choose the Row ID** and the position of that row 
+is set accordingly.
+
 
 ## Notes
 
