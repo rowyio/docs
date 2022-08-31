@@ -6,19 +6,39 @@ slug: /how-to/create-table
 
 import Video from "../../src/components/Video.js";
 import videoUrl from "./assets/create-table.mp4";
+import auditOptions from "./assets/audit-options.png";
 
 Tables display your Firestore collections in a spreadsheet UI.
 
 ## Steps
 
-1. Click the **+** button in the bottom-right corner of the Home page.
-2. Choose which **Collection** to display.
-3. Set the **Table name** and other display options.
-4. Set who can view and edit the table. It’s set to `ADMIN` only by default.
-5. Optionally enable **Auditing** for the table.
-6. Optionally, initialize your table with columns.
+1. Click the **+** button in the **Create Table Section** on the Home page.
+2. Choose which **Collection** the new table will be connected to, using the **Table Type** and 
+**Collection** fields.
+3. Set the **Table name** and other display options including the **Description** and **Sections**.
+4. Set who can view and edit the table using the **Access Control** tab. By default, only users with the 
+`ADMIN` role can read, write, and modify the table content.
+5. Users can **optionally** opt to enable **Auditing** for the table. Auditing will record all changes 
+to the table. By default, auditing is enabled.
+6. Users can also **choose to initialize their table** with columns from an already existing table.
 
 <Video url={videoUrl} playing loop muted playsinline controls />
+
+
+## Auditing Fields
+
+The **Auditing options** for a table can be enabled while creating the table. The **Auditing** 
+tab allows you to set which fields will be audited when a user updates a table.
+Rowy provides an audit trail for each table. The audit trail is a log of all changes made to the table.
+
+This can be useful when the **ADMIN** wishes to keep a track whenever a user creates or updates a row.
+
+<img src={auditOptions} alt="Audit Options" />
+
+If enabled earlier, the **Audit Options** can be disabled later by accessing the **Table Settings** on 
+the top right corner of the table. Likewise, they can be enabled in the same manner if they were 
+disabled earlier.
+
 
 ## Notes
 
