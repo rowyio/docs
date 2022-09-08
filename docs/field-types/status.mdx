@@ -21,5 +21,27 @@ candidate's application.
 2. Add the **Column Name** and set the field type to **Status**.
 3. Set the **Default value type** according to the requirement. It is the default value that the cell would 
     hold when the user creates a new row. 
-4. Now, the user can add **Conditions**. Conditions can be easily configured according to the user needs.
+
+    The **default value type** can be set to:
+
+    ### Undefined
+    The **default value is not set**. The undefined values **do not appear if the list is sorted** in 
+    ascending / descending order. This makes the column field unsortable if left blank.
+
+    ### Null
+    The default value is set to `Null`. The **Null type** allows the column to be sortable without setting
+    an actual value.
+
+    ### Static
+    The **Static type** enables the user to customize the initial value of the column. The user can set
+    the value to any of the values in the **Status field**.
+    
+    ### Dynamic
+    The default value also supports a **Dynamic type**. The user can **set the default value automatically**,
+    making it adhere to specific conditions once a new row is created.
+
+4. Now, the user can add **Conditions**. Conditions can be easily configured according to the user needs. The
+ user will be able to select the **cell label** from the dropdown (existing conditions) and the **corresponding
+ value will be set in the Firebase Collection**.
+ 
 5. Click on the **Update button**.
