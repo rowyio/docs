@@ -35,7 +35,7 @@ Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md
 :::note Required software
 
 - [Git](https://git-scm.com/downloads)
-- [Node](https://nodejs.org/en/download/) 10+ (it’s easiest to install using
+- [Node](https://nodejs.org/en/download/) 16+ (it’s easiest to install using
   [nvm](https://github.com/nvm-sh/nvm#intro))
 - [Yarn](https://classic.yarnpkg.com/en/docs/install/) 1
 - [Firebase CLI](https://firebase.google.com/docs/cli) 8+
