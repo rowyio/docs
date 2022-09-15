@@ -84,7 +84,7 @@ Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md
 6. Sign in with your Google account. You’ll see an Access denied screen.
 
 7. Set the `ADMIN` role for your account using
-   [these instructions&nbsp;&RightArrow;](/setup/roles?set-user-roles-tabs=admin-sdk#set-user-roles)
+   [these instructions&nbsp;&RightArrow;](/how-to/roles?set-user-roles-tabs=admin-sdk#set-user-roles)
 
 8. Sign out and sign in again to access your Rowy project.
 

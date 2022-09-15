@@ -1,0 +1,5 @@
+{
+    "redirects": [
+      { "source": "/setup/roles", "destination": "/how-to/roles" }
+    ]
+  }
