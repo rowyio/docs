@@ -35,7 +35,7 @@ Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md
 :::note Required software
 
 - [Git](https://git-scm.com/downloads)
-- [Node](https://nodejs.org/en/download/) 10+ (it’s easiest to install using
+- [Node](https://nodejs.org/en/download/) 16+ (it’s easiest to install using
   [nvm](https://github.com/nvm-sh/nvm#intro))
 - [Yarn](https://classic.yarnpkg.com/en/docs/install/) 1
 - [Firebase CLI](https://firebase.google.com/docs/cli) 8+
@@ -94,3 +94,17 @@ need to install Rowy Run manually:
 <p>
 <a href="/rowy-run" class="button">Install Rowy Run</a>
 </p>
+
+## Common Issues
+
+1. **ERROR MESSAGE:** `rowy@3.0.0: The engine "node" is incompatible with this module. Expected version ">=16". Got "14.19.0`.
+
+   **FIX:** 
+   - Update your node version to 16 or higher by downloading the latest LTS version from https://nodejs.org/en/download/.
+
+
+2. **ERROR MESSAGE:** `auth/invalid-api-key: Firebase: Error (auth/invalid-api-key).`
+
+   **FIX:** 
+   - Login to the firebase account using the **Firebase CLI**. Install Firebase CLI globally using `npm install -g firebase-tools`.
+   - **Setting up environment variables** as described in the 3rd step of the manual installation process.
