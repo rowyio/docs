@@ -223,21 +223,21 @@ Finally, Rowy deploys the cloud functions with a minimal setup by default which 
 
 ### Create template for Tickets
 
-This time, we'll use a template with portrait page format(595x842). The fields are the same as minimal `Certificate` example except we're going to include a dynamically generated QR code, and Google Maps.
+This time, we'll use a template with portrait page format(595x842). The fields are the same as the minimal `Certificate` example, except we're going to include a dynamically generated QR Code, and Google Maps.
 
 ![Ticket Template](./assets/pdf-generator-7.png)
 
 ### Initialize Rowy table and subtable structure
 
-We're going to have a little more relational data structure now. The main table will store event specific information such as `eventDate`, `eventAddress`, `ticketTemplate`, and the subtable will store consumer specific information like `purchaserName`, and `ticketType`. 
+We're going to have a more relational data structure now. The main table will store event specific information such as `eventDate`, `eventAddress`, `ticketTemplate`, and the sub-table will store consumer specific information like `purchaserName`, and `ticketType`. 
 
-By this design, we'll be able to generate event specific tickets by using the same template for many tickets with assistance of the relational data structure.
+With this design, we'll be able to generate event specific tickets by using the same template for many tickets with assistance of the relational data structure.
 
 ![Main table schema](./assets/pdf-generator-8.png)
 
 ![Subtable schema](./assets/pdf-generator-9.png)
 
-### Creating a Rowy extension for subcollection
+### Creating a Rowy extension for Subcollection
 
 Except QR Code and Maps generation, every step is identical with the previous `Certiciate` example. For this example, we'll going to trigger the extension only after `tickets` subtable got updated. You can define extensions for your subcollections the same way we did for `Certificate` generator. 
 
