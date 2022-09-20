@@ -8,24 +8,25 @@ import Gist from "react-gist";
 
 Build your App's back-end instantaneously with Rowy extensions on top of your data. 
 
-In this tutorial, we're going to explore how to build a simple PDF generator by using a Figma design as a template for dynamically creating fancy certificates and tickets.
+In this tutorial, we're going to explore how to build a simple PDF generator by using a Figma design as a
+template for dynamically creating fancy certificates and tickets.
 
-Note: This tutorial is a advanced usage.  
+Note: This tutorial is an advanced usage.  
 
 ## Step 1: Create a design template
 
 We will use the Figma design by exporting it as SVG, making it easier to find and manipulate the corresponding fields programmatically. 
 
-To make things way much easier, there're a couple of design preferences here from the beginning:
-- Use the universal A4 paper format(595x842), but in landscape format(842x595), for the main frame so we'll not worry about PDF page size.
-- Use a rectangle block to specify a fillable field in the template. This will be quite handy while making fields responsive.
-- Use the "id" attributes export option which will be helpful to find the proper field in the program logic.
+To make things easier, there are a couple of design preferences that you may follow:
+- Use the universal A4 paper format (595x842) in the landscape form (842x595) for the main frame, to avoid any issues regarding the PDF page size.
+- Use a rectangle block to specify a fillable field in the template. This will come in handy while making fields responsive.
+- Use the `id` attribute's export option which will be helpful to find the proper field in the program logic.
 
-A simple Certificate Template shown below:
+Below is a simple Certificate Template that can be used:
 
 ![A simple certificate template design](./assets/pdf-generator-1.png)
 
-Figma uses the exact name at the sidebar while exporting the SVG. So, be sure that there isn't any conflict. Here, we're going to select the recipient field by the id of "recipient" in the extension logic.
+Figma uses the exact name at the sidebar while exporting the SVG. So, be sure that there isn't any conflict. We're going to select the recipient field by the id of "recipient" in the extension logic.
 
 ![Figma object id's](./assets/pdf-generator-2.png)
 
@@ -33,7 +34,7 @@ Lastly, don't forget to mark `Include "id" attribute` in the export options.
 
 ![Figma export SVG options](./assets/pdf-generator-3.png)
 
-You can preview your SVG template, just open it with your favorite browser, and the design step is done. The text fonts are not super cool right now, but we'll take care of it later on!
+You can preview your SVG template by opening it on your favorite browser, and the design step is done. The text fonts do not look as expected right now, but we'll take care of it later!
 
 ![SVG template opened in browser](./assets/pdf-generator-4.png)
 
