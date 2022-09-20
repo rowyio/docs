@@ -51,21 +51,21 @@ The table scheme has 4 columns for the inputs of template, and the output column
 
 ## Step 3: Create a Rowy extension
 
-We'll be using a single [Rowy Extension](https://docs.rowy.io/extensions) which is simply a cloud function that runs after row-level CRUD operations. The program flow is as simple as when the input fields are created or updated, we'll run a cloud function to generate a PDF file by using the recently created/updated row data.
+We'll use a single [Rowy Extension](https://docs.rowy.io/extensions), which is simply a cloud function that runs after row-level CRUD operations. The program flow is as simple as when the input fields are created or updated, we'll run a cloud function to generate a PDF file by using the recently created/updated row data.
 
 Create a new extension and set the `Tracked Fields` to all 4 input columns so the extension will get triggered by any changes.
 
 ![Extension configuration](./assets/pdf-generator-6.png)
 
-In the `Extension Body`, we’ll write Javascript code. This will be magically deployed by Rowy as a cloud function.
+In the `Extension Body`, we’ll write Javascript code. This will be automatically deployed by Rowy as a cloud function.
 
 This function will run using Node.js. So, we can use any NPM packages we'd need to fasten our development.
 
 We'll get benefit of 3 NPM packages:
 
-- `puppeteer`, a headless Chrome launcher
-- `jsdom`, DOM manipulation in Node.js
-- `dayjs`, localize Date objects in Node.js
+- `puppeteer`: A headless Chrome launcher
+- `jsdom`: DOM manipulation in Node.js
+- `dayjs`: Localize Date objects in Node.js
 
 
 You can use CommonJS modules here to load NPM packages. Rowy detects and installs external libraries while deploying functions.
@@ -89,7 +89,7 @@ The program logic consists of 4 simple consequent steps:
 
 ### Retrieve the design template
 
-As we used `File` column type to store template into storage, Rowy structured our storage file as a Firestore document which helps us to retrieve a file declaratively. `File` consists an array of files that stored in our Firebase Storage. In this tutorial, we'll only use a single template file, it sits there in the zero index of column `template`.
+As we used the `File` column type to store template into storage, Rowy structured our storage file as a Firestore document which helps us to retrieve a file declaratively. `File` consists of an array of files that stored in our Firebase Storage. In this tutorial, we'll only use a single template file, which sits on the zero index of column `template`.
 
 ```tsx
 const template = await fetch(row.template[0].downloadURL)
@@ -99,7 +99,7 @@ const template = await fetch(row.template[0].downloadURL)
 
 ### Manipulate the SVG template
 
-By using `jsdom` library, it parses that template from raw text and creates an emulator we can use standard DOM facilities to manipulate our template.
+The `jsdom` library parses that template from raw text, and creates an emulator through which we can use standard DOM facilities to manipulate our template.
 
 ```tsx
 const dom = new JSDOM(template);
@@ -116,9 +116,9 @@ svg.appendChild(createTextElement("date", dateText));
 document.head.appendChild(createStylesElement());
 ```
 
-The entire DOM manipulation logic goes over there but the implementation is a bit nasty as DOM manipulation itself is quite an iterative process. 
+The entire DOM manipulation logic applies, but the implementation gets a bit confusing as DOM manipulation itself is an iterative process. 
 
-First, we'll inject a `foreignObject` for every fillable fields into SVG which has the same exact position as the corresponding rectangle block in our design template. This way, you'll have a `div` element you can use CSS for styling it.
+First, we'll inject a `foreignObject` for every fillable field into the SVG which has the same position as the corresponding rectangle block in our design template. This way, we'll have a `div` element which can we styled using CSS.
 
 ```tsx
 // Creates a foreignObject element with given attributes
