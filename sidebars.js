@@ -59,6 +59,7 @@ module.exports = {
           items: [
             "tutorials/webflow-form",
             "tutorials/spotify-wrapped",
+            "tutorials/pdf-generator",
             // "templates/typeform-webhook",
             // "templates/bannerbear",
             // "templates/magic-link",
