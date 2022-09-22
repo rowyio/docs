@@ -6,25 +6,31 @@ slug: /tutorials/pdf-generator
 
 import Gist from "react-gist";
 
-Build your App's back-end instantaneously with Rowy extensions on top of your data. 
+Dynamically generating PDF can be super useful in your product and can be used in a variety of use-case.
+For example, if you are building an education app and want to issue a certificate to users 
+who completed a course or if you want to issue a certificate for some special achievement or goal.
 
-In this tutorial, we're going to explore how to build a simple PDF generator by using a Figma design as a
-template for dynamically creating fancy certificates and tickets.
+In this tutorial, we're going to explore step-by-step how you can generate a PDF based on a Figma template 
+using Rowy's ready to use backend template.
 
-Note: This tutorial is an advanced usage.  
+## What you’ll need
 
-## Step 1: Create a design template
+- If you don't have a Rowy account, [create one](https:/rowy.app) first and then create a new project.
+- Clone Rowy's [certificate template](https://www.figma.com/community/file/1153928195162951308) file or create your own PDF design in Figma.
 
-We will use the Figma design by exporting it as SVG, making it easier to find and manipulate the corresponding fields programmatically. 
+## Step 1: Create and export your PDF design from Figma as SVG
 
-To make things easier, there are a couple of design preferences that you may follow:
+Use Figma to design your PDF file or use this [free and ready-to-use certificate template](https://www.figma.com/community/file/1153928195162951308) we created.
+You can clone this template and tweak it to your usecase easily.
+
+[![A simple certificate template design](./assets/pdf-generator-1.png)](https://www.figma.com/community/file/1153928195162951308)
+<div align="center"><small>Figma certificate template file</small></div>
+<br/>
+
+Note, to make things easier, there are a couple of things to keep in mind if you are creating your own design from scratch:  
 - Use the universal A4 paper format (595x842) in the landscape form (842x595) for the main frame, to avoid any issues regarding the PDF page size.
 - Use a rectangle block to specify a fillable field in the template. This will come in handy while making fields responsive.
 - Use the `id` attribute's export option which will be helpful to find the proper field in the program logic.
-
-Below is a simple Certificate Template that can be used:
-
-![A simple certificate template design](./assets/pdf-generator-1.png)
 
 Figma uses the exact name at the sidebar while exporting the SVG. So, be sure that there isn't any conflict. We're going to select the recipient field by the id of "recipient" in the extension logic.
 
@@ -40,6 +46,14 @@ You can preview your SVG template by opening it on your favorite browser, and th
 
 ## Step 2: Initialize Rowy table structure
 
+You can do this two ways 
+
+### Option A: Using Table template ✅
+
+**(Recommended)** Simply create a table from template and select the  "Certificate Generator" option.
+This is a fully guided process to get you setup with Table and cloud function code in just a few clicks
+
+### Option B: Manual
 The table scheme has 4 columns for the inputs of template, and the output column for the generated PDF file:
 - `Template` column as `File` type
 - `Description Text` column as `Long Text` type
@@ -48,8 +62,6 @@ The table scheme has 4 columns for the inputs of template, and the output column
 - `Certificate` column as `File` type
 
 ![Table scheme](./assets/pdf-generator-5.png)
-
-## Step 3: Create a Rowy extension
 
 We'll use a single [Rowy Extension](https://docs.rowy.io/extensions), which is simply a cloud function that runs after row-level CRUD operations. The program flow is as simple as when the input fields are created or updated, we'll run a cloud function to generate a PDF file by using the recently created/updated row data.
 
@@ -215,7 +227,7 @@ const pdfFile = await rowy.storage.upload.data(pdf, {
 await ref.update({ certificate: [pdfFile] });
 ```
 
-## Step 4: Increase RAM allocation
+## Step 3: Increase RAM allocation
 
 Finally, Rowy deploys the cloud functions with a minimal setup by default which has only 256MB of RAM. The `puppeteer`package cannot operate with this amount of memory. So, as the last step we have to increase the memory of the recently deployed cloud function. You can follow the instructions as specified [here](/tutorials/spotify-wrapped#step-5-increase-ram-allocation).
 
@@ -242,3 +254,7 @@ With this design, we'll be able to generate event specific tickets by using the 
 Except QR Code and Maps generation, every step is identical with the previous `Certiciate` example. For this example, we'll going to trigger the extension only after `tickets` subtable got updated. You can define extensions for your subcollections the same way we did for `Certificate` generator. 
 
 ![Extension Configuration](./assets/pdf-generator-10.png)
+
+Finally, you can use Rowy’s table UI directly as a admin panel to manage and generate certificates/tickets for your users nocode style 
+or your can connect your app via Firebase SDK or APIs to read and write to 
+this table data and generate certificates because this data is connected directly to your Firestore project.

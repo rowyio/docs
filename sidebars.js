@@ -38,7 +38,7 @@ module.exports = {
         },
         {
           type: "category",
-          label: "Quickstart guide",
+          label: "How to guide",
           link: { type: "generated-index" },
           collapsed: true,
           items: [
@@ -53,23 +53,7 @@ module.exports = {
             "how-to/multiple-tables",
           ],
         },
-        {
-          type: "category",
-          label: "Tutorials",
-          link: { type: "generated-index" },
-          collapsed: true,
-          items: [
-            "tutorials/webflow-form",
-            "tutorials/spotify-wrapped",
-            "tutorials/pdf-generator",
-            // "templates/typeform-webhook",
-            // "templates/bannerbear",
-            // "templates/magic-link",
-            // "templates/translate-api",
-            // "templates/github-webhook",
-            // "templates/cal-scheduling",
-          ],
-        },
+        
         {
           type: "category",
           label: "FAQs",
@@ -107,6 +91,30 @@ module.exports = {
         },
         {
           type: "category",
+          label: "Tutorials",
+          link: { type: "generated-index" },
+          collapsed: true,
+          items: [
+            "tutorials/webflow-form",
+            "tutorials/spotify-wrapped",
+            "tutorials/pdf-generator",
+            // "templates/typeform-webhook",
+            // "templates/bannerbear",
+            // "templates/magic-link",
+            // "templates/translate-api",
+            // "templates/github-webhook",
+            // "templates/cal-scheduling",
+          ],
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Cloud functions",
+      collapsible: false,
+      items: [
+        {
+          type: "category",
           label: "Extensions",
           link: { type: "generated-index" },
           collapsed: true,
@@ -127,7 +135,8 @@ module.exports = {
           collapsed: true,
           items: ["webhooks/overview", "webhooks/basic", "webhooks/typeform"],
         },
-        "rowy-run/overview",
+        "field-types/derivative",
+        "field-types/action",
         // {
         //   type: "category",
         //   label: "Rowy Run",

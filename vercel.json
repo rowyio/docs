@@ -1,5 +1,6 @@
 {
     "redirects": [
-      { "source": "/setup/roles", "destination": "/how-to/roles" }
+      { "source": "/setup/roles", "destination": "/how-to/roles" },
+      { "source": "/category/quickstart-guide", "destination": "/category/how-to-guide" }
     ]
   }
