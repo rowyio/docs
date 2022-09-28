@@ -4,10 +4,11 @@ title: Import Airtable
 slug: /import-export-data/import-airtable
 ---
 
-import importData from "./assets/import-data.png"
 import generateAPIKey from "./assets/generate-api-key.png"
 import tableURL from "./assets/table-url.png"
 import copyURL from "./assets/copy-url.png"
+import Video from "../../src/components/Video.js";
+import videoUrl from "./assets/airtable-import.mp4";
 
 Rowy allows users to create a new table from an existing Airtable collection. This is useful if you have a pre-existing data on Airtable and want to import it to Rowy.
 
@@ -20,10 +21,7 @@ Rowy allows a lot of new functionalities that gives you more control over your d
 1. After creating a new table, click on the **Import Data** button.
 
 2. Select **Airtable** as the data source.
-    <img 
-        src={importData} 
-        alt="Importing data from an airtable collection" 
-    />
+    <Video url={videoUrl} playing loop muted playsinline controls />
 
 3. Add the **Airtable API Key** and the **Table URL**. You can find how to generate the [API key](/import-export-data/import-airtable#api-key) and the [Table URL](/import-export-data/import-airtable#table-url) in the sections below.
 
