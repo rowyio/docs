@@ -41,3 +41,7 @@ Once the **Enable Auditing** toggle is turned on, the **Created By**, **Created 
         src={addAuditField} 
         alt="Adding Audit Field" 
     />
+
+## Technical Details
+
+All the data in the Rowy table is connected directly to the Firestore database. Everytime a user creates or updates a record, the **Created By**, **Created At**, **Updated By** and **Updated At** columns are updated real-time with the relevant information in your Firestore collection. Users can view these data-points in the Firestore collection documents as well.
