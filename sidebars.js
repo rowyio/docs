@@ -80,6 +80,7 @@ module.exports = {
           collapsed: true,
           items: [
             "field-types/supported-fields",
+            "field-types/audit-fields",
             "field-types/derivative",
             "field-types/connector",
             "field-types/connect-table",
