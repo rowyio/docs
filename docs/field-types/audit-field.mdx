@@ -6,6 +6,7 @@ slug: /field-types/audit-fields
 
 import enableAuditField from './assets/enable-audit-field.png'
 import addAuditField from './assets/add-audit-field.png'
+import firebaseAuditField from './assets/firebase-audit-field.png'
 
 Rowy provides **Audit Fields** to track the changes made to your data. This is useful for collaborating with your team and keeping track of who made what changes and when. The Audit Fields help track the details of the changes made to your data by recording the following information:
 
@@ -45,3 +46,8 @@ Once the **Enable Auditing** toggle is turned on, the **Created By**, **Created 
 ## Technical Details
 
 All the data in the Rowy table is connected directly to the Firestore database. Everytime a user creates or updates a record, the **Created By**, **Created At**, **Updated By** and **Updated At** columns are updated real-time with the relevant information in your Firestore collection. Users can view these data-points in the Firestore collection documents as well.
+
+<img 
+    src={firebaseAuditField} 
+    alt="Firebase Audit Field"
+/>
