@@ -53,6 +53,15 @@ module.exports = {
             "how-to/multiple-tables",
           ],
         },
+        {
+          type: "category",
+          label: "Importing Exporting Data",
+          link: { type: "generated-index" },
+          collapsed: true,
+          items: [
+            "import-export-data/import-airtable",
+          ],
+        },
         
         {
           type: "category",
