@@ -4,6 +4,8 @@ title: Installation
 slug: /setup/install
 ---
 
+import Video from "../../src/components/Video.js";
+
 Set up Rowy on your Google Cloud or Firebase project in minutes.
 
 ## Option 1: Quick setup — ✅ Recommended
@@ -15,6 +17,8 @@ You can set up Rowy using our guided setup process. It will take less than 2 min
 </p>
 
 You can use Rowy with existing Firebase project or by creating a new one by simply following the guided setup process with the deploy button above.
+
+<Video controls url="https://www.youtube.com/watch?v=7Vc-ZJDNYbM" />
 
 ## Option 2: Manual install
 
