@@ -87,8 +87,8 @@ logging.logWriter // access to cloud logs
 4. 
 Deploy cloud run services using your terminal
 ```
-gcloud run deploy rowy-backend --image gcr.io/rowy-run/rowy-backend --platform managed --memory 1Gi --allow-unauthenticated --serviceAccountUser rowy-backend@YOUR_PROJECT_ID.iam.gserviceaccount.com
-gcloud run deploy rowy-hooks --image gcr.io/rowy-run/rowy-hooks --platform managed --memory 256Mi --allow-unauthenticated --serviceAccountUser rowy-hooks@YOUR_PROJECT_ID.iam.gserviceaccount.com
+gcloud run deploy rowy-backend --image gcr.io/rowy-run/rowy-backend --platform managed --memory 1Gi --allow-unauthenticated --service-account rowy-backend@YOUR_PROJECT_ID.iam.gserviceaccount.com
+gcloud run deploy rowy-hooks --image gcr.io/rowy-run/rowy-hooks --platform managed --memory 256Mi --allow-unauthenticated --service-account rowy-hooks@YOUR_PROJECT_ID.iam.gserviceaccount.com
 ```
 
 5.
