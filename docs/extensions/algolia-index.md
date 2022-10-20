@@ -8,6 +8,7 @@ An extension for syncing data for Algolia
 
 ### GCP Secret Manager setup:
 
+Navigate to [Google Secret Manager](https://cloud.google.com/secret-manager) and add a new secret 
 Secret Name: `algolia`
 
 Secret Value:
