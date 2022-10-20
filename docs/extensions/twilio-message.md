@@ -8,6 +8,7 @@ Integrates with twilio to simplify sending SMS/Whatsapp messages
 
 ### Secret Manager setup:
 
+Navigate to [Google Secret Manager](https://cloud.google.com/secret-manager) and add a new secret
 Secret Name: `twilio`
 
 Secret Value:
