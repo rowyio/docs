@@ -255,6 +255,40 @@ Except QR Code and Maps generation, every step is identical with the previous `C
 
 ![Extension Configuration](./assets/pdf-generator-10.png)
 
-Finally, you can use Rowy’s table UI directly as a admin panel to manage and generate certificates/tickets for your users nocode style 
-or your can connect your app via Firebase SDK or APIs to read and write to 
-this table data and generate certificates because this data is connected directly to your Firestore project.
+Finally, you can use Rowy’s table UI directly as a admin panel to manage and generate certificates/tickets for your users nocode style or your can connect your app via Firebase SDK or APIs to read and write to this table data and generate certificates because this data is connected directly to your Firestore project.
+
+### Generating QR Code for the Ticket
+Generating a dynamic QR Code for the invited users is a highly efficient and benefecial way of validation or confirmation. For integrating the QR Code Generator with the Ticket Generator Extension, we can make use of the npm library called "qrcode".
+
+```js
+const QRCode = require("qrcode");
+```
+
+Henceforth, we can instantiate the QR code using the module as follows: 
+
+```js
+const qrCode = await QRCode.toBuffer("12345");
+```
+
+The instance created above is passed as an arguement to the `createQrElement` method that creates a division for the required QR Code.
+
+```js
+  const createQrElement = (targetId, qrCode) => {
+    const attrs = getAttributes(document.getElementById(targetId));
+    const foreignObjectEl = createForeignObject(attrs);
+    const div = document.createElement("div");
+    div.setAttribute("xmlns", "http://www.w3.org/1999/xhtml");
+    div.className = targetId;
+    div.style.backgroundImage = `url(data:image/png;base64,${qrCode.toString(
+      "base64"
+    )})`;
+    foreignObjectEl.appendChild(div);
+    return foreignObjectEl;
+  };
+```
+
+Lastly, all we need to do is call this function in our extension and append the generated QR Code to the ticket svg as follows:
+
+```js
+svg.appendChild(createQrElement("qr", qrCode));
+```
