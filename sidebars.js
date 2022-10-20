@@ -33,16 +33,18 @@ module.exports = {
           collapsed: true,
           items: [
             "setup/install",
-            "setup/roles",
             "setup/update"
           ],
         },
         {
           type: "category",
-          label: "Quickstart guide",
+          label: "How to guide",
           link: { type: "generated-index" },
           collapsed: true,
           items: [
+            "how-to/create-workspace",
+            "how-to/create-project",
+            "how-to/roles",
             "how-to/create-table",
             "how-to/create-column",
             "how-to/add-row",
@@ -53,20 +55,14 @@ module.exports = {
         },
         {
           type: "category",
-          label: "Tutorials",
+          label: "Importing Exporting Data",
           link: { type: "generated-index" },
           collapsed: true,
           items: [
-            "tutorials/webflow-form",
-            "tutorials/spotify-wrapped",
-            // "templates/typeform-webhook",
-            // "templates/bannerbear",
-            // "templates/magic-link",
-            // "templates/translate-api",
-            // "templates/github-webhook",
-            // "templates/cal-scheduling",
+            "import-export-data/import-airtable",
           ],
         },
+        
         {
           type: "category",
           label: "FAQs",
@@ -93,14 +89,40 @@ module.exports = {
           collapsed: true,
           items: [
             "field-types/supported-fields",
+            "field-types/audit-fields",
             "field-types/derivative",
             "field-types/connector",
             "field-types/connect-table",
             "field-types/connect-service",
             "field-types/action",
             "field-types/image-file",
+            "field-types/status",
           ],
         },
+        {
+          type: "category",
+          label: "Tutorials",
+          link: { type: "generated-index" },
+          collapsed: true,
+          items: [
+            "tutorials/webflow-form",
+            "tutorials/spotify-wrapped",
+            "tutorials/pdf-generator",
+            // "templates/typeform-webhook",
+            // "templates/bannerbear",
+            // "templates/magic-link",
+            // "templates/translate-api",
+            // "templates/github-webhook",
+            // "templates/cal-scheduling",
+          ],
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Cloud functions",
+      collapsible: false,
+      items: [
         {
           type: "category",
           label: "Extensions",
@@ -123,7 +145,9 @@ module.exports = {
           collapsed: true,
           items: ["webhooks/overview", "webhooks/basic", "webhooks/typeform"],
         },
-        "rowy-run/overview",
+        "field-types/derivative",
+        "field-types/action",
+        "cloud-logs/cloud-logs",
         // {
         //   type: "category",
         //   label: "Rowy Run",

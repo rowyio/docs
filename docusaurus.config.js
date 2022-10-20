@@ -143,8 +143,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
           ],
           logo: {
             alt: "Rowy",
-            src: "img/rowy-logo.svg",
-            srcDark: "img/rowy-logo-dark.svg",
+            src: "img/rowy-logo.png",
+            srcDark: "img/rowy-logo-dark.png",
             href: "https://rowy.io",
           },
           copyright: `Copyright © ${new Date().getFullYear()} Rowy Inc.`,

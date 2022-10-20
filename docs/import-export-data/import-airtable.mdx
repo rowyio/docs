@@ -1,0 +1,74 @@
+---
+id: import-airtable
+title: Import Airtable
+slug: /import-export-data/import-airtable
+---
+
+import generateAPIKey from "./assets/generate-api-key.png"
+import tableURL from "./assets/table-url.png"
+import copyURL from "./assets/copy-url.png"
+import sampleKeys from "./assets/sample-keys.png"
+import Video from "../../src/components/Video.js";
+import videoUrl from "./assets/airtable-import.mp4";
+
+Rowy allows users to create a new table from an existing Airtable collection. This is useful if you have a pre-existing data on Airtable and want to import it to Rowy.
+
+### Advantages
+
+Rowy allows a lot of new functionalities that gives you more control over your data. Users can not just view their Firestore data in an Airtable-like UI, but also **build cloud functions**, **automations and workflows** based on their data. **Connect to any third-party tool**, use NPM and APIs right in the browser without the hassle of CLIs, terminals or native consoles.
+
+## Steps
+
+1. After creating a new table, click on the **Import Data** button.
+
+2. Select **Airtable** as the data source.
+
+3. Add the **Airtable API Key** and the **Table URL**. You can find how to generate the [API key](/import-export-data/import-airtable#api-key) and the [Table URL](/import-export-data/import-airtable#table-url) in the sections below.
+
+4. Click on **Continue** to start the import process.
+
+5. Select the columns to be imported to Rowy, click **Continue**.
+
+6. Review the data to be imported and click **Finish**.
+
+<Video url={videoUrl} playing loop muted playsinline controls />
+
+## API Key
+
+1. Go to your [Airtable account](https://airtable.com/account) and click on **Generate API key**.
+
+    <img 
+        src= {generateAPIKey} 
+        alt="Generating an API key"
+    />
+
+2. Copy the API key and paste it in the **API Key** field in Rowy.
+
+## Table URL
+
+To extract the **Table URL**, you need to go to the **Airtable collection** you want to import and copy the URL from the browser. The URL is divided into three parts:
+
+- Base (app)
+- Table (tbl)
+- View (viw)
+
+**NOTE:** The view the user is currently in is the one that will display in the link.
+
+The format for this address will look like this:
+<img
+    src={tableURL}
+    alt="Table URL"
+/>
+
+Copy the URL, as shown below, and paste it in the **Table URL** field in Rowy.
+<img
+    src={copyURL}
+    alt="Copy URL"
+/>
+
+## Sample Airtable Import
+
+<img
+    src={sampleKeys}
+    alt="Sample Airtable Import"
+/>
