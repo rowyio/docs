@@ -22,7 +22,7 @@ To use Derivative fields, you must:
 
 ## Video demo
 
-<Video controls url="https://www.youtube.com/embed/-WHS2vyjq88?start=1580" />
+<Video controls url="https://www.youtube.com/watch?v=N_x3E_QqD5s" />
 
 ## API
 
@@ -74,7 +74,7 @@ backend environment and does not expose sensitive data.
 ```ts
 const derivative: Derivative = async ({ row, db }) => {
   // Get user doc
-  const userDoc = db.collection("users").doc(row.uid);
+  const userDoc = await db.collection("users").doc(row.uid).get();
   return userDoc.get("email");
 };
 ```

@@ -7,7 +7,7 @@ slug: /extensions/slack-message
 Sends slack messages,
 
 ### Secret Manager setup:
-
+Navigate to [Google Secret Manager](https://cloud.google.com/secret-manager) and add a new secret
 Secret Name: `slack`
 
 Secret Value:

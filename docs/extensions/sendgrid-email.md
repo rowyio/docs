@@ -8,6 +8,7 @@ Integrates with SendGrid to simplify sending emails
 
 ### Secret Manager setup:
 
+Navigate to [Google Secret Manager](https://cloud.google.com/secret-manager)and add a new secret
 Secret Name: `sendgrid`
 
 Secret Value:
