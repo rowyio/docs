@@ -10,6 +10,9 @@ import slackBot3 from './assets/slack-bot-3.png';
 import slackBot4 from './assets/slack-bot-4.png';
 import slackBot5 from './assets/slack-bot-5.png';
 import slackBot6 from './assets/slack-bot-6.png';
+import slackBot7 from './assets/slack-bot-7.png';
+import slackBot8 from './assets/slack-bot-8.png';
+import slackBot9 from './assets/slack-bot-9.png';
 
 Using Rowy's low-code UI for Firebase, you can simply develop a cloud function that sends Slack messages whenever data in the Firestore collection updates.
 
@@ -57,3 +60,15 @@ In this tutorial blog, we’ll **create a Slack Bot that sends a message in a Sl
 
 4. Set an App Name and pick a Workspace to develop your app in. Click on **Create App**.
     <img src={slackBot6} alt="The App Name and Choose Workspace page on the Slack API website." />
+
+5. After creating the app, we will land on the **Slack App Dashboard**. Now, we’ll have to configure the features and functionalities our Bot will possess. Under the **Add features and functionality** section, click on **Bots**.
+    <img src={slackBot7} alt="The Add features and functionality page on the Slack API website." />
+
+6. Further, we’ll be assigning scopes. In layman's terms, we’ll be giving our Bot permissions to perform activities in the channels, by going to the **Review Scopes to Add** section.
+    <img src={slackBot8} alt="The Review Scopes to Add section on the Slack API Dashboard." />
+
+7. This will redirect us to the **OAuth & Permissions** page on the Slack App Dashboard. We’ll go down to the **Bot Token Scopes** section and **Add permission by Scope or API method**. We can now see that we have a list of different scopes and permissions for the Bot.
+
+    For now, we’ll only be needing the `chat:write` permission, which would allow our Bot to send messages to a channel. Users can add all the permissions if they wish to.
+
+    <img src={slackBot9} alt="Setting permissions for the Bot." />
