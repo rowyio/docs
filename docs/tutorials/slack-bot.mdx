@@ -13,6 +13,9 @@ import slackBot6 from './assets/slack-bot-6.png';
 import slackBot7 from './assets/slack-bot-7.png';
 import slackBot8 from './assets/slack-bot-8.png';
 import slackBot9 from './assets/slack-bot-9.png';
+import slackBot10 from './assets/slack-bot-10.png';
+import slackBot11 from './assets/slack-bot-11.png';
+import slackBot12 from './assets/slack-bot-12.png';
 
 Using Rowy's low-code UI for Firebase, you can simply develop a cloud function that sends Slack messages whenever data in the Firestore collection updates.
 
@@ -72,3 +75,19 @@ In this tutorial blog, we’ll **create a Slack Bot that sends a message in a Sl
     For now, we’ll only be needing the `chat:write` permission, which would allow our Bot to send messages to a channel. Users can add all the permissions if they wish to.
 
     <img src={slackBot9} alt="Setting permissions for the Bot." />
+
+8. Now, we’ll have to generate a token for our bot. To do that, we first need to install the Bot in a Workspace. Click on the **Install to Workspace** button and follow as directed.
+
+    <img src={slackBot10} alt="Installing the Bot to a Workspace." />
+
+9. Now we can generate a **Bot User OAuth Token** for the Workspace. Copy the token using the **Copy** button available and store it temporarily in a file or notepad.
+
+    **NOTE:** If the user wishes to add or remove scopes after adding the bot to a workspace, the user might need to **reinstall the app into the Workspace**.
+
+    <img src={slackBot11} alt="Extracting the Bot User OAuth Token." />
+
+10. To connect our Bot to the Rowy Table, we’d also need the **User Signing Key**. To get that, navigate to the **Basic Information** section in **Settings**. Click on **Show** and store the token temporarily in a file.
+
+    <img src={slackBot12} alt="Extracting the User Signing Key." />
+
+Now, our Slack App has been set up. Add this App to the Slack Workspace and is now **ready to be integrated with the Rowy Slack Extension**. 
