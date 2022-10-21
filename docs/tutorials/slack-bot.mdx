@@ -17,6 +17,9 @@ import slackBot10 from './assets/slack-bot-10.png';
 import slackBot11 from './assets/slack-bot-11.png';
 import slackBot12 from './assets/slack-bot-12.png';
 
+import slackRowy1 from './assets/slack-rowy-1.png';
+import slackRowy2 from './assets/slack-rowy-2.png';
+
 Using Rowy's low-code UI for Firebase, you can simply develop a cloud function that sends Slack messages whenever data in the Firestore collection updates.
 
 Rowy provides ready-to-use code blocks, known as **Extensions**, for cloud functions. Extensions can be customized easily using JavaScript or TypeScript, in a built-in code editor.
@@ -91,3 +94,17 @@ In this tutorial blog, we’ll **create a Slack Bot that sends a message in a Sl
     <img src={slackBot12} alt="Extracting the User Signing Key." />
 
 Now, our Slack App has been set up. Add this App to the Slack Workspace and is now **ready to be integrated with the Rowy Slack Extension**. 
+
+### Integrating the Slack App in Rowy
+
+1. To integrate our Slack App with the Rowy Slack Extension, we first need to **create a Rowy Table** using steps in the [documentation](https://docs.rowy.io/category/how-to-guide).
+
+2. We need to create a new column for the **Author Name**, by clicking on the **Add column** button and entering the following values.
+    <img src={slackRowy1} alt="Adding a new column for the Author Name." />
+
+3. Let’s add another column for the **Text** we’ll send as an attachment to the Slack bot in the connected Workspace.
+
+4. Next, we’ll be creating a derivative column, named **Status**, that shows “**Sending Message**” whenever the user inputs any data in the **Text** column. To accomplish that, we need to create a new column with the Field type as **Derivative**.
+    <img src={slackRowy2} alt="Adding a new column for the Status." />
+
+    **NOTE:** To use the Derivative Field type, Rowy Run must be enabled in the Project to access the Google Cloud Functions.
