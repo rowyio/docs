@@ -108,6 +108,7 @@ module.exports = {
             "tutorials/webflow-form",
             "tutorials/spotify-wrapped",
             "tutorials/pdf-generator",
+            "tutorials/slack-bot",
             // "templates/typeform-webhook",
             // "templates/bannerbear",
             // "templates/magic-link",
