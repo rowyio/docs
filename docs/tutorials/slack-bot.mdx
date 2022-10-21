@@ -6,6 +6,10 @@ slug: /tutorials/slack-bot
 
 import slackBot1 from './assets/slack-bot-1.png';
 import slackBot2 from './assets/slack-bot-2.png';
+import slackBot3 from './assets/slack-bot-3.png';
+import slackBot4 from './assets/slack-bot-4.png';
+import slackBot5 from './assets/slack-bot-5.png';
+import slackBot6 from './assets/slack-bot-6.png';
 
 Using Rowy's low-code UI for Firebase, you can simply develop a cloud function that sends Slack messages whenever data in the Firestore collection updates.
 
@@ -34,3 +38,22 @@ In this tutorial blog, we’ll **create a Slack Bot that sends a message in a Sl
 - A Rowy account with Rowy-Run set up (If not, you can quickly create one by following the instructions on https://rowy.app.)
 
 - A Slack Account (Create one on https://app.slack.com)
+
+## Steps
+
+### Slack App Integration
+
+1. To begin creating a Slack Bot, we need to **create or join a Workspace**.
+    <img src={slackBot3} alt="Image of a sample Slack Workspace created." />
+
+2. Now, we can head over to the [Slack API website](https://api.slack.com/) to configure the new app for our Bot. Click on the **Your Apps** button in the top right corner. This page will display all the existing apps you have created.
+    <img src={slackBot4} alt="The Your Apps page on the Slack API website." />
+
+3. Click on **Create a New App**. A modal appears with options to select the configuration for the App scopes, settings, and features. We’ll be creating an app **From Scratch**. 
+
+    If you have an existing manifest file, feel free to use the **From an app manifest** option.
+
+    <img src={slackBot5} alt="The Create an App screen on the Slack API website." />
+
+4. Set an App Name and pick a Workspace to develop your app in. Click on **Create App**.
+    <img src={slackBot6} alt="The App Name and Choose Workspace page on the Slack API website." />
