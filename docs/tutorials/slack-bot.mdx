@@ -158,3 +158,20 @@ Now, our Slack App has been set up. Add this App to the Slack Workspace and is n
     ```
 
     <img src={slackRowy4} alt="Channel ID from the Channel Details." />
+
+11. Lastly, we need to set up our **Secret keys** on the Google Cloud Platform. Click on the **Key icon** (🔑) under the extension body in the Extension configuration. This redirects us to the **Google Cloud Secret Manager**.
+
+    Click on the **Create Secret** button, set the **name** as `slack`, and add the following to the **Secret Value** section.
+    
+    ```json
+    {
+        "token": "SLACK_APP_TOKEN",
+        "signingKey": "YOUR_SLACK_APP_SIGNING_KEY"
+    }
+    ```
+
+    Add the **Slack App Token** and the **Signing Key** saved earlier. Click on the **Create Secret** button.
+
+Our Slack Bot App is now ready! 🎉
+
+**Try it out by adding a new row to your Rowy Table. Be creative, and customize the Slack message body by trying out** [**different fields for Slack Message Body**](https://api.slack.com/reference/messaging/attachments)!
