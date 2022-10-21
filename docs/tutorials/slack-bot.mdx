@@ -19,6 +19,8 @@ import slackBot12 from './assets/slack-bot-12.png';
 
 import slackRowy1 from './assets/slack-rowy-1.png';
 import slackRowy2 from './assets/slack-rowy-2.png';
+import slackRowy3 from './assets/slack-rowy-3.png';
+import slackRowy4 from './assets/slack-rowy-4.png';
 
 Using Rowy's low-code UI for Firebase, you can simply develop a cloud function that sends Slack messages whenever data in the Firestore collection updates.
 
@@ -108,3 +110,51 @@ Now, our Slack App has been set up. Add this App to the Slack Workspace and is n
     <img src={slackRowy2} alt="Adding a new column for the Status." />
 
     **NOTE:** To use the Derivative Field type, Rowy Run must be enabled in the Project to access the Google Cloud Functions.
+
+5. Clicking on **Next** opens the **Column Config** modal. Set the **Listener** fields to **Text** and **Output Field Type** to **Short Text** using the dropdown.
+
+6. Copy and paste the following code into the **Derivative Script** section. Click on the **Update** button and **Deploy** the changes.
+
+    ```js
+    const derivative:Derivative = async ({row,ref,db,storage,auth})=>{
+      if(row.text) {
+        return "Sending Message!"
+      }
+      else {
+        return "Add a text"
+      }
+    }
+    ```
+
+7. Now, we’ll use the **Rowy Slack Extension** to send messages to the Channels on our Slack Workspace. Click on the **Extensions button** (🧩) in the top right menu.
+
+8. Click on the **Add Extension** button and select **Slack Message** from the dropdown. **Toggle the Extension button** to enable it. 
+
+9. Users can optionally add a suitable name for the extension. For the **trigger events**, we’ll select **create** since we require the Slack Bot to send a message every time a new row is created. Select **Author** and **Text** as the required fields.
+
+    <img src={slackRowy3} alt="Slack Extension configuration." />
+
+10. Copy and paste the following code in the Extension body and replace the `SLACK_CHANNEL_ID` with the `ID` obtained from the **Channel Details**.
+
+    ```js
+    const extensionBody: SlackMessageBody = async({row, db, change, ref}) => {
+ 
+        return ({
+            channels: ["SLACK_CHANNEL_ID"],    // a list of slack channel IDs in string
+            blocks: [],    // the blocks parameter to pass in to slack API
+            text: "",    // the text parameter to pass in to slack API
+            attachments: [{
+            "mrkdwn_in": ["text"],
+            "color": "#937ee0",
+            "pretext": "A new row was added!",
+            "title_link": "https://rowy.app/p/hellothere123-g5fdrh/table/slackExtension",
+            "author_name": row.author,
+            "text": row.text,
+            "footer": "Built using Rowy",
+            "footer_icon": "https://raw.githubusercontent.com/rowyio/rowy/main/icon.png",
+            }],    // the attachments parameter to pass in to slack API
+        })
+    }
+    ```
+
+    <img src={slackRowy4} alt="Channel ID from the Channel Details." />
