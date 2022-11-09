@@ -8,6 +8,7 @@ import twitterSetup from './assets/twitter-ac-setup.png'
 import elevatedButton from './assets/twitter-apply.png'
 import elevatedSubmit from './assets/twitter-elevated-submit.png'
 import twitterPermissions from './assets/twitter-perms.png'
+import twitterSubscriptions from './assets/twitter-subscription.png'
 
 Build your own Twitter Bot using Rowy and Twitter API. This tutorial will show you how to create a Twitter Bot that will automatically reply with a screenshots to tweets that contain a specific keyword.
 
@@ -68,3 +69,18 @@ Go back to your project dashboard. Under the **Keys and Tokens** section, genera
 - `Bearer Token`
 - `Access Token`
 - `Access Token Secret`
+
+### Step 7: Setting up the premium API subscription
+
+Twitter features some premium APIs which are built with the similar functionality as the enterprise APIs, but are available via an adjustable monthly pricing model. All premium APIs have a free 'sandbox' access level with limited requests to test, and each product can be upgraded individually for more access and features.
+
+Since we have our account elevated, we can now access the premium APIs. 
+
+There are three different premium APIs available in your developer account now:
+- Search Tweets: 30-day
+- Search Tweets: Full Archive
+- Account Activity API
+
+<img src={twitterSubscriptions} alt="Twitter Subscriptions" />
+
+We'll be setting up the **Account Activity API**. Click on the **Set up dev environment** button. 
