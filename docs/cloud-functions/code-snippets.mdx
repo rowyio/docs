@@ -31,3 +31,16 @@ const firestoreCollectionConnector: Connector = async ({ db, query, row, user })
     .docs.map(resultsFormatter)
 };
 ```
+
+
+## Accessing data from an external API using a Connector
+
+The following is a code snippet that shows how to access data from an external API and display it as a list of options using the connector field.
+
+```js
+const apiConnector: Connector = async ({query, row, user}) => {
+  const response = await fetch(`https://api.boardgameatlas.com/api/search?name=${query}&client_id=JLBr5npPhV`)
+  const {games} = await response.json()
+  return games
+};
+```
