@@ -1,0 +1,43 @@
+---
+id: sub-table
+title: Sub-Tables
+slug: /field-types/sub-table
+---
+
+import subTable1 from './assets/sub-table-1.png'
+import subTable2 from './assets/sub-table-2.png'
+
+Sub-Tables or Sub-Collections are a way to create a table within a table. This is useful for creating a table of related data, such as a list of products within an order.
+
+Users can also create **nested sub-tables**, fitting their usecase, by adding a sub-table to a sub-table. However, **Firebase limits the maximum depth of nested sub-collections to 100 levels.**
+
+
+## Creating a Sub-Table
+
+1. To create a sub-table, add a new column to your table and select the **Sub-Table** field type. 
+
+    <img src={subTable1} alt="Sub-Table" />
+
+2. Thereafter, you can select the **Parent Label** for the sub-table from any of the given columns in the table. Note that the **Parent Label** can only be a column with a **Text** field type. Click on **Update**.
+
+    <img src={subTable2} alt="Sub-Table" />
+
+3. You can then add fields to the sub-table as you would in any other table. You can also create a sub-table within a sub-table, creating a **nested structure**.
+
+
+As with any other Rowy table, you can include **Extensions**, **Derivatives**, **Connectors**, etc. in your sub-tables.
+
+
+## Accessing the Parent Doc from a Sub-Table
+
+A sub-table can access the fields of the parent table by using the **Parent Doc** object as reference. The following piece of code can be used to access the **Parent Doc** object:
+
+```js
+ const parentDoc: any = await ref.parent.parent.get().then(snap => snap.data());
+```
+
+Henceforth, we can access the fields of the parent table by using the **Parent Doc** object. For example, if we have a **Parent Label** of **Order ID** in our sub-table, we can access the **Order ID** field of the parent table by using the following code:
+
+```js
+const orderID = parentDoc.orderID;
+```
