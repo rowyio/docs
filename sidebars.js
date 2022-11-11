@@ -149,7 +149,8 @@ module.exports = {
         },
         "field-types/derivative",
         "field-types/action",
-        "cloud-logs/cloud-logs",
+        "cloud-functions/cloud-logs",
+        "cloud-functions/code-snippets",
         // {
         //   type: "category",
         //   label: "Rowy Run",
