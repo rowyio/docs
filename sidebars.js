@@ -97,6 +97,7 @@ module.exports = {
             "field-types/action",
             "field-types/image-file",
             "field-types/status",
+            "field-types/sub-table",
           ],
         },
         {
