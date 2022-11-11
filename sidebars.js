@@ -109,6 +109,7 @@ module.exports = {
             "tutorials/spotify-wrapped",
             "tutorials/pdf-generator",
             "tutorials/slack-bot",
+            "tutorials/twitter-bot",
             // "templates/typeform-webhook",
             // "templates/bannerbear",
             // "templates/magic-link",
