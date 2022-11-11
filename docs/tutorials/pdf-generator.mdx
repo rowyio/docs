@@ -255,6 +255,79 @@ Except QR Code and Maps generation, every step is identical with the previous `C
 
 ![Extension Configuration](./assets/pdf-generator-10.png)
 
-Finally, you can use Rowy’s table UI directly as a admin panel to manage and generate certificates/tickets for your users nocode style 
-or your can connect your app via Firebase SDK or APIs to read and write to 
-this table data and generate certificates because this data is connected directly to your Firestore project.
+Finally, you can use Rowy’s table UI directly as a admin panel to manage and generate certificates/tickets for your users nocode style or your can connect your app via Firebase SDK or APIs to read and write to this table data and generate certificates because this data is connected directly to your Firestore project.
+
+### Generating QR Code for the Ticket
+
+Generating a dynamic QR Code for the invited users is a highly efficient and benefecial way of validation or confirmation. For integrating the QR Code Generator with the Ticket Generator Extension, we can make use of the npm library called "qrcode".
+
+```js
+const QRCode = require("qrcode");
+```
+
+Henceforth, we can instantiate the QR code using the module as follows: 
+
+```js
+const qrCode = await QRCode.toBuffer("12345");
+```
+
+The instance created above is passed as an arguement to the `createQrElement` method that creates a division for the required QR Code.
+
+```js
+  const createQrElement = (targetId, qrCode) => {
+    const attrs = getAttributes(document.getElementById(targetId));
+    const foreignObjectEl = createForeignObject(attrs);
+    const div = document.createElement("div");
+    div.setAttribute("xmlns", "http://www.w3.org/1999/xhtml");
+    div.className = targetId;
+    div.style.backgroundImage = `url(data:image/png;base64,${qrCode.toString(
+      "base64"
+    )})`;
+    foreignObjectEl.appendChild(div);
+    return foreignObjectEl;
+  };
+```
+
+Lastly, all we need to do is call this function in our extension and append the generated QR Code to the ticket svg as follows:
+
+```js
+svg.appendChild(createQrElement("qr", qrCode));
+```
+
+![Resultant Ticket](./assets/pdf-generator-11.png)
+
+### Pinpointing Event Coordinates on Map
+
+Yet another useful feature of the Ticket Generator Extension is the map svg pinpointing the event's location based on the coordinates. 
+
+The following function creates an svg of the map highlighting the location of the event according to the latitudinal and longitudinal coordinates provided in the table:
+
+```js
+const createMapsElement = (targetId, { latitude, longitude }) => {
+    const attrs = getAttributes(document.getElementById(targetId));
+    const foreignObjectEl = createForeignObject(attrs);
+    const div = document.createElement("div");
+    div.className = targetId;
+    div.setAttribute("xmlns", "http://www.w3.org/1999/xhtml");
+    const iframe = `
+    <iframe
+      id="iframe"
+      width="${attrs.width}"
+      height="${parseInt(attrs.height) + 300}"
+      src="https://www.google.com/maps/embed/v1/place?key=${key}&q=${latitude},${longitude}&zoom=18">
+    </iframe>
+    `;
+    const maps = new JSDOM(iframe);
+    div.appendChild(maps.window.document.getElementById("iframe"));
+    foreignObjectEl.appendChild(div);
+    return foreignObjectEl;
+  };
+```
+
+Therefore, we can invoke the function in the extension and append the map svg as mentioned below:
+
+```js
+svg.appendChild(createMapsElement("map", parentDoc.eventGeolocation));
+```
+
+![Resultant Ticket](./assets/pdf-generator-12.png)
