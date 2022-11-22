@@ -90,6 +90,11 @@ Deploy cloud run services using your terminal
 gcloud run deploy rowy-backend --image gcr.io/rowy-run/rowy-backend --platform managed --memory 1Gi --allow-unauthenticated --service-account rowy-backend@YOUR_PROJECT_ID.iam.gserviceaccount.com
 gcloud run deploy rowy-hooks --image gcr.io/rowy-run/rowy-hooks --platform managed --memory 256Mi --allow-unauthenticated --service-account rowy-hooks@YOUR_PROJECT_ID.iam.gserviceaccount.com
 ```
+:::note Required project Id
+
+  Don't forget to replace "YOUR_PROJECT_ID" field  with your actual firebase project Id.
+
+:::
 
 5.
 Once deployment is completed you should be able to find the service urls printed in the console.logs
