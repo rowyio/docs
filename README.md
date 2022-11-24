@@ -2,6 +2,14 @@
 
 Documentation website of Rowy built using [Docusaurus](https://docusaurus.io/).
 
+### Updating the changelog
+
+Run the script `generate-changelog.js` in Node.
+
+```
+$ node generate-changelog
+```
+
 ### Installation
 
 ```
