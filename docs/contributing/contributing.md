@@ -27,3 +27,24 @@ discussions, documentation, translation, feedback and how-to guides.
 
 You can ask questions to the Rowy community of developers and discuss anything
 related to Rowy on our [Discord channel](https://discord.com/invite/B8yAD5PDX4).
+
+## Submitting a pull request
+
+:::caution Submit to the `develop` branch
+
+Check out the `develop` branch first to get the latest changes, and submit a pull request to that branch.
+
+When your PR is accepted, your changes will be part of the next release to the
+`main` branch.
+
+:::
+
+:::info Read our technical documentation
+
+Read the [frontend architecture](./frontend-architecture.mdx) document to get an
+overview of our code.
+
+If you’re creating a new field type, read the
+[add a field type](./add-a-field-type.mdx) document for a step-by-step guide.
+
+:::

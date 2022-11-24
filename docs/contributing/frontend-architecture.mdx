@@ -1,0 +1,263 @@
+---
+id: frontend-architecture
+title: Frontend architecture
+slug: /contributing/frontend-architecture
+---
+
+Rowy’s frontend architecture is built on the global state manager,
+[Jotai](https://jotai.org/).
+
+## How do atoms work?
+
+Atoms represent a single piece of state.
+
+The code in `src/atoms` contain atom **config**. They define _how_ data is
+retrieved and _what_ data is stored in each atom. They do **not** store data.
+
+Creating an atom config here does **not** immediately cause the atom to be
+loaded in the app—they need to be called by `useAtom` (or similar Hook) first.
+
+This then calls the atom’s read function (the first argument in the atom
+config), which then stores data against the atom config in the nearest matching
+**Provider**.
+
+See [the Jotai docs](https://jotai.org/docs/basics/primitives) for a more
+comprehensive explanation.
+
+When an atom is called in a component, it’s effectively the same as `useState`.
+So when the atom’s value updates, that component re-renders. Be careful of this
+and be deliberate when using atoms. For example, memoized Table sub-components
+intentionally do not call atoms in `projectScope` to reduce the number of
+re-renders.
+
+[This Tweet](https://twitter.com/dai_shi/status/1552819673716375552?s=61&t=zbGn37pQPKyO21znsutd9g)
+may help explain this concept.
+
+## Atoms reference
+
+Atom configs are organized by scope and function. Comments are provided above
+the atom config, including examples of how to use them. These are important
+because of the different [types of atoms](#types-of-atoms) we have (see below).
+
+For an index of available atoms, see
+**[rowy-typedoc.vercel.app](https://rowy-typedoc.vercel.app/)**
+
+## Providers and scopes
+
+We use Jotai [Providers](https://jotai.org/docs/basics/primitives#provider) with
+different scopes to separate different parts of state throughout the app.
+
+| Scope          | Purpose                                                                                          |
+| -------------- | ------------------------------------------------------------------------------------------------ |
+| `projectScope` | Stores atoms for project config, current user information, Rowy Run, and project-level UI state. |
+| `tableScope`   | Stores atoms for a table’s config, rows, functions to update a table, and table-level UI state.  |
+
+By using scoped Providers, we can provide different states for different
+component sub-trees.
+
+<details>
+
+<summary>Example: Sub-Tables are children of Tables</summary>
+
+For example, we render a Sub-Table page as a **child** of the Table page, each
+with their own Provider. They then render the same Table component, which gets
+the data from the nearest Provider with `tableScope`. A simplified version looks
+like:
+
+```tsx
+<Provider scope={tableScope}>
+  <Table /> {/* Root table */}
+  <Provider scope={tableScope}>
+    <Table /> {/* Sub-table */}
+  </Provider>
+</Provider>
+```
+
+![Diagram explaining the concept](./assets/nested-providers.png)
+
+The two Table components rendered have independent states\* because they
+interact with different Providers, despite using the same `tableScope`.
+
+<details>
+
+<summary>*Except atoms that store their value in the URL hash</summary>
+
+These atoms (e.g. modal open states) cannot be independent, so in this case,
+when the sub-table is open, we disable modals in the root table.
+
+In the future, we could make a modification to `atomWithHash` that prepends the
+scope or an ID to the name in the URL, so we can have `#rootTable-modal=` and
+`#subTable-modal=` in the same URL. But currently, only one modal appears at a
+time, so this isn’t necessary.
+
+</details>
+
+</details>
+
+## Sources
+
+The standard Jotai pattern is to define _how_ to get data in the atom config
+itself. We don’t do this to allow for **multiple sources of data**, so we can
+expand from Firestore and Firebase in the future. Many atoms in `projectScope`
+and `tableScope` only define _what_ data they store.
+
+Data is retrieved and stored in atoms using **Source** components, which have
+effects that run when they’re mounted. These Source components must be rendered
+inside a Provider.
+
+![Diagram explaining the concept](./assets/sources.png)
+
+- `App` renders `ProjectSourceFirebase` to populate the `projectScope` atoms.
+- `ProvidedTablePage` and `ProvidedSubTablePage` render `TableSourceFirestore`
+  to populate the `tableScope` atoms. This allows us to have a `TablePage`
+  component that displays the Table UI, and can expect to have all atoms in
+  `tableScope` available, regardless of the source of data.
+
+## Types of atoms
+
+To implement multiple sources, we have different “types” of atoms, which are
+consumed in different ways. It’s best to check the atom config’s comment to find
+out which type it is. As such, **it’s important to keep these comments up to
+date.**
+
+### Read-only atoms
+
+Store a value in the atom from a Source. You cannot modify the value of these
+atoms directly.
+
+```tsx
+const [currentUser] = useAtom(currentUserAtom, projectScope);
+```
+
+### Read-write atoms
+
+Store a value in the atom, and provide a way to update that value. These are
+typically used for UI state, including `atomWithHash`, which stores the value in
+the URL.
+
+**Component that uses the value:**
+
+```tsx
+const [state, setState] = useAtom(confirmDialogAtom, projectScope);
+```
+
+**Component that can set the value, but is not dependent on the value:**
+
+```tsx
+const confirm = useSetAtom(confirmDialogAtom, projectScope);
+confirm({ handleConfirm: () => ... });
+```
+
+### Function atoms
+
+**Store a function** that can be called in the **atom’s value**. Calling this
+function will run code that will update another atom’s value.
+
+These atoms are necessary to provide a way to update data that come from
+Sources. For example, `updateProjectSettingsAtom` could contain a function to
+update the project settings for a non-Firebase project in the future.
+
+```tsx
+const [updateProjectSettings] = useAtom(updateProjectSettingsAtom, projectScope);
+if (updateProjectSettings) {
+	updateProjectSettings({ ... });
+}
+```
+
+### Write-only atoms
+
+Do not store a value. Calling the write function will run code that will update
+another atom’s value.
+
+These atoms are like simpler versions of function atoms, and can have automated
+testing, since they are independent of Sources.
+
+These are dependent on a more generic function atom to update the value in the
+Source, but can call the same code regardless of the Source.
+
+For example, `addRowAtom` does the same tasks (e.g. check for missing values),
+then calls `_updateRowDbAtom` to write the new row to the database.
+`TableSourceFirestore` provides the function stored in `_updateRowDbAtom`.
+
+```tsx
+const addRow = useSetAtom(addRowAtom, tableScope);
+addRow({ row: [ {...}, ... ] });
+```
+
+## Suspense
+
+Jotai has built-in support for
+[React Suspense](https://beta.reactjs.org/apis/react/Suspense). This means we
+don’t need to check if an atom’s value is still loading in many places.
+
+### Built-in Suspense support
+
+If an atom config’s read function has an `async` request or call, the nearest
+component will suspend while that Promise is not resolved.
+
+Any component that uses that atom (`useAtom`) can expect the atom’s value to
+**always** be there, instead of an `undefined` state to denote loading.
+
+### Simulated Suspense behavior
+
+But to support multiple sources for `projectScope` and `tableScope` atoms, we
+cannot rely on Jotai’s Suspense support, since we don’t specify how to get data
+in the atom config’s read function.
+
+So we simulate this behavior by initially setting the atom’s value to be a
+Promise that never resolves, then set the value correctly when the data has been
+loaded in.
+
+<details>
+  
+<summary>Example: <code>currentUserAtom</code></summary>
+
+For example, we set the value of `currentUserAtom` as a Promise while we wait
+for Firebase to authenticate.
+
+```tsx
+(setCurrentUser as any)(new Promise(() => {}));
+
+firebaseAuth.onAuthStateChanged(async (user) => {
+	setCurrentUser(user);
+	...
+}
+```
+
+[Source code ↗](https://github.com/rowyio/rowyapp/blob/3fa39e018688bd6921e0ee9e0302498e2082263e/src/sources/ProjectSourceFirebase/useAuthUser.ts#L33)
+
+However, this means the very first render of the component will have
+`currentUserAtom`’s value be `undefined` (loading) instead of `null` (signed
+out), so we still need to check the value in `App`.
+
+```tsx
+{
+  currentUser === undefined ? (
+    <Loading fullScreen message="Authenticating" />
+  ) : (
+    <Routes>...</Routes>
+  );
+}
+```
+
+</details>
+
+## Folder structure
+
+| Folder              | Purpose                                                                                                                                                                       |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `assets`            | Images, icons, and fonts.                                                                                                                                                     |
+| `atoms`             | Atom configs.                                                                                                                                                                 |
+| `components`        | Components used inside pages and general components used throughout the app.                                                                                                  |
+| `components/fields` | All code used to implement field types, including Table cell and Side Drawer field code.                                                                                      |
+| `config`            | Constants that can be used to meaningfully configure the app, especially for open source users.                                                                               |
+| `constants`         | Constants used throughout the app that shouldn’t be configurable.                                                                                                             |
+| `contexts`          | Any React Contexts used in the app. Avoid adding to this and use Jotai atoms instead, unless if a feature or 3rd-party package needs it, like snackbars.                      |
+| `hooks`             | General-purposes Hooks that can be used throughout the app. For example, Firestore collection and document listeners are Hooks stored here.                                   |
+| `layouts`           | Implements layouts used in pages. For example, the side navigation drawer and auth layout.                                                                                    |
+| `pages`             | Page components rendered by React Router routes. Generally, these use Jotai atoms and pass data into components. These also render Sources.                                   |
+| `sources`           | Components that run effects and other code, which inject data into Jotai atoms. For example, ProjectSourceFirebase injects data into projectScope using Firebase as a source. |
+| `test`              | General test scripts, such as rendering the whole app. Test scripts can also live alongside the code they’re testing, like `src/atoms/tableScope/columnActions.test.ts`       |
+| `theme`             | Code to implement Rowy’s MUI theme. Modify these files to apply global style changes.                                                                                         |
+| `types`             | Types used throughout the app, such as ColumnConfig.                                                                                                                          |
+| `utils`             | Small utility functions used to standardize behavior across the app. For example, rowyUser creates the same object to store the current user’s data in a table.               |
