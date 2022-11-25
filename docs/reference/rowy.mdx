@@ -13,7 +13,7 @@ The storage utility allows you to easily store files to firebase storage and gen
 ```javascript
     // ensure the that folder file names are unique to prevent overwriting existing files
 const file = await rowy.storage.upload.data("https://flagcdn.com/w320/au.png",{
-    fileName:"AustralianFlag.png"
+    fileName:"AustralianFlag.png",
     folderPath:"flagImages"
 })
 
