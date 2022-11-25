@@ -5,7 +5,19 @@ slug: /contributing/frontend-architecture
 ---
 
 Rowy’s frontend architecture is built on the global state manager,
-[Jotai](https://jotai.org/).
+[Jotai](https://jotai.org/). The UI is built with [MUI](https://mui.com/) with
+our own custom theme.
+
+## Building UI
+
+When building new UI, stick to the existing MUI components without setting any
+variants, like `dense`, unless if intentional, like setting `Button` to
+`variant="contained" color="primary"` for emphasis. The theme has been
+intentionally designed to minimize any need to set component variants.
+
+You can find MUI has plenty of
+[documentation with examples](https://mui.com/material-ui/react-button/) and
+have [corresponding API pages](https://mui.com/material-ui/api/button/).
 
 ## How do atoms work?
 
