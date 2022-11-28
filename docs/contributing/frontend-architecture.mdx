@@ -42,8 +42,8 @@ and be deliberate when using atoms. For example, memoized Table sub-components
 intentionally do not call atoms in `projectScope` to reduce the number of
 re-renders.
 
-[This Tweet](https://twitter.com/dai_shi/status/1552819673716375552?s=61&t=zbGn37pQPKyO21znsutd9g)
-may help explain this concept.
+[This doc](https://jotai.org/docs/guides/core-internals) on Jotai’s core
+implementation may help explain this concept.
 
 ## Atoms reference
 
@@ -51,8 +51,12 @@ Atom configs are organized by scope and function. Comments are provided above
 the atom config, including examples of how to use them. These are important
 because of the different [types of atoms](#types-of-atoms) we have (see below).
 
+:::info
+
 For an index of available atoms, see
 **[rowy-typedoc.vercel.app](https://rowy-typedoc.vercel.app/)**
+
+:::
 
 ## Providers and scopes
 
