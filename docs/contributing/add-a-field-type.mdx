@@ -1,0 +1,146 @@
+---
+id: add-a-field-type
+title: Add a field type
+slug: /contributing/add-a-field-type
+---
+
+If one of the [30+ field types](../field-types/supported-fields.mdx) don’t
+support your data type or you want to provide an alternate UI to edit your data,
+you can add a field type by writing your own code.
+
+## Step 1: Declare your new field type and set up the config
+
+1. Add a new entry to the `FieldType` enum in
+   [`src/constants/fields.ts`](https://github.com/rowyio/rowy/blob/develop/src/constants/fields.ts).
+   The all-caps SNAKE_CASE name will be the internal name used in the table
+   schema to identify this field type.
+2. Set up the code for the new field type in
+   [`src/components/fields`](https://github.com/rowyio/rowy/tree/main/src/components/fields).
+   Either:
+   1. Clone one of the existing field directories. Make sure to update
+      `config.type` and `config.name` in the `index.ts` file.
+   2. Create an empty directory. In that directory, create an `index.ts` file
+      that default exports the constant `config` and implements the interface
+      [`IFieldConfig`](https://github.com/rowyio/rowy/blob/develop/src/components/fields/types.ts#L15).
+3. Use the
+   [`withRenderTableCell()`](https://github.com/rowyio/rowy/blob/develop/src/components/Table/TableCell/withRenderTableCell.tsx)
+   higher-order component to render your table cells. It takes a Display Cell to
+   display values and an Editor Cell to edit values.
+
+## Step 2: Build your Display Cell
+
+Display Cells strictly only display the cell’s value. These are also displayed
+when the column is disabled/read-only.
+
+1.  Create a component that takes
+    [`IDisplayCellProps`](https://github.com/rowyio/rowy/blob/develop/src/components/fields/types.ts#L46).
+
+    - Keep this component lightweight, i.e. use base HTML or simple MUI
+      components. Avoid `Tooltip`, which is heavy.
+    - Avoid displaying disabled states (e.g. do not reduce opacity/grey out
+      toggles). This improves the experience of read-only tables for non-admins.
+    - If you use row data (excluding the current field), make sure to pass the
+      `usesRowData` option to `withRenderTableCell()`
+
+      :::caution Warning
+
+      Make sure the disabled state does not render the buttons to open a popover
+      `EditorCell` (like Single/Multi Select).
+
+      :::
+
+      :::caution Warning
+
+      Make sure to use the `tabIndex` prop for buttons and other interactive
+      elements.
+
+      :::
+
+## Step 3: Build your Editor Cell
+
+Editor Cells are used to take user input and update the cell’s value. They are
+displayed when:
+
+1. **focus** (default): the user has focused on the cell by pressing Enter or
+   double-clicking,
+2. **inline**: always displayed if the cell is editable, or
+3. **popover**: inside a popover when a user has focused on the cell (as above)
+   or clicked a button rendered by Display Cell
+
+You can set when they are displayed for your field type using the `editorMode`
+parameter in `withRenderTableCell()`.
+
+1.  Create a component that takes
+    [`IEditorCellProps`](https://github.com/rowyio/rowy/blob/develop/src/components/fields/types.ts#L65).
+2.  Use the `value` and `onChange` props for your input component. The Table
+    will store the user input locally. Avoid creating another local state in
+    your cell component.
+
+    - By default, the value is saved when the component unmounts (user removes
+      focus from cell) and the user has changed the value.
+
+      :::caution Warning
+
+      If the Editor Cell is displayed inline, you must call `onSubmit` to save
+      the value to the database, because it never unmounts.
+
+      :::
+
+    Alternatively, you can pass `null` to `withRenderTableCell()` to always
+    display the Display Cell.
+
+:::caution Warning
+
+Make sure to use the `tabIndex` prop for buttons and other interactive elements.
+
+:::
+
+:::info Note
+
+You can reuse your Side Drawer field (next step) as they take the same props. It
+should probably be displayed in a popover.
+
+:::
+
+## Step 4: Build your Side Drawer field
+
+This component is displayed in the Side Drawer for this field type. Visually, it
+looks a form field.
+
+1. Create a component that takes
+   [`ISideDrawerFieldProps`](https://github.com/rowyio/rowy/blob/develop/src/components/fields/types.ts#L60).
+2. Use the `value` and `onChange` props for your input component. The Side
+   Drawer will store the user input locally. Avoid creating another local state
+   in your cell component.
+3. Call the `onSubmit` prop when you’re ready to save the value to the database.
+   Typically, this is called `onBlur`.
+   - You can call it even if the user hasn’t changed the value. The Side Drawer
+     tracks if the user has interacted with your input.
+
+:::info Use standard field styles
+
+You can use `fieldSx` to get the standard field styles, if you’re not using an
+MUI `TextField`:
+
+```tsx
+import { fieldSx } from "@src/components/SideDrawer/utils";
+import { spreadSx } from "@src/utils/ui";
+
+...
+
+sx={[
+  { ...your styles here },
+  ...spreadSx(props.sx),
+]}
+```
+
+:::
+
+## Step 5: Export the field config
+
+When you’re ready to test your new field type, export the code and field config.
+
+1. Import the field code directory in
+   [`src/components/fields/index.tsx`](https://github.com/rowyio/rowy/blob/develop/src/components/fields/index.tsx).
+2. Export the config as part of the `FIELDS` constant.
+3. Create a new column in a table with your new field type.

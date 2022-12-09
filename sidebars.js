@@ -31,10 +31,7 @@ module.exports = {
           label: "Setup",
           link: { type: "doc", id: "setup/install" },
           collapsed: true,
-          items: [
-            "setup/install",
-            "setup/update"
-          ],
+          items: ["setup/install", "setup/update"],
         },
         {
           type: "category",
@@ -58,23 +55,16 @@ module.exports = {
           label: "Importing Exporting Data",
           link: { type: "generated-index" },
           collapsed: true,
-          items: [
-            "import-export-data/import-airtable",
-          ],
+          items: ["import-export-data/import-airtable"],
         },
-        
+
         {
           type: "category",
           label: "FAQs",
           link: { type: "generated-index" },
           collapsed: true,
-          items: [
-                    "faqs/overview",
-                    "faqs/database",
-                    "faqs/access",
-                    "faqs/cost"
-                  ],
-        }
+          items: ["faqs/overview", "faqs/database", "faqs/access", "faqs/cost"],
+        },
       ],
     },
     {
@@ -162,7 +152,11 @@ module.exports = {
           type: "category",
           label: "API Reference",
           link: { type: "generated-index" },
-          items: ["reference/rowy-user", "reference/action-status","reference/rowy"],
+          items: [
+            "reference/rowy-user",
+            "reference/action-status",
+            "reference/rowy",
+          ],
         },
       ],
     },
@@ -176,9 +170,13 @@ module.exports = {
         {
           type: "category",
           label: "Contributing",
-          link: { type: "doc", id: "community/contributing" },
-          items: ["community/contributing", "community/add-a-field-type"],
-        }
+          link: { type: "doc", id: "contributing/contributing" },
+          items: [
+            "contributing/contributing",
+            "contributing/frontend-architecture",
+            "contributing/add-a-field-type",
+          ],
+        },
       ],
     },
   ],
