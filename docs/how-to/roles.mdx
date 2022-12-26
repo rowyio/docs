@@ -205,12 +205,24 @@ service cloud.firestore {
 
     // Rowy: Allow signed in users to read Rowy configuration and admins to write
     match /_rowy_/{docId} {
-      allow read: if request.auth != null;
+      allow read: if request.auth.token.roles.size() > 0
       allow write: if hasAnyRole(["ADMIN", "OWNER"]);
     	match /{document=**} {
-        allow read: if request.auth != null;
+        allow read: if request.auth.token.roles.size() > 0
         allow write: if hasAnyRole(["ADMIN", "OWNER"]);
       }
+      match /schema/{tableId} {
+        allow update: if canModify(tableId,'pc')
+        match /{document=**} {allow read,write: if canModify(tableId,'pc')}
+      }
+       match /groupSchema/{tableId} {
+        allow update: if canModify(tableId,'cg')
+        match /{document=**} {allow read,write: if canModify(tableId,'cg')}
+      }
+    	function canModify(tableId,tableType) {
+      	return hasAnyRole(get(/databases/$(database)/documents/_rowy_/settings)
+        .data.tablesSettings[tableType][tableId].modifiableBy)
+	   	}
     }
     // Rowy: Allow users to edit their settings
     match /_rowy_/userManagement/users/{userId} {
