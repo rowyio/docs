@@ -6,7 +6,6 @@ slug: /cloud-logs
 
 import cloudLogs from "./assets/cloud-logs.png"
 import buildLogs from "./assets/build-logs.png"
-import logMessages from "./assets/log-messages.png"
 
 Logging is an essential part of debugging and monitoring code. Rowy provides accessible **build**, **runtime**, and **audit logs** for all the cloud functions in a table.
 
@@ -29,9 +28,6 @@ Rowy **Logging** utilizes the Cloud Functions `Logger` SDK. Rowy **Logging** pro
 - `error`: The **error** method helps log critical errors that are being encountered by the cloud function while being executed. Error logs can be used for catching and correcting these failures. The **error** log can be used as:
     ```js
     logging.error("This is an error message!")
-    ```
-
-<img src={logMessages} alt="Rowy Logging Messages" />
 
 While creating a Rowy project, cloud logs can come really handy to thoroughly examine changes during deployment. 
 
