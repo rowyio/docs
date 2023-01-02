@@ -6,12 +6,32 @@ slug: /cloud-logs
 
 import cloudLogs from "./assets/cloud-logs.png"
 import buildLogs from "./assets/build-logs.png"
+import logMessages from "./assets/log-messages.png"
 
-Logging is an essential part of debugging and monitoring code. Rowy provides accessible build, runtime, and audit logs for the cloud functions.
+Logging is an essential part of debugging and monitoring code. Rowy provides accessible **build**, **runtime**, and **audit logs** for all the cloud functions in a table.
 
 Cloud Logging is a fully managed service that allows the user to analyze, monitor, and alert on logging data and events from Firebase projects.
 
-The Cloud Functions logger provides a standard interface that has a similar api to `console.log` statements and supports other log levels.
+## Types of Logging Messages
+
+Rowy **Logging** utilizes the Cloud Functions `Logger` SDK. Rowy **Logging** provides a standard interface that has a similar api to `console.log` statements and supports other log levels such as: 
+
+- `log`: The **log** method is used to log a message for a specific cloud function. This can be used in a cloud function as:
+    ```js
+    logging.log("This is a logging message!")
+    ```
+
+- `warn`: The **warn** method is used to pass **warning** type log messages. A warning may occur whenever a user has given a wrong or undesired input. The **warn** log can be used in any cloud function as follows:
+    ```js
+    logging.warn("This is a warning message!")
+    ```
+
+- `error`: The **error** method helps log critical errors that are being encountered by the cloud function while being executed. Error logs can be used for catching and correcting these failures. The **error** log can be used as:
+    ```js
+    logging.error("This is an error message!")
+    ```
+
+<img src={logMessages} alt="Rowy Logging Messages" />
 
 While creating a Rowy project, cloud logs can come really handy to thoroughly examine changes during deployment. 
 
