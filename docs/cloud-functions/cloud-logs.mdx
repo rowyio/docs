@@ -18,7 +18,7 @@ Cloud Logging is a fully managed service that allows the user to analyze, monito
 
 Rowy **Logging** utilizes the Cloud Functions `Logger` SDK. Rowy **Logging** provides a standard interface that has a similar api to `console.log` statements and supports other log levels such as: 
 
-- `log`: The **log** method is used to log a message for a specific cloud function. This can be used in a cloud function as:
+- `log`: The **log** method is used to log a message for a specific cloud function. These log extries has no assigned severity level. This can be used in a cloud function as:
     ```js
     logging.log("This is a logging message!")
     ```
