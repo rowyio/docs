@@ -6,6 +6,7 @@ slug: /field-types/formula
 
 import Video from "../../src/components/Video.js";
 import videoUrl from "./assets/formula-field.mp4";
+import formula1 from "./assets/formula-1.png";
 
 The Formula field type allows you to operate on the values of the other fields in your table. The formula field enables you to perform calculations such as addition, subtraction, multiplication, division, and more.
 
@@ -13,12 +14,14 @@ In the column config, users can write a function script which includes any mathe
 
 The Formula field has access to the the `row` parameter, which contains the values of the other fields in the row.
 
-<Video url={videoUrl} playing loop muted playsinline controls />
+<img src={formula1} alt="Formula Field" />
 
 
 ## Basic Example
 
 Calculating average score of students in a test.
+
+<Video url={videoUrl} playing loop muted playsinline controls />
 
 **Problem:** Calculate the average scores of students based on their scores in respective subjects. Find out the overall percentage of each student. Finally, we need to segregate the students according to their percentage and determine their results.
 
