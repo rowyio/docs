@@ -14,3 +14,84 @@ In the column config, users can write a function script which includes any mathe
 The Formula field has access to the the `row` parameter, which contains the values of the other fields in the row.
 
 <Video url={videoUrl} playing loop muted playsinline controls />
+
+
+## Basic Example
+
+Calculating average score of students in a test.
+
+**Problem:** Calculate the average scores of students based on their scores in respective subjects. Find out the overall percentage of each student. Finally, we need to segregate the students according to their percentage and determine their results.
+
+**Solution:** Let's suppose we have three columns which store the marks of students in three different subjects. We need to create the following columns:
+
+1. **Aggregate Score**: This field will calculate and store the aggregate score of the student.
+    - **Field Type**: Formula
+    - **Listener Fields**: The three score fields.
+    - **Output Field Type**: Number
+    - **Formula**: 
+        ```js
+        const formula:Formula = async ({ row })=> {
+            const sum = row.subject1 + row.subject2 + row.subject3
+            const avg = sum/3
+            return avg;
+        }
+        ```
+
+2. **Percentage**: This field will calculate and store the percentage of the student.
+    - **Field Type**: Formula
+    - **Listener Fields**: The three score fields.
+    - **Output Field Type**: Percentage
+    - **Formula**: 
+        ```js
+        const formula:Formula = async ({ row })=> {
+            const sum = row.subject1 + row.subject2 + row.subject3
+            const avg = sum/3;
+            const percentage = avg/100;
+            return percentage
+        }
+        ```
+
+3. **Grade**: This field will calculate and store the grade of the student.
+    - **Field Type**: Formula
+    - **Listener Fields**: The three score fields.
+    - **Output Field Type**: Short Text
+    - **Formula**: 
+        ```js
+        const formula:Formula = async ({ row })=> {
+            const sum = row.subject1 + row.subject2 + row.subject3
+            const avg = sum/3;
+            if(avg>=90){
+                return "O"
+            }
+            else if(avg>=80 && avg<90){
+                return "A"
+            }
+            else if(avg>=70 && avg<80){
+                return "B"
+            }
+            else if(avg>=60 && avg<70){
+                return "C"
+            }
+            else if(avg>=50 && avg<60){
+                return "D"
+            }
+            else if(avg>=40 && avg<50){
+                return "E"
+            }
+            else{
+                return "F"
+            }
+        }
+        ```
+
+4. **Result**: This is a formula field which will calculate and store the result of the student, whether he passed or failed.
+    - **Field Type**: Formula
+    - **Listener Fields**: The three score fields.
+    - **Output Field Type**: Short Text
+    - **Formula**: 
+        ```js
+            const formula:Formula = async ({ row })=> {
+                const avg = (row.subject1 + row.subject2 + row.subject3)/3
+                return avg >= 40 ? "Pass" : "Fail"
+            }
+        ```
