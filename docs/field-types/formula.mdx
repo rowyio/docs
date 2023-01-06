@@ -4,8 +4,13 @@ title: Formula
 slug: /field-types/formula
 ---
 
+import Video from "../../src/components/Video.js";
+import videoUrl from "./assets/formula-field.mp4";
+
 The Formula field type allows you to operate on the values of the other fields in your table. The formula field enables you to perform calculations such as addition, subtraction, multiplication, division, and more.
 
 In the column config, users can write a function script which includes any mathematical functions, and returns a value. 
 
-The Formula field has access to the the `row` parameter, which is an contains the values of the other fields in the row.
+The Formula field has access to the the `row` parameter, which contains the values of the other fields in the row.
+
+<Video url={videoUrl} playing loop muted playsinline controls />
