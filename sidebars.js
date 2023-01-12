@@ -143,6 +143,7 @@ module.exports = {
         "field-types/action",
         "cloud-functions/cloud-logs",
         "cloud-functions/code-snippets",
+        "cloud-functions/full-text-search",
         // {
         //   type: "category",
         //   label: "Rowy Run",

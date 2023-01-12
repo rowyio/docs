@@ -1,0 +1,38 @@
+---
+id: full-text-search
+title: Full Text Search
+slug: /full-text-search
+---
+
+import meilisearchImg from "./assets/meilisearch.png"
+import textSearch from "./assets/textSearch.png"
+import enableTextSearch from "./assets/enableTextSearch.png"
+
+The Full Text Search feature, **powered by MeiliSearch**, allows you to **search for a specific text** in your Rowy table. This feature can be enabled for a project from the **Project Settings**.
+
+![A screen recording showing the full text search feature.](./assets/text-search.gif)
+
+
+## Enabling Full Text Search in your project
+
+Follow the steps below to enable the full text search feature in your project:
+
+**STEP 1:** Go to the [MeiliSearch Developer Portal](https://cloud.meilisearch.com/projects) and sign up if haven't already.
+
+**STEP 2:** Click on Create a new Project on the top right corner. 
+
+**STEP 3:** Enter a unique **Project Name**, select a **Region** and a **MeiliSearch** version from the dropdown, and select a plan. Click on **Create Project**.
+
+<img src={meilisearchImg} alt="A screenshot showing the create project page." />
+
+**STEP 4:** Copy the **Search Instance URL** and the **Master Key** and store them temporarily. You will need them in the next step.
+
+<img src={textSearch} alt="A screenshot showing the search instance URL and the master key." />
+
+**STEP 5:** In Rowy, go to the **Project Settings** tab. Under the **Services** tab, paste the **Search Instance URL** and the **Master Key** in the **Full Text Search** section. Click on **Enable**. This will enable the full text search feature in your project.
+
+**STEP 6:** To enable the feature for a specific table, click on the toggle in the **Table Settings** for that particular table.
+
+<img src={enableTextSearch} alt="A screenshot showing the enable full text search toggle." />
+
+**STEP 7:** Now you can go back to your Rowy table, and start searching in your table! 🚀
