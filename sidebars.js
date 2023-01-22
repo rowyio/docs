@@ -24,7 +24,7 @@ module.exports = {
     {
       type: "category",
       label: "Getting started",
-      collapsible: false,
+      collapsible: true,
       items: [
         {
           type: "category",
@@ -50,13 +50,7 @@ module.exports = {
             "how-to/multiple-tables",
           ],
         },
-        {
-          type: "category",
-          label: "Importing Exporting Data",
-          link: { type: "generated-index" },
-          collapsed: true,
-          items: ["import-export-data/import-airtable"],
-        },
+        
 
         {
           type: "category",
@@ -67,9 +61,46 @@ module.exports = {
         },
       ],
     },
+    // {
+    //   type: "category",
+    //   label: "Templates",
+    //   collapsible: false,
+    //   items: [
+    //     "templates/roadmap"
+    //   ]
+      
+    // },
     {
       type: "category",
-      label: "Docs",
+      label: "Tutorials",
+      collapsible: true,
+      items: [
+        "tutorials/webflow-form",
+        "tutorials/spotify-wrapped",
+        "tutorials/pdf-generator",
+        {
+          type: "category",
+          label: "Bots",
+          link: { type: "generated-index" },
+          collapsible: true,
+          items: [
+            "bots/slack-bot",
+            "bots/twitter-bot",
+          ],
+        },
+        
+        // "templates/typeform-webhook",
+        // "templates/bannerbear",
+        // "templates/magic-link",
+        // "templates/translate-api",
+        // "templates/github-webhook",
+        // "templates/cal-scheduling",
+      ]
+      
+    },
+    {
+      type: "category",
+      label: "Features",
       collapsible: false,
       items: [
         {
@@ -93,23 +124,12 @@ module.exports = {
         },
         {
           type: "category",
-          label: "Tutorials",
+          label: "Import / Export Data",
           link: { type: "generated-index" },
           collapsed: true,
-          items: [
-            "tutorials/webflow-form",
-            "tutorials/spotify-wrapped",
-            "tutorials/pdf-generator",
-            "tutorials/slack-bot",
-            "tutorials/twitter-bot",
-            // "templates/typeform-webhook",
-            // "templates/bannerbear",
-            // "templates/magic-link",
-            // "templates/translate-api",
-            // "templates/github-webhook",
-            // "templates/cal-scheduling",
-          ],
-        },
+          items: ["import-export-data/import-csv","import-export-data/import-airtable"],
+        }
+        
       ],
     },
     {
@@ -166,7 +186,7 @@ module.exports = {
     {
       type: "category",
       label: "Community",
-      collapsible: false,
+      collapsible: true,
       items: [
         "changelog/changelog",
         {

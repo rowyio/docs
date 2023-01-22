@@ -37,9 +37,9 @@ Rowy Base is the free tier and Rowy Pro Team is the paid tier offereing advanced
         | CMS without installing Rowy Run for workflow automations | Free upto 1GB of stored data, see GCP’s free quota tier pricing | On average, $0.1/GB/ month based on the region. See the cost by region for storage/read/write here |
         | Workflows and automations with cloud functions by deploying Rowy Run | Free upto 2M invocations/month. Free upto 120 build minutes per day.  | Invocations: $0.04/million. Building: $0.003/min |
 
-## Rowy Pro - Paid (First 3 months free)
+## Rowy Pro - Paid (First month free)
 
-Rowy Pro is currently being built and launching soon. Rowy Pro will be our paid model that will unlock further features of Rowy for you to expedite development and your product building process. Help us shape Rowy with your inputs and feedback 🙏 [**Sign up now.**](https://rowyio.typeform.com/to/GbCw5B9E?typeform-source=docs.rowy.io)
+Rowy Pro is paid and you can see the full details of the pricing [here](https://rowy.io/pricing)
 
 ### **Pro features**
 
@@ -50,5 +50,3 @@ Rowy Pro is currently being built and launching soon. Rowy Pro will be our paid 
 - View data in Table and Gallery modes
 - Embeddable tables and sharable URLs
 - Custom support
-
-Join [**our beta users group**](https://rowyio.typeform.com/to/GbCw5B9E?typeform-source=docs.rowy.io) to get early access to features, be part of the core team and give valuable feedback to shape the direction of the open-source project 💜
