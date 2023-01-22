@@ -128,8 +128,8 @@ module.exports = {
           link: { type: "generated-index" },
           collapsed: true,
           items: ["import-export-data/import-csv","import-export-data/import-airtable"],
-        }
-        
+        },
+        "cloud-functions/full-text-search"
       ],
     },
     {
@@ -163,7 +163,7 @@ module.exports = {
         "field-types/action",
         "cloud-functions/cloud-logs",
         "cloud-functions/code-snippets",
-        "cloud-functions/full-text-search",
+        
         // {
         //   type: "category",
         //   label: "Rowy Run",
