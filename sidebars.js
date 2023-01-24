@@ -26,13 +26,8 @@ module.exports = {
       label: "Getting started",
       collapsible: true,
       items: [
-        {
-          type: "category",
-          label: "Setup",
-          link: { type: "doc", id: "setup/install" },
-          collapsed: true,
-          items: ["setup/install", "setup/update"],
-        },
+        "setup/install",
+        
         {
           type: "category",
           label: "How to guide",
