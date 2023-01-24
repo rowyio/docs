@@ -177,7 +177,22 @@ module.exports = {
         },
       ],
     },
-
+    {
+      type: "category",
+      label: "Integrations",
+      collapsible: true,
+      items: [
+        {
+          type: "category",
+          label: "Rowy X FlutterFlow",
+          link: { type: "generated-index" },
+          collapsible: true,
+          items: [
+            "flutterflow/setup",
+          ],
+        },
+      ],
+    },  
     {
       type: "category",
       label: "Community",
