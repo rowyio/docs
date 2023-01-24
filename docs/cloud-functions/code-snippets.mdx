@@ -44,3 +44,12 @@ const apiConnector: Connector = async ({query, row, user}) => {
   return games
 };
 ```
+
+## Accessing data from the parent collection in a subtable subcollection.
+
+Following is a code snippet of how to access a field (here `fieldName`) from the parent collection in a subtable subcollection.
+
+```js
+const parentDoc = await ref.parent.parent.get()
+const fieldNameValue = parentDoc.get("fieldName") // fieldName is in the parent table
+```
