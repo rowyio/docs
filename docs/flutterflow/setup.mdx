@@ -8,6 +8,8 @@ import flutterFlow from './assets/flutterflow1.png'
 import flutterflow2 from './assets/flutterflow2.png'
 import flutterflow3 from './assets/flutterflow3.png'
 import flutterflow4 from './assets/flutterflow4.png'
+import flutterflow5 from './assets/flutterflow5.png'
+import flutterflow6 from './assets/flutterflow6.png'
 
 Let's set up Rowy and FlutterFlow to build a full stack application. 
 
@@ -65,3 +67,30 @@ Let’s start by [creating an account](https://app.flutterflow.io/create-account
 
 - Click **Create project**. Once the project is completed, select **Continue**.
 
+##### ENABLE FLUTTERFLOW ACCESS TO YOUR FIREBASE PROJECT
+
+- In the Firebase dashboard of your project, navigate to the far left menu. Select **Project Settings** → **Users and Permissions**.
+
+- Select **Add Member**.
+
+- Add `firebase@flutterflow.io` as an "**Editor**" for your project and select **Done**. Then select **Add Member**.
+
+<img src={flutterflow5} alt="FlutterFlow" width="100%" />
+
+- On the same page (i.e. Users and Permissions page), select **Advanced Permission Settings** (small blue text below the table). This will open the Google console (Google Cloud Platform) in a new browser window.
+
+- Find the row containing `firebase@flutterflow.io` and select **Edit Member** (pencil on the far right of the row).
+
+- Select **+ Add Another Role**.
+
+- Under **Select A Role**, search for `Cloud Functions Admin` and select it.
+
+- Under **Select A Role**, search for `Service Account User` (you may need to scroll to find this) and select this as well.
+
+- Select **Save**.
+
+:::note FlutterFlow Setup with Firebase
+For more information regarding the FlutterFlow setup, please refer to the [FlutterFlow Documentation](https://docs.flutterflow.io/data-and-backend/firebase/firebase-setup).
+:::
+
+<img src={flutterflow6} alt="FlutterFlow" width="100%" />
