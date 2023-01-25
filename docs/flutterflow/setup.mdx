@@ -89,8 +89,27 @@ Let’s start by [creating an account](https://app.flutterflow.io/create-account
 
 - Select **Save**.
 
-:::note FlutterFlow Setup with Firebase
+:::tip FlutterFlow Setup with Firebase
 For more information regarding the FlutterFlow setup, please refer to the [FlutterFlow Documentation](https://docs.flutterflow.io/data-and-backend/firebase/firebase-setup).
 :::
 
 <img src={flutterflow6} alt="FlutterFlow" width="100%" />
+
+
+#### CONFIGURING THE FIRESTORE DATABASE
+
+Configuring the Firestore Database would help you create collections and add documents directly from FlutterFlow.
+
+- From the Firebase dashboard of your project, navigate to the far left menu. Select **Firestore Database** and then select **Create Database**.
+
+- Next, you will need to set your Firebase security rules. To get started quickly you can select **Start in test mode** and select **Next**.
+
+:::info  Firestore security rules
+Please see [this link](https://docs.flutterflow.io/data-and-backend/firebase/firestore-database/firestore-rules) for additional information on Firestore security rules.
+:::
+
+- Next, you will need to choose the location where your Firestore data will be stored. From the dropdown, select a location and then select **Enable**.
+
+:::info  Firestore locations
+Please see [this link](https://firebase.google.com/docs/projects/locations?authuser=0) for additional information on Firebase locations.
+:::
