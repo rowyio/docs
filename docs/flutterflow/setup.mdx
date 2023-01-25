@@ -10,6 +10,8 @@ import flutterflow3 from './assets/flutterflow3.png'
 import flutterflow4 from './assets/flutterflow4.png'
 import flutterflow5 from './assets/flutterflow5.png'
 import flutterflow6 from './assets/flutterflow6.png'
+import flutterflow7 from './assets/flutterflow7.png'
+import flutterflow8 from './assets/flutterflow8.png'
 
 Let's set up Rowy and FlutterFlow to build a full stack application. 
 
@@ -113,3 +115,20 @@ Please see [this link](https://docs.flutterflow.io/data-and-backend/firebase/fir
 :::info  Firestore locations
 Please see [this link](https://firebase.google.com/docs/projects/locations?authuser=0) for additional information on Firebase locations.
 :::
+
+#### ENABLE BILLING (REQUIRED FOR ROWY RUN)
+
+Before starting, make sure you have your Google Cloud or Firebase project with **Firestore** and **Firebase Authentication enabled**, and upgraded to the **Blaze Plan**.
+
+You can upgrade to the Blaze pricing plan in the Firebase console. A Cloud Billing account is essentially being added to the your Google Cloud project when you upgrade to the Blaze pricing plan.
+
+- Login to your Firebase Console. On the lower left corner, your project will be listed to be on the **Spark Plan**. Click on the **Upgrade** button.
+    <img src={flutterflow7} alt="FlutterFlow" width="100%" />
+
+- Select the **Blaze Plan** and click on the **Upgrade** button.
+    <img src={flutterflow8} alt="FlutterFlow" width="100%" />
+
+- Select a **billing account**. Then click **Continue and Purchase**. You are now on the **Blaze plan**.
+
+:::info  Firebase Billing Instructions
+For more information on setting up the billing account, check out the Google Billing Instructions [here](https://docs.firerun.io/getting-started/creating-a-google-billing-account-for-firebase).
