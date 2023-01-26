@@ -1,0 +1,172 @@
+---
+id: setup
+title: FlutterFlow Setup with Rowy
+slug: /integrations/flutterflow/setup
+---
+
+import flutterFlow from './assets/flutterflow1.png'
+import flutterflow2 from './assets/flutterflow2.png'
+import flutterflow3 from './assets/flutterflow3.png'
+import flutterflow4 from './assets/flutterflow4.png'
+import flutterflow5 from './assets/flutterflow5.png'
+import flutterflow6 from './assets/flutterflow6.png'
+import flutterflow7 from './assets/flutterflow7.png'
+import flutterflow8 from './assets/flutterflow8.png'
+import flutterflow9 from './assets/flutterflow9.png'
+import flutterflow10 from './assets/flutterflow10.png'
+import flutterflow11 from './assets/flutterflow11.png'
+
+Let's set up Rowy and FlutterFlow to build a full stack application. 
+
+To build an end-to-end full stack application, we need to integrate both frontend and backend. The client uses the frontend of the application to communicate with the backend logic.
+
+In today’s low-code/ no-code world, building full stack applications is as easy as dragging and dropping! 💪
+
+We’d be using:
+
+**FlutterFlow:** As the **frontend**, to build beautiful UI and screens.
+
+**Rowy:** As the **backend**, to build simple yet powerful logic for our app.
+
+<img src={flutterFlow} alt="FlutterFlow" width="100%" />
+
+## Setting up FlutterFlow with Firebase
+
+Let’s start by [creating an account](https://app.flutterflow.io/create-account) on FlutterFlow, if you already have one, sign in and create a new project.
+
+<img src={flutterflow3} alt="FlutterFlow" width="100%" />
+
+### Project Setup Modal #1
+
+- Click on **create a new app** and give it a name. 
+
+- You can change the Package Name as you like. (although it is optional) 
+
+- Toggle the **Setup Firebase** button to integrate Firebase Setup for your FlutterFlow Application.
+
+- Click on the **Next Step** button.
+
+<img src={flutterflow2} alt="FlutterFlow" width="100%" />
+
+
+### Project Setup Modal #2
+
+- To retrieve your Firebase Project ID goto [Firebase Console](https://console.firebase.google.com/).
+
+- Sign in with your Google Account. 
+
+- Select an existing project or Create a new Project. Follow the steps given below to set up your Firebase Project. (New Project or Existing)
+
+<img src={flutterflow4} alt="FlutterFlow" width="100%" />
+
+
+#### Creating a new Firebase Project
+
+- Go to the [Firebase console](https://console.firebase.google.com/) and sign in with your Google account.
+
+- Click on **Add project**.
+
+- Enter a **Project Name**, and click **Continue**.
+
+- You can enable Google Analytics for the project. If you want to enable Google Analytics, then you will be prompted to select a Google Analytics account on the next screen. (This is optional)
+
+- Click **Create project**. Once the project is completed, select **Continue**.
+
+##### ENABLE FLUTTERFLOW ACCESS TO YOUR FIREBASE PROJECT
+
+- In the Firebase dashboard of your project, navigate to the far left menu. Select **Project Settings** → **Users and Permissions**.
+
+- Select **Add Member**.
+
+- Add `firebase@flutterflow.io` as an "**Editor**" for your project and select **Done**. Then select **Add Member**.
+
+<img src={flutterflow5} alt="FlutterFlow" width="100%" />
+
+- On the same page (i.e. Users and Permissions page), select **Advanced Permission Settings** (small blue text below the table). This will open the Google console (Google Cloud Platform) in a new browser window.
+
+- Find the row containing `firebase@flutterflow.io` and select **Edit Member** (pencil on the far right of the row).
+
+- Select **+ Add Another Role**.
+
+- Under **Select A Role**, search for `Cloud Functions Admin` and select it.
+
+- Under **Select A Role**, search for `Service Account User` (you may need to scroll to find this) and select this as well.
+
+- Select **Save**.
+
+:::tip FlutterFlow Setup with Firebase
+For more information regarding the FlutterFlow setup, please refer to the [FlutterFlow Documentation](https://docs.flutterflow.io/data-and-backend/firebase/firebase-setup).
+:::
+
+<img src={flutterflow6} alt="FlutterFlow" width="100%" />
+
+
+#### CONFIGURING THE FIRESTORE DATABASE
+
+Configuring the Firestore Database would help you create collections and add documents directly from FlutterFlow.
+
+- From the Firebase dashboard of your project, navigate to the far left menu. Select **Firestore Database** and then select **Create Database**.
+
+- Next, you will need to set your Firebase security rules. To get started quickly you can select **Start in test mode** and select **Next**.
+
+:::info  Firestore security rules
+Please see [this link](https://docs.flutterflow.io/data-and-backend/firebase/firestore-database/firestore-rules) for additional information on Firestore security rules.
+:::
+
+- Next, you will need to choose the location where your Firestore data will be stored. From the dropdown, select a location and then select **Enable**.
+
+:::info  Firestore locations
+Please see [this link](https://firebase.google.com/docs/projects/locations?authuser=0) for additional information on Firebase locations.
+:::
+
+#### ENABLE BILLING (REQUIRED FOR ROWY RUN)
+
+Before starting, make sure you have your Google Cloud or Firebase project with **Firestore** and **Firebase Authentication enabled**, and upgraded to the **Blaze Plan**.
+
+You can upgrade to the Blaze pricing plan in the Firebase console. A Cloud Billing account is essentially being added to the your Google Cloud project when you upgrade to the Blaze pricing plan.
+
+- Login to your Firebase Console. On the lower left corner, your project will be listed to be on the **Spark Plan**. Click on the **Upgrade** button.
+    <img src={flutterflow7} alt="FlutterFlow" width="100%" />
+
+- Select the **Blaze Plan** and click on the **Upgrade** button.
+    <img src={flutterflow8} alt="FlutterFlow" width="100%" />
+
+- Select a **billing account**. Then click **Continue and Purchase**. You are now on the **Blaze plan**.
+
+:::info  Firebase Billing Instructions
+For more information on setting up the billing account, check out the Google Billing Instructions [here](https://docs.firerun.io/getting-started/creating-a-google-billing-account-for-firebase).
+:::
+
+
+#### COPY PROJECT ID TO FLUTTERFLOW
+
+- Now, from your project in the **Firebase Console**, navigate to the far left menu. Click on the **settings icon** next to the Project Overview. Select the **Project Settings**.
+
+- Under the **Project Settings**, copy the **Project ID**.
+
+<img src={flutterflow9} alt="FlutterFlow" width="100%" />
+
+- Return to the FlutterFlow Screen and paste the **Project ID**. Click on **Connect**.
+
+<img src={flutterflow10} alt="FlutterFlow" width="100%" />
+
+
+#### GENERATING CONFIG FILES
+
+- In FlutterFlow, click on **Auto Generate Config Files**.
+
+<img src={flutterflow11} alt="FlutterFlow" width="100%" />
+
+:::note For Existing FlutterFlow Projects
+If you have already created a project in FlutterFlow, Go to the **Settings & Integrations** > **Project Setup** > **Firebase**, make sure you have pasted the project ID and then click on **Auto Generate Config Files**.
+:::
+
+#### FINISHING THE SETUP
+
+- Turn on the **Enable Authentication** to allow users to log into your app using Firebase Authentication. Please note this step only enables Authentication. You will need to complete an additional setup using [these instructions](https://docs.flutterflow.io/data-and-backend/firebase/authentication).
+
+- Turn on **Create User Collection** to Automatically add a **users** collection to [Firestore Database](https://docs.flutterflow.io/data-and-backend/firebase/firestore-database). This collection will be used to store logged-in user's details such as email and password.
+
+- **Select Initial Pages** allows you to define the first page a user sees when they open the app and the first page they see after logging in. When you click **Unset** you will be able to choose from a list of templates. You can change these pages at any time inside the [App Details](https://docs.flutterflow.io/settings-and-integrations/general-settings/app-details#initial-page) page.
+
+- Click on **Start Building**.
