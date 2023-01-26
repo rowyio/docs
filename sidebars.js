@@ -107,7 +107,7 @@ module.exports = {
             "field-types/audit-fields",
             "field-types/derivative",
             "field-types/connector",
-            "field-types/connect-table",
+            // "field-types/connect-table",
             "field-types/connect-service",
             "field-types/action",
             "field-types/image-file",
