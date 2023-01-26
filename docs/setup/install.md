@@ -101,7 +101,7 @@ Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md
 9. Some backend features require Rowy Run to be installed on your project. You’ll
 need to install [Rowy Run](/rowy-run) manually. 
 
-10. You will not get updates to Rowy automatically, and would require [manual update](/rowy-ru). To get automatic updates to the Rowy App, use the [Option 1](/setup/install#option-1-quick-setup---recommended).
+10. You will not get updates to Rowy automatically, and would require [manual update](/rowy-run). To get automatic updates to the Rowy App, use the [Option 1](/setup/install#option-1-quick-setup---recommended).
 
 ### Common Issues with Option 2 - manual install
 
