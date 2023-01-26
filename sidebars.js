@@ -27,7 +27,6 @@ module.exports = {
       collapsible: true,
       items: [
         "setup/install",
-        
         {
           type: "category",
           label: "How to guide",
