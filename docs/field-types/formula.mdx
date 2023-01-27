@@ -100,3 +100,33 @@ This is a formula field which will calculate and store the result of the student
         return avg >= 40 ? "Pass" : "Fail"
     }
 ```
+
+<hr />
+
+**Dataset #2:** String Concatenation
+
+Let's see how we can utilize the formula field to concatenate strings.
+
+### Concatenate strings
+This field will concatenate the two strings and store them as a single string.
+- **Field Type**: Formula
+- **Listener Fields**: The two string (Short/Long Text) fields.
+- **Output Field Type**: Long Text
+- **Formula**: 
+
+```js
+const formula:Formula = async ({ row })=> {
+  if(row.string1==undefined && row.string2==undefined){
+    return "Fields empty!"
+  }
+  else if(row.string1==undefined){
+    return row.string2
+  }
+  else if(row.string2==undefined){
+    return row.string1
+  }
+  return row.string1 + " " + row.string2
+}
+
+}
+```
