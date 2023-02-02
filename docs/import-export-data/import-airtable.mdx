@@ -87,3 +87,26 @@ In the above image, the `assets` column is an **Attachement** type field in our 
 When we import the data from Airtable using the above steps, we see that the `assets` column is imported as a **JSON** type field in Rowy. This is because as the data is transfered through an API, the **images are stored as JSON objects**. The JSON objects in this field would contain the reference data of the images.
 
 <img src={assetsJSON} alt="Assets JSON" />
+
+Now, the question arises **how to import the images from the JSON objects to Rowy**. To do this, we need to create a **Cloud Function** that will extract the images from the JSON objects and store them as a native Image field in Rowy.
+
+**Follow the steps below to create a Cloud Function that will import the images from Airtable to Rowy:**
+
+1. Add a **Derivative** column and pick a suitable name for it. In this example, we have named it `image`.
+
+2. This will open up the **column config** modal. Set the following:
+    - **Listener Field**: The `asset` JSON column.
+    -  **Output Field Type**: Image
+
+3. Paste the following code in the Derivative Script and click **Save**:
+    ```js
+    const derivative:Derivative = async ({row,ref,db,storage,auth,logging})=>{
+        const file = await rowy.storage.upload.url(row.assets[0].url)
+        return [file]
+    }
+    ```
+
+**Now, everytime you import your images from Airtable, the images will be stored as an Image field in Rowy!** 🚀
+
+
+https://youtu.be/zZxK9m2O_LI
