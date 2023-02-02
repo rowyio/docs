@@ -10,6 +10,8 @@ import copyURL from "./assets/copy-url.png"
 import sampleKeys from "./assets/sample-keys.png"
 import Video from "../../src/components/Video.js";
 import videoUrl from "./assets/airtable-import.mp4";
+import airtableBase from "./assets/airtable-base.png";
+import assetsJSON from "./assets/assets-json.png";
 
 Rowy allows users to create a new table from an existing Airtable collection. This is useful if you have a pre-existing data on Airtable and want to import it to Rowy.
 
@@ -72,3 +74,16 @@ Copy the URL, as shown below, and paste it in the **Table URL** field in Rowy.
     src={sampleKeys}
     alt="Sample Airtable Import"
 />
+
+
+## Importing Images from Airtable
+
+Rowy supports importing images directly from Airtable and allows you to store them as a native Image field.
+
+<img src={airtableBase} alt="Airtable Base" />
+
+In the above image, the `assets` column is an **Attachement** type field in our Airtable project, which contains the images.
+
+When we import the data from Airtable using the above steps, we see that the `assets` column is imported as a **JSON** type field in Rowy. This is because as the data is transfered through an API, the **images are stored as JSON objects**. The JSON objects in this field would contain the reference data of the images.
+
+<img src={assetsJSON} alt="Assets JSON" />
