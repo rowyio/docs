@@ -18,11 +18,11 @@ Rowy allows users to create a new table from an existing Airtable collection. Th
 
 <Video url="https://youtu.be/zZxK9m2O_LI" playsinline controls/>
 
-### Advantages
+## Advantages
 
 Rowy allows a lot of new functionalities that gives you more control over your data. Users can not just view their Firestore data in an Airtable-like UI, but also **build cloud functions**, **automations and workflows** based on their data. **Connect to any third-party tool**, use NPM and APIs right in the browser without the hassle of CLIs, terminals or native consoles.
 
-## Steps
+## Steps to import Airtable data
 
 1. After creating a new table, click on the **Import Data** button.
 
@@ -38,7 +38,7 @@ Rowy allows a lot of new functionalities that gives you more control over your d
 
 <Video url={videoUrl} playing loop muted playsinline controls />
 
-## API Key
+## Retrieving the Airtable API Key
 
 1. Go to your [Airtable account](https://airtable.com/account) and click on **Generate API key**.
 
@@ -49,7 +49,7 @@ Rowy allows a lot of new functionalities that gives you more control over your d
 
 2. Copy the API key and paste it in the **API Key** field in Rowy.
 
-## Table URL
+## Obtaining the Airtable Table URL
 
 To extract the **Table URL**, you need to go to the **Airtable collection** you want to import and copy the URL from the browser. The URL is divided into three parts:
 
@@ -73,10 +73,7 @@ Copy the URL, as shown below, and paste it in the **Table URL** field in Rowy.
 
 ## Sample Airtable Import
 
-<img
-    src={sampleKeys}
-    alt="Sample Airtable Import"
-/>
+<img src={sampleKeys} alt="Sample Airtable Import" width="900px"/>
 
 
 ## Importing Images from Airtable
@@ -98,7 +95,7 @@ Now, the question arises **how to import the images from the JSON objects to Row
 1. Add a **Derivative** column and pick a suitable name for it. In this example, we have named it `image`.
 
 2. This will open up the **column config** modal. Set the following:
-    - **Listener Field**: The `asset` JSON column.
+    - **Listener Field**: The `assets` JSON column.
     -  **Output Field Type**: Image
 
 3. Paste the following code in the Derivative Script and click **Save**:
