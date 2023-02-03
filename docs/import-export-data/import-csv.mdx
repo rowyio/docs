@@ -10,6 +10,31 @@ import copyURL from "./assets/copy-url.png"
 import sampleKeys from "./assets/sample-keys.png"
 import Video from "../../src/components/Video.js";
 
+import css from "!!raw-loader!../../src/css/supported-fields.css";
+
+import ShortTextIcon from "@mui/icons-material/ShortText";
+import LongTextIcon from "@mui/icons-material/Notes";
+import RichTextIcon from "@mui/icons-material/TextFormat";
+import EmailIcon from "@mui/icons-material/MailOutlined";
+import PhoneIcon from "@mui/icons-material/PhoneOutlined";
+import UrlIcon from "@mui/icons-material/Link";
+
+import SingleSelectIcon from "./assets/SingleSelect";
+import MultiSelectIcon from "./assets/MultiSelect";
+
+import NumberIcon from "./assets/Number";
+import CheckboxIcon from "@mui/icons-material/ToggleOnOutlined";
+import PercentageIcon from "./assets/Percentage";
+import RatingIcon from "@mui/icons-material/StarBorder";
+import SliderIcon from "./assets/Slider";
+import ColorIcon from "@mui/icons-material/Colorize";
+
+import DateIcon from "@mui/icons-material/TodayOutlined";
+import DateTimeIcon from "@mui/icons-material/AccessTime";
+
+import JsonIcon from "./assets/Json";
+import CodeIcon from "@mui/icons-material/Code";
+
 Rowy allows you to import CSV / JSON (or TSV, from URL) files to your Firebase database. You can import to an existing Firestore datastore or create a brand new collection right from Rowy.
 
 ## Steps
@@ -26,3 +51,54 @@ Rowy allows you to import CSV / JSON (or TSV, from URL) files to your Firebase d
 
 <Video url="https://www.youtube.com/watch?v=sZrepVfLnwg" playsinline  />
 
+## Supported Field Types for import via CSV
+
+Potentially, import by CSV will support all the field types supported by Rowy (check them out [here](https://docs.rowy.io/field-types/supported-fields)). However, for now, we support the following field types:
+
+<head>
+  <style>{css}</style>
+</head>
+
+### Text
+
+|                   | Name           | Description                                                             | Data&nbsp;Type |
+| ----------------- | -------------- | ----------------------------------------------------------------------- | -------------- |
+| <ShortTextIcon /> | **Short Text** | Text displayed on a single line.                                        | `string`       |
+| <LongTextIcon />  | **Long Text**  | Text displayed on multiple lines.                                       | `string`       |
+| <RichTextIcon />  | **Rich Text**  | HTML edited with a [rich text editor](https://www.tiny.cloud/tinymce/). | `string`       |
+| <EmailIcon />     | **Email**      | Email address. Not validated.                                           | `string`       |
+| <PhoneIcon />     | **Phone**      | Phone number stored as text. Not validated.                             | `string`       |
+| <UrlIcon />       | **URL**        | Web address. Not validated.                                             | `string`       |
+
+
+### Select
+
+|                      | Name              | Description                                                                                                   | Data&nbsp;Type                        |
+| -------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| <SingleSelectIcon /> | **Single Select** | Single value from predefined options. Options are searchable and users can optionally input custom values.    | <code>string&nbsp;\|&nbsp;null</code> |
+| <MultiSelectIcon />  | **Multi Select**  | Multiple values from predefined options. Options are searchable and users can optionally input custom values. | `string[]`                            |
+
+### Numeric
+
+|                    | Name                        | Description                                                                                                          | Data&nbsp;Type                                                                  |
+| ------------------ | --------------              | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| <NumberIcon />     | **Number**                  | Numeric value.                                                                                                       | `number`                                                                        |
+| <CheckboxIcon />   | **Toggle**                  | True/false value. Default: false.                                                                                    | `boolean`                                                                       |
+| <PercentageIcon /> | **Percentage**              | Percentage stored as a number between 0 and 1.                                                                       | `number`                                                                        |
+| <RatingIcon />     | **Rating**                  | Rating displayed as stars. Max stars is configurable, default: 5 stars.                                              | `number`                                                                        |
+| <SliderIcon />     | **Slider**                  | Numeric value edited with a Slider. Range is configurable.                                                           | `number`                                                                        |
+| <ColorIcon />      | **Color**                   | Color stored as Hex, RGB, and HSV. Edited with a [visual picker](https://www.npmjs.com/package/react-color-palette). | [`Color`](https://github.com/Wondermarin/react-color-palette/tree/v6.1.0#color) |
+
+### Date & Time
+
+|                  | Name                       | Description                                                                                                                                     | Data&nbsp;Type                                                                           |
+| ---------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------------|
+| <DateIcon />     | **Date**                   | Formatted date. Format is configurable, default: `yyyy-MM-dd`. Edited with a [visual picker](https://mui.com/components/pickers/).              | [`Timestamp`](https://firebase.google.com/docs/reference/js/firebase.firestore.Timestamp)|
+| <DateTimeIcon /> | **Date & Time**            | Formatted date & time. Format is configurable, default: `yyyy-MM-dd HH:mm`. Edited with a [visual picker](https://mui.com/components/pickers/). | [`Timestamp`](https://firebase.google.com/docs/reference/js/firebase.firestore.Timestamp)|
+
+### Code
+
+|              | Name         | Description                                                                               | Data&nbsp;Type |
+| ------------ | --------     | ----------------------------------------------------------------------------------------- | -------------- |
+| <JsonIcon /> | **JSON**     | Object edited with a [visual JSON editor](https://www.npmjs.com/package/react-json-view). | `object`       |
+| <CodeIcon /> | **Code**     | Raw code edited with the [Monaco Editor](https://microsoft.github.io/monaco-editor/).     | `string`       |
