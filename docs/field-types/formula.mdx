@@ -6,6 +6,7 @@ slug: /field-types/formula
 
 import Video from "../../src/components/Video.js";
 import videoUrl from "./assets/formula-field.mp4";
+import videoUrl2 from "./assets/string-concat.mp4";
 import formula1 from "./assets/formula-1.png";
 
 The Formula field type allows you to operate on the values of the other fields in your table. The formula field enables you to perform calculations such as addition, subtraction, multiplication, division, and more.
@@ -19,8 +20,8 @@ The Formula field has access to the the `row` parameter, which contains the valu
 
 ## Example code snippets
 
-**Dataset:** Table contains list of students and their scores in different subjects.
-Let's see how we can create simple formulas for calculating their average, grade etc.
+**Dataset #1:** Table contains list of students and their scores in different subjects.
+Let's see how we can create simple formulae for calculating their average, grade etc.
 
 <Video url={videoUrl} playing loop muted playsinline controls />
 
@@ -88,7 +89,7 @@ const formula:Formula = async ({ row })=> {
 }
 ```
 
-### Check fo greater than, less than or equal to
+### Check for greater than, less than or equal to
 This is a formula field which will calculate and store the result of the student, whether he passed or failed.
 - **Field Type**: Formula
 - **Listener Fields**: The three score fields.
@@ -99,4 +100,36 @@ This is a formula field which will calculate and store the result of the student
         const avg = (row.subject1 + row.subject2 + row.subject3)/3
         return avg >= 40 ? "Pass" : "Fail"
     }
+```
+
+<hr />
+
+**Dataset #2:** String Concatenation
+
+Let's see how we can utilize the formula field to concatenate strings.
+
+<Video url={videoUrl2} playing loop muted playsinline controls />
+
+### Concatenate strings
+This field will concatenate the two strings and store them as a single string.
+- **Field Type**: Formula
+- **Listener Fields**: The two string (Short/Long Text) fields.
+- **Output Field Type**: Long Text
+- **Formula**: 
+
+```js
+const formula:Formula = async ({ row })=> {
+  if(row.string1==undefined && row.string2==undefined){
+    return "Fields empty!"
+  }
+  else if(row.string1==undefined){
+    return row.string2
+  }
+  else if(row.string2==undefined){
+    return row.string1
+  }
+  return row.string1 + " " + row.string2
+}
+
+}
 ```
