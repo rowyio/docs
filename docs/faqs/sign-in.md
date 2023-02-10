@@ -60,7 +60,7 @@ The following options works:
 
 The following options does not work:
 - block third-party cookies
-- allow all cookies
+- block all cookies
 
 <img
 src={require("./assets/chrome-allow-cookies.png").default}
