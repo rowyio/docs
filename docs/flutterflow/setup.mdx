@@ -4,6 +4,7 @@ title: FlutterFlow Setup with Rowy
 slug: /integrations/flutterflow/setup
 ---
 
+import Video from "../../src/components/Video.js";
 import flutterFlow from './assets/flutterflow1.png'
 import flutterflow2 from './assets/flutterflow2.png'
 import flutterflow3 from './assets/flutterflow3.png'
@@ -170,3 +171,67 @@ If you have already created a project in FlutterFlow, Go to the **Settings & Int
 - **Select Initial Pages** allows you to define the first page a user sees when they open the app and the first page they see after logging in. When you click **Unset** you will be able to choose from a list of templates. You can change these pages at any time inside the [App Details](https://docs.flutterflow.io/settings-and-integrations/general-settings/app-details#initial-page) page.
 
 - Click on **Start Building**.
+
+
+## Setting up with an existing FlutterFlow Project
+
+Follow the same steps as in “**Creating a new Firebase Project**”  from enabling FlutterFlow access to the project.
+
+The final step is **connecting** and **autogenerating the config files**.
+
+To connect and autogenerate files:
+
+- From the Firebase dashboard from your project, navigate to the far left menu. Select **Project Settings**.
+
+- Under Your Project, look for **Project ID**. Right-click and copy it.
+
+- Return to [FlutterFlow](https://app.flutterflow.io/). From the Navigation Bar, select **Settings & Integrations** > **Project Setup** > **Firebase**.
+
+- Add your **Firebase Project ID** and click **Connect**. A green check ✅ will appear once this is complete.
+
+- Under **Config Files**, select **Autogenerate Files** and then select **Generate Files**.
+
+
+## Setting up Rowy with Firebase
+
+The Rowy setup is super quick and simple. Follow the steps below, or watch this simple video to get started.
+
+Go to [Rowy](https://rowy.app/) and **Sign Up** if haven’t already. If you already have a Rowy Account, click on **Sign In**.
+
+<Video controls url="https://youtu.be/7Vc-ZJDNYbM" />
+
+### Creating a Workspace
+
+To create a workspace, follow the steps below, or [visit our docs](https://docs.rowy.io/how-to/create-project):
+
+1. After creating an account, the user will be redirected to the **Create Workspace page**.
+
+2. Click on the **Create Workspace Button**.
+
+3. Set the name of the workspace and the user role on the pop-up modal.
+
+4. Click on the **Next** button.
+
+5. Enter any prompted information and click **Next**.
+
+:::info  Multiple Workspaces
+Currently, Rowy supports only one workspace in the **BASE** free plan. Support for multiple projects is under the **PRO** plan. You can customize and manage your workspace in the **Workspace Settings** page.
+:::
+
+### Creating a Project
+
+To create a workspace, follow the steps below, or [visit our docs](https://docs.rowy.io/how-to/create-project):
+
+1. Go to the Rowy Workspace and click on the **Create Project** button.
+
+2. Enter the name of the project and a data source to connect. Click on the **Continue** button.
+
+3. Then, the user can then either create a new project or connect to an existing project using the dropdown.
+
+4. Enable the **Firestore Services** and the **Firebase Authentication Service** by following the prompted steps.
+
+5. Click on **Verify** to verify the connection and click **Continue**.
+
+:::info  Other Database Support
+Currently, Rowy supports only Firestore as a data source. **PostgreSQL** and **MySQL** will be supported in the future versions.
+:::
