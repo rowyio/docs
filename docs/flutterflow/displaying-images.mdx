@@ -8,6 +8,7 @@ import flutterflow12 from './assets/flutterflow12.png';
 import Video from "../../src/components/Video.js";
 import videoUrl from "./assets/display-images.mp4";
 import flutterflow13 from './assets/flutterflow13.png';
+import flutterflow14 from './assets/flutterflow14.png';
 
 Displaying images from Rowy in your FlutterFlow application is a common use case. This guide will show you how to display images from Rowy in your FlutterFlow application.
 
@@ -52,3 +53,27 @@ Now, you can continue to use the derivative column as an Image Path in FlutterFl
 If you need to display a list of images, you can use the **Derivative field** to extract multiple download URLs in form of an JSON array.
 
 <img src = {flutterflow13} alt = "FlutterFlow" />
+
+### Steps
+
+Step 1: Create a **Derivative field** and set the **Listener fields** to be the **Image** column.
+
+Step 2: Change the **Output field** type to `JSON`.
+
+Step 3: Set the **Derivative script** to this:
+```js
+const derivative:Derivative = async ({row,ref,db,storage,auth,logging})=>{
+  // WRITE YOUR CODE ONLY BELOW THIS LINE. DO NOT WRITE CODE/COMMENTS OUTSIDE THE FUNCTION BODY
+  const obj = {
+    data: []
+  }
+  row.image.map((img) => {
+    obj.data.push(img.downloadURL)
+  })
+  return obj;
+}
+```
+
+**Output:**
+
+<img src = {flutterflow14} alt = "FlutterFlow" />
