@@ -4,5 +4,20 @@ title: Displaying Images from Rowy
 slug: /integrations/flutterflow/displaying-images
 ---
 
+import flutterflow12 from './assets/flutterflow12.png';
+
 Displaying images from Rowy in your FlutterFlow application is a common use case. This guide will show you how to display images from Rowy in your FlutterFlow application.
 
+## Retrieving the Firebase Download URL
+
+<img src = {flutterflow12} alt = "FlutterFlow" />
+
+#### The most common question we get is:
+
+> I am using Rowy as a CMS to manage all the data to be displayed on my FlutterFlow project. But I'm not sure how to make an image appear in FlutterFlow's Photo Path data column.
+
+#### Let us give you a simple solution to this!
+
+As we know, when we upload an image in Rowy, it **gets stored in the Firebase Storage** as an image. We can **extract the Firebase download URL** to display the image in FlutterFlow.
+
+We can use the **Derivative Field** to extract the `downloadURL` derived from an image uploaded in another column. Refer to the following video, or follow the instructions below to see how to get the download URL.
