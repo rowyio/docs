@@ -188,6 +188,7 @@ module.exports = {
           collapsible: true,
           items: [
             "flutterflow/setup",
+            "flutterflow/displaying-images",
           ],
         },
       ],
