@@ -25,3 +25,23 @@ As we know, when we upload an image in Rowy, it **gets stored in the Firebase St
 We can use the **Derivative Field** to extract the `downloadURL` derived from an image uploaded in another column. Refer to the following video, or follow the instructions below to see how to get the download URL.
 
 <Video url={videoUrl} playing loop muted playsinline controls />
+
+
+### Steps
+
+Step 1: Create a **Derivative field** and set the **Listener fields** to be the **Image** column.
+
+Step 2: Change the **Output field** type to `URL`.
+
+Step 3: Set the **Derivative script** to this:
+```js
+const derivative:Derivative = async ({row,ref,db,storage,auth,logging})=>{
+    let url = row.image[0].downloadURL;
+    return url;
+}
+```
+
+Step 4: Continue to add images and retrieve the URL in the Derivative column.
+
+Now, you can continue to use the derivative column as an Image Path in FlutterFlow.
+
