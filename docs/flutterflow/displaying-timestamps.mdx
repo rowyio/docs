@@ -11,3 +11,15 @@ With Rowy as your low-code / no-code backend, you can easily display timestamps 
 ## Dealing with Firestore Timestamps
 
 <img src = {flutterflow15} alt = "FlutterFlow displaying timestamps" width = "100%" />
+
+While using the **Derivative** field type to get the current timestamp, it is necessary to convert it into the specific format which is required by FlutterFlow. 
+
+In Firestore, the `Timestamp` data type is used to store date and time information. It represents a point in time, independent of any time zone or calendar, as a **Unix timestamp**, which is the **number of milliseconds since January 1, 1970, 00:00:00 UTC** (also known as the **Unix Epoch**).
+
+> #### For Example:
+> `Sunday, 1st January 2023, 12:00:00 AM GMT` is represented as `1672531200000` in Unix timestamp.
+
+When you save a date or time value to Firestore, it is automatically converted to a **Timestamp** object. FlutterFlow accepts the **Timestamp** object as a valid date and time value.
+
+> #### For Example:
+> 2023-02-03 23:43:21
