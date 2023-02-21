@@ -23,3 +23,27 @@ When you save a date or time value to Firestore, it is automatically converted t
 
 > #### For Example:
 > 2023-02-03 23:43:21
+
+
+## Steps
+
+To create a Derivative function to get a FlutterFlow friendly timestamp, follow the steps below:
+
+Step 1: Create a **Derivative field** and set the **Listener fields** to be any column that would trigger the Derivative.
+
+Step 2: Change the **Output field** type to `Date & Time`.
+
+Step 3: Set the **Derivative script** to this:
+
+```js
+const derivative:Derivative = async ({row,ref,db,storage,auth,logging})=>{
+  // WRITE YOUR CODE ONLY BELOW THIS LINE. DO NOT WRITE CODE/COMMENTS OUTSIDE THE FUNCTION BODY
+  const date = new Date()
+  const ms = date.getTime()
+  const { Timestamp } = (await (async () => await import("@google-cloud/firestore"))())
+  return Timestamp.fromMillis(ms)
+  // WRITE YOUR CODE ONLY ABOVE THIS LINE. DO NOT WRITE CODE/COMMENTS OUTSIDE THE FUNCTION BODY
+}
+```
+
+Step 4: Set the **Display format** to `YYYY-MM-DD HH:mm:ss` and click **update**.
