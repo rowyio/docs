@@ -1,0 +1,79 @@
+---
+id: displaying-images
+title: Displaying Images from Rowy
+slug: /integrations/flutterflow/displaying-images
+---
+
+import flutterflow12 from './assets/flutterflow12.png';
+import Video from "../../src/components/Video.js";
+import videoUrl from "./assets/display-images.mp4";
+import flutterflow13 from './assets/flutterflow13.png';
+import flutterflow14 from './assets/flutterflow14.png';
+
+Displaying images from Rowy in your FlutterFlow application is a common use case. This guide will show you how to display images from Rowy in your FlutterFlow application.
+
+## Retrieving the Firebase Download URL
+
+<img src = {flutterflow12} alt = "FlutterFlow" />
+
+#### The most common question we get is:
+
+> I am using Rowy as a CMS to manage all the data to be displayed on my FlutterFlow project. But I'm not sure how to make an image appear in FlutterFlow's Photo Path data column.
+
+#### Let us give you a simple solution to this!
+
+As we know, when we upload an image in Rowy, it **gets stored in the Firebase Storage** as an image. We can **extract the Firebase download URL** to display the image in FlutterFlow.
+
+We can use the **Derivative Field** to extract the `downloadURL` derived from an image uploaded in another column. Refer to the following video, or follow the instructions below to see how to get the download URL.
+
+<Video url={videoUrl} playing loop muted playsinline controls />
+
+
+### Steps
+
+Step 1: Create a **Derivative field** and set the **Listener fields** to be the **Image** column.
+
+Step 2: Change the **Output field** type to `URL`.
+
+Step 3: Set the **Derivative script** to this:
+```js
+const derivative:Derivative = async ({row,ref,db,storage,auth,logging})=>{
+    let url = row.image[0].downloadURL;
+    return url;
+}
+```
+
+Step 4: Continue to add images and retrieve the URL in the Derivative column.
+
+Now, you can continue to use the derivative column as an Image Path in FlutterFlow.
+
+
+## Retrieving URL for images in a list
+
+If you need to display a list of images, you can use the **Derivative field** to extract multiple download URLs in form of an JSON array.
+
+<img src = {flutterflow13} alt = "FlutterFlow" />
+
+### Steps
+
+Step 1: Create a **Derivative field** and set the **Listener fields** to be the **Image** column.
+
+Step 2: Change the **Output field** type to `JSON`.
+
+Step 3: Set the **Derivative script** to this:
+```js
+const derivative:Derivative = async ({row,ref,db,storage,auth,logging})=>{
+  // WRITE YOUR CODE ONLY BELOW THIS LINE. DO NOT WRITE CODE/COMMENTS OUTSIDE THE FUNCTION BODY
+  const obj = {
+    data: []
+  }
+  row.image.map((img) => {
+    obj.data.push(img.downloadURL)
+  })
+  return obj;
+}
+```
+
+**Output:**
+
+<img src = {flutterflow14} alt = "FlutterFlow" />

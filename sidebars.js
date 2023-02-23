@@ -183,11 +183,12 @@ module.exports = {
       items: [
         {
           type: "category",
-          label: "Rowy X FlutterFlow",
+          label: "FlutterFlow",
           link: { type: "generated-index" },
           collapsible: true,
           items: [
             "flutterflow/setup",
+            "flutterflow/displaying-images",
           ],
         },
       ],
