@@ -188,6 +188,7 @@ module.exports = {
           collapsible: true,
           items: [
             "flutterflow/setup",
+            "flutterflow/mapping-datatypes",
             "flutterflow/displaying-images",
             "flutterflow/displaying-timestamps",
           ],
