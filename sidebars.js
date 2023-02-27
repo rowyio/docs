@@ -110,6 +110,7 @@ module.exports = {
             // "field-types/connect-table",
             "field-types/connect-service",
             "field-types/action",
+            "field-types/array",
             "field-types/image-file",
             "field-types/status",
             "field-types/sub-table",
