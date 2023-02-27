@@ -189,6 +189,7 @@ module.exports = {
           items: [
             "flutterflow/setup",
             "flutterflow/displaying-images",
+            "flutterflow/displaying-timestamps",
           ],
         },
       ],
