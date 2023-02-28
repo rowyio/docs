@@ -23,7 +23,7 @@ alt="Allow all cookies"
 
 #### Option 2: allow cookies on Rowy
 
-In the cookies settings page [chrome://settings/cookies](chrome://settings/cookies), scroll to the bottom, add `https://rowy.io` to "sites that can always use cookies" and make sure "including third-party cookies on this site" is selected.
+In the cookies settings page [chrome://settings/cookies](chrome://settings/cookies), scroll to the bottom, add `https://rowy.app` to "sites that can always use cookies" and make sure "including third-party cookies on this site" is selected.
 <img
 src={require("./assets/chrome-incognito-add-rowy.png").default}
 alt="Allow rowy to use cookie"
