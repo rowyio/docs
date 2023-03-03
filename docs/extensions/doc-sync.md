@@ -4,7 +4,11 @@ title: Doc Sync
 slug: /extensions/doc-sync
 ---
 
+import docsync1 from './assets/docsync1.png';
+
 The **DocSync Extension** is an extension for syncing data-fields between two documents on firestore.
+
+<img src={docsync1} alt= "DocSync Extension" />
 
 ## Usage
 
