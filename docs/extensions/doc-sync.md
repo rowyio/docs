@@ -4,7 +4,7 @@ title: Doc Sync
 slug: /extensions/doc-sync
 ---
 
-An extension for syncing data between documents on firestore
+The **DocSync Extension** is an extension for syncing data-fields between two documents on firestore.
 
 ## Usage
 
