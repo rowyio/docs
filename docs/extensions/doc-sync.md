@@ -10,6 +10,17 @@ The **DocSync Extension** is an extension for syncing data-fields between two do
 
 <img src={docsync1} alt= "DocSync Extension" />
 
+## Working
+
+The extension works by **listening to changes on a document and then syncing the data** to another document.
+
+
+The DocSync extension accepts three properties:
+
+- `row`: It is an object representing a row of data. It is the data that is being synced.
+- `targetPath`: It is a string representing the path of the document in Firebase Firetore, to which the data is being synced.
+- `fieldsToSync`: It is an array of strings representing the fields in row that should be synced to Firestore.
+
 ## Usage
 
 ```typescript
