@@ -110,7 +110,17 @@ module.exports = {
             // "field-types/connect-table",
             "field-types/connect-service",
             "field-types/action",
-            "field-types/array",
+            {
+              type: "category",
+              label: "Array Fields",
+              link: { type: "generated-index" },
+              collapsed: true,
+              items: [
+                "field-types/array-overview",
+                "field-types/array",
+              ]
+            },
+            // "field-types/array",
             "field-types/image-file",
             "field-types/status",
             "field-types/sub-table",
