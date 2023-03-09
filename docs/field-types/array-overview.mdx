@@ -8,6 +8,7 @@ import array2 from './assets/array2.png';
 import array3 from './assets/array3.png';
 import array4 from './assets/array4.png';
 import array5 from './assets/array5.png';
+import array6 from './assets/array6.png';
 
 Rowy supports various array field types. Let's discuss the different types of array fields and how to use them.
 
@@ -41,6 +42,13 @@ The JSON field is a **JSON Object** which is a data structure that stores an uno
 
 The JSON field can contain a **single JSON object** or an **array of JSON objects** depending upon it's initialization. This allows for flexible data structures that can be used in a variety of ways.
 
+:::tip JSON Field Settings
+
+We can set our JSON field to initialize as an **array of JSON objects** via the JSON Column Config settings. Go to the Column Config settings of the JSON field and select the **Default as Array** option.
+
+< img src={array6} alt="Array field" width = "100%" />
+
+:::
 
 ### Using JSON Field as a Single JSON Object
 
@@ -57,3 +65,4 @@ To use the JSON field as a single JSON object, we can simply add the key-value p
 ```
 
 <img src={array5} alt="Array field" width = "100%" />
+
