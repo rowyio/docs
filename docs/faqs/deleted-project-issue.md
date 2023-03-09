@@ -32,3 +32,13 @@ To delete these service accounts, go to https://console.cloud.google.com/iam-adm
 Now, you need to delete the specified Firestore settings associated with your Rowy project, as given in the image below.
 
 To delete these settings, navigate to your **Firestore console**, find the settings associated with your Rowy project, and delete them.
+
+
+### Step 4: Reach Out to Rowy Support
+
+Once you have completed the above steps, reach out to us either via email at support@rowy.io, or send a direct message to any of the members with the **Team** tag on our Discord server with your project details. 
+
+Provide them with the necessary information about your project, such as the project ID, and explain that you have performed the above steps to re-instate your connection.
+
+
+Rowy support will then fix the issue on the backend, and you should be able to re-create your project on Rowy without any further issues! 🚀
