@@ -6,6 +6,7 @@ slug: /field-types/array-overview
 
 import array2 from './assets/array2.png';
 import array3 from './assets/array3.png';
+import array4 from './assets/array4.png';
 
 Rowy supports various array field types. Let's discuss the different types of array fields and how to use them.
 
@@ -16,8 +17,19 @@ The basic Array Field type is a very flexible array field which let's you store 
 <img src={array2} alt="Array field" width = "100%" />
 
 We can use the Array Field to store both Homogeneous and Heterogeneous array data. 
+
 ### Using Array Field  as a Homogeneous Array
 A Homogeneous array is an array that contains only one type of data. So, to use the Array Field type as a Homogeneous array, we can simply choose the only type of data that we want to store in the array.
 
 **For example:** If we want to store an array of strings, we can choose the **Short Text** type in the Array Field side menu.
 <img src={array3} alt="Array field" width = "100%" />
+
+### Using Array Field as a Heterogeneous Array
+
+A Heterogeneous array is an array that contains multiple types of data. To utilize the Array field as a heterogeneous array, we can add multiple fields to the Array Field side menu.
+
+**For example:** If we want to details of a user in an array, let's say the user's name, age, and location.
+
+So, we can add a **Short Text** field to store the user's name, a **Number** field to store the user's age, and a **Geo Point** field to store the user's location.
+
+<img src={array4} alt="Array field" width = "100%" />
