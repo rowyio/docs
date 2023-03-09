@@ -25,3 +25,10 @@ To delete these instances, go to https://console.cloud.google.com/run and naviga
 The next step is to delete the Rowy service accounts that are associated with your project. These service accounts have the format of `rowy-*@projectId.iam.gserviceaccount.com`.
 
 To delete these service accounts, go to https://console.cloud.google.com/iam-admin/iam and navigate to the **Service Accounts** section. Find the Rowy service accounts associated with your project and delete them.
+
+
+### Step 3: Deleting Firestore Settings
+
+Now, you need to delete the specified Firestore settings associated with your Rowy project, as given in the image below.
+
+To delete these settings, navigate to your **Firestore console**, find the settings associated with your Rowy project, and delete them.
