@@ -9,6 +9,7 @@ import array3 from './assets/array3.png';
 import array4 from './assets/array4.png';
 import array5 from './assets/array5.png';
 import array6 from './assets/array6.png';
+import array7 from './assets/array7.png';
 
 Rowy supports various array field types. Let's discuss the different types of array fields and how to use them.
 
@@ -66,3 +67,31 @@ To use the JSON field as a single JSON object, we can simply add the key-value p
 
 <img src={array5} alt="Array field" width = "100%" />
 
+
+### Using JSON Field as an Array of JSON Objects
+
+We can utilize the JSON field to hold an array of JSON objects by enclosing it in square brackets (**[]**) and separating each JSON object with a comma.
+
+**For Example:** We have an array of three JSON objects. Each object contains three key-value pairs: "name", "age", and "city". The objects represent different people with different names, ages, and cities. The entire array is enclosed in square brackets, and each object is separated by a comma.
+
+```js
+[  
+  {    
+    "name": "John Doe",    
+    "age": 25,    
+    "city": "New York"  
+  },  
+  {    
+    "name": "Regina Philange",    
+    "age": 30,    
+    "city": "Los Angeles"  
+  },  
+  {    
+    "name": "Ken Adams",    
+    "age": 20,    
+    "city": "Chicago" 
+  }
+]
+```
+
+<img src={array7} alt="Array field" width = "100%" />
