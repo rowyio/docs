@@ -7,6 +7,7 @@ slug: /field-types/array-overview
 import array2 from './assets/array2.png';
 import array3 from './assets/array3.png';
 import array4 from './assets/array4.png';
+import array5 from './assets/array5.png';
 
 Rowy supports various array field types. Let's discuss the different types of array fields and how to use them.
 
@@ -39,3 +40,20 @@ So, we can add a **Short Text** field to store the user's name, a **Number** fie
 The JSON field is a **JSON Object** which is a data structure that stores an unordered collection of key-value pairs in a format known as *JavaScript Object Notation (JSON)*.
 
 The JSON field can contain a **single JSON object** or an **array of JSON objects** depending upon it's initialization. This allows for flexible data structures that can be used in a variety of ways.
+
+
+### Using JSON Field as a Single JSON Object
+
+To use the JSON field as a single JSON object, we can simply add the key-value pairs that we want to store in the JSON object to the JSON Field side menu or the code-editor available.
+
+**For Example:** Let's add a JSON object that contains three key/value pairs: name, age, and city.
+
+```js
+{
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+```
+
+<img src={array5} alt="Array field" width = "100%" />
