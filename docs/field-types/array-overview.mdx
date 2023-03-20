@@ -1,0 +1,97 @@
+---
+id: array-overview
+title: Supported Array Field Types
+slug: /field-types/array-overview
+---
+
+import array2 from './assets/array2.png';
+import array3 from './assets/array3.png';
+import array4 from './assets/array4.png';
+import array5 from './assets/array5.png';
+import array6 from './assets/array6.png';
+import array7 from './assets/array7.png';
+
+Rowy supports various array field types. Let's discuss the different types of array fields and how to use them.
+
+## Array Field
+
+The basic Array Field type is a very flexible array field which let's you store an **array of values**. Rowy Array mimics a **JSON Array** which is a data structure that stores an ordered collection of values in a format known as *JavaScript Object Notation (JSON)*.
+
+<img src={array2} alt="Array field" width = "100%" />
+
+We can use the Array Field to store both Homogeneous and Heterogeneous array data. 
+
+### Using Array Field  as a Homogeneous Array
+A Homogeneous array is an array that contains only one type of data. So, to use the Array Field type as a Homogeneous array, we can simply choose the only type of data that we want to store in the array.
+
+**For example:** If we want to store an array of strings, we can choose the **Short Text** type in the Array Field side menu.
+<img src={array3} alt="Array field" width = "100%" />
+
+### Using Array Field as a Heterogeneous Array
+
+A Heterogeneous array is an array that contains multiple types of data. To utilize the Array field as a heterogeneous array, we can add multiple fields to the Array Field side menu.
+
+**For example:** If we want to details of a user in an array, let's say the user's name, age, and location.
+
+So, we can add a **Short Text** field to store the user's name, a **Number** field to store the user's age, and a **Geo Point** field to store the user's location.
+
+<img src={array4} alt="Array field" width = "100%" />
+
+## JSON Field
+
+The JSON field is a **JSON Object** which is a data structure that stores an unordered collection of key-value pairs in a format known as *JavaScript Object Notation (JSON)*.
+
+The JSON field can contain a **single JSON object** or an **array of JSON objects** depending upon it's initialization. This allows for flexible data structures that can be used in a variety of ways.
+
+:::tip JSON Field Settings
+
+We can set our JSON field to initialize as an **array of JSON objects** via the JSON Column Config settings. Go to the Column Config settings of the JSON field and select the **Default as Array** option.
+
+< img src={array6} alt="Array field" width = "100%" />
+
+:::
+
+### Using JSON Field as a Single JSON Object
+
+To use the JSON field as a single JSON object, we can simply add the key-value pairs that we want to store in the JSON object to the JSON Field side menu or the code-editor available.
+
+**For Example:** Let's add a JSON object that contains three key/value pairs: name, age, and city.
+
+```js
+{
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+```
+
+<img src={array5} alt="Array field" width = "100%" />
+
+
+### Using JSON Field as an Array of JSON Objects
+
+We can utilize the JSON field to hold an array of JSON objects by enclosing it in square brackets (**[]**) and separating each JSON object with a comma.
+
+**For Example:** We have an array of three JSON objects. Each object contains three key-value pairs: "name", "age", and "city". The objects represent different people with different names, ages, and cities. The entire array is enclosed in square brackets, and each object is separated by a comma.
+
+```js
+[  
+  {    
+    "name": "John Doe",    
+    "age": 25,    
+    "city": "New York"  
+  },  
+  {    
+    "name": "Regina Philange",    
+    "age": 30,    
+    "city": "Los Angeles"  
+  },  
+  {    
+    "name": "Ken Adams",    
+    "age": 20,    
+    "city": "Chicago" 
+  }
+]
+```
+
+<img src={array7} alt="Array field" width = "100%" />
