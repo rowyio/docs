@@ -44,7 +44,6 @@ module.exports = {
             "how-to/multiple-tables",
           ],
         },
-        
 
         {
           type: "category",
@@ -211,6 +210,7 @@ module.exports = {
       label: "Community",
       collapsible: true,
       items: [
+        "help-and-support",
         "changelog/changelog",
         {
           type: "category",
