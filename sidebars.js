@@ -224,9 +224,13 @@ module.exports = {
       type: "category",
       label: "Community",
       collapsible: true,
+      collapsed: false,
       items: [
-        "help-and-support",
-        "changelog/changelog",
+        {
+          type: "link",
+          label: "Changelog",
+          href: "https://www.rowy.io/changelog"
+        },
         {
           type: "category",
           label: "Contributing",
@@ -236,6 +240,12 @@ module.exports = {
             "contributing/frontend-architecture",
             "contributing/add-a-field-type",
           ],
+        },
+        "help-and-support",
+        {
+          type: "link",
+          label: "Events",
+          href: "https://www.rowy.io/events"
         },
       ],
     },
