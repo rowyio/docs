@@ -102,8 +102,7 @@ module.exports = {
     {
       type: "category",
       label: "Database",
-      collapsible: true,
-      collapsed: false,
+      collapsible: false,
       items: [
         {
           type: "category",
@@ -159,16 +158,18 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Cloud functions",
+      label: "Workflows",
       collapsible: false,
       items: [
         {
           type: "category",
           label: "Extensions",
-          link: { type: "generated-index" },
+          link: { 
+            type: "doc",
+            id: "extensions/overview" 
+          },
           collapsed: true,
           items: [
-            "extensions/overview",
             "extensions/algolia-index",
             "extensions/sendgrid-email",
             "extensions/twilio-message",
@@ -180,9 +181,12 @@ module.exports = {
         {
           type: "category",
           label: "Webhooks",
-          link: { type: "generated-index" },
+          link: { 
+            type: "doc",
+            id: "webhooks/overview"
+          },
           collapsed: true,
-          items: ["webhooks/overview", "webhooks/basic", "webhooks/typeform"],
+          items: ["webhooks/basic", "webhooks/typeform"],
         },
         "field-types/derivative",
         "field-types/action",
