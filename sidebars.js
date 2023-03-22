@@ -101,16 +101,19 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Features",
-      collapsible: false,
+      label: "Database",
+      collapsible: true,
+      collapsed: false,
       items: [
         {
           type: "category",
-          label: "Field types",
-          link: { type: "generated-index" },
+          label: "Supported Field Types",
+          link: { 
+            type: "doc",
+            id: "field-types/supported-fields" 
+          },
           collapsed: true,
           items: [
-            "field-types/supported-fields",
             "field-types/audit-fields",
             "field-types/derivative",
             "field-types/connector",
@@ -138,10 +141,20 @@ module.exports = {
           type: "category",
           label: "Import / Export Data",
           link: { type: "generated-index" },
-          collapsed: true,
+          collapsed: false,
           items: ["import-export-data/import-csv","import-export-data/import-airtable"],
         },
-        "cloud-functions/full-text-search"
+        "cloud-functions/full-text-search",
+        {
+          type: "category",
+          label: "API Reference",
+          link: { type: "generated-index" },
+          items: [
+            "reference/rowy-user",
+            "reference/action-status",
+            "reference/rowy",
+          ],
+        },
       ],
     },
     {
@@ -181,16 +194,7 @@ module.exports = {
         //   collapsed: true,
         //   items: ["rowy-run/overview"],
         // },
-        {
-          type: "category",
-          label: "API Reference",
-          link: { type: "generated-index" },
-          items: [
-            "reference/rowy-user",
-            "reference/action-status",
-            "reference/rowy",
-          ],
-        },
+        
       ],
     },
     {
