@@ -66,31 +66,38 @@ module.exports = {
     // },
     {
       type: "category",
-      label: "Tutorials",
+      label: "Learning and Resources",
       collapsible: true,
+      collapsed: true,
       items: [
-        "tutorials/webflow-form",
-        "tutorials/spotify-wrapped",
-        "tutorials/pdf-generator",
+        "cloud-functions/code-snippets",
         {
           type: "category",
-          label: "Bots",
-          link: { type: "generated-index" },
+          label: "Tutorials",
           collapsible: true,
           items: [
-            "bots/slack-bot",
-            "bots/twitter-bot",
-          ],
-        },
-        
-        // "templates/typeform-webhook",
-        // "templates/bannerbear",
-        // "templates/magic-link",
-        // "templates/translate-api",
-        // "templates/github-webhook",
-        // "templates/cal-scheduling",
-      ]
-      
+            "tutorials/webflow-form",
+            "tutorials/spotify-wrapped",
+            "tutorials/pdf-generator",
+            {
+              type: "category",
+              label: "Bots",
+              link: { type: "generated-index" },
+              collapsible: true,
+              items: [
+                "bots/slack-bot",
+                "bots/twitter-bot",
+              ],
+            },
+          // "templates/typeform-webhook",
+          // "templates/bannerbear",
+          // "templates/magic-link",
+          // "templates/translate-api",
+          // "templates/github-webhook",
+          // "templates/cal-scheduling",
+        ],
+        }
+      ] 
     },
     {
       type: "category",
@@ -167,7 +174,6 @@ module.exports = {
         "field-types/derivative",
         "field-types/action",
         "cloud-functions/cloud-logs",
-        "cloud-functions/code-snippets",
         
         // {
         //   type: "category",
