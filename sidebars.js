@@ -25,13 +25,14 @@ module.exports = {
       type: "category",
       label: "Getting started",
       collapsible: true,
+      collapsed: false,
       items: [
         "setup/install",
         {
           type: "category",
           label: "How to guide",
           link: { type: "generated-index" },
-          collapsed: true,
+          collapsed: false,
           items: [
             "how-to/create-workspace",
             "how-to/create-project",
