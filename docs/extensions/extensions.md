@@ -30,4 +30,4 @@ You can manage IAM permissions [here](https://console.cloud.google.com/iam-admin
 
 The cloud function default service account is `projectId@appspot.gserviceaccount.com`
 
-⚠️ Skipping this step can cause premission error
+⚠️ Skipping this step can cause permission errors
