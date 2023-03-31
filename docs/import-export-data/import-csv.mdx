@@ -36,6 +36,7 @@ import JsonIcon from "./assets/Json";
 import CodeIcon from "@mui/icons-material/Code";
 
 import importCsv from "./assets/import-csv.png"
+import customId from "./assets/custom-id.png"
 
 Rowy allows you to import CSV / JSON (or TSV, from URL) files to your Firebase database. You can import to an existing Firestore datastore or create a brand new collection right from Rowy.
 
@@ -77,14 +78,16 @@ The `db` parameter can access your Firestore to access any collection or documen
 
 If you have your Document-ID auto-generated, you can perform the following options to set custom IDs:
 
-### Option 1: Setting up a new Table
-
 - You can export your table to a CSV file using the export option in the top right menu. 
 - Create a new table and import the data via the same CSV file. 
 - While importing, if you scroll down, you'll see an option for setting Document-ID. 
 - Choose Pick a column and select touristArea.
 
 <img src = {importCsv} alt = "import csv" />
+
+- Going forward, when you add a row, you can select the option to add a row **With Custom-ID** so it asks you to provide a Document-ID everytime.
+
+<img src = {customId} alt = "custom id" />
 
 ## Supported Field Types for import via CSV
 
