@@ -51,6 +51,24 @@ Rowy allows you to import CSV / JSON (or TSV, from URL) files to your Firebase d
 
 <Video url="https://www.youtube.com/watch?v=sZrepVfLnwg" playsinline  />
 
+## Importing Rows with Custom ID
+
+## Applications of Custom ID
+
+Let us understand it's applications with the help of some examples:
+
+**Case 1: Accessing data from another collection**
+
+Let's say we have a Derivative function that fetches data from another collection.
+
+```js
+const regionDoc = await db.collection("touristAreas").doc(row.touristArea).get();
+return regionDoc.get("region");
+```
+
+The `db` parameter can access your Firestore to access any collection or document. The above line  above would find the collection named `touristAreas` in your Firestore Database, and try to search for a document with its **Document-ID** matching the value in the field `touristArea` in your current collection. This would return the region field of the found document.
+
+
 ## Supported Field Types for import via CSV
 
 Potentially, import by CSV will support all the field types supported by Rowy (check them out [here](https://docs.rowy.io/field-types/supported-fields)). However, for now, we support the following field types:
