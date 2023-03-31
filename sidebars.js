@@ -62,7 +62,7 @@ module.exports = {
     //   items: [
     //     "templates/roadmap"
     //   ]
-      
+
     // },
     {
       type: "category",
@@ -84,20 +84,17 @@ module.exports = {
               label: "Bots",
               link: { type: "generated-index" },
               collapsible: true,
-              items: [
-                "bots/slack-bot",
-                "bots/twitter-bot",
-              ],
+              items: ["bots/slack-bot", "bots/twitter-bot"],
             },
-          // "templates/typeform-webhook",
-          // "templates/bannerbear",
-          // "templates/magic-link",
-          // "templates/translate-api",
-          // "templates/github-webhook",
-          // "templates/cal-scheduling",
-        ],
-        }
-      ] 
+            // "templates/typeform-webhook",
+            // "templates/bannerbear",
+            // "templates/magic-link",
+            // "templates/translate-api",
+            // "templates/github-webhook",
+            // "templates/cal-scheduling",
+          ],
+        },
+      ],
     },
     {
       type: "category",
@@ -107,9 +104,9 @@ module.exports = {
         {
           type: "category",
           label: "Supported Field Types",
-          link: { 
+          link: {
             type: "doc",
-            id: "field-types/supported-fields" 
+            id: "field-types/supported-fields",
           },
           collapsed: true,
           items: [
@@ -124,10 +121,7 @@ module.exports = {
               label: "Array Fields",
               link: { type: "generated-index" },
               collapsed: true,
-              items: [
-                "field-types/array-overview",
-                "field-types/array",
-              ]
+              items: ["field-types/array-overview", "field-types/array"],
             },
             // "field-types/array",
             "field-types/image-file",
@@ -141,7 +135,10 @@ module.exports = {
           label: "Import / Export Data",
           link: { type: "generated-index" },
           collapsed: false,
-          items: ["import-export-data/import-csv","import-export-data/import-airtable"],
+          items: [
+            "import-export-data/import-csv",
+            "import-export-data/import-airtable",
+          ],
         },
         "cloud-functions/full-text-search",
         {
@@ -164,9 +161,9 @@ module.exports = {
         {
           type: "category",
           label: "Extensions",
-          link: { 
+          link: {
             type: "doc",
-            id: "extensions/overview" 
+            id: "extensions/overview",
           },
           collapsed: true,
           items: [
@@ -181,24 +178,23 @@ module.exports = {
         {
           type: "category",
           label: "Webhooks",
-          link: { 
+          link: {
             type: "doc",
-            id: "webhooks/overview"
+            id: "webhooks/overview",
           },
           collapsed: true,
-          items: ["webhooks/basic", "webhooks/typeform"],
+          items: ["webhooks/basic", "webhooks/typeform", "webhooks/stripe"],
         },
         "field-types/derivative",
         "field-types/action",
         "cloud-functions/cloud-logs",
-        
+
         // {
         //   type: "category",
         //   label: "Rowy Run",
         //   collapsed: true,
         //   items: ["rowy-run/overview"],
         // },
-        
       ],
     },
     {
@@ -219,7 +215,7 @@ module.exports = {
           ],
         },
       ],
-    },  
+    },
     {
       type: "category",
       label: "Community",
@@ -229,7 +225,7 @@ module.exports = {
         {
           type: "link",
           label: "Changelog",
-          href: "https://www.rowy.io/changelog"
+          href: "https://www.rowy.io/changelog",
         },
         {
           type: "category",
@@ -245,7 +241,7 @@ module.exports = {
         {
           type: "link",
           label: "Events",
-          href: "https://www.rowy.io/events"
+          href: "https://www.rowy.io/events",
         },
       ],
     },
