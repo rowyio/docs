@@ -35,6 +35,8 @@ import DateTimeIcon from "@mui/icons-material/AccessTime";
 import JsonIcon from "./assets/Json";
 import CodeIcon from "@mui/icons-material/Code";
 
+import importCsv from "./assets/import-csv.png"
+
 Rowy allows you to import CSV / JSON (or TSV, from URL) files to your Firebase database. You can import to an existing Firestore datastore or create a brand new collection right from Rowy.
 
 ## Steps
@@ -67,6 +69,20 @@ return regionDoc.get("region");
 ```
 
 The `db` parameter can access your Firestore to access any collection or document. The above line  above would find the collection named `touristAreas` in your Firestore Database, and try to search for a document with its **Document-ID** matching the value in the field `touristArea` in your current collection. This would return the region field of the found document.
+
+
+**Case 2: Updating fields via Import**
+
+## Changing Auto-generated ID to Custom ID
+
+If you have your Document-ID auto-generated, you can perform the following options to set custom IDs:
+
+### Option 1: Setting up a new Table
+
+- You can export your table to a CSV file using the export option in the top right menu. 
+- Create a new table and import the data via the same CSV file. 
+- While importing, if you scroll down, you'll see an option for setting Document-ID. 
+- Choose Pick a column and select touristArea.
 
 
 ## Supported Field Types for import via CSV
