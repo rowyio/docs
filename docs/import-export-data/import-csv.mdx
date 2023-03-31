@@ -58,9 +58,9 @@ Rowy allows you to import CSV / JSON (or TSV, from URL) files to your Firebase d
 
 ## Importing Rows with Custom ID
 
-Generating a row with a Custom Row-ID helps set custom Document-ID of the row on the Firebase Firestore. The row will be displayed on the top while it is being edited. Later, it will appear at a different position in the table.
+Generating a row with a Custom Row-ID helps set **custom Document-ID of the row** on the Firebase Firestore. The row will be displayed on the top while it is being edited. Later, it will appear at a different position in the table.
 
-The difference is that the user is given the liberty to choose the Row ID and the position of that row is set accordingly.
+The difference is that the user is given the **liberty to choose the Row ID** and the position of that row is set accordingly.
 
 <img src = {documentId} alt = "document id" />
 
@@ -84,12 +84,12 @@ The above line  above would find the collection named `touristAreas` in your Fir
 
 ### Case 2: Bulk updating fields via Import
 
-Importing data via a CSV file is the way to go for bulk updating data in your table. Make sure you're using **Custom-ID** for your data as described below. Export the data from your Rowy table as a CSV file first.  This will incorporate the same column names as the ones in the Rowy table. 
+**Importing data via a CSV file** is the way to go for bulk updating data in your table. Make sure you're using **Custom-ID** for your data as [described below](#changing-auto-generated-id-to-custom-id). Export the data from your Rowy table as a CSV file first. This will **incorporate the same column names** as the ones in the Rowy table.
 
 Thereafter, add data to it and import it back again into your Rowy project (make sure you have selected the same field as the Document-ID). This will let you update the records.
 
-:::tip Bulk Updating Fields  
-For bulk updation, try initializing the data as a CSV import as well. This will help match the **Document-ID** to that in the Firestore collection. If you try to update records that were not added via the import CSV method, it will result in duplicates.
+:::warning Bulk Updating Fields  
+For Bulk Updation, try initializing the data as a CSV import as well. This will help match the **Document-ID** to that in the Firestore collection. **If you try to update records that were not added via the import CSV method, it will result in duplicates.**
 :::
 
 <Video url={bulkUpdate} playing loop muted playsinline controls />
@@ -98,10 +98,10 @@ For bulk updation, try initializing the data as a CSV import as well. This will 
 
 If you have your Document-ID auto-generated, you can perform the following options to set custom IDs:
 
-- You can export your table to a CSV file using the export option in the top right menu. 
-- Create a new table and import the data via the same CSV file. 
-- While importing, if you scroll down, you'll see an option for setting Document-ID. 
-- Choose Pick a column and select touristArea.
+- You can **export your table to a CSV file** using the export option in the top right menu. 
+- **Create a new table** and **import** the data via the same CSV file. 
+- While importing, if you scroll down, you'll see an option for **setting Document-ID**. 
+- Choose **Pick a column** and **select a column you want to keep as the Column-ID**.
 
 <img src = {importCsv} alt = "import csv" />
 
