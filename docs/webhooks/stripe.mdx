@@ -1,0 +1,59 @@
+---
+id: stripe
+title: Stripe
+slug: /webhooks/stripe
+---
+
+The stripe webhook allows you to get real-time updates about various stripe events.
+## Verification
+
+Stripe validates the authenticity of its webhook events by including a signature in each event's header.
+
+Rowy automatically handles the complexity of the signature verification process, 
+you just need to have a secret key named `stripe` in the Google Secret Manager created.
+
+## Parser
+
+The sample parser provided increments profile credits when the Stripe `checkout.session.completed` event is triggered.
+
+
+```typescript
+const stripeParser: Parser = async ({ req, db, ref, logging }) => {
+  const { FieldValue } = await import('@google-cloud/firestore');
+
+  try {
+    const event = req.body;
+    // For event types: https://stripe.com/docs/api/events/types
+    switch (event.type) {
+      case "checkout.session.completed":
+        logging.log("Checkout completed");
+
+        // Get the user id from the metadata
+        // For more info: https://stripe.com/docs/api/metadata
+        const { uid } = req.body.data.object.metadata; 
+
+        const profile = await db
+          .collection("profiles")
+          .where("userId", "==", uid)
+          .get();
+
+        if (!profile.empty) {
+          const profileData = profile.docs[0];
+          await db
+            .collection("profiles")
+            .doc(profileData.id)
+            .update({ 'package.limit': FieldValue.increment(100) });
+        }
+
+        break;
+      case "payment_intent.payment_failed":
+        // Handle failed payment here
+        logging.error("Payment failed");
+        break;
+    }
+  } catch (error) {
+    logging.error(error);
+  }
+};
+
+```
