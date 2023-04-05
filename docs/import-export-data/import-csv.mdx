@@ -35,6 +35,11 @@ import DateTimeIcon from "@mui/icons-material/AccessTime";
 import JsonIcon from "./assets/Json";
 import CodeIcon from "@mui/icons-material/Code";
 
+import importCsv from "./assets/import-csv.png"
+import customId from "./assets/custom-id.png"
+import bulkUpdate from "./assets/bulk-update.mp4"
+import documentId from "./assets/document-id.png"
+
 Rowy allows you to import CSV / JSON (or TSV, from URL) files to your Firebase database. You can import to an existing Firestore datastore or create a brand new collection right from Rowy.
 
 ## Steps
@@ -50,6 +55,59 @@ Rowy allows you to import CSV / JSON (or TSV, from URL) files to your Firebase d
 5. Review the data to be imported and click **Finish**.
 
 <Video url="https://www.youtube.com/watch?v=sZrepVfLnwg" playsinline  />
+
+## Importing Rows with Custom ID
+
+Generating a row with a Custom Row-ID helps set **custom Document-ID of the row** on the Firebase Firestore. The row will be displayed on the top while it is being edited. Later, it will appear at a different position in the table.
+
+The difference is that the user is given the **liberty to choose the Row ID** and the position of that row is set accordingly.
+
+<img src = {documentId} alt = "document id" />
+
+## Applications of Custom ID
+
+Let us understand it's applications with the help of some examples:
+
+### Case 1: Accessing data from another collection
+
+Let's say we have a Derivative function that fetches data from another collection.
+
+```js
+const regionDoc = await db.collection("touristAreas").doc(row.touristArea).get();
+return regionDoc.get("region");
+```
+
+The `db` parameter can access your Firestore to access any collection or document. 
+
+The above line  above would find the collection named `touristAreas` in your Firestore Database, and try to search for a document with its **Document-ID** matching the value in the field `touristArea` in your current collection. This would return the region field of the found document.
+
+
+### Case 2: Bulk updating fields via Import
+
+**Importing data via a CSV file** is the way to go for bulk updating data in your table. Make sure you're using **Custom-ID** for your data as [described below](#changing-auto-generated-id-to-custom-id). Export the data from your Rowy table as a CSV file first. This will **incorporate the same column names** as the ones in the Rowy table.
+
+Thereafter, add data to it and import it back again into your Rowy project (make sure you have selected the same field as the Document-ID). This will let you update the records.
+
+:::warning Bulk Updating Fields  
+For Bulk Updation, try initializing the data as a CSV import as well. This will help match the **Document-ID** to that in the Firestore collection. **If you try to update records that were not added via the import CSV method, it will result in duplicates.**
+:::
+
+<Video url={bulkUpdate} playing loop muted playsinline controls />
+
+## Changing Auto-generated ID to Custom ID
+
+If you have your Document-ID auto-generated, you can perform the following options to set custom IDs:
+
+- You can **export your table to a CSV file** using the export option in the top right menu. 
+- **Create a new table** and **import** the data via the same CSV file. 
+- While importing, if you scroll down, you'll see an option for **setting Document-ID**. 
+- Choose **Pick a column** and **select a column you want to keep as the Column-ID**.
+
+<img src = {importCsv} alt = "import csv" />
+
+- Going forward, when you add a row, you can select the option to add a row **With Custom-ID** so it asks you to provide a Document-ID everytime.
+
+<img src = {customId} alt = "custom id" />
 
 ## Supported Field Types for import via CSV
 
