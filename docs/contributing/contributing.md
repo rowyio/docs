@@ -48,3 +48,20 @@ If you’re creating a new field type, read the
 [add a field type](./add-a-field-type.mdx) document for a step-by-step guide.
 
 :::
+
+<hr />
+
+#### Comments
+
+<head>
+  <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</head>
+
+<div id="cusdis"
+  data-host="https://cusdis.com"
+  data-app-id="49da488c-98c0-4284-943e-fc2be8b8504b"
+  data-page-id= {frontMatter.id}
+  data-page-url= {frontMatter.slug}
+  data-page-title= {frontMatter.title}
+  data-theme="auto"
+></div>
