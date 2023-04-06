@@ -116,3 +116,20 @@ need to install [Rowy Run](/rowy-run) manually.
    **FIX:** 
    - Login to the firebase account using the **Firebase CLI**. Install Firebase CLI globally using `npm install -g firebase-tools`.
    - **Setting up environment variables** as described in the 3rd step of the manual installation process.
+
+<hr />
+
+#### Comments
+
+<head>
+  <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</head>
+
+<div id="cusdis"
+  data-host="https://cusdis.com"
+  data-app-id="49da488c-98c0-4284-943e-fc2be8b8504b"
+  data-page-id= {frontMatter.id}
+  data-page-url= {frontMatter.slug}
+  data-page-title= {frontMatter.title}
+  data-theme="auto"
+></div>
