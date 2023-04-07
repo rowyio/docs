@@ -37,6 +37,7 @@ module.exports = {
             "how-to/create-workspace",
             "how-to/create-project",
             "how-to/roles",
+            "how-to/access-control",
             "how-to/create-table",
             "how-to/create-column",
             "how-to/add-row",
