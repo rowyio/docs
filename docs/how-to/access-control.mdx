@@ -8,6 +8,7 @@ import accessControl1 from './assets/access-control1.png';
 import accessControl2 from './assets/access-control2.png';
 import accessControl3 from './assets/access-control3.png';
 import accessControl4 from './assets/access-control4.png';
+import accessControl5 from './assets/access-control5.png';
 
 For all the existing roles in your table, you can setup automated roles for each table in your Workspace directly from your Table Settings.
 
@@ -45,3 +46,26 @@ The Access Control allows the following permissions for each role:
 - **Create** - Allows the Role to **create new records** in the table. (Adding a new row)
 - **Delete** - Allows the Role to **delete the data** in the table. (Removing row from the table)
 - **Edit** - Allows the Role to **update the data** in the table. (Changing a value in the row)
+
+
+### Example
+
+Let us take an example to understand how we can set up these automated roles.
+
+**EXAMPLE:** Let's set the following automated roles for our table.
+
+- We need the **ADMIN** and **OWNER** role to be able to perform all the actions in the table, i.e **View**, **Create**, **Delete** and **Edit**.
+
+- The **EDITOR** role to be able to perform the **View**, **Create**, and **Edit** actions in the table.
+
+- The **VIEWER** role to be able to perform the **View** action in the table.
+
+Our table rules would look like this:
+
+< img src={accessControl5} alt="Access Control" />
+
+- Click on **Update**.
+
+:::info No Need to update the rules manually
+There is no need to go to the Firebase console to update the rules. Rowy will automatically update the rules for you.
+:::
