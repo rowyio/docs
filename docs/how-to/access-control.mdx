@@ -47,6 +47,9 @@ The Access Control allows the following permissions for each role:
 - **Delete** - Allows the Role to **delete the data** in the table. (Removing row from the table)
 - **Edit** - Allows the Role to **update the data** in the table. (Changing a value in the row)
 
+:::info NOTE
+The **ADMIN** and **OWNER** roles are automatically assigned to the users who have access to the table. You can't change the permissions for these roles.
+:::
 
 ### Example
 
@@ -54,7 +57,7 @@ Let us take an example to understand how we can set up these automated roles.
 
 **EXAMPLE:** Let's set the following automated roles for our table.
 
-- We need the **ADMIN** and **OWNER** role to be able to perform all the actions in the table, i.e **View**, **Create**, **Delete** and **Edit**.
+- We need the **ADMIN** and **OWNER** role to be able to perform all the actions in the table **by default**, i.e **View**, **Create**, **Delete** and **Edit**.
 
 - The **EDITOR** role to be able to perform the **View**, **Create**, and **Edit** actions in the table.
 
