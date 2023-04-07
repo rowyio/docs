@@ -5,7 +5,32 @@ slug: /how-to/access-control
 ---
 
 import accessControl1 from './assets/access-control1.png';
+import accessControl2 from './assets/access-control2.png';
+import accessControl3 from './assets/access-control3.png';
+import accessControl4 from './assets/access-control4.png';
 
 For all the existing roles in your table, you can setup automated roles for each table in your Workspace directly from your Table Settings.
 
 <img src={accessControl1} alt="Access Control" />
+
+
+## Pre-requisites
+
+Follow these steps to enable the automated roles for your table:
+
+**STEP 1:** Go to [IAM and Admin](https://console.cloud.google.com/iam-admin/iam) in your GCP Console.
+
+:::note NOTE
+Make sure you have the correct project selected in the top left corner of the console.
+<img src={accessControl2} alt="Access Control" />
+:::
+
+**STEP 2:** In the following Principals, look for `rowy-service@…` and click on the **Edit** button.
+<img src={accessControl3} alt="Access Control" />
+
+**STEP 3:** In the following side menu, click on the **Add another role** button and select the `Firebase Rules Admin` role.
+<img src={accessControl4} alt="Access Control" />
+
+**STEP 4:** Click on the **Save** button to save the changes. You'll need to wait (30 secs to 1 min) for the changes to take effect.
+
+Voila! You're all set to use the automated roles in your table. 🚀
