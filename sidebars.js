@@ -139,6 +139,7 @@ module.exports = {
           items: [
             "import-export-data/import-csv",
             "import-export-data/import-airtable",
+            "import-export-data/import-postgresql-sql",
           ],
         },
         "cloud-functions/full-text-search",
