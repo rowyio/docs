@@ -6,6 +6,7 @@ slug: /
 
 import Video from "../src/components/Video";
 import videoUrl from "/static/img/intro.mp4";
+import CusdisComments from '../src/components/CusdisComments';
 
 An open source low-code platform for building your product backend
 
@@ -49,3 +50,16 @@ We would love to hear what you are building and support your product build journ
 [![Twitter @rowyio](https://img.shields.io/badge/Twitter-%40rowyio-%231d9bf0?logo=twitter&logoColor=%23fff&style=for-the-badge)](https://twitter.com/rowyio)
 
 You can also email us at [hello@rowy.io](mailto:hello@rowy.io)
+
+<hr />
+
+#### Comments
+
+<CusdisComments
+  id="cusdis_thread"
+  attrs={{
+    pageId: frontMatter.id,
+    pageTitle: frontMatter.title,
+    pageUrl: frontMatter.__resourcePath,
+  }} 
+/>

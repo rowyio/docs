@@ -16,6 +16,7 @@ import flutterflow8 from './assets/flutterflow8.png'
 import flutterflow9 from './assets/flutterflow9.png'
 import flutterflow10 from './assets/flutterflow10.png'
 import flutterflow11 from './assets/flutterflow11.png'
+import CusdisComments from '../../src/components/CusdisComments';
 
 Let's set up Rowy and FlutterFlow to build a full stack application. 
 
@@ -235,3 +236,16 @@ To create a workspace, follow the steps below, or [visit our docs](https://docs.
 :::info  Other Database Support
 Currently, Rowy supports only Firestore as a data source. **PostgreSQL** and **MySQL** will be supported in the future versions.
 :::
+
+<hr />
+
+#### Comments
+
+<CusdisComments
+  id="cusdis_thread"
+  attrs={{
+    pageId: frontMatter.id,
+    pageTitle: frontMatter.title,
+    pageUrl: frontMatter.__resourcePath,
+  }} 
+/>

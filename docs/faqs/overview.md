@@ -5,6 +5,8 @@ sidebar_label: Overview
 slug: /faqs
 ---
 
+import CusdisComments from '../../src/components/CusdisComments';
+
 ### Can I see my existing collections in Rowy?
 
 Yes! This is one of the main use cases for Rowy. When you click **Create
@@ -27,3 +29,16 @@ production database would.
 At the moment, we only support Firestore. Let us know on
 [Discord](https://discord.com/invite/B8yAD5PDX4) if you would like us to support
 another database and which database. We would like to hear about your use case.
+
+<hr />
+
+#### Comments
+
+<CusdisComments
+  id="cusdis_thread"
+  attrs={{
+    pageId: frontMatter.id,
+    pageTitle: frontMatter.title,
+    pageUrl: frontMatter.__resourcePath,
+  }} 
+/>

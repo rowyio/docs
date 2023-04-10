@@ -9,6 +9,7 @@ import logMessages from "./assets/log-messages.png"
 import cloudLogs2 from "./assets/cloud-logs2.png"
 import cloudLogs3 from "./assets/cloud-logs3.png"
 import legacyLogs from "./assets/legacy-logs.png"
+import CusdisComments from '../../src/components/CusdisComments';
 
 Logging is an essential part of debugging and monitoring code. Rowy provides accessible **build**, **runtime**, and **audit logs** for all the cloud functions in a table.
 
@@ -88,3 +89,16 @@ The legacy function logs exist because some users still make use of `console.log
 :::
 
 <img src={legacyLogs} alt="Legacy Logs" />
+
+<hr />
+
+#### Comments
+
+<CusdisComments
+  id="cusdis_thread"
+  attrs={{
+    pageId: frontMatter.id,
+    pageTitle: frontMatter.title,
+    pageUrl: frontMatter.__resourcePath,
+  }} 
+/>

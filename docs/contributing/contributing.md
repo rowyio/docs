@@ -5,6 +5,8 @@ sidebar_label: Overview
 slug: /contributing
 ---
 
+import CusdisComments from '../../src/components/CusdisComments';
+
 We ♡ and welcome all contributions including features, issues, answering
 discussions, documentation, translation, feedback and how-to guides.
 
@@ -48,3 +50,16 @@ If you’re creating a new field type, read the
 [add a field type](./add-a-field-type.mdx) document for a step-by-step guide.
 
 :::
+
+<hr />
+
+#### Comments
+
+<CusdisComments
+  id="cusdis_thread"
+  attrs={{
+    pageId: frontMatter.id,
+    pageTitle: frontMatter.title,
+    pageUrl: frontMatter.__resourcePath,
+  }} 
+/>

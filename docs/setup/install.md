@@ -5,6 +5,7 @@ slug: /setup/install
 ---
 
 import Video from "../../src/components/Video.js";
+import CusdisComments from "../../src/components/CusdisComments.js";
 
 Set up Rowy on your Google Cloud or Firebase project in minutes.
 
@@ -116,3 +117,16 @@ need to install [Rowy Run](/rowy-run) manually.
    **FIX:** 
    - Login to the firebase account using the **Firebase CLI**. Install Firebase CLI globally using `npm install -g firebase-tools`.
    - **Setting up environment variables** as described in the 3rd step of the manual installation process.
+
+<hr />
+
+#### Comments
+
+<CusdisComments
+  id="cusdis_thread"
+  attrs={{
+    pageId: frontMatter.id,
+    pageTitle: frontMatter.title,
+    pageUrl: frontMatter.__resourcePath,
+  }} 
+/>

@@ -4,6 +4,8 @@ title: Code Snippets
 slug: /code-snippets
 ---
 
+import CusdisComments from '../../src/components/CusdisComments';
+
 Here you can find the code snippets for the common scenarios and use cases while working with Rowy.
 
 ## Accessing data from another collection
@@ -53,3 +55,16 @@ Following is a code snippet of how to access a field (here `fieldName`) from the
 const parentDoc = await ref.parent.parent.get()
 const fieldNameValue = parentDoc.get("fieldName") // fieldName is in the parent table
 ```
+
+<hr />
+
+#### Comments
+
+<CusdisComments
+  id="cusdis_thread"
+  attrs={{
+    pageId: frontMatter.id,
+    pageTitle: frontMatter.title,
+    pageUrl: frontMatter.__resourcePath,
+  }} 
+/>
