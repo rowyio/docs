@@ -1,7 +1,7 @@
 ---
 id: overview
 title: Webhooks
-sidebar_label: Overview
+sidebar_label: Webhooks Overview
 slug: /webhooks
 ---
 

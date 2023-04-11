@@ -31,7 +31,8 @@ module.exports = {
         {
           type: "category",
           label: "How to guide",
-          link: { type: "generated-index" },
+          // link: { type: "generated-index" },
+          collapsible: true,
           collapsed: false,
           items: [
             "how-to/create-workspace",
@@ -50,7 +51,7 @@ module.exports = {
         {
           type: "category",
           label: "FAQs",
-          link: { type: "generated-index" },
+          // link: { type: "generated-index" },
           collapsed: true,
           items: ["faqs/overview", "faqs/database", "faqs/access", "faqs/cost"],
         },
@@ -83,7 +84,7 @@ module.exports = {
             {
               type: "category",
               label: "Bots",
-              link: { type: "generated-index" },
+              // link: { type: "generated-index" },
               collapsible: true,
               items: ["bots/slack-bot", "bots/twitter-bot"],
             },
@@ -104,13 +105,10 @@ module.exports = {
       items: [
         {
           type: "category",
-          label: "Supported Field Types",
-          link: {
-            type: "doc",
-            id: "field-types/supported-fields",
-          },
+          label: "Field Types",
           collapsed: true,
           items: [
+            "field-types/supported-fields",
             "field-types/audit-fields",
             "field-types/derivative",
             "field-types/connector",
@@ -120,7 +118,10 @@ module.exports = {
             {
               type: "category",
               label: "Array Fields",
-              link: { type: "generated-index" },
+              // link: {
+              //   type: "doc",
+              //   id: "field-types/array-overview",
+              // },
               collapsed: true,
               items: ["field-types/array-overview", "field-types/array"],
             },
@@ -134,7 +135,7 @@ module.exports = {
         {
           type: "category",
           label: "Import / Export Data",
-          link: { type: "generated-index" },
+          // link: { type: "generated-index" },
           collapsed: false,
           items: [
             "import-export-data/import-csv",
@@ -146,7 +147,7 @@ module.exports = {
         {
           type: "category",
           label: "API Reference",
-          link: { type: "generated-index" },
+          // link: { type: "generated-index" },
           items: [
             "reference/rowy-user",
             "reference/action-status",
@@ -163,12 +164,13 @@ module.exports = {
         {
           type: "category",
           label: "Extensions",
-          link: {
-            type: "doc",
-            id: "extensions/overview",
-          },
+          // link: {
+          //   type: "doc",
+          //   id: "extensions/overview",
+          // },
           collapsed: true,
           items: [
+            "extensions/overview",
             "extensions/algolia-index",
             "extensions/sendgrid-email",
             "extensions/twilio-message",
@@ -180,12 +182,12 @@ module.exports = {
         {
           type: "category",
           label: "Webhooks",
-          link: {
-            type: "doc",
-            id: "webhooks/overview",
-          },
+          // link: {
+          //   type: "doc",
+          //   id: "webhooks/overview",
+          // },
           collapsed: true,
-          items: ["webhooks/basic", "webhooks/typeform", "webhooks/stripe"],
+          items: ["webhooks/overview", "webhooks/basic", "webhooks/typeform", "webhooks/stripe"],
         },
         "field-types/derivative",
         "field-types/action",
@@ -207,7 +209,7 @@ module.exports = {
         {
           type: "category",
           label: "FlutterFlow",
-          link: { type: "generated-index" },
+          // link: { type: "generated-index" },
           collapsible: true,
           items: [
             "flutterflow/setup",
@@ -232,7 +234,6 @@ module.exports = {
         {
           type: "category",
           label: "Contributing",
-          link: { type: "doc", id: "contributing/contributing" },
           items: [
             "contributing/contributing",
             "contributing/frontend-architecture",
