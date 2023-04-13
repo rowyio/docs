@@ -7,11 +7,16 @@ slug: workflows/field-names
 import fieldNames1 from "./assets/field-names-1.png";
 import fieldNames2 from "./assets/field-names-2.png";
 import fieldNames3 from "./assets/field-names-3.png";
+import fieldNames4 from "./assets/field-names-4.png";
+import fieldNames5 from "./assets/field-names-5.png";
 
 
 With Rowy, you can set the display names and the database field key seperately.
 
 When you create a new column, in the pop-up modal you'll be able to see a **Column Name** and a **Field Key**.
+
+- **Column Name** is the name of the column that will be displayed in the table.
+- **Field Key** is the name of the column in the database.
 
 ## Column Name
 
@@ -21,7 +26,7 @@ The **Column Name** is the **title of the column** that will be displayed in the
 
 ## Field Key
 
-The **Field Key** is how the column is stored in the database. The field key is automatically generated from the column name, but you can change it at the time of column creation.
+The **Field Key** is how the column is stored in the database. The field key is automatically generated as the **Column Name in Camel Case**, but you can change it at the time of column creation.
 
 <img src={fieldNames2} alt= "Field Key" />
 
@@ -34,6 +39,18 @@ If you have pre-existing data in your database, you can use the **Field Key** to
 
 :::
 
-## Copying your Field Keys
+:::tip Copying your Field Keys
 
 You can simply hover over the column or simply click on it, you'll be able to copy the underlying **Field Key** to your clipboard.
+
+:::
+
+### Field Key in the database
+
+If you go to the database by clicking on the **Document Path** available in the side panel, you'll be redirected to the location of that document in the database.
+
+<img src={fieldNames4} alt= "Field Key in the database" />
+
+Here, you can see the **Field Key** of the column stored in the database.
+
+<img src= {fieldNames5} alt= "Field Key in the database" />
