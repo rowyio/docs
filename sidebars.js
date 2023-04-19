@@ -31,7 +31,7 @@ module.exports = {
         {
           type: "category",
           label: "How to guide",
-          // link: { type: "generated-index" },
+          link: { type: "generated-index" },
           collapsible: true,
           collapsed: false,
           items: [
