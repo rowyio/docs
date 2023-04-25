@@ -132,7 +132,7 @@ module.exports = {
             "field-types/formula",
           ],
         },
-        "workflows/field-names",
+        "database/field-names",
         {
           type: "category",
           label: "Import / Export Data",
