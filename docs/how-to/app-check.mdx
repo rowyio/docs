@@ -4,4 +4,31 @@ title: Firebase AppCheck for Rowy
 slug: /how-to/app-check
 ---
 
+import appCheck1 from "./assets/app-check-1.png";
+import appCheck2 from "./assets/app-check-2.png";
+import appCheck3 from "./assets/app-check-3.png";
+import appCheck4 from "./assets/app-check-4.png";
+import appCheck5 from "./assets/app-check-5.png";
+
 AppCheck is a security solution provided by Firebase that helps protect your database from abuse, including abuse stemming from automated bots. This guide provides instructions on how you can use Rowy with AppCheck enabled.
+
+## Steps
+
+Follow the steps below to enable AppCheck for your Rowy project.
+
+1. Firstly, we need to register a new site on https://www.google.com/recaptcha/admin/create.
+<img src={appCheck1} alt="AppCheck 1" />
+
+2. Add your domain, i.e. `rowy.app`, and select your Firebase project. Click **Submit**, and then click **Copy Secret Key**.
+<img src={appCheck2} alt="AppCheck 2" />
+
+3. Go to the AppCheck section of your Firebase console at https://console.firebase.google.com/u/0/project/_/appcheck/apps. Click the "register" in `rowyApp` button.
+<img src={appCheck3} alt="AppCheck 3" />
+
+4. Click on the `reCAPTCHA` option and paste the **Secret Key** that you copied earlier. Click **Save**.
+<img src={appCheck4} alt="AppCheck 4" />
+
+5. Go back to reCAPTCHA and click **Copy Site Key**.
+
+6. Paste the site key into your rowy app and click **Add / Update**.
+<img src={appCheck5} alt="AppCheck 5" />
