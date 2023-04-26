@@ -96,7 +96,7 @@ Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md
 7. Set the `ADMIN` role for your account using
    [these instructions&nbsp;&RightArrow;](/how-to/roles?set-user-roles-tabs=admin-sdk#set-user-roles)
 
-8. Sign out and sign in again to access your Rowy project.
+8. Sign out and sign in again from the browser, not the terminal to access your Rowy project.
 
 9. Some backend features require Rowy Run to be installed on your project. You’ll
 need to install [Rowy Run](/rowy-run) manually. 
