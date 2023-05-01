@@ -30,6 +30,15 @@ Array Sub-table is a field type that allows you to create an Array of JSON Objec
 **STEP 5:** Click on the **open table icon**, this opens the Array Sub-table. In the Array Sub-table, add columns for the JSON object keys, and rows for the JSON object values.
 <img src={arraySubtable3} alt="Array Sub-table" />
 
+:::note Supported Field types for Array Sub-table
+Since the Array Sub-table field is a visual representation of an array of JSON objects, it currently does not support the following field types:
+- Array Sub-table (Nested)
+- Sub-table
+- Action
+- Derivatives
+- Audit Fields
+:::
+
 ## Example - Stationary Store Inventory
 
 Suppose you want to keep track of the inventory for different stationary shops along with their basic information such as Address and Contact Information. You can use an Array Sub-table field to store the products for each shop, along with their quantity and whether or not they are sold.
