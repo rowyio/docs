@@ -7,6 +7,9 @@ slug: /field-types/array-subtable
 import arraySubtable1 from './assets/array-subtable-1.png'
 import arraySubtable2 from './assets/array-subtable-2.png'
 import arraySubtable3 from './assets/array-subtable-3.png'
+import arraySubtable4 from './assets/array-subtable-4.png'
+import arraySubtable5 from './assets/array-subtable-5.png'
+import arraySubtable6 from './assets/array-subtable-6.png'
 
 Array Sub-table is a field type that allows you to create an Array of JSON Objects visually in the form of a Sub-table. The column names of the Sub-table become the keys of the JSON Object and the row values become the values of the JSON Object.
 
@@ -24,3 +27,23 @@ Array Sub-table is a field type that allows you to create an Array of JSON Objec
 
 **STEP 5:** Click on the **open table icon**, this opens the Array Sub-table. In the Array Sub-table, add columns for the JSON object keys, and rows for the JSON object values.
 <img src={arraySubtable3} alt="Array Sub-table" />
+
+## Example - Stationary Store Inventory
+
+Suppose you want to keep track of the inventory for different stationary shops along with their basic information such as Address and Contact Information. You can use an Array Sub-table field to store the products for each shop, along with their quantity and whether or not they are sold.
+
+Suppose you have two shops, Shop A and Shop B, and you want to track the inventory for them.
+
+**SHOP - A INVENTORY**
+
+<img src={arraySubtable4} alt="Array Sub-table" />
+
+**SHOP - B INVENTORY**
+
+<img src={arraySubtable5} alt="Array Sub-table" />
+
+You can store the data for each shop in seperate rows, each having a Shop Name, Address Field, Contact Number Field, and an Array Sub-table Field to store the inventory.
+The Array Sub-table field will store the data in the form of an array of JSON objects.
+
+The table would look something like this:
+<img src={arraySubtable6} alt="Array Sub-table" />
