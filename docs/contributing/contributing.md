@@ -10,18 +10,23 @@ discussions, documentation, translation, feedback and how-to guides.
 
 ## How to contribute
 
-- Try Rowy and give [feedback](mailto:feedback@rowy.io)
-- Raise any [issue](https://github.com/rowyio/rowy/issues)
-- Take a look at [good first issues](https://github.com/rowyio/rowy/projects/3),
+- Try out Rowy and give [feedback](mailto:feedback@rowy.io). We’d love to hear
+  from you!
+- Raise an [issue](https://github.com/rowyio/rowy/issues) if you find a bug or
+  have a feature request.
+- Take a look at the [good first issues](https://github.com/rowyio/rowy/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22),
   our
   [contribution guide](https://github.com/rowyio/rowy/blob/main/CONTRIBUTING.md),
-  and submit a pull request
+  and submit a pull request to help us improve Rowy.
+
 - Fork our [GitHub repo](https://github.com/rowyio/rowy) and follow the
   [manual install instructions](../setup/install.md#option-2-manual-install) to
-  set up your local development environment
-- Help us improve our [docs](https://github.com/rowyio/rowy/docs) and
-  [how-to guides](https://docs.rowy.io/how-to/create-table)
-- Spread the word if you like Rowy by [tweeting](https://ctt.ac/M00va) about it
+  set up your local development environment.
+
+- Help us improve our [docs](https://github.com/rowyio/docs) and
+  [how-to guides](https://docs.rowy.io/category/how-to-guide).
+
+- Spread the word if you like Rowy by [tweeting](https://ctt.ac/M00va) about it.
 
 ## Got a question?
 
