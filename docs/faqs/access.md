@@ -21,3 +21,26 @@ Rowy is [open-source](https://github.com/rowyio/rowy) and can alternatively be s
     - For existing Firebase project, Rowy will show you the exact rule snippet that needs to be added. You can do this manually or apply using a single click during onboarding after looking verifying at the rules diff on screen.
 
 Once Rowy setup is complete, you will get a hosted Rowy App URL (**yourprojectid.rowy.app**). You can build and manage your tables, invite your team members with granular access controls. With Firebase Auth, only users with specific roles as per the Firestore rules will be able to access the data. Therefore you have full ability to control access permissions at table as well as field level.
+
+### Unable to upload files
+
+Rowy uses Firebase Storage to store files. Firebase Storage rules must grant permissions for the table and user on the table you'd like to upload files to via Rowy, if you are using custom rules. 
+
+If you are using the default rules, Rowy should have automatically updated the rules for you during project setup. If you accidentally changed the rules, you can reset the rules:
+
+1. Go to the Firebase console
+2. On the left sidebar, expand Build and click on Storage
+3. On the top of the page, click on Rules
+4. Set the rules to default rules
+
+**Default Firebase Storage rules**
+```
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if request.auth.token.roles.size() > 0;
+    }
+  }
+}
+```
