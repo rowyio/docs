@@ -130,6 +130,7 @@ module.exports = {
             "field-types/image-file",
             "field-types/status",
             "field-types/sub-table",
+            "field-types/array-subtable",
             "field-types/formula",
           ],
         },
