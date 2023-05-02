@@ -20,7 +20,7 @@ Rowy is [open-source](https://github.com/rowyio/rowy) and can alternatively be s
     - In the case of a new Firebase project, this is completely automted
     - For existing Firebase project, Rowy will show you the exact rule snippet that needs to be added. You can do this manually or apply using a single click during onboarding after looking verifying at the rules diff on screen.
 
-Once Rowy setup is complete, you will get a hosted Rowy App URL (**yourprojectid.rowy.app**). You can build and manage your tables, invite your team members with granular access controls. With Firebase Auth, only users with specific roles as per the Firestore rules will be able to access the data. Therefore you have full ability to control access permissions at table as well as field level.
+Once Rowy setup is complete, you can build and manage your tables, invite your team members with granular access controls. With Firebase Auth, only users with specific roles as per the Firestore rules will be able to access the data. Therefore you have full ability to control access permissions at table as well as field level.
 
 ### Unable to upload files
 
