@@ -48,7 +48,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
       "https://rsms.me/inter/inter.css",
       "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap",
     ],
-
+  
     themeConfig:
       /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
       ({
@@ -161,6 +161,9 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
 
           // Optional: see doc section below
           contextualSearch: true,
+        },
+        fathomAnalytics: {
+          siteId: 'PVABIULD',
         },
         colorMode: {
           defaultMode: "light",

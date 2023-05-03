@@ -1,6 +1,6 @@
 ---
 id: install
-title: Installation
+title: Setup
 slug: /setup/install
 ---
 
@@ -10,26 +10,32 @@ Set up Rowy on your Google Cloud or Firebase project in minutes.
 
 ## Option 1: Quick setup — ✅ Recommended
 
-You can set up Rowy using our guided setup process. It will take less than 2 minutes to complete. 
+This takes less will take less than 2 minutes to get setup. 
 
 <p>
-<a href="https://deploy.rowy.app" class="button button--lg">Deploy now</a>
+<a href="https://rowy.app/" class="button button--lg">Setup now</a>
 </p>
 
-You can use Rowy with existing Firebase project or by creating a new one by simply following the guided setup process with the deploy button above.
+You can use Rowy with an existing Firebase project or create a new one during the setup.
+
+<i>Don't worry if you have not used Firebase before, Rowy will guide you through the process. </i>  <br/><br/>
 
 <Video controls url="https://www.youtube.com/watch?v=7Vc-ZJDNYbM" />
 
 ## Option 2: Manual install
 
-If you don’t want to set up Rowy as described above, you can follow these steps
-to install it manually for development before hosting it yourself.
+This option is only recommended if you want to develop and contribute to the project. 
 
-:::warning Required
+:::warning Important note
 
-This setup is for developers familiar with Firebase and GCP console. If you want a nocode like setup experience use Option 1. 
+- This setup is for developers wanting to contribute to Rowy open source project
+- You have familiarity with Firebase and GCP console
+- This option will not get automatic updates with latest feature. To get automatic updates, use [Option 1](/setup/install#option-1-quick-setup---recommended)
+- There are also some [known issues](/setup/install#common-issues-with-option-2---manual-install) with manual install and we are not able to provide support for this option
 
-Before starting, make sure you have a Google Cloud or Firebase project with
+If you want a nocode / lowcode like setup experience use Option 1 above. Also, to get Rowy Pro features and latest updates use 
+
+- Before starting, make sure you have a Google Cloud or Firebase project with
 **Firestore** and **Firebase Authentication** enabled.
 
 Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md)
@@ -90,16 +96,14 @@ Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md
 7. Set the `ADMIN` role for your account using
    [these instructions&nbsp;&RightArrow;](/how-to/roles?set-user-roles-tabs=admin-sdk#set-user-roles)
 
-8. Sign out and sign in again to access your Rowy project.
+8. Sign out and sign in again from the browser, not the terminal to access your Rowy project.
 
-Some backend features require Rowy Run to be installed on your project. You’ll
-need to install Rowy Run manually:
+9. Some backend features require Rowy Run to be installed on your project. You’ll
+need to install [Rowy Run](/rowy-run) manually. 
 
-<p>
-<a href="/rowy-run" class="button">Install Rowy Run</a>
-</p>
+10. You will not get updates to Rowy automatically, and would require [manual update](/rowy-run). To get automatic updates to the Rowy App, use the [Option 1](/setup/install#option-1-quick-setup---recommended).
 
-## Common Issues
+### Common Issues with Option 2 - manual install
 
 1. **ERROR MESSAGE:** `rowy@3.0.0: The engine "node" is incompatible with this module. Expected version ">=16". Got "14.19.0`.
 

@@ -25,37 +25,34 @@ module.exports = {
       type: "category",
       label: "Getting started",
       collapsible: true,
+      collapsed: false,
       items: [
-        {
-          type: "category",
-          label: "Setup",
-          link: { type: "doc", id: "setup/install" },
-          collapsed: true,
-          items: ["setup/install", "setup/update"],
-        },
+        "setup/install",
         {
           type: "category",
           label: "How to guide",
           link: { type: "generated-index" },
-          collapsed: true,
+          collapsible: true,
+          collapsed: false,
           items: [
             "how-to/create-workspace",
             "how-to/create-project",
             "how-to/roles",
+            "how-to/access-control",
             "how-to/create-table",
             "how-to/create-column",
             "how-to/add-row",
             "how-to/custom-views",
             "how-to/default-values",
             "how-to/multiple-tables",
+            "how-to/app-check",
           ],
         },
-        
 
         {
           type: "category",
           label: "FAQs",
-          link: { type: "generated-index" },
+          // link: { type: "generated-index" },
           collapsed: true,
           items: ["faqs/overview", "faqs/database", "faqs/access", "faqs/cost"],
         },
@@ -68,79 +65,112 @@ module.exports = {
     //   items: [
     //     "templates/roadmap"
     //   ]
-      
+
     // },
     {
       type: "category",
-      label: "Tutorials",
+      label: "Learning and Resources",
       collapsible: true,
+      collapsed: true,
       items: [
-        "tutorials/webflow-form",
-        "tutorials/spotify-wrapped",
-        "tutorials/pdf-generator",
+        "cloud-functions/code-snippets",
         {
           type: "category",
-          label: "Bots",
-          link: { type: "generated-index" },
+          label: "Tutorials",
           collapsible: true,
           items: [
-            "bots/slack-bot",
-            "bots/twitter-bot",
+            "tutorials/webflow-form",
+            "tutorials/spotify-wrapped",
+            "tutorials/pdf-generator",
+            {
+              type: "category",
+              label: "Bots",
+              // link: { type: "generated-index" },
+              collapsible: true,
+              items: ["bots/slack-bot", "bots/twitter-bot"],
+            },
+            // "templates/typeform-webhook",
+            // "templates/bannerbear",
+            // "templates/magic-link",
+            // "templates/translate-api",
+            // "templates/github-webhook",
+            // "templates/cal-scheduling",
           ],
         },
-        
-        // "templates/typeform-webhook",
-        // "templates/bannerbear",
-        // "templates/magic-link",
-        // "templates/translate-api",
-        // "templates/github-webhook",
-        // "templates/cal-scheduling",
-      ]
-      
+      ],
     },
     {
       type: "category",
-      label: "Features",
+      label: "Database",
       collapsible: false,
       items: [
         {
           type: "category",
-          label: "Field types",
-          link: { type: "generated-index" },
+          label: "Field Types",
           collapsed: true,
           items: [
             "field-types/supported-fields",
             "field-types/audit-fields",
             "field-types/derivative",
             "field-types/connector",
-            "field-types/connect-table",
+            // "field-types/connect-table",
             "field-types/connect-service",
             "field-types/action",
+            {
+              type: "category",
+              label: "Array Fields",
+              // link: {
+              //   type: "doc",
+              //   id: "field-types/array-overview",
+              // },
+              collapsed: true,
+              items: ["field-types/array-overview", "field-types/array"],
+            },
+            // "field-types/array",
             "field-types/image-file",
             "field-types/status",
             "field-types/sub-table",
+            "field-types/array-subtable",
             "field-types/formula",
           ],
         },
+        "database/field-names",
         {
           type: "category",
           label: "Import / Export Data",
-          link: { type: "generated-index" },
-          collapsed: true,
-          items: ["import-export-data/import-csv","import-export-data/import-airtable"],
-        }
-        
+          // link: { type: "generated-index" },
+          collapsed: false,
+          items: [
+            "import-export-data/import-csv",
+            "import-export-data/import-airtable",
+            "import-export-data/import-postgresql-sql",
+          ],
+        },
+        "cloud-functions/full-text-search",
+        {
+          type: "category",
+          label: "API Reference",
+          // link: { type: "generated-index" },
+          items: [
+            "reference/rowy-user",
+            "reference/action-status",
+            "reference/rowy",
+          ],
+        },
       ],
     },
     {
       type: "category",
-      label: "Cloud functions",
+      label: "Workflows",
       collapsible: false,
       items: [
         {
           type: "category",
           label: "Extensions",
-          link: { type: "generated-index" },
+          // link: {
+          //   type: "doc",
+          //   id: "extensions/overview",
+          // },
           collapsed: true,
           items: [
             "extensions/overview",
@@ -155,49 +185,69 @@ module.exports = {
         {
           type: "category",
           label: "Webhooks",
-          link: { type: "generated-index" },
+          // link: {
+          //   type: "doc",
+          //   id: "webhooks/overview",
+          // },
           collapsed: true,
-          items: ["webhooks/overview", "webhooks/basic", "webhooks/typeform"],
+          items: ["webhooks/overview", "webhooks/basic", "webhooks/typeform", "webhooks/stripe"],
         },
         "field-types/derivative",
         "field-types/action",
         "cloud-functions/cloud-logs",
-        "cloud-functions/code-snippets",
-        "cloud-functions/full-text-search",
+
         // {
         //   type: "category",
         //   label: "Rowy Run",
         //   collapsed: true,
         //   items: ["rowy-run/overview"],
         // },
+      ],
+    },
+    {
+      type: "category",
+      label: "Integrations",
+      collapsible: true,
+      items: [
         {
           type: "category",
-          label: "API Reference",
-          link: { type: "generated-index" },
+          label: "FlutterFlow",
+          // link: { type: "generated-index" },
+          collapsible: true,
           items: [
-            "reference/rowy-user",
-            "reference/action-status",
-            "reference/rowy",
+            "flutterflow/setup",
+            "flutterflow/mapping-datatypes",
+            "flutterflow/displaying-images",
+            "flutterflow/displaying-timestamps",
           ],
         },
       ],
     },
-
     {
       type: "category",
       label: "Community",
       collapsible: true,
+      collapsed: false,
       items: [
-        "changelog/changelog",
+        {
+          type: "link",
+          label: "Changelog",
+          href: "https://www.rowy.io/changelog",
+        },
         {
           type: "category",
           label: "Contributing",
-          link: { type: "doc", id: "contributing/contributing" },
           items: [
             "contributing/contributing",
             "contributing/frontend-architecture",
             "contributing/add-a-field-type",
           ],
+        },
+        "help-and-support",
+        {
+          type: "link",
+          label: "Events",
+          href: "https://www.rowy.io/events",
         },
       ],
     },

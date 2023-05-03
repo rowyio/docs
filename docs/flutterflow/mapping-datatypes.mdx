@@ -1,0 +1,54 @@
+---
+id: mapping-datatypes
+title: Mapping FlutterFlow Data Types in Rowy
+slug: /integrations/flutterflow/mapping-datatypes
+---
+
+import flutterflow18 from './assets/flutterflow18.png'
+import flutterflow19 from './assets/flutterflow19.png'
+
+import ShortTextIcon from "@mui/icons-material/ShortText";
+import LongTextIcon from "@mui/icons-material/Notes";
+import NumberIcon from "./assets/Number";
+import UrlIcon from "@mui/icons-material/Link";
+import DerivativeIcon from "./assets/Derivative";
+import CheckboxIcon from "@mui/icons-material/ToggleOnOutlined";
+import DateTimeIcon from "@mui/icons-material/AccessTime";
+import PublicIcon from '@mui/icons-material/Public';
+import ColorIcon from "@mui/icons-material/Colorize";
+import AttachmentIcon from '@mui/icons-material/Attachment';
+
+# Mapping FlutterFlow Data Types in Rowy
+
+FlutterFlow and Rowy both use different data types to represent their data. However, it is possible to map the data types used in FlutterFlow to the ones used in Rowy to facilitate data transfer between the two platforms.
+
+<img src={flutterflow18} alt="FAQ - Mapping of datatypes"/>
+
+#### Data Types in Rowy
+To check the available Data Types in Rowy, please refer to the [Supported Field Types](/field-types/supported-fields) page.
+
+#### Data Types in FlutterFlow
+To know more about FlutterFlow Data Types refer to [FlutterFlow Documentation](https://docs.flutterflow.io/data-and-backend/firebase/firestore-database/creating-collections). Following are the available FlutterFlow Data Types:
+
+<img src={flutterflow19} alt="FlutterFlow datatypes"/>
+
+## Mapping FlutterFlow Data Types to Rowy Data Types
+
+| FlutterFlow Data Type | | Rowy Data Type |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| **String**: To store plain text such as title, description, etc. | <ShortTextIcon /> <LongTextIcon /> | **Short Text** or **Long Text**: Text displayed on a single or multiple lines. |
+| **Integer**: To store numbers such as 100, 4302, 50000, etc. | <NumberIcon />  | **Number**: Numeric value. |
+| **Double**: To store a decimal number such as 12.43, 3233.50, 65.5666, etc. | <NumberIcon />  | **Number**: Numeric value. |
+| **Photo Path**: To store the URL of the uploaded image. | <UrlIcon /> <DerivativeIcon /> | **URL** or **Derivative**: Unvalidated Web address or a value derived from the rest of the row’s values. *To know how, refer the [Displaying Images page](integrations/flutterflow/displaying-images).* |
+| **Video Path**: To store the URL of the uploaded video. | <UrlIcon /> <DerivativeIcon /> | **URL** or **Derivative**: Unvalidated Web address or a value derived from the rest of the row’s values. *To know how, refer the [Displaying Images page](integrations/flutterflow/displaying-images).* |
+| **Audio Path**: To store the URL of the uploaded audio. | <UrlIcon /> <DerivativeIcon /> | **URL** or **Derivative**: Unvalidated Web address or a value derived from the rest of the row’s values. *To know how, refer the [Displaying Images page](integrations/flutterflow/displaying-images).* |
+| **Boolean**: To store either a true or false value. | <CheckboxIcon /> | **Toggle**: True/false value. Default: false. |
+| **Timestamp**: To store date and time value. | <DateTimeIcon /> <DerivativeIcon /> | **Date/Time** or **Derivative**: Formatted date & time or a value derived from the rest of the row’s values. *To know how, refer the [Displaying Timestamps page](integrations/flutterflow/displaying-timestamps).* |
+| **Lat Lng**: To store the latitude and longitude of a particular place. Storing the Lat Lng value helps you locate a place in Google Maps. | <PublicIcon /> | **Geo Point**: Geo Point stored as latitude and longitude. |
+| **Color**: To store the color value | <ColorIcon /> | **Color**: Color stored as Hex, RGB, and HSV. |
+| **Document Reference**: To store a reference of a document. Storing a reference helps you fetch the document data. | <AttachmentIcon /> | **Reference**: References a Firebase document. List of Firebase references is not currently supported, [refer to this Dicussion](https://github.com/rowyio/rowy/discussions/1094) for an alternative method.  |
+
+
+:::tip Submit your FAQs!
+Let us know if you have any questions or suggestions by either by [creating a discussion on GitHub](https://github.com/rowyio/rowy/discussions), or connecting with us on our [Discord Community Server](https://discord.com/invite/fjBugmvzZP).
+:::

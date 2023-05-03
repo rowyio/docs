@@ -6,27 +6,32 @@ slug: /rowy-run
 ---
 
 import RowyRunSvg from "../../static/img/rowy-run-logo.svg";
-
+import Video from "../../src/components/Video.js";
 
 # <RowyRunSvg height={52} /> <span className="visually-hidden">Rowy Run</span>
 
-Rowy Run is group of Cloud Run services that provides backend functionality, such as action scripts, webhooks, user management, and easy Cloud Function deployment.
+Rowy Run is group of Cloud Run services that provides backend functionality, such as derivatives, action scripts, webhooks, user management, and easy Cloud Function deployment.
 
 It operates exclusively on your GCP project, so we never have access to any of
-your data. Like the Rowy App, it’s completely open source and free to use.
-[Rowy Run on GitHub &UpperRightArrow;](https://github.com/rowyio/backend)
+your data. Like the Rowy App, it is Rowy Run is [open source on Github&UpperRightArrow;](https://github.com/rowyio/backend)
 
-## Auto Deployment/updates (recomended✅)
+## Auto Deployment Rowy Run — ✅ Recommended
 
-If you haven't deployed rowy already setup rowy already, you'll need get started [here](/setup/install)
+We highly recommend that you setup Rowy and Rowy Run using the guided setup process [here](https://rowy.app). This gives you guided deployment process to ensure you are setup correctly as well as provide automatic updates with latest features.
 
-To deploy or setup auto updates you can simply go through guided process [here](https://deploy.rowy.app)
+<Video url="https://www.youtube.com/watch?v=gViYdWiHI9I" playsinline controls/>
 
-## Install Rowy Run (manually)
+Once you create an account and setup Rowy, you can install Rowy Run from the project settings page.
 
-:::warning Required
+![Rowy Run Setup](./assets/rowyrunsetup.png)
 
-Before starting, make sure you have a Google Cloud or Firebase project with
+## Manual install Rowy Run
+
+:::warning Important note
+
+- Manual install of Rowy Run will not get automatic updates for which we recommend the option above. Also, we do not provide support for manual install of Rowy Run. This option is only recommended if you want to develop and contribute to the Rowy project.
+- Rowy run backend uses telemetry information for bug tracking and to improve the product 
+- Before starting, make sure you have a Google Cloud or Firebase project with
 **Firestore** and **Firebase Authentication** enabled, and upgraded to the
 **Blaze Plan**.
 
@@ -34,8 +39,6 @@ Don’t have a project?
 [Learn how to create one&nbsp;→](../setup/firebase-project.md)
 
 :::
-
-Otherwise, you can install Rowy Run manually.
 
 :::note Required software
 - [gcloud CLI](https://cloud.google.com/sdk/docs/install) 363+
@@ -54,7 +57,6 @@ Otherwise, you can install Rowy Run manually.
    ```bash
    gcloud init
    ```
-
 
 3.  go To [GCP Cloud Console IAM](https://console.cloud.google.com/iam-admin/iam)
 

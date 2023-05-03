@@ -10,20 +10,25 @@ import copyURL from "./assets/copy-url.png"
 import sampleKeys from "./assets/sample-keys.png"
 import Video from "../../src/components/Video.js";
 import videoUrl from "./assets/airtable-import.mp4";
+import airtableBase from "./assets/airtable-base.png";
+import assetsJSON from "./assets/assets-json.png";
+import airtableImage from "./assets/airtable-image.png";
 
 Rowy allows users to create a new table from an existing Airtable collection. This is useful if you have a pre-existing data on Airtable and want to import it to Rowy.
 
-### Advantages
+<Video url="https://youtu.be/zZxK9m2O_LI" playsinline controls/>
+
+## Advantages
 
 Rowy allows a lot of new functionalities that gives you more control over your data. Users can not just view their Firestore data in an Airtable-like UI, but also **build cloud functions**, **automations and workflows** based on their data. **Connect to any third-party tool**, use NPM and APIs right in the browser without the hassle of CLIs, terminals or native consoles.
 
-## Steps
+## Steps to import Airtable data
 
 1. After creating a new table, click on the **Import Data** button.
 
 2. Select **Airtable** as the data source.
 
-3. Add the **Airtable API Key** and the **Table URL**. You can find how to generate the [API key](/import-export-data/import-airtable#api-key) and the [Table URL](/import-export-data/import-airtable#table-url) in the sections below.
+3. Add the **Airtable API Key** and the **Table URL**. You can find how to generate the [API key](/import-export-data/import-airtable#retrieving-the-airtable-api-key) and the [Table URL](/import-export-data/import-airtable#obtaining-the-airtable-table-url) in the sections below.
 
 4. Click on **Continue** to start the import process.
 
@@ -33,7 +38,7 @@ Rowy allows a lot of new functionalities that gives you more control over your d
 
 <Video url={videoUrl} playing loop muted playsinline controls />
 
-## API Key
+## Retrieving the Airtable API Key
 
 1. Go to your [Airtable account](https://airtable.com/account) and click on **Generate API key**.
 
@@ -44,7 +49,7 @@ Rowy allows a lot of new functionalities that gives you more control over your d
 
 2. Copy the API key and paste it in the **API Key** field in Rowy.
 
-## Table URL
+## Obtaining the Airtable Table URL
 
 To extract the **Table URL**, you need to go to the **Airtable collection** you want to import and copy the URL from the browser. The URL is divided into three parts:
 
@@ -68,7 +73,39 @@ Copy the URL, as shown below, and paste it in the **Table URL** field in Rowy.
 
 ## Sample Airtable Import
 
-<img
-    src={sampleKeys}
-    alt="Sample Airtable Import"
-/>
+<img src={sampleKeys} alt="Sample Airtable Import" width="900px"/>
+
+
+## Importing Images from Airtable
+
+Rowy supports importing images directly from Airtable and allows you to store them as a native Image field.
+
+<img src={airtableBase} alt="Airtable Base" />
+
+In the above image, the `assets` column is an **Attachement** type field in our Airtable project, which contains the images.
+
+When we import the data from Airtable using the above steps, we see that the `assets` column is imported as a **JSON** type field in Rowy. This is because as the data is transfered through an API, the **images are stored as JSON objects**. The JSON objects in this field would contain the reference data of the images.
+
+<img src={assetsJSON} alt="Assets JSON" />
+
+Now, the question arises **how to import the images from the JSON objects to Rowy**. To do this, we need to create a **Cloud Function** that will extract the images from the JSON objects and store them as a native Image field in Rowy.
+
+**Follow the steps below to create a Cloud Function that will import the images from Airtable to Rowy:**
+
+1. Add a **Derivative** column and pick a suitable name for it. In this example, we have named it `image`.
+
+2. This will open up the **column config** modal. Set the following:
+    - **Listener Field**: The `assets` JSON column.
+    -  **Output Field Type**: Image
+
+3. Paste the following code in the Derivative Script and click **Save**:
+    ```js
+    const derivative:Derivative = async ({row,ref,db,storage,auth,logging})=>{
+        const file = await rowy.storage.upload.url(row.assets[0].url)
+        return [file]
+    }
+    ```
+
+**Now, everytime you import your images from Airtable, the images will be stored as an Image field in Rowy!** 🚀
+
+<img src= {airtableImage} alt="Airtable Image" />

@@ -1,0 +1,54 @@
+---
+id: array
+title: Array
+slug: /field-types/array
+---
+
+import Video from "../../src/components/Video.js";
+import videoUrl from "./assets/array-field.mp4";
+import array1 from "./assets/array1.png";
+import array2 from "./assets/array2.png";
+import arrayExample from "./assets/array-example.png";
+
+The Array field is a field that allows you to store an **array of values**. Rowy Array mimics a **JSON Array** which is a data structure that stores an ordered collection of values in a format known as *JavaScript Object Notation (JSON)*.
+
+<Video url={videoUrl} playing loop muted playsinline controls />
+
+## Supported Values
+
+A JSON Array is a collection of values, which **can be of any type** including `Number`, `Short Text`, another `JSON Object`, `Toggle`, `GeoPoint`, `Date & Time`, or even `Reference`. The values in a JSON Array are **separated by commas** and **enclosed in square brackets**. 
+
+```json
+[
+  "string", // a short text
+  1, // a number
+  true, // a boolean
+  {
+    "key": "value" // an object
+  }
+]
+```
+
+## Creating an Array field
+
+**STEP 1:** In your Rowy Table, click on **Add Column** button.
+
+**STEP 2:** In the **Add Column modal**, add any name of your choice. In the **Field Type** dropdown, select **Array**.
+  <img src={array1} alt="Array field" width = "100%" />
+
+**STEP 3:** Click on **Add** button to create the Array field.
+
+**STEP 4:** Open the side panel. Under the **Array** section, click on the dropdown to select the **Field Type** of the values in the Array.
+  <img src={array2} alt="Array field" width = "100%" />
+
+**STEP 5:** Start adding your data! 🚀
+
+:::tip Supported Array Types
+With Rowy Arrays, you can create both Homogeneous and Heterogeneous Arrays. For a Homogeneous Array, you can create your array to contain only one type of values. For a Heterogeneous Array, you can choose your array to store data from a variety of Rowy Array supported data types.
+:::
+
+## Example
+
+Let us create a **Heterogeneous Array** that stores data from a variety of Rowy Array supported data types.
+
+< img src={arrayExample} alt="Array field" width = "100%" />
