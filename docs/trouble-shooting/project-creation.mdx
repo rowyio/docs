@@ -1,0 +1,21 @@
+---
+id: project-creation
+title: "Trouble Shooting: Project Creation"
+slug: /trouble-shooting/project-creation
+---
+
+import orgPolicyOn from "./assets/org-policy-enforce-on.png";
+import orgPolicyOff from "./assets/org-policy-enforce-off.png";
+
+This guide will help you troubleshoot any issues you may encounter when adding a Firebase project to Rowy workspace.
+
+### Error: Key creation is not allowed on this service account.
+
+Your organisation has restricted the creation of service account keys. It is a requirement for Rowy to create service account keys in your project. To continue, you will need to disable this restriction.
+
+In GCP console (https://console.cloud.google.com/iam-admin/orgpolicies/iam-disableServiceAccountKeyCreation), if the policy is enforced, set it to not enforced.
+<img src={orgPolicyOn} alt="AppCheck 1" width={200} />
+
+Once the policy is set to not enforced, you can try again in Rowy app.
+<img src={orgPolicyOff} alt="AppCheck 2" width={200} />
+

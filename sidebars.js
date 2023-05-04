@@ -97,6 +97,12 @@ module.exports = {
             // "templates/cal-scheduling",
           ],
         },
+        {
+          type: "category",
+          label: "Trouble Shooting",
+          collapsible: true,
+          items: ["trouble-shooting/project-creation"],
+        },
       ],
     },
     {
@@ -190,7 +196,12 @@ module.exports = {
           //   id: "webhooks/overview",
           // },
           collapsed: true,
-          items: ["webhooks/overview", "webhooks/basic", "webhooks/typeform", "webhooks/stripe"],
+          items: [
+            "webhooks/overview",
+            "webhooks/basic",
+            "webhooks/typeform",
+            "webhooks/stripe",
+          ],
         },
         "field-types/derivative",
         "field-types/action",
