@@ -4,11 +4,16 @@ title: Using Map Array in Rowy
 slug: /integrations/flutterflow/map-array
 ---
 
+import mapArray1 from "./assets/map-array-1.png"
+import mapArray2 from "./assets/map-array-2.png"
+
 Manage your FlutterFlow Map Arrays better with the [Array Sub-table](../../field-types/array-subtable) field in Rowy.
 
 Using JSON fields to store Map Arrays can be difficult to manage and manipulate.
 
 Instead of using the JSON field to store your Map Arrays, you can now use the Array Sub-table field to store your Map Arrays in a more structured way.
+
+<img src={mapArray1} alt="Map Array" />
 
 With the Array Sub-table feature, you can now easily manage and manipulate array data without running into issues like changing schema declaration types or breaking your FlutterFlow applications.
 
@@ -17,6 +22,8 @@ With the Array Sub-table feature, you can now easily manage and manipulate array
 Let's say you're building a web application for a Library, and you need to keep track of all the books in the Library's collection. 
 
 Each book has a title, author, publication date, and a list of borrowing records that includes the borrower's name, the date borrowed, and the date returned. You could store this data as follows:
+
+<img src={mapArray2} alt="Map Array" />
 
 In this example, each book is represented as a document in the "books" collection, with fields for the book's title, author, and publication date.
 
