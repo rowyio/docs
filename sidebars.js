@@ -134,6 +134,7 @@ module.exports = {
             },
             // "field-types/array",
             "field-types/single-select",
+            "field-types/multi-select",
             "field-types/image-file",
             "field-types/status",
             "field-types/sub-table",
