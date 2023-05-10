@@ -133,7 +133,7 @@ module.exports = {
               items: ["field-types/array-overview", "field-types/array"],
             },
             // "field-types/array",
-            "field-types/single-and-multi-select",
+            "field-types/single-select",
             "field-types/image-file",
             "field-types/status",
             "field-types/sub-table",
