@@ -24,60 +24,51 @@ The exact services used with this scope during the setup steps include:
 - Setup the Firebase rules automatically in the case of a new Firebase project.
 - For existing Firebase project, Rowy will show you the exact rule snippet that needs to be added. You can do this manually or apply using a single click during onboarding after looking at the rules diff on screen.
 
-Once Rowy setup is complete, you will get a hosted Rowy App URL that you can use to start managing your data tables and invite your team members. With Firebase Auth, only users with specific roles as per the Firestore rules will be able to access the data. Therefore you have full ability to control access permissions at table as well as field level. To learn more about how to Firestore rules and access control work, see this short video.
+Only users with specific roles as per Firestore rules will be able to access the data. Therefore you have full ability to control access permissions at table as well as field level. 
 
-## What would this cost me?
+## What would using Rowy cost me?
 
 You can use Rowy in two modes. Rowy Base and Rowy Pro.
 
-### Rowy Base
+Rowy Base is the free tier and Rowy Pro Team is the paid tier offereing advanced features. Detailed breakdown of the featues and pricing is available [here](https://www.rowy.io/pricing).
 
-- A fully free and open-source hosted version of the Rowy App.
-- Get access to the core features:
-    - CMS for Firestore
-    - One Firebase project
-    - Import, Export data in bulk - csv, tsv, json support
-    - Automations, tasks, cloud functions. → This can be unlocked by deployment of Rowy Run as an added service optionally.
+## Rowy Base - Free
 
-**Cost**
+- A fully free and open-source hosted version of the Rowy App
+- Get access to the core features: CMS for one Firestore project. Ability to import and export data in bulk - csv, tsv, json formats Automate tasks and workflows with cloud functions (unlocked by deploying of Rowy Run).
+    
+   ### **Rowy Cost**
+    
+    Under Rowy Base, you will not incur any charge from Rowy
 
-- Under Rowy Base, you will not incur any charge from Rowy.
-- Based on your usage you will incur
+   ### **Rowy Base - GCP Cost**
+    
+    - Rowy is connected to your own Firebase/GCP project and is 100% serverless, which means theres no ongoing server cost on GCP. 
+    - You can use Rowy's CMS without turning on billing on your GCP project and you only need to turn it on if you want to use Rowy with cloud functions. 
+    - Note the billing referred here is on your own GCP project and not Rowy. <b>Infact, you can build unlimited cloud functions on Rowy, even on the free base tier. </b>This is driven by our core vision to enable you to build products without limitations and to be aligned with our users in our pricing. 
 
-### Rowy Pro
+    <b>Pricing Calculator</b>: With Rowy, you are mainly using Firestore, cloud functions and cloud run. GCP’s free tier is quite generous with $300 in credits for all Firebase projects and if you are a startup you get up-to [$100K in credits](https://cloud.google.com/startup).
+    - Table below details the cost breakdown by main usecases of Rowy. You can also use Google Cloud [price calculator](https://cloud.google.com/products/calculator) to further analysis your long term costs depending on how heavy your usage will be.
+    - If you use Firestore, Cloud Storage (Images, File columns) then it is CMS usecase
+    - If you use automation tasks (derivatives, cloud functions) with Cloud Functions, Cloud Run - then it is the Workflows usecase 
+    
+        
+        | Usecase | Free Tier of GCP | Post Free Tier and after exhausting free credits from GCP |
+        | --- | --- | --- |
+        | CMS without installing Rowy Run for workflow automations | Free upto 1GB of stored data, see GCP’s free quota tier pricing | On average, $0.1/GB/ month based on the region. See calculation for cost by region for storage/read/write |
+        | Workflows and automations with cloud functions by deploying Rowy Run | Free upto 2M invocations/month. Free upto 120 build minutes per day.  | Invocations: $0.04/million. Building: $0.003/min |
 
-Rowy Pro has features that enables teams work on their database and cloud code easily. You can read about the Rowy pricing plan and the functionality and compare it to the base plan [here](https://rowy.io/pricing).
+## Rowy Pro - Paid (First month free)
 
-## Cloud cost estimate
+Rowy Pro is paid and you can see the full details of the pricing [here](https://rowy.io/pricing)
 
-**TL;DR**
+### **Pro features**
 
-Cost on GCP is minimal for most use-cases. You can get started for free. Every user gets a $300 credit to play around and if you are a startup, you can apply to get further credits of up to USD $100K.
+- Multiple Firebase projects
+- CMS with advanced filtering, sorting and full-text search
+- Code sandbox and testing environment for cloud functions, derivatives and extensions
+- Move/clone data tables from one project to another
+- View data in Table and Gallery modes
+- Embeddable tables and sharable URLs
+- Custom support
 
-Rowy is 100% serverless, so theres no ongoing server cost, you only pay for what you use on GCP, when you're using Rowy you're mainly using firestore, cloud functions and cloud run, the free tier is quite generous, but you can use the pricing calculator to see the long term cost depending on how heavy your usage is
-
-**Details**
-
-Listed below are the features of Rowy and the corresponding Google Cloud services that will be enabled.
-
-You can use Rowy in two mode. The completely free tier 
-
-- Data storage - Firestore, Cloud Storage (if you have files, images columns)
-- Automation tasks (optionally enabled) - Cloud Functions, Cloud Run
-
-### Firestore
-
-|  | Free | Price after free tier |
-| --- | --- | --- |
-| Stored data | 1GB | $0.18/GB |
-| Reads | 50K | $0.06/100K docs |
-| Writes | 20K | $0.18/100K docs |
-| Deletes | 20K | $0.02/100K docs |
-
-### Cloud functions
-
-| Invocations | Free upto 2M/month. Then $0.04/million |
-| --- | --- |
-| Building | Free upto 120 build minutes per day. Then $0.003/min |
-
-To estimate accurate costs, you can explore the [GCP price calculator](https://cloud.google.com/products/calculator).
