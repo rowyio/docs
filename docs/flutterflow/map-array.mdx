@@ -1,0 +1,42 @@
+---
+id: map-array
+title: Using Array of Maps in Rowy
+slug: /integrations/flutterflow/map-array
+---
+
+import mapArray1 from "./assets/map-array-1.png"
+import mapArray2 from "./assets/map-array-2.png"
+import mapArray3 from "./assets/map-array-3.png"
+import mapArray4 from "./assets/map-array-4.png"
+
+Manage your FlutterFlow Map Arrays better with the [Array Sub-table](../../field-types/array-subtable) field in Rowy.
+
+Using JSON fields to store Map Arrays can be difficult to manage and manipulate.
+
+Instead of using the JSON field, you can now use the **Array Sub-table** field to store your Map Arrays in a more structured way.
+
+<img src={mapArray1} alt="Map Array" />
+
+With the Array Sub-table feature, you can now easily work with array data without running into issues like changing schema declaration types or breaking your FlutterFlow applications.
+
+## Example
+
+Let's say you're building a web application for a **Library**, and you need to keep track of all the books in the Library's collection. 
+
+Each book has a Title, Author, Publication Date, and a List of borrowing records that includes the Borrower's name, the Date of Borrowing, the Date of Returning, and a Firestore Reference to the borrower document. You could store this data as follows:
+
+<img src={mapArray2} alt="Map Array" />
+
+In this example, each book is represented as a document in the **Books** collection, with fields for the Book's Title, Author, and Publication Date.
+
+Each book also has an Array in the form of a Sub-table called `borrowingRecords`, which contains a list of JSON objects for each borrowing record. 
+
+<img src={mapArray3} alt="Map Array" />
+
+## How is this data stored in Firestore?
+
+When using the Array Sub-table field type in your Rowy Table, the data is stored in Firebase Firestore as an **array of JSON objects**.
+
+Essentially, **each row in the Array Sub-table represents a JSON object** where the column names of the sub-table are transformed into the **keys** of the JSON object and the row values are used as the **corresponding values** of the JSON object.
+
+<img src={mapArray4} alt="Map Array" />

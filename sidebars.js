@@ -230,6 +230,7 @@ module.exports = {
             "flutterflow/mapping-datatypes",
             "flutterflow/displaying-images",
             "flutterflow/displaying-timestamps",
+            "flutterflow/map-array",
           ],
         },
       ],
