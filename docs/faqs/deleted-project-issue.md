@@ -44,11 +44,18 @@ To delete these settings, navigate to your **Firestore console**. Find the `_row
 <img src = {deletedProject3} alt="Rowy Firestore settings to delete" />
 
 
-### Step 4: Reach Out to Rowy Support
+### Step 4: Add a Confirmation Email from Project/Workspace Owner
 
-Once you have completed the above steps, reach out to us either via email at [support@rowy.io](mailto:support@rowy.io), or send a direct message to any of the members with the **Team** tag on our Discord server with your project details. 
+Once you have completed the above steps, reach out to us either via email at [support@rowy.io](mailto:support@rowy.io), or send a direct message to any of the members with the **Team** tag on our Discord server with your project and email details. 
 
-Provide them with the necessary information about your project, such as the project ID, and explain that you have performed the above steps to re-instate your connection.
+Provide them with the necessary information about your project, such as the **Project ID**, and explain that you have performed the above steps to re-instate your connection.
 
+:::warning Necessary Requirement!
+
+Before proceeding with the project deletion process, we need to **confirm the request with the project/workspace owner** via email.
+
+The project owner must email to us at [support@rowy.io](mailto:support@rowy.io). We are following this procedure to **prevent unauthorized data deletion** and only **after successful verification** will we proceed with the deletion process. 
+
+:::
 
 Rowy support will then fix the issue on the backend, and you should be able to re-create your project on Rowy without any further issues! 🚀
