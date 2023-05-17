@@ -1,7 +1,7 @@
 ---
 id: overview
 title: Extensions
-sidebar_label: Extensions Overview
+sidebar_label: Overview
 slug: /extensions
 ---
 
