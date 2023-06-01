@@ -41,6 +41,8 @@ const derivative:Derivative = async ({row,ref,db,storage,auth,logging})=>{
     let url = row.image[0].downloadURL;
     return url;
 }
+
+export default derivative;
 ```
 
 Step 4: Continue to add images and retrieve the URL in the Derivative column.
@@ -72,6 +74,8 @@ const derivative:Derivative = async ({row,ref,db,storage,auth,logging})=>{
   })
   return obj;
 }
+
+export default derivative;
 ```
 
 **Output:**
