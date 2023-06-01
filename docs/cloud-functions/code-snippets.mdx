@@ -11,11 +11,12 @@ Here you can find the code snippets for the common scenarios and use cases while
 The following is a code snippet that shows how to access data from another collection and display it as a list of options using the connector field.
 
 ```js
-const firestoreCollectionConnector: Connector = async ({ db, query, row, user }) => {
+const connectorFn: Connector = async ({ db, query, row, user }) => {
+  logging.log("connector started");
   // 1️⃣ Edit Collection: connect to Firestore collection
   const collectionId = "lwjShow"
   // 2️⃣ set max results you want to show in the dropdown
-  const maxResults = 5
+  const maxResults = 20
   // 3️⃣ Edit field: connect to Firestore field to filter by in the input text
   const queryField = "noun" 
   // Map result: use as it is or shape the returned data as need
@@ -24,13 +25,21 @@ const firestoreCollectionConnector: Connector = async ({ db, query, row, user })
   // Logic for data retrieval, no edits needed here
   const collectionRef = db.collection(collectionId).limit(maxResults) 
   if (query === "") { 
-    return (await collectionRef.get()).docs.map(resultsFormatter)
+    return (await collectionRef.get()).docs.map(resultsFormatter).filter((doc) => {
+      return (doc.snapshot.noun !== "" && typeof doc.snapshot.noun !== "undefined")
+    })
   } 
   const end = query.replace(/.$/, (c) => String.fromCharCode(c.charCodeAt(0) + 1));
   return (await collectionRef.where(queryField, ">=", query).where(queryField, "<", end).get())
     .docs.map(resultsFormatter)
 };
+
+export default connectorFn;
 ```
+
+Set the following in the Connector Configuration (modify the following according to your use-case):
+- ID: `id`
+- Label Formatter: `{{snapshot.noun}}`
 
 
 ## Accessing data from an external API using a Connector
@@ -38,11 +47,67 @@ const firestoreCollectionConnector: Connector = async ({ db, query, row, user })
 The following is a code snippet that shows how to access data from an external API and display it as a list of options using the connector field.
 
 ```js
-const apiConnector: Connector = async ({query, row, user}) => {
+const connector: Connector = async ({ query, row, user, logging }) => {
+  logging.log("connector started");
   const response = await fetch(`https://api.boardgameatlas.com/api/search?name=${query}&client_id=JLBr5npPhV`)
   const {games} = await response.json()
   return games
 };
+
+export default connector;
+```
+
+Set the following in the Connector Configuration (modify the following according to your use-case):
+- ID: `handle`
+- Label Formatter: `{{name}}`
+
+## Setting static JSON to use in the Connector field
+
+The following is a code snippet that shows how to define static JSON object and use in the Connector Field dropdown.
+
+```js
+const connector: Connector = async ({ query, row, user, logging }) => {
+  logging.log("connector started");
+  const items = [
+    {
+      id:"a",
+      word:"apple",
+      emoji:"🍎"
+    },
+    {
+      id:"b",
+      word:"banana",
+      emoji:"🍌"
+    },
+    {
+      id:"c",
+      word:"cherry",
+      emoji:"🍒"
+    },
+    {
+      id:"d",
+      word:"duck",
+      emoji:"🦆"
+    },
+    {
+      id:"e",
+      word:"eggplant",
+      emoji:"🍆"
+    },
+    {
+      id:"f",
+      word:"flower",
+      emoji:"🌸"
+    },
+    {
+      id:"g",
+      word:"grape",
+      emoji:"🍇"
+    }];
+  return items.filter(i=> i.word.toLowerCase().startsWith(query.toLowerCase()))
+};
+
+export default connector;
 ```
 
 ## Accessing data from the parent collection in a subtable subcollection.
@@ -52,4 +117,60 @@ Following is a code snippet of how to access a field (here `fieldName`) from the
 ```js
 const parentDoc = await ref.parent.parent.get()
 const fieldNameValue = parentDoc.get("fieldName") // fieldName is in the parent table
+```
+
+## Creating links between fields in two tables
+
+**Example :** I have a two tables, namely City and Country. I want to create a joint relationship between so that if I change the spelling of a country in the Country table, it is automatically reflected in Cities table. How can do that easily on Rowy?
+
+To achieve the joint relationship as described above, you can create a **Task Extension** with the following script:
+
+Set trigger event to: `Update`
+
+```js
+const extensionBody: TaskBody = async({row, db, change, ref, logging}) => {
+  logging.log("extensionBody started");
+
+  if (change.after.exists) {
+    const previousCountryName = change.before.get("countryName");
+    const newCountryName = change.after.get("countryName");
+
+    // Update the corresponding cities with the new country name
+    const citiesSnapshot = await db.collection("Cities")
+      .get();
+
+    const batch = db.batch();
+    citiesSnapshot.forEach(cityDoc => {
+      const cityRef = cityDoc.ref;
+      const cityData = cityDoc.data();
+      if (cityData.countryNameCity === previousCountryName) {
+        batch.update(cityRef, { countryNameCity: newCountryName });
+      }
+    });
+
+    await batch.commit();
+    logging.log("Updated cities with new country name");
+  }
+}
+
+export default extensionBody;
+```
+
+This is for table names Country and Cities with field names `countryName` and `countryNameCity` respectively. 
+
+## Saving Timestamps in the Date & Time column
+
+To save the current date/time in a field as timestamp in a derivative field, you can use the following code snippet in the **Derivative Field**:
+
+```js
+const derivative:Derivative = async ({row,ref,db,storage,auth,logging})=>{
+  // WRITE YOUR CODE ONLY BELOW THIS LINE. DO NOT WRITE CODE/COMMENTS OUTSIDE THE FUNCTION BODY
+  const date = new Date()
+  const ms = date.getTime()
+  const { Timestamp } = (await (async () => await import("@google-cloud/firestore"))())
+  return Timestamp.fromMillis(ms)
+  // WRITE YOUR CODE ONLY ABOVE THIS LINE. DO NOT WRITE CODE/COMMENTS OUTSIDE THE FUNCTION BODY
+}
+
+export default derivative
 ```
