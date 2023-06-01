@@ -25,11 +25,12 @@ collection, or a list of documents from a query to third party API.
 
 ## Examples
 
-#### basic example
+#### Basic Example
 
-- Connector function
+Following is an example of a connector function that returns a static list of items:
+
 ```javascript
-const fruitPicker: Connector = async ({ query, row, user }) => {
+const connector: Connector = async ({ query, row, user }) => {
   const items = [
     { id: "a", word: "apple", emoji: "🍎" },
     { id: "b", word: "banana", emoji: "🍌"},
@@ -40,15 +41,19 @@ const fruitPicker: Connector = async ({ query, row, user }) => {
     i.word.toLowerCase().startsWith(query.toLowerCase())
   );
 };
+
+export default connector;
 ```
 
-- id: `id`
-- label: `{{emoji}} {{word}}`
+- ID: `id`
+- Label Formatter: `{{emoji}} {{word}}`
 
-#### connect to a firestore collection
-- Connector function
+#### Connect to a Firestore Collection
+
+Following is an example of a connector function that connects to a firestore:
+
 ```javascript
-const firestoreCollectionConnector: Connector = async ({db,query}) => {
+const connectorFn: Connector = async ({db,query}) => {
   const collectionRef = db.collection("users").limit(5); // specify collection to connected & max results
   const queryField = "fullName"; // firestore field to be filtered by the input text
   const resultsFormatter = (doc) => ({ id: doc.id, snapshot: doc.data() }); // the shape of the returned data
@@ -60,27 +65,34 @@ const firestoreCollectionConnector: Connector = async ({db,query}) => {
     .get();
   return queryResults.docs.map(resultsFormatter);
 };
+
+export default connectorFn;
 ```
 
-- id:`id`
-- label:`fullName`
+- ID: `id`
+- Label Formatter: `{{fullName}}`
 
-#### connect to an external api 
-- Connector function
+#### Connect to an External API
+
+Following is an example of a connector function that connects to an external **BoardGames Atlas** API:
+
 ```javascript
-const apiConnector: Connector = async ({ query, row, user }) => {
-  const response = await fetch(
-    `https://api.boardgameatlas.com/api/search?name=${query}&client_id=JLBr5npPhV`
-  );
-  const { games } = await response.json();
-  return games;
+const connector: Connector = async ({ query, row, user, logging }) => {
+  logging.log("connector started");
+  const response = await fetch(`https://api.boardgameatlas.com/api/search?name=${query}&client_id=JLBr5npPhV`)
+  const {games} = await response.json()
+  return games
 };
-```
-- id:`handle`
-- label:`name`
 
-#### Connecting to your [meiliSearch](https://meilisearch.com/) instance
-- Connector function
+export default connector;
+```
+- ID: `handle`
+- Label Formatter: `name`
+
+#### Connecting to your [MeiliSearch](https://meilisearch.com/) Instance
+
+Following is an example of a connector function that connects to your MeiliSearch instance:
+
 ```javascript
 const connectorFn: Connector = async ({ query, row, user }) => {
   const index = "users";
@@ -97,6 +109,9 @@ const connectorFn: Connector = async ({ query, row, user }) => {
   const data = await resp.json();
   return data.hits;
 };
+
+export default connectorFn;
 ```
-- id:`id`
-- label:`{{firstName}} {{lastName}}`
+
+- ID: `id`
+- Label Formatter: `{{firstName}} {{lastName}}`

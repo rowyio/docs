@@ -34,33 +34,39 @@ Your code has access to the following parameters and can use the
 
 ### Examples
 
-#### Setting a user roles in firebase auth custom claims
+#### Setting User Roles in Firebase Auth Custom Claims
 
 ```javascript
-const { roles } = row;
-const user = await auth.getUser(ref.id);
-const customClaims = {
-  ...user.customClaims,
-  roles,
-};
-await auth.setCustomUserClaims(ref.id, customClaims);
 
-return {
-  success: true,
-  status: `updated roles:${roles.join(", ")}`,
-  message: `${row.firstName} has ${roles.join(", ")} roles now`,
-  cellValue: {
-    redo: true,
+const action: Action = async ({ row, ref, db, storage, auth, actionParams, user, logging }) => {
+  logging.log("action started");
+  const { roles } = row;
+  const user = await auth.getUser(ref.id);
+  const customClaims = {
+    ...user.customClaims,
+    roles,
+  };
+  await auth.setCustomUserClaims(ref.id, customClaims);
+
+  return {
+    success: true,
     status: `updated roles:${roles.join(", ")}`,
-    completedAt: serverTimestamp(),
-    meta: { ranBy: context.auth.token.email },
-    undo: false,
-  },
+    message: `${row.firstName} has ${roles.join(", ")} roles now`,
+    cellValue: {
+      redo: true,
+      status: `updated roles:${roles.join(", ")}`,
+      completedAt: serverTimestamp(),
+      meta: { ranBy: context.auth.token.email },
+      undo: false,
+    },
+  };
 };
+
+export default action;
 ```
 
 
-#### sending an email via sengrid
+#### Sending an email via Sengrid
 ⚠️ Make sure to add your sendrid API key to [Secret Manager](https://console.cloud.google.com/security/secret-manager/) ,
 And [verify](https://docs.sendgrid.com/for-developers/sending-email/sender-identity) the sender email address on Sengrid.
 ```javascript
@@ -109,6 +115,8 @@ const action: Action = async ({ row, ref, db, storage, auth, actionParams, user 
         }
     }
 }
+
+export default action;
 ```
 
 

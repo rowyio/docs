@@ -41,11 +41,14 @@ collection with all the settings available you can do the following:
 
 ```typescript
 const defaultValueFn: DefaultValue = ({ row, db }) => {
+  logging.log("dynamicValueFn started");
   // set default currency of user's account
   const countryDoc = await db.collection("countries").doc(row.country).get();
   const currency = countryDoc.get("currency");
   return currency;
 };
+
+export default defaultValue;
 ```
 
 Alternatively you can get the information form an external api to set the
@@ -53,6 +56,7 @@ default value
 
 ```typescript
 const defaultValueFn: DefaultValue = ({ row, db }) => {
+  logging.log("dynamicValueFn started");
   // set default currency of user's account
   const resp = await fetch(
     `https://restcountries.com/v3.1/name/${row.country}`
@@ -67,6 +71,8 @@ const defaultValueFn: DefaultValue = ({ row, db }) => {
     symbol: currency.symbol,
   };
 };
+
+export default defaultValue;
 ```
 
 ### API
@@ -94,9 +100,12 @@ Use the row `ref` to get a value from the parent document.
 
 ```typescript
 const defaultValueFn: DefaultValue = async ({ ref }) => {
+  logging.log("dynamicValueFn started");
   const parentDoc = await ref.parent.parent.get();
   return parentDoc.get("FIELD_KEY_HERE");
 };
+
+export default defaultValue;
 ```
 
 #### Example: Any document
@@ -105,12 +114,15 @@ Use `db` to get any document in your database.
 
 ```typescript
 const defaultValueFn: DefaultValue = async ({ row, db }) => {
+  logging.log("dynamicValueFn started");
   const query = await db
     .collection("someCollection")
     .where("aField", "==", row.someKey)
     .get();
   return query.docs[0].get("keyName");
 };
+
+export default defaultValue;
 ```
 
 #### Example: npm package
@@ -119,9 +131,12 @@ Use an npm package to generate a UUID.
 
 ```ts
 const defaultValueFn: DefaultValue = ({ row, db }) => {
+  logging.log("dynamicValueFn started");
   const { v4: uuidv4 } = require("uuid");
   return uuidv4();
 };
+
+export default defaultValue;
 ```
 
 #### Example: reference Data
@@ -130,6 +145,9 @@ Store document id in the document, for easy queries
 
 ```typescript
 const defaultValueFn: DefaultValue = ({ ref }) => {
+  logging.log("dynamicValueFn started");
   return ref.id;
 };
+
+export default defaultValue;
 ```
