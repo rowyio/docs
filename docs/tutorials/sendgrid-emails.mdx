@@ -14,6 +14,7 @@ import sendgrid4 from './assets/sendgrid-4.png';
 import sendgrid5 from './assets/sendgrid-5.png';
 import sendgrid6 from './assets/sendgrid-6.png';
 import sendgrid7 from './assets/sendgrid-7.png';
+import sendgrid8 from './assets/sendgrid-8.png';
 
 This comprehensive tutorial will guide you through the process, providing step-by-step instructions on setting up your Sendgrid Account to use our Sendgrid Extension successfully.
 
@@ -81,3 +82,43 @@ template_id: "0f0784cd-a03c-4c06-8028-32fb808f637a", // Sendgrid template ID
 ```
 
 7. Click "Save" and "Deploy" to finalize the configuration.
+
+## Example Extension Body
+
+The final extension would look like this:
+
+```js
+const extensionBody: SendgridEmailBody = async({row, db, change, ref, logging}) => {
+ 
+  logging.log("extensionBody started")
+  
+  // Import any NPM package needed
+  // const lodash = require('lodash');
+  
+  return ({
+    from: "Bhavya<bhavya@rowy.io>",   // send from field
+    personalizations: [
+      {
+        to: [{ name: row.name, email: row.email }],  // recipient
+        dynamic_template_data: {
+          "Sender_Email": `${row.email}`,
+          "Sender_Name": `${row.name}`
+        },  // template parameters
+      },
+    ],
+    template_id: "d-02b3cedfff664915998cf7c871fe0ad6",// sendgrid template ID
+    categories: ["invites", "welcome"], // helper info to categorise sendgrid emails
+    custom_args:{
+      docPath:ref.path, // optional, reference to be used for tracking email events
+      // add any other custom args you want to pass to sendgrid events here
+    },
+  })
+  
+}
+```
+
+:::tip Emails going to spam? 🛑
+If your emails are consistently being classified as spam, you can try disabling the **Click Tracking** option in the email settings. This may help improve the deliverability of your emails.
+
+<img src={sendgrid8} alt="sendgrid8" />
+:::
