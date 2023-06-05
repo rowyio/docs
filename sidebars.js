@@ -221,6 +221,7 @@ module.exports = {
       type: "category",
       label: "Integrations",
       collapsible: true,
+      collapsed: false,
       items: [
         {
           type: "category",
@@ -228,6 +229,7 @@ module.exports = {
           // link: { type: "generated-index" },
           collapsible: true,
           items: [
+            "flutterflow/overview",
             "flutterflow/setup",
             "flutterflow/mapping-datatypes",
             "flutterflow/displaying-images",
