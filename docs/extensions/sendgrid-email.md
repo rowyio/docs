@@ -4,7 +4,11 @@ title: SendGrid email
 slug: /extensions/sendgrid-email
 ---
 
-Integrates with SendGrid to simplify sending emails
+Integrates with SendGrid to simplify sending emails.
+
+:::tip Sendgrid Email Extension Tutorial! 💡
+We have created an extensive tutorial for you on how to successfully create an Extension that sends emails via Sendgrid. Check out the tutorial [here](../tutorials/sendgrid-emails) for step-by-step instructions and guidance.
+:::
 
 ### Secret Manager setup:
 
