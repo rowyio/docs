@@ -19,16 +19,16 @@ This comprehensive tutorial will guide you through the process, providing step-b
 
 ## Setting up in Sendgrid
 
-1. Sign up for a Sendgrid account and enable Two-Factor Authentication when prompted.
+1. Sign up for a **Sendgrid account** and **enable Two-Factor Authentication** when prompted.
 <img src={sendgrid1} alt="sendgrid1" />
 
-2. Create a sender identity by clicking on "Create Identity" and provide the required details. Verify the identity through email.
+2. Create a sender identity by clicking on "**Create Identity**" and provide the required details. Verify the identity through email.
 <img src={sendgrid2} alt="sendgrid2" />
 
-3. Integrate Sendgrid using the Web API and select Node.js as the language.
+3. Integrate Sendgrid using the **Web API** and select **Node.js** as the language.
 <img src={sendgrid3} alt="sendgrid3" />
 
-4. Generate an API Key in Sendgrid and make sure to copy and temporarily store it.
+4. Generate an **API Key** in Sendgrid and make sure to copy and temporarily store it.
 <img src={sendgrid4} alt="sendgrid4" />
 
 5. Go to the [GCP Secret Manager](https://console.cloud.google.com/security/secret-manager) and set up a secret named `sendgrid` with the API Key as the body content.
@@ -37,14 +37,47 @@ This comprehensive tutorial will guide you through the process, providing step-b
 PASTE YOUR API KEY HERE
 ```
 
-6. In Sendgrid's Design Library, either select an email template or create your own. Save the template.
+6. In **Sendgrid's Design Library**, either select an email template or create your own. Save the template.
 
-7. In the tags section, add any relevant tags to the email content.
+7. In the **tags** section, add any relevant tags to the email content for the user data.
 <img src={sendgrid5} alt="sendgrid5" />
 
 8. Optionally, test the email template by providing test data in JSON format in the Test Data section.
 <img src={sendgrid6} alt="sendgrid6" />
 
-9. Under the Email API tab, navigate to Dynamic Templates and create a new dynamic template. Provide a name and select a version based on your drafted design. Save the template and copy the template ID.
+9. Under the **Email API tab**, navigate to Dynamic Templates and **create a new dynamic template**. Provide a name and select a version based on your drafted design. Save the template and **copy the template ID**.
 
 <Video url={videoUrl} playing loop muted playsinline controls />
+
+
+## Setting Up in Rowy
+
+1. Create a table in Rowy with the appropriate fields to **store email-related data**.
+
+2. Open the **Extensions** modal in Rowy and click on "**Add Extension**".
+
+3. Select the "**Sendgrid Email**" extension and choose the **Trigger Types** and **Required Fields**.
+
+4. Specify the sender's email address using the following format: `Jane<jane@gmail.com>`.
+
+5. Add Recipient details and dynamic data under the personalizations field:
+
+```js
+personalizations: [
+  {
+    to: [{ name: row.name, email: row.email }],  // recipient
+    dynamic_template_data: {
+      "Sender_Email": "bhavya@rowy.io",
+      "Sender_Name": "Bhavya"
+    },  // template parameters
+  },
+],
+```
+
+6. Insert the copied Template ID into the `template_id` field:
+
+```js
+template_id: "0f0784cd-a03c-4c06-8028-32fb808f637a", // Sendgrid template ID
+```
+
+7. Click "Save" and "Deploy" to finalize the configuration.
