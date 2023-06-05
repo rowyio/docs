@@ -3,3 +3,25 @@ id: sendgrid-emails
 title: Sending Emails via Sendgrid
 slug: /tutorials/sendgrid-emails
 ---
+
+This comprehensive tutorial will guide you through the process, providing step-by-step instructions on setting up your Sendgrid Account to use our Sendgrid Extension successfully.
+
+## Setting up in Sendgrid
+
+1. Sign up for a Sendgrid account and enable Two-Factor Authentication when prompted.
+
+2. Create a sender identity by clicking on "Create Identity" and provide the required details. Verify the identity through email.
+
+3. Integrate Sendgrid using the Web API and select Node.js as the language.
+
+4. Generate an API Key in Sendgrid and make sure to copy and temporarily store it.
+
+5. Go to the GCP Secret Manager and set up a secret named sendgrid with the API Key as the body content.
+
+6. In Sendgrid's Design Library, either select an email template or create your own. Save the template.
+
+7. In the tags section, add any relevant tags to the email content.
+
+8. Optionally, test the email template by providing test data in JSON format in the Test Data section.
+
+9. Under the Email API tab, navigate to Dynamic Templates and create a new dynamic template. Provide a name and select a version based on your drafted design. Save the template and copy the template ID.
