@@ -4,24 +4,47 @@ title: Sending Emails via Sendgrid
 slug: /tutorials/sendgrid-emails
 ---
 
+import Video from "../../src/components/Video.js";
+import videoUrl from "./assets/sendgrid.mp4";
+
+import sendgrid1 from './assets/sendgrid-1.png';
+import sendgrid2 from './assets/sendgrid-2.png';
+import sendgrid3 from './assets/sendgrid-3.png';
+import sendgrid4 from './assets/sendgrid-4.png';
+import sendgrid5 from './assets/sendgrid-5.png';
+import sendgrid6 from './assets/sendgrid-6.png';
+import sendgrid7 from './assets/sendgrid-7.png';
+
 This comprehensive tutorial will guide you through the process, providing step-by-step instructions on setting up your Sendgrid Account to use our Sendgrid Extension successfully.
 
 ## Setting up in Sendgrid
 
 1. Sign up for a Sendgrid account and enable Two-Factor Authentication when prompted.
+<img src={sendgrid1} alt="sendgrid1" />
 
 2. Create a sender identity by clicking on "Create Identity" and provide the required details. Verify the identity through email.
+<img src={sendgrid2} alt="sendgrid2" />
 
 3. Integrate Sendgrid using the Web API and select Node.js as the language.
+<img src={sendgrid3} alt="sendgrid3" />
 
 4. Generate an API Key in Sendgrid and make sure to copy and temporarily store it.
+<img src={sendgrid4} alt="sendgrid4" />
 
-5. Go to the GCP Secret Manager and set up a secret named sendgrid with the API Key as the body content.
+5. Go to the [GCP Secret Manager](https://console.cloud.google.com/security/secret-manager) and set up a secret named `sendgrid` with the API Key as the body content.
+
+```js
+PASTE YOUR API KEY HERE
+```
 
 6. In Sendgrid's Design Library, either select an email template or create your own. Save the template.
 
 7. In the tags section, add any relevant tags to the email content.
+<img src={sendgrid5} alt="sendgrid5" />
 
 8. Optionally, test the email template by providing test data in JSON format in the Test Data section.
+<img src={sendgrid6} alt="sendgrid6" />
 
 9. Under the Email API tab, navigate to Dynamic Templates and create a new dynamic template. Provide a name and select a version based on your drafted design. Save the template and copy the template ID.
+
+<Video url={videoUrl} playing loop muted playsinline controls />
