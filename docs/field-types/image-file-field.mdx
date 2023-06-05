@@ -97,6 +97,8 @@ To use this approach, it is required that the project has **Rowy Run enabled**.
    const derivative: Derivative = async ({ row, ref, db, storage, auth }) => {
    return [{ downloadURL: row.URL_FIELD_KEY }]
    }
+
+   export default derivative
    ```
 
    - Change the `URL_FIELD_KEY` to the field key of the URL column.
