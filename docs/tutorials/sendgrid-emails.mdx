@@ -1,0 +1,124 @@
+---
+id: sendgrid-emails
+title: Sending Emails via Sendgrid
+slug: /tutorials/sendgrid-emails
+---
+
+import Video from "../../src/components/Video.js";
+import videoUrl from "./assets/sendgrid.mp4";
+
+import sendgrid1 from './assets/sendgrid-1.png';
+import sendgrid2 from './assets/sendgrid-2.png';
+import sendgrid3 from './assets/sendgrid-3.png';
+import sendgrid4 from './assets/sendgrid-4.png';
+import sendgrid5 from './assets/sendgrid-5.png';
+import sendgrid6 from './assets/sendgrid-6.png';
+import sendgrid7 from './assets/sendgrid-7.png';
+import sendgrid8 from './assets/sendgrid-8.png';
+
+This comprehensive tutorial will guide you through the process, providing step-by-step instructions on setting up your Sendgrid Account to use our Sendgrid Extension successfully.
+
+## Setting up in Sendgrid
+
+1. Sign up for a **Sendgrid account** and **enable Two-Factor Authentication** when prompted.
+<img src={sendgrid1} alt="sendgrid1" />
+
+2. Create a sender identity by clicking on "**Create Identity**" and provide the required details. Verify the identity through email.
+<img src={sendgrid2} alt="sendgrid2" />
+
+3. Integrate Sendgrid using the **Web API** and select **Node.js** as the language.
+<img src={sendgrid3} alt="sendgrid3" />
+
+4. Generate an **API Key** in Sendgrid and make sure to copy and temporarily store it.
+<img src={sendgrid4} alt="sendgrid4" />
+
+5. Go to the [GCP Secret Manager](https://console.cloud.google.com/security/secret-manager) and set up a secret named `sendgrid` with the API Key as the body content.
+
+```js
+PASTE YOUR API KEY HERE
+```
+
+6. In **Sendgrid's Design Library**, either select an email template or create your own. Save the template.
+
+7. In the **tags** section, add any relevant tags to the email content for the user data.
+<img src={sendgrid5} alt="sendgrid5" />
+
+8. Optionally, test the email template by providing test data in JSON format in the Test Data section.
+<img src={sendgrid6} alt="sendgrid6" />
+
+9. Under the **Email API tab**, navigate to Dynamic Templates and **create a new dynamic template**. Provide a name and select a version based on your drafted design. Save the template and **copy the template ID**.
+
+<Video url={videoUrl} playing loop muted playsinline controls />
+
+
+## Setting Up in Rowy
+
+1. Create a table in Rowy with the appropriate fields to **store email-related data**.
+
+2. Open the **Extensions** modal in Rowy and click on "**Add Extension**".
+
+3. Select the "**Sendgrid Email**" extension and choose the **Trigger Types** and **Required Fields**.
+
+4. Specify the sender's email address using the following format: `Jane<jane@gmail.com>`.
+
+5. Add Recipient details and dynamic data under the personalizations field:
+
+```js
+personalizations: [
+  {
+    to: [{ name: row.name, email: row.email }],  // recipient
+    dynamic_template_data: {
+      "Sender_Email": "bhavya@rowy.io",
+      "Sender_Name": "Bhavya"
+    },  // template parameters
+  },
+],
+```
+
+6. Insert the copied Template ID into the `template_id` field:
+
+```js
+template_id: "0f0784cd-a03c-4c06-8028-32fb808f637a", // Sendgrid template ID
+```
+
+7. Click "Save" and "Deploy" to finalize the configuration.
+
+## Example Extension Body
+
+The final extension would look like this:
+
+```js
+const extensionBody: SendgridEmailBody = async({row, db, change, ref, logging}) => {
+ 
+  logging.log("extensionBody started")
+  
+  // Import any NPM package needed
+  // const lodash = require('lodash');
+  
+  return ({
+    from: "Bhavya<bhavya@rowy.io>",   // send from field
+    personalizations: [
+      {
+        to: [{ name: row.name, email: row.email }],  // recipient
+        dynamic_template_data: {
+          "Sender_Email": `${row.email}`,
+          "Sender_Name": `${row.name}`
+        },  // template parameters
+      },
+    ],
+    template_id: "d-02b3cedfff664915998cf7c871fe0ad6",// sendgrid template ID
+    categories: ["invites", "welcome"], // helper info to categorise sendgrid emails
+    custom_args:{
+      docPath:ref.path, // optional, reference to be used for tracking email events
+      // add any other custom args you want to pass to sendgrid events here
+    },
+  })
+  
+}
+```
+
+:::tip Emails going to spam? 🛑
+If your emails are consistently being classified as spam, you can try disabling the **Click Tracking** option in the email settings. This may help improve the deliverability of your emails.
+
+<img src={sendgrid8} alt="sendgrid8" />
+:::

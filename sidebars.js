@@ -88,6 +88,7 @@ module.exports = {
             "tutorials/webflow-form",
             "tutorials/spotify-wrapped",
             "tutorials/pdf-generator",
+            "tutorials/sendgrid-emails",
             {
               type: "category",
               label: "Bots",
