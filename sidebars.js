@@ -45,6 +45,7 @@ module.exports = {
             "how-to/custom-views",
             "how-to/default-values",
             "how-to/multiple-tables",
+            "how-to/add-secrets",
             "how-to/app-check",
           ],
         },
