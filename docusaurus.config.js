@@ -165,7 +165,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
         },
         fathomAnalytics: {
           siteId: 'PVABIULD',
-          customDomain: 'https://cdn.usefathom.com/script.js',
+          customDomain: 'https://cdn.usefathom.com',
         },
         colorMode: {
           defaultMode: "light",
