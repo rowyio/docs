@@ -16,6 +16,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
     organizationName: "rowyio", // Usually your GitHub org/user name.
     projectName: "rowydocs", // Usually your repo name.
     titleDelimiter: "•",
+    plugins: [require.resolve('docusaurus-plugin-fathom')],
 
     presets: [
       [
@@ -164,6 +165,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/okaidia");
         },
         fathomAnalytics: {
           siteId: 'PVABIULD',
+          customDomain: 'https://cdn.usefathom.com/script.js',
         },
         colorMode: {
           defaultMode: "light",
