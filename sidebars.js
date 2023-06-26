@@ -45,6 +45,7 @@ module.exports = {
             "how-to/custom-views",
             "how-to/default-values",
             "how-to/multiple-tables",
+            "how-to/add-secrets",
             "how-to/app-check",
           ],
         },
@@ -88,6 +89,7 @@ module.exports = {
             "tutorials/webflow-form",
             "tutorials/spotify-wrapped",
             "tutorials/pdf-generator",
+            "tutorials/sendgrid-emails",
             {
               type: "category",
               label: "Bots",

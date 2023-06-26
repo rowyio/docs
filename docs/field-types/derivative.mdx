@@ -59,6 +59,8 @@ const derivative: Derivative = async ({ row }) => {
   if (row.amount && row.claim) return true;
   else return false;
 };
+
+export default derivative;
 ```
 
 ## Intermediate example
@@ -77,6 +79,8 @@ const derivative: Derivative = async ({ row, db }) => {
   const userDoc = await db.collection("users").doc(row.uid).get();
   return userDoc.get("email");
 };
+
+export default derivative;
 ```
 
 ## Advanced examples
@@ -122,6 +126,8 @@ Airport codes:`;
   );
   return response.choices[0].text.split(",'").map((x) => x.trim());
 };
+
+export default derivative;
 ```
 
 ### Google Cloud API
@@ -145,6 +151,8 @@ const derivative: Derivative = async ({ row }) => {
   const [translation] = await translate.translate(row.text, "es");
   return translation;
 };
+
+export default derivative;
 ```
 
 ### Cloud Storage
@@ -156,7 +164,6 @@ Solution: using rowy storage utility, store a copy of the image in Firebase
 Storage.
 
 ```ts
-
 const derivative:Derivative = async ({row,ref})=>{
   const url = row.externalImage;
   const file = await rowy.storage.upload.url(url,{
@@ -164,4 +171,7 @@ const derivative:Derivative = async ({row,ref})=>{
   })
   // Return an array of image objects that will be displayed by the Rowy UI
   return [file];
+}
+
+export default derivative;
 ```
