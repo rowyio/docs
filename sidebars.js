@@ -60,7 +60,6 @@ module.exports = {
             "faqs/database",
             "faqs/access",
             "faqs/cost",
-            "faqs/troubleshooting",
           ],
         },
         {
@@ -72,6 +71,7 @@ module.exports = {
             "troubleshooting/overview",
             "troubleshooting/deleted-project-issue",
             "troubleshooting/sign-in-issue",
+            "troubleshooting/project-creation-issue",
           ],
         }
       ],

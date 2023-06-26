@@ -1,17 +1,13 @@
 ---
-id: troubleshooting
-title: Troubleshooting
-slug: /faqs/troubleshooting
+id: project-creation-issue
+title: Issue with Project Creation?
+slug: /troubleshooting/project-creation-issue
 ---
 
 import orgPolicyOn from "./assets/org-policy-enforce-on.png";
 import orgPolicyOff from "./assets/org-policy-enforce-off.png";
 
-This page will help you troubleshoot any issues you may encounter when using Rowy.
-
-## Project Creation
-
-### Error: Key creation is not allowed on this service account.
+## Error: Key creation is not allowed on this service account.
 
 Your organisation has restricted the creation of service account keys. It is a requirement for Rowy to create service account keys in your project. To continue, you will need to disable this restriction.
 
@@ -20,4 +16,3 @@ In GCP console (https://console.cloud.google.com/iam-admin/orgpolicies/iam-disab
 
 Once the policy is set to not enforced, you can try again in Rowy app.
 <img src={orgPolicyOff} alt="AppCheck 2" width={200} />
-
