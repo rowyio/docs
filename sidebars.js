@@ -63,6 +63,16 @@ module.exports = {
             "faqs/troubleshooting",
           ],
         },
+        {
+          type: "category",
+          label: "Troubleshooting",
+          // link: { type: "generated-index" },
+          collapsed: true,
+          items: [
+            "troubleshooting/overview",
+            "troubleshooting/deleted-project-issue",
+          ],
+        }
       ],
     },
     // {
