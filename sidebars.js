@@ -72,6 +72,7 @@ module.exports = {
             "troubleshooting/deleted-project-issue",
             "troubleshooting/sign-in-issue",
             "troubleshooting/project-creation-issue",
+            "troubleshooting/project-selection-issue",
           ],
         }
       ],
