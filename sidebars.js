@@ -71,6 +71,7 @@ module.exports = {
           items: [
             "troubleshooting/overview",
             "troubleshooting/deleted-project-issue",
+            "troubleshooting/sign-in-issue",
           ],
         }
       ],
