@@ -47,6 +47,7 @@ module.exports = {
             "how-to/multiple-tables",
             "how-to/add-secrets",
             "how-to/app-check",
+            "faqs/delete",
           ],
         },
 
@@ -60,6 +61,7 @@ module.exports = {
             "faqs/database",
             "faqs/access",
             "faqs/cost",
+            "faqs/delete",
           ],
         },
         {
