@@ -73,6 +73,7 @@ module.exports = {
             "troubleshooting/sign-in-issue",
             "troubleshooting/project-creation-issue",
             "troubleshooting/project-selection-issue",
+            "troubleshooting/storage-issue",
           ],
         }
       ],
