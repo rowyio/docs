@@ -1,0 +1,67 @@
+---
+id: delete
+title: Deleting Rowy
+slug: /faqs/delete
+---
+
+import deleteProject from "./assets/delete-project.png";
+import deleteTable from "./assets/delete-table.png";
+import deleteWorkspace from "./assets/delete-workspace.png";
+
+## Deleting your Rowy Tables
+
+You have two options for deleting your table data: resetting columns and deleting the entire table.
+
+<img src={deleteTable} alt="Deleting your Rowy Table" />
+
+### Resetting Columns
+
+To reset all the data in your table while keeping the columns intact, follow these steps:
+
+1. Go to the table settings within Rowy.
+2. Locate the Trash icon and click on it.
+3. From the options provided, select "Reset Columns".
+
+:::note NOTE
+Please note that resetting columns will only remove the existing data in the table and allow you to set up the columns again. Your Firestore collection data will not be affected.
+:::
+
+### Deleting the Table
+
+To delete your table data entirely, use the following instructions:
+
+1. Access the Table Settings in Rowy.
+2. Look for the Trash icon and click on it.
+3. From the options presented, select "Delete Table".
+
+:::note NOTE
+Deleting the table will remove the Rowy configuration data associated with it. However, your Firestore collection data will remain intact.
+:::
+
+## Deleting Rowy from your project
+
+To remove Rowy from your project, you can follow these simple steps within your Workspace Settings. By clicking on the trash icon next to the project you wish to delete, you can initiate the deletion process. To prevent accidental deletion, you will be prompted to re-enter your Project ID for confirmation.
+
+:::warning Irreversible Action!
+Please note that deleting a project is an irreversible action. Ensure that you have backed up any important data before proceeding with the deletion.
+:::
+
+<img src={deleteProject} alt="Deleting project via Workspace Settings" />
+
+:::tip Running into issues?
+If you encounter any difficulties while deleting your project, you can refer to the troubleshooting guide on our [Deleted Project Issues page](../troubleshooting/deleted-project-issue.mdx). Alternatively, feel free to reach out for support to our team on our [Discord Server](https://discord.com/invite/rowy-853498675484819476) for further assistance.
+:::
+
+## Deleting your Workspace
+
+You have two options for deleting your workspace: Leaving the Workspace and Deleting the Workspace.
+
+<img src={deleteWorkspace} alt="Deleting your Rowy Workspace" />
+
+### Leave Workspace
+
+If you have other members who are working on projects in your Workspace and you wish to leave the workspace, you can transfer the ownership of this project by inviting a new user as an admin.
+
+### Delete Workspace
+
+If you wish to delete your workspace with its entire contents, you'll first have to **individually delete all your projects** and **cancel your subscription**, if any. Till then the "**Delete Workspace**" Button would remain disabled out.

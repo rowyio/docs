@@ -1,0 +1,60 @@
+---
+id: debug-functions
+title: Debug your Functions with Rowy
+slug: /how-to/debug-functions
+---
+
+import cloudLogs from './assets/cloud-logs.png'
+import gcpLogs from './assets/gcp-logs.png'
+import tryCatch from './assets/try-catch.png'
+
+When debugging your Rowy Cloud Functions, there are several resources and techniques you can utilize to identify and resolve any issues. The following methods are commonly used by our users:
+
+## Using Rowy Cloud Logs
+
+<p align="center">
+<img src={cloudLogs} alt="Rowy Cloud Logs" style={{maxWidth: '100%'}} />
+</p>
+
+Rowy provides **built-in logging capabilities** that can assist you in debugging your Cloud Functions. By adding `logging.log()` statements within your function code, you can output relevant information to the **Rowy Cloud Logs**. 
+
+This allows you to track the execution flow, variable values, and other important details that can help identify potential problems.
+
+> To know more about Rowy Cloud Logs, check out the [Cloud Logs](../cloud-logs) page.
+
+To utilize Rowy Cloud Logs for debugging, follow these steps:
+
+- Insert `logging.log()` statements at strategic points in your Cloud Function code.
+- Deploy your Cloud Function and trigger its execution.
+- Monitor the Rowy Cloud Logs to observe the logged information and identify any potential issues.
+
+
+## Checking GCP Cloud Logs
+
+In addition to Rowy Cloud Logs, you can also examine the [Google Cloud Platform (GCP) Logs](https://console.cloud.google.com/logs/query) for your Cloud Functions. GCP Logs provide more detailed information about the function's execution, including error messages and other relevant data. By reviewing these logs, you can gain deeper insights into the behavior of your Cloud Function and pinpoint any specific errors or exceptions.
+
+<img src={gcpLogs} alt="GCP Logs" style={{maxWidth: '100%'}} />
+
+To access the GCP Cloud Logs for your Cloud Functions, follow these steps:
+
+- Navigate to the Google Cloud Console (console.cloud.google.com) and open Logs Explorer or just [click here](https://console.cloud.google.com/logs/query).
+- Filter the logs by the appropriate resource or function name.
+- Analyze the logs for any error messages or relevant information that can help diagnose the issue.
+
+## Wrapping Code in a Try-Catch Block 
+
+Another effective technique for debugging your Rowy Cloud Functions is to wrap your code in a try-catch block. This allows you to catch and handle any exceptions or errors that may occur during the execution of your function. By including appropriate error handling logic, you can obtain error details and implement necessary corrective measures.
+
+<img src={tryCatch} alt="Try-Catch Block" style={{maxWidth: '100%'}} />
+
+To implement a try-catch block in your Cloud Function, follow these steps:
+
+- Identify the section of code where errors are likely to occur or need to be handled.
+- Surround that section of code with a try-catch block.
+- Within the catch block, specify the actions to be taken when an exception is caught, such as logging the error or taking corrective actions.
+
+By utilizing try-catch blocks effectively, you can gracefully handle errors and gain better control over the debugging process.
+
+:::tip Our Recommendation ✅
+We recommend using a combination of these debugging techniques to diagnose and resolve any issues with your Rowy Cloud Functions. If you continue to experience difficulties or need further assistance, please don't hesitate to reach out to our support team for help.
+:::

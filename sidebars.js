@@ -47,6 +47,8 @@ module.exports = {
             "how-to/multiple-tables",
             "how-to/add-secrets",
             "how-to/app-check",
+            "how-to/debug-functions",
+            "faqs/delete",
           ],
         },
 
@@ -60,9 +62,23 @@ module.exports = {
             "faqs/database",
             "faqs/access",
             "faqs/cost",
-            "faqs/troubleshooting",
+            "faqs/delete",
           ],
         },
+        {
+          type: "category",
+          label: "Troubleshooting",
+          // link: { type: "generated-index" },
+          collapsed: true,
+          items: [
+            "troubleshooting/overview",
+            "troubleshooting/deleted-project-issue",
+            "troubleshooting/sign-in-issue",
+            "troubleshooting/project-creation-issue",
+            "troubleshooting/project-selection-issue",
+            "troubleshooting/storage-issue",
+          ],
+        }
       ],
     },
     // {
