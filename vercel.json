@@ -3,6 +3,7 @@
     { "source": "/setup/roles", "destination": "/how-to/roles" },
     { "source": "/category/quickstart-guide", "destination": "/category/how-to-guide" },
     { "source": "/category/webhooks", "destination": "/webhooks" },
-    { "source": "/field-types/add", "destination": "/changelog" }
+    { "source": "/field-types/add", "destination": "/changelog" },
+    { "source": "/faqs/deleted-project", "destination": "troubleshooting/deleted-project-issue"}
   ]
 }

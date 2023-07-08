@@ -1,0 +1,40 @@
+---
+id: storage-issue
+title: Issue with uploading Files or Images?
+slug: /troubleshooting/storage-issue
+---
+
+import storageIssue1 from './assets/storage-issue-1.png';
+import storageIssue2 from './assets/storage-issue-2.png';
+import storageIssue3 from './assets/storage-issue-3.png';
+
+Rowy uses Firebase Storage to store files. Firebase Storage rules must grant permissions for the table and user on the table you'd like to upload files to via Rowy, if you are using custom rules.
+
+<img src={storageIssue3} alt="storageIssue3" />
+
+## Setting Firebase Storage Rules
+
+If you are using the default rules, Rowy should have automatically updated the rules for you during project setup. If you accidentally changed the rules, you can reset the rules:
+
+1. Go to the Firebase console
+2. On the left sidebar, expand Build and click on Storage
+
+<img src={storageIssue1} alt="storageIssue1" />
+
+3. On the top of the page, click on Rules
+4. Set the rules to default rules
+
+<img src={storageIssue2} alt="storageIssue2" />
+
+## Default Firebase Storage Rules
+
+```js
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if request.auth.token.roles.size() > 0;
+    }
+  }
+}
+```

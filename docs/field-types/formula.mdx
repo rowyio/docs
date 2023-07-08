@@ -17,6 +17,9 @@ The Formula field has access to the the `row` parameter, which contains the valu
 
 <img src={formula1} alt="Formula Field" />
 
+:::note Formula Field is for UI purposes only
+Formula fields are **exclusively for UI purposes** and are **not stored in the database**. If you require data to be stored in Firestore, you can utilize the [Derivative field](./derivative). The Derivative Field functions similarly to a formula field but offers greater capabilities. It can persist data to Firestore in real-time, triggered by data events within the table.
+:::
 
 ## Example code snippets
 
