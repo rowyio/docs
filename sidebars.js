@@ -76,6 +76,7 @@ module.exports = {
             "troubleshooting/sign-in-issue",
             "troubleshooting/project-creation-issue",
             "troubleshooting/project-selection-issue",
+            "troubleshooting/rowy-run-issue",
             "troubleshooting/storage-issue",
           ],
         }

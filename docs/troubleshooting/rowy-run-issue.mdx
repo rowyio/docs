@@ -1,0 +1,46 @@
+---
+id: rowy-run-issue
+title: Stuck on "Set Up Cloud Functions"?
+slug: /troubleshooting/rowy-run-issue
+---
+
+import rowyRun1 from './assets/rowy-run-1.png'
+import rowyRun2 from './assets/rowy-run-2.png'
+import Video from "../../src/components/Video";
+import videoUrl from "./assets/rowy-run.mp4";
+
+If you encounter a situation where enabling Rowy Run from the project settings appears to be successful but reverts back to the "Rowy Run not deployed" status, follow the steps below to resolve the issue.
+
+<p align="center">
+    <img src={rowyRun1} alt="Rowy Run not deployed" />
+</p>
+
+## Video Tutorial
+
+<Video url={videoUrl} playing loop muted playsinline controls />
+
+## Step 1: Delete Rowy Run Cloud Run Instances
+
+1. Go to https://console.cloud.google.com/run and sign in with your Google Cloud Platform (GCP) account.
+2. Select your project from the dropdown menu if it's not already selected.
+3. In the Cloud Run section, locate and select the following service instances:
+   - `rowy-backend`
+   - `rowy-hooks`
+4. Click on the "Delete" button to remove both instances.
+
+<img src={rowyRun2} alt="Rowy Run Cloud Run Instances" />
+
+
+## Step 2: Re-deploy Rowy Run from Project Settings
+
+1. Go back to your Rowy Project settings.
+2. Find the option to enable Rowy Run and click on it.
+3. Follow the prompts to configure and deploy Rowy Run.
+4. Once the deployment process is complete, check if the status shows that Rowy Run is deployed successfully.
+
+### Additional Considerations
+
+- Ensure that you have the necessary permissions and access rights to manage Cloud Run instances and deploy Rowy Run within your project.
+
+By following the steps outlined above, you should be able to resolve the issue and successfully deploy Rowy Run for your project.
+
