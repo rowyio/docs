@@ -9,6 +9,8 @@ slug: /faqs/database
 
 The data created and managed on Rowy is stored on your own Firebase/Firestore database on Google Cloud Platform. With Rowy, you can easily create your database on Firestore without having to know any technical details (or) if you already have existing Firestore data, you can connect to them as well. 
 
+Rowy configuration data is stored a new collection created in your Firestore database called "_rowy_"
+
 Rowy offers ability to get started in a no-code Airtable-like experience on production grade database - so no limitation of how many rows your can have or scalability. You can also go to code level anytime you want without limitations. You can write cloud-functions on Rowy's inbuilt code-editor (in JS, using any NPM or API) or build continue using your usual development flow in VSCode/other editors with Firebase Admin SDK. There is no limitations of functionality or disruption to your process by using Rowy. Your data and code stay on your own Firebase project.
 
 ### Can I see my existing Firestore collections in Rowy?
