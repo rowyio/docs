@@ -75,8 +75,8 @@ Don’t have a project? [Learn how to create one&nbsp;→](./firebase-project.md
      first.
    - Paste them in the `.env` file:
      ```bash
-     REACT_APP_FIREBASE_PROJECT_ID =
-     REACT_APP_FIREBASE_PROJECT_WEB_API_KEY =
+     VITE_APP_FIREBASE_PROJECT_ID=
+     VITE_APP_FIREBASE_PROJECT_WEB_API_KEY=
      ```
 
 4. Install frontend dependencies using Yarn.
