@@ -1,0 +1,130 @@
+---
+id: buildship
+title: BuildShip Extension
+slug: /extensions/buildship
+---
+
+import buildship1 from "./assets/buildship1.png";
+import buildship2 from "./assets/buildship2.png";
+import buildship3 from "./assets/buildship3.png";
+import buildship4 from "./assets/buildship4.png";
+import buildship5 from "./assets/buildship5.png";
+import buildship6 from "./assets/buildship6.png";
+
+Now you can easily connect your **Firebase data on Rowy to an API**, perform
+read and write operations, and **trigger complex workflows triggered by simple
+Create, Update, and Delete events** within your Rowy Table using
+[BuildShip](https://www.buildship.com).
+
+## What is BuildShip? 👀
+
+<img src={buildship1} alt="BuildShip low code backend builder" />
+
+BuildShip is a **low-code, AI-based visual backend and workflow builder created
+by Rowy**. It simplifies the creation of APIs and backend workflows, offering
+seamless integration with AI Models, third-party APIs, and a library of over 1
+million NPM packages.
+
+[Learn more about BuildShip here.](http://www.buildship.com)
+
+Now you can easily link your Rowy table data to your API built on BuildShip.
+
+Trigger your backend API call every time you create, update, or delete a field
+in your Rowy table. This has been made possible with the “**BuildShip
+Extension**”.
+
+With the BuildShip Extension, you can effortlessly connect your Rowy Table to
+your backend workflows on BuildShip.
+
+:::info What you can do with the BuildShip Extension 🤩
+
+Imagine having a Rowy table for new user sign-ups for your product. Now,
+effortlessly trigger a backend workflow that sends a Welcome email, subscribes
+them to your product’s weekly newsletter, and notifies you via Discord/Slack
+message with their plan details.
+
+It’s all possible with the BuildShip Trigger extension! ⬇️ :::
+
+## Pre-requisites ✅
+
+- A BuildShip project (No additional set up required. Click
+  [here](https://www.buildship.app) to sign up.)
+
+## Creating a BuildShip Workflow
+
+- After creating a new workflow in BuildShip, click on **Add a Trigger** and
+  select **Rowy Trigger** from the available options.
+
+- In the **Project ID** field add your **Rowy Project ID**. Click on the link
+  icon on the top right within the trigger to copy the configuration details
+  required for the next steps.
+
+<img src={buildship2} alt="buildship rowy trigger" />
+
+:::tip Get your Rowy Project ID To get your Rowy Project ID, go to your Rowy
+Table and click on your profile picture on the top right. You'll find the
+Project ID under the your Email Id.
+
+<img src={buildship3} alt="buildship rowy trigger" />
+:::
+
+This is all you need to do in BuildShip to set up the Rowy Trigger. Now, let's
+set up the BuildShip Extension our Rowy Table.
+
+## Setting up the Extension in Rowy
+
+- In your Rowy Table, access the extensions menu and add a "**BuildShip Trigger
+  Extension**".
+
+<img src={buildship4} alt="buildship rowy trigger" />
+
+- **Select Trigger Events** within Rowy that will trigger the BuildShip
+  extension. You can select from events:
+  - `Create`
+  - `Update`
+  - `Delete`
+
+<img src={buildship3} alt="buildship rowy trigger" />
+
+- Optionally, you can **define the required fields** that must be populated to
+  trigger the extension.
+
+- If needed, **add conditions** that determine whether the extension should be
+  triggered for a given row.
+
+- Within the extension body, navigate to the return statement. Fnd the
+  `buildshipConfig` object, which includes the following fields:
+
+```js
+buildshipConfig: {
+      projectId: "",
+      workflowId: ""
+}
+```
+
+- Replace the placeholder with the configuration details copied from your
+  BuildShip Rowy Trigger. It should look something like this:
+
+```js
+buildshipConfig: {
+  projectId: "buildship-008vd0",
+  workflowId: "zE49cCs5kBmg7GkUwzLt"
+}
+```
+
+<img src={buildship6} alt="buildship rowy trigger" />
+
+- Once you've configured the extension to your requirements, click on "**Add**"
+  and then deploy the extension.
+
+Now, whenever the selected event (Create, Update, or Delete) occurs in your Rowy
+Table, it will trigger the BuildShip workflow linked to this extension.
+
+BuildShip showcases a wide range of pre-built templates that you can easily
+clone and use for your own projects. You can also build your own custom
+workflows from scratch. Leverage this powerful duo for your projects and tell us
+what you think!
+
+:::info Let us know what you think! 💜 We'd love to hear your feedback on this
+extension. Chat with us and our community of low-code/no-code builders and
+developers on [Discord](https://buildship.com/discord). :::
