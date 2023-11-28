@@ -37,6 +37,7 @@ module.exports = {
           items: [
             "how-to/create-workspace",
             "how-to/create-project",
+            "how-to/create-service-account",
             "how-to/roles",
             "how-to/access-control",
             "how-to/create-table",
@@ -79,7 +80,7 @@ module.exports = {
             "troubleshooting/rowy-run-issue",
             "troubleshooting/storage-issue",
           ],
-        }
+        },
       ],
     },
     // {
