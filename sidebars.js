@@ -202,6 +202,7 @@ module.exports = {
           collapsed: true,
           items: [
             "extensions/overview",
+            "extensions/buildship",
             "extensions/algolia-index",
             "extensions/sendgrid-email",
             "extensions/twilio-message",
