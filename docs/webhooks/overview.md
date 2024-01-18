@@ -9,7 +9,7 @@ Webhooks allow to process incoming events from external services, to notify your
 system of changes.
 
 Rowy Webhooks run on google cloud run make sure you have setup Rowy Run services
-[here](https://github.com/rowyio/deploy)
+[here](https://docs.rowy.io/rowy-run)
 
 ## Webhook anatomy
 
