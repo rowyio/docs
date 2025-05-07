@@ -73,6 +73,7 @@ module.exports = {
           collapsed: true,
           items: [
             "troubleshooting/overview",
+            "troubleshooting/rowy-deployment-issue",
             "troubleshooting/deleted-project-issue",
             "troubleshooting/sign-in-issue",
             "troubleshooting/project-creation-issue",
