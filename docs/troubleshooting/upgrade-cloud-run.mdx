@@ -1,0 +1,38 @@
+---
+id: rowy-deployment-issue
+title: Error with Cloud Run Deployments
+slug: /how-to/create-upgrade-cloud-runtime
+---
+import deploy from "./assets/deploy.png";
+import editAndDeploy from "./assets/edit-and-deploy.png";
+import rowyBackend from "./assets/rowy-backend.png";
+import deployedRevision from "./assets/deployed-revision.png";
+
+## Error: With Cloud Run Deployments (derivatives, cloud functions, and extensions)?
+
+If your Cloud Run deployments are failing using Rowy Run services, which may cause failure to the new deployments to derivatives, extensions, due to legacy nodejs version. As support to **Node v18.0 has reached its EOL on April 30**, 2025 Please refer to the steps to update the ```rowy-backend service``` to fix the issues with deployments.
+
+As a fix we have updated our backend to use **Node v22**. 
+
+In GCP console (https://console.cloud.google.com/run), go to the **Cloud Run** section and select the **rowy-backend** service.
+<img src={rowyBackend} alt="Rowy Backend" />
+
+Then click on the **Edit and Deploy New Revision** button.
+<img src={editAndDeploy} alt="Edit and Deploy" />
+
+**Note:** Keep the configuration as default, and do not change any other settings, unless required. Click Deploy.
+
+**Note:** If you encounter due to memory limit, you may need to increase the memory limit to 1GB or 4GB.
+
+<img src={deploy} alt="Deploy" />
+
+Once the deployment is complete, you will see a new revision created and cloud functions should deploy as nodejs v22.
+
+<img src={deployedRevision} alt="Deployed Revision" />
+
+## Note
+- This is a one-time process and you will not need to repeat this step for every deployment.
+- you'll need to redeploy any of existing rowy functions (derivatives, cloud functions, and extensions), as Firebase is no longer running and supporting the v18 functions.
+- No change in the processes of deploying the derivatives, cloud functions, and extensions.
+
+Please refer to this release note: https://github.com/rowyio/backend/releases/tag/v1.9.4. Feel Free to reach out to us at support@rowy.io if you have any questions or need assistance.
