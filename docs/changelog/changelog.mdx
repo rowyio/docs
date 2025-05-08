@@ -14,6 +14,402 @@ If you deployed Rowy on [rowy.app](https://rowy.app/deploy), you’ll receive th
 latest updates to Rowy as we release them.
 [View releases on GitHub&nbsp;&UpperRightArrow;](https://github.com/rowyio/rowy/releases)
 
+## <span className="changelog-version">v3.0.0</span><span className="changelog-version-separator"> – </span><span>Rowy's biggest release yet 🎉 + Introducing BuildShip</span>
+
+<p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v3.0.0" target="_blank" rel="noopener noreferrer"><time datetime="2023-10-27T15:21:32Z">27 Oct 2023</time></a></p>
+
+We are super excited to release today, Rowy's next big version. This release has over 100+ amazing new features, enhancements and fixes that our team and a large group of open-source contributors have been working over the last one year in develop branch.
+
+With this release Rowy's open-source project and [Rowy.app](http://rowy.com/) cloud version - our goal is to bring to you the most powerful, yet intuitive way to to manage your database on a collaborative spreadsheet / CMS UI. Especially for Firestore and Google Cloud/Firebase stack. 
+
+</ul>
+
+Before diving into the release notes, we invite you to celebrate with us as Rowy's open-source project crosses the milestone of **5,000 stars!** 🌟🥳  We will give your project built with Rowy a shoutout in our social channels if you tweet at us [[@rowyio](https://github.com/rowyio)](https://twitter.com/rowyio) and say what you built.
+
+![OG](https://github.com/rowyio/rowy/assets/307298/d43f2853-1275-4e39-8a87-08a345150c97)
+
+<ul>
+
+**We at the Rowy team also launched a new product called [BuildShip](https://buildship.com) 🎉**
+
+BuildShip is a low-code visual API, scheduled jobs, backend cloud functions builder - in workflow style right from the browser and ship them instantly with a single click (no long build waiting time, that Rowy users complain!). 
+
+</ul>
+
+BuildShip pairs really well with Rowy and is stack-agnostic! So it works with any database like Firestore, Supabase, Postgres and you can build cloud functions for them on data changes and CRUD operations in no-code style. We've prebuilt integrations with AI models from OpenAI, Replicate, and hundreds of third-party tools. 
+
+Best part? If any integration is missing, creating a node connector with AI is a breeze. Give [BuildShip](https://buildship.com/) a try from here or join our low-code [Discord](https://buildship.com/discord) to learn more about BuildShip and Rowy.
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Multiple filters support - finally! Filter using multiple fields and navigate your data better.
+
+</li>
+![rowy1](https://github.com/rowyio/rowy/assets/307298/64e1910f-1fc4-47f7-a573-be917e516232)
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Support for bulk deletion of rows by [@il3ven](https://github.com/il3ven) in https://github.com/rowyio/rowy/pull/1291
+
+</li>
+![rowy2](https://github.com/rowyio/rowy/assets/307298/a2ff23f2-e6fc-49d9-98e6-a15efd60d344)
+- [New]: Workspaces with multiple project support in Rowy.app. Connect to different Firebase projects - dev/testing/prod or from different ideas/clients - to manage them efficiently with a single unified dashboard.
+![rowy3](https://github.com/rowyio/rowy/assets/307298/f687d6d8-7818-4aca-ba31-c734e7ff2f48)
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Rowy.app: User management and in app table rules generator. Table level admin perms. Set which roles can view, create, update and delete data on your tables. You can also add table level admin permissions.
+
+</li>
+![rowy5](https://github.com/rowyio/rowy/assets/307298/597a0542-50a4-4a15-9818-61eeb4c8eae3)
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+"Filter by" option to filter by the value of the cell by [@mnmt7](https://github.com/mnmt7) in https://github.com/rowyio/rowy/pull/1251
+
+</li>
+![rowy6](https://github.com/rowyio/rowy/assets/307298/3a4d598a-99c0-4861-b0d7-450381bdb806)
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Field Types: Geo point column, Array subtable, Formula, User column
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Google Cloud Secret Manager UI
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Rowy.app: Import from Airtable including uploading files/images to Cloud Storage by [@iamanishroy](https://github.com/iamanishroy)
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Rowy.App: Get started tutorial to create your first table 
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Table: all fields can now be edited without opening the Side Drawer by [@iamanishroy](https://github.com/iamanishroy) 
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Accessible reorder option in column menu
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Table: shows total number of rows in the table using new Firestore `count()` query
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Table: display realtime and offline indicators
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Ratings field: customizable icons by [@mshamsrainey](https://github.com/mshamsrainey) in https://github.com/rowyio/rowy/pull/817
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Ability to add images to richtext field by [@mnmt7](https://github.com/mnmt7) in https://github.com/rowyio/rowy/pull/1326
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Long Text field: add character limit and regex
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Right click menu to filter items, copy and paste with ease
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Filter data by color field, array column type
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Import JSON
+
+</li>
+<li><span className="changelog-tag" data-tag="New">New</span>
+
+Monaco code editor auto typing
+
+</li>
+
+</ul>
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Export image/file assets, reference field types with JSON
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Upload multiple image, files at the same time
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+rowy.app: User management and inviting team members
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Rowy: Ability to edit field keys when importing CSVs
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Add an accessible resizing option by [@nithinrdy](https://github.com/nithinrdy)
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Allow for disabling save popups in tables by [@nithinrdy](https://github.com/nithinrdy) 
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Ability to edit field keys when importing CSVs by [@nithinrdy](https://github.com/nithinrdy) 
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Table: keyboard and screen reader accessibility and adhering to WAI-ARIA guidelines
+
+</li>
+- [Improved]: Copy paste keyboard shortcut
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Table: keyboard-accessible reordering of columns
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Persistent navigation bar
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Reorder columns in the column menu 
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Import CSV creates new columns by default if it can’t find an existing column with a similar name (
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Build logs snackbar collapses to show only title by [@ganeshmani](https://github.com/ganeshmani)
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Rich Text field: enable full-screen editor by [@saravanan-inc](https://github.com/saravanan-inc)]
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Reorder Select, MultiSelect field 515 by [@saravanan-inc](https://github.com/saravanan-inc)
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Reorder image file field by [@saravanan-inc](https://github.com/saravanan-inc) 
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Table sections are sorted alphabetically
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Error messages and offline error indicators
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Ask for confirmation before duplicating rows by [@BeeBombshell](https://github.com/BeeBombshell)
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Tooltips for buttons by [@janvi01](https://github.com/janvi01) 
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Add colour change customisation to Slider by [@rjackson](https://github.com/rjackson)
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Customization options added to long text field by [@RajGM](https://github.com/RajGM)
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Email field: validation regex field added along with default values by [@RajGM](https://github.com/RajGM)
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Percentage field color customization by [@htuerker](https://github.com/htuerker) 
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Select & MultiSelect Chip Colors - ROWY-135 by [@devsgnr](https://github.com/devsgnr)
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Added confirmation for Duplicate Row button by [@BeeBombshell](https://github.com/BeeBombshell)
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Copy Document Path to Clipboard by [@Rohitbels](https://github.com/Rohitbels) 
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Editable Action Label by [@mshamsrainey](https://github.com/mshamsrainey) 
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Default action script to cloud function instead of instead of runnable script
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Import wizard select all by [@mshamsrainey](https://github.com/mshamsrainey)
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Runtime options for functions
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Change Export CSV date format so it can be parsed by Import CSV by [@iamanishroy](https://github.com/iamanishroy)
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Richtext field full screen mode, similar to markdown fieldtype by [@saravanan-inc](https://github.com/saravanan-inc) in https://github.com/rowyio/rowy/pull/972
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Implement auto import for array subtables by [@rishipurwar1](https://github.com/rishipurwar1) in https://github.com/rowyio/rowy/pull/1302
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Support copying subtables
+
+</li>
+<li><span className="changelog-tag" data-tag="Improved">Improved</span>
+
+Formula field ESM support
+
+</li>
+
+</ul>
+
+<ul>
+
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Attempting to read a config doc while offline will result in it being overwritten with default values when going back online, causing loss of table columns
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Uploaded files and images will overwrite existing Firebase Storage files if they have the same file name
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Remove listener fields in other columns when that field column is deleted
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Build logs collapse by default by [@ganeshmani](https://github.com/ganeshmani) in https://github.com/rowyio/rowy/pull/939
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Table name textbox UI error fix by [@AnushDeokar](https://github.com/AnushDeokar) in https://github.com/rowyio/rowy/pull/1412
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Minimize `BuildLogsSnack` upon fullscreen by [@il3ven](https://github.com/il3ven) in https://github.com/rowyio/rowy/pull/1303
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Prevent redirecting to link when deleting file by [@jyash97](https://github.com/jyash97) in https://github.com/rowyio/rowy/pull/1047
+
+</li>
+<li><span className="changelog-tag" data-tag="Fixed">Fixed</span>
+
+Logic for Custom Icons in Action Field by [@mshamsrainey](https://github.com/mshamsrainey) in https://github.com/rowyio/rowy/pull/819
+
+</li>
+- Many more bug fixes and improvements - full details on this merge: https://github.com/rowyio/rowy/pull/1406/commits
+- Following libraries got bumped up to latest versions [@adobe](https://github.com/adobe)/css-tools, tinymce, protobufjs, ejs, tmpl, minimist, terser, async, loader-utils, loader-utils, json5, webpack, ua-parser-js
+
+</ul>
+
+<ul>
+
+- [@htuerker](https://github.com/htuerker) made their first contribution in https://github.com/rowyio/rowy/pull/696
+- [@BeeBombshell](https://github.com/BeeBombshell) made their first contribution in https://github.com/rowyio/rowy/pull/814
+- [@mshamsrainey](https://github.com/mshamsrainey) made their first contribution in https://github.com/rowyio/rowy/pull/819
+- [@Rohitbels](https://github.com/Rohitbels) made their first contribution in https://github.com/rowyio/rowy/pull/835
+- [@RajGM](https://github.com/RajGM) made their first contribution in https://github.com/rowyio/rowy/pull/821
+- [@ganeshmani](https://github.com/ganeshmani) made their first contribution in https://github.com/rowyio/rowy/pull/939
+- [@saravanan-inc](https://github.com/saravanan-inc) made their first contribution in https://github.com/rowyio/rowy/pull/972
+- [@iamanishroy](https://github.com/iamanishroy) made their first contribution in https://github.com/rowyio/rowy/pull/984
+- [@jyash97](https://github.com/jyash97) made their first contribution in https://github.com/rowyio/rowy/pull/1047
+- [@devsgnr](https://github.com/devsgnr) made their first contribution in https://github.com/rowyio/rowy/pull/1151
+- [@prabhatexit0](https://github.com/prabhatexit0) made their first contribution in https://github.com/rowyio/rowy/pull/1213
+- [@yamankatby](https://github.com/yamankatby) made their first contribution in https://github.com/rowyio/rowy/pull/1208
+- [@mnmt7](https://github.com/mnmt7) made their first contribution in https://github.com/rowyio/rowy/pull/1233
+- [@alceil](https://github.com/alceil) made their first contribution in https://github.com/rowyio/rowy/pull/1241
+- [@rjackson](https://github.com/rjackson) made their first contribution in https://github.com/rowyio/rowy/pull/1254
+- [@il3ven](https://github.com/il3ven) made their first contribution in https://github.com/rowyio/rowy/pull/1279
+- [@rishipurwar1](https://github.com/rishipurwar1) made their first contribution in https://github.com/rowyio/rowy/pull/1283
+- [@staticGuru](https://github.com/staticGuru) made their first contribution in https://github.com/rowyio/rowy/pull/1256
+- [@rishi-raj-jain](https://github.com/rishi-raj-jain) made their first contribution in https://github.com/rowyio/rowy/pull/1389
+- [@nithinrdy](https://github.com/nithinrdy) made their first contribution in https://github.com/rowyio/rowy/pull/1368
+- [@AnushDeokar](https://github.com/AnushDeokar) made their first contribution in https://github.com/rowyio/rowy/pull/1412
+- [@janvi01](https://github.com/janvi01) made their first contribution in https://github.com/rowyio/rowy/pull/1430
+
+</ul>
+
+**Full Changelog**: https://github.com/rowyio/rowy/compare/v2.6.1...v3.0.0
+
+</ul>
+
 ## <span className="changelog-version">v2.6.1</span>
 
 <p className="changelog-date"><a href="https://github.com/rowyio/rowy/releases/tag/v2.6.1" target="_blank" rel="noopener noreferrer"><time datetime="2022-08-10T10:18:25Z">10 Aug 2022</time></a></p>
