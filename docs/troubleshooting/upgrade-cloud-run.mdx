@@ -1,18 +1,27 @@
 ---
 id: rowy-deployment-issue
-title: Error with Cloud Run Deployments
+title: Upgrade Cloud Run to Node V22
 slug: /how-to/create-upgrade-cloud-runtime
 ---
 import deploy from "./assets/deploy.png";
 import editAndDeploy from "./assets/edit-and-deploy.png";
 import rowyBackend from "./assets/rowy-backend.png";
 import deployedRevision from "./assets/deployed-revision.png";
+import firebaseExtension from "./assets/rowy-service.png";
 
 ## Error: With Cloud Run Deployments (derivatives, cloud functions, and extensions)?
 
 If your Cloud Run deployments are failing using Rowy Run services, which may cause failure to the new deployments to derivatives, extensions, due to legacy nodejs version. As support to **Node v18.0 has reached its EOL on April 30**, 2025 Please refer to the steps to update the ```rowy-backend service``` to fix the issues with deployments.
 
 As a fix we have updated our backend to use **Node v22**. 
+
+## Prerequisites:
+- Enable Firebase Extension Google API 
+- Enable Cloud Billing API
+- Ensure the rowy-backend service account is having a firebase extension developer role. ```(rowy-backend@<your-project-id>.iam.gserviceaccount.com)```
+- To add you can go to IAM and Admin > IAM > Select the service account > Edit > Add another role > Search for Firebase Extension Developer > Save
+
+<img src={firebaseExtension} alt="Firebase Extension" />
 
 In GCP console (https://console.cloud.google.com/run), go to the **Cloud Run** section and select the **rowy-backend** service.
 <img src={rowyBackend} alt="Rowy Backend" />
